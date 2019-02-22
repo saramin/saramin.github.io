@@ -6,7 +6,7 @@ social-share: true
 show-avatar: true
 subtitle: Hello World, Hello Saramin Tech Blog
 bigimg: "/img/post-bg-2015.jpg"
-author: 
+author: 남광현
 ---
 
 {: .box-note}
