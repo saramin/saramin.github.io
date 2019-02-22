@@ -1,14 +1,15 @@
 ---
-layout: post
 title: Hello World
-subtitle: "Hello World, Hello Saramin Tech Blog"
-bigimg: /img/post-bg-2015.jpg
+layout: post
+comments: true
+social-share: true
+show-avatar: true
+subtitle: Hello World, Hello Saramin Tech Blog
+bigimg: "/img/post-bg-2015.jpg"
 ---
 
 {: .box-note}
 **"HELLO"**
-
-
 안녕하세요! `사람인HR`의 `기술블로그`입니다.
 
 사람인HR은 대표적으로 대한민국 NO.1 취업포털 [사람인](http://saramin.co.kr) 및 재능마켓 서비스 [오투잡](http://otwojob.com)을 운영중 입니다.
