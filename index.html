@@ -20,7 +20,7 @@ bigimg: /img/saramin.jpg
     </a>
 
     <p class="post-meta">
-      Posted on {{ post.date | date: "%B %-d, %Y" }}
+      Posted {% if post.author %}by {{post.author}} {% endif %} on {{ post.date | date: "%B %-d, %Y" }}
     </p>
 
     <div class="post-entry-container">
