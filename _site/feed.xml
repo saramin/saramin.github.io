@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tech Blog</title>
+    <description>SaraminHR Tech Blog</description>
+    <link>http://10.100.0.202:4000</link>
+    <atom:link href="http://10.100.0.202:4000/feed.xml" rel="self" type="application/rss+xml" />
+    
+      <item>
+        <title>도커 swarm을 이용한 서비스 런칭하기</title>
+        <description>
+          서비스 런칭을 위해 준비했던 것들과 경험하고 있는 것들을 공유합니다. - 
+          Foreword 안녕하세요. 사람인 SM팀의 박요안입니다. 3월 저희 회사에서 조용하게 런칭한 재능마켓 서비스를 구축하며 경험한 것들을 공유하려고 합니다. 시작은 목표는 간단(?)했습니다. 새로운 기술을 도입하자. 서비스 배포/롤백 작업을 최대한 단순하게 진행되도록 하자. 서비스 안정성은 최대한 확보하자. 런칭 후 내가 편하자 왜 Docker swarm 인가 사람인에서는 사용하지 않는 새로운 기술, 서비스 배포와 롤백을...
+        </description>
+        <pubDate>Fri, 02 Jun 2017 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:4000/2017-06-02-swarm-service/</link>
+        <guid isPermaLink="true">http://10.100.0.202:4000/2017-06-02-swarm-service/</guid>
+      </item>
+    
+      <item>
+        <title>Hello World</title>
+        <description>
+          Hello World, Hello Saramin Tech Blog - 
+          “HELLO”
+안녕하세요! 사람인HR의 기술블로그입니다.
+
+사람인HR은 대표적으로 대한민국 NO.1 취업포털 사람인 및 재능마켓 서비스 오투잡을 운영중 입니다.
+
+사람인 운영을 위해 검토되고 적용된 기술 부터 작게는 소소한 팁까지 조금씩 공유해보려 합니다.
+
+아무쪼록 본 공간에 다양한 기술관련 정보가 축적되길 희망합니다.
+
+감사합니다.
+
+        </description>
+        <pubDate>Fri, 02 Jun 2017 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:4000/2017-06-02-hello-world-saramin-tech-blog/</link>
+        <guid isPermaLink="true">http://10.100.0.202:4000/2017-06-02-hello-world-saramin-tech-blog/</guid>
+      </item>
+    
+  </channel>
+</rss>
