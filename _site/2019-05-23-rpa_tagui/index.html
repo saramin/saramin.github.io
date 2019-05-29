@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+
+  <title>TagUI 기반으로 한 RPA 개발</title>
+
+  <meta name="author" content="" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="SaraminHR Tech - SaraminHR Tech Blog / 사람인HR 기술 블로그" href="/feed.xml" />
+
+  
+
+  
+
+  
+
+
+  
+    
+      
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="TagUI 기반으로 한 RPA 개발" />
+  
+
+   
+  <meta property="og:description" content="RPA POC 개발 경험과 자료 공유 안녕하세요. 사람인HR IT연구소 서비스인프라개발팀 김아라 입니다. 저희팀에서 RPA POC를 진행하며, 조사했던 자료와 경험했던 것들을 공유하고자합니다. RPA 란? 들어가기에 앞써 RPA 는 다음과 같이 정의 할 수 있습니다. 비즈니스 프로세스를 사람이 아닌 S/W 로봇이 수행하도록 자동화 하는 것 프로세스 처리를 위한 이기종 디지털 자원 간의...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://10.100.0.202:80/2019-05-23-rpa_tagui/" />
+  <link rel="canonical" href="http://10.100.0.202:80/2019-05-23-rpa_tagui/" />
+  
+
+  
+  <meta property="og:image" content="http://10.100.0.202:80/img/avatar-icon.png" />
+  
+
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@" />
+  <meta name="twitter:creator" content="@" />
+
+  
+  <meta name="twitter:title" content="TagUI 기반으로 한 RPA 개발" />
+  
+
+  
+  <meta name="twitter:description" content="RPA POC 개발 경험과 자료 공유 안녕하세요. 사람인HR IT연구소 서비스인프라개발팀 김아라 입니다. 저희팀에서 RPA POC를 진행하며, 조사했던 자료와 경험했던 것들을 공유하고자합니다. RPA 란? 들어가기에 앞써 RPA 는 다음과 같이 정의 할 수 있습니다. 비즈니스 프로세스를 사람이 아닌 S/W 로봇이 수행하도록 자동화 하는 것 프로세스 처리를 위한 이기종 디지털 자원 간의...">
+  
+
+  
+  <meta name="twitter:image" content="http://10.100.0.202:80/img/avatar-icon.png" />
+  
+
+  
+
+  
+
+</head>
+
+
+  <body>
+
+    
+
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://10.100.0.202:80">SaraminHR Tech</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+
+
+
+
+
+
+<a href="http://www.saramin.co.kr">saramin</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://10.100.0.202:80">
+	      <img class="avatar-img" src="/img/avatar-icon.png" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+  <div id="header-big-imgs" data-num-img=1
+    
+	  
+	  
+	    
+		  data-img-src-1="/img/rpa/rpa-bg2.jpg"
+		
+	  
+    
+  ></div>
+
+
+<header class="header-section has-img">
+
+<div class="big-img intro-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-heading">
+          <h1>TagUI 기반으로 한 RPA 개발</h1>
+		  
+		  
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+  <span class='img-desc'></span>
+</div>
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-heading">
+          <h1>TagUI 기반으로 한 RPA 개발</h1>
+		  
+		  
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <p>RPA POC 개발 경험과 자료 공유</p>
+
+<pre><code class="language-STATA">안녕하세요. 사람인HR IT연구소 서비스인프라개발팀 김아라 입니다.  
+저희팀에서 RPA POC를 진행하며, 조사했던 자료와 경험했던 것들을 공유하고자합니다.
+</code></pre>
+
+<p><br /></p>
+
+<h2 id="rpa-란">RPA 란?</h2>
+
+<p>들어가기에 앞써 RPA 는 다음과 같이 정의 할 수 있습니다.</p>
+
+<ul>
+  <li>비즈니스 프로세스를 사람이 아닌 S/W 로봇이 수행하도록 자동화 하는 것</li>
+  <li>프로세스 처리를 위한 이기종 디지털 자원 간의 연동 자동화 시스템</li>
+  <li>사람이 하는 저부가가치 업무를 자동화 처리함으로써, 고부가가치 업무 및 차별적인 비지니스 발굴 등의 창의적업무에 인력을 집중할 수 있도록 해줌</li>
+</ul>
+
+<p><strong>기능 단위 별 솔루션 분류</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">분류</th>
+      <th style="text-align: left">설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>RDA</strong> (Robotic Desktop Automation)</td>
+      <td style="text-align: left">개인 또는 소규모 조직의 다양한 업무를 자동화할 목적으로 별도의 소프트웨어 없이 일반 데스크탑에서 단독으로 구동 가능한 소프트웨어 로봇 <br /> POC 업무로 적합</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>RPA</strong> (Robotic Process Automation, RDA + Process management)</td>
+      <td style="text-align: left">대규모 조직 업무를 위해 서버와 클라이언트 모두 설치가 필요한 소프트웨어 로봇으로 운영 규모에 따라 전문 관리 조직이 필요</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>IPA</strong> (Intelligent Process Automation, RPA + Ai)</td>
+      <td style="text-align: left">Ai, 머신러닝 등 신기술을 결합해 단순 반복 업무뿐만 아니라 사람의 판단이 필요한 업무까지도 확장</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<h2 id="rpa-업무-분석-과정">RPA 업무 분석 과정</h2>
+
+<p>RPA 도입시 제일 중요한 부분은 업무 분석과정입니다.
+ 자동화 가능한 적합한 업무를 파악하고, 현업 담당자와 미팅을 통해 업무가 어떤 Rule에 의해 어떤 순서로 이루어지는 파악했습니다. 미팅 후 업무 프로세스 방식을 정리하고, 제대로 반영되었는지 확인 과정을 반복했습니다.
+ 업무 프로세스 정리 후 RPA 솔루션 및 오픈소스등의 비교 검토 과정을 거쳤습니다.</p>
+
+<p><a href="http://10.100.0.202:80/rpa_process.png"><img src="http://10.100.0.202:80/img/rpa/rpa_process.png" /></a></p>
+
+<p><br /></p>
+
+<h2 id="rpa-도입을-위한-오픈소스-검토">RPA 도입을 위한 오픈소스 검토</h2>
+
+<p>RPA 도입시 아래의 기술 검토 항목을 고려 하였고,  해당 항목에따라 TagUI, UIPath, Robot Framework의 기능 및 사용법, 특징 등을 조사 하였습니다.</p>
+
+<p><strong>RPA 도입시 기술 검토 항목</strong></p>
+
+<ul>
+  <li>Open Source + Easy Learning Curve</li>
+  <li>Reference 확보를 위한 다양한 개발자 / 사용자 층 보유</li>
+  <li>기능 확장을 위한 다양한 언어 지원</li>
+  <li>다양한 방식의 자동화 지원</li>
+  <li>웹 액션의 Recording 기능 지원</li>
+  <li>중앙 모니터링 방식 지원</li>
+</ul>
+
+<p><strong>TagUI</strong></p>
+<ul>
+  <li>크롬의 headless 방식 or 브라우저 구동 방식 자동화 가능</li>
+  <li>웹사이트와 데스크탑의 visual 자동화 가능</li>
+  <li>20개 이상의 휴먼 언어와 자바스크립트 지원</li>
+  <li>웹		big data / AI / ML을 위한 R 과 Python 통합 지원</li>
+  <li>big data / AI / ML을 위한 R 과 Python 통합 지원</li>
+</ul>
+
+<p><strong>UIpath</strong></p>
+<ul>
+  <li>studio, robot, orchestrator로 구성<br />
+studio : 자동화 script를 작성하는 저작도구<br />
+robot : 자동화 script를 실행 해주는 client<br />
+orchestrator : 관리(사용자, robot, 머신, job, process 등)와 원격실행(비협업 process) 및 모니터링 기능을 제공해주는 웹 서비스</li>
+  <li>자동화 script의 작성이 쉬움 (GUI 기반으로 작성 가능)</li>
+  <li>자동화를 위한 다양한(약 300+) activity들이 존재 함</li>
+  <li>Official한 activity이외의 오픈소스 형태의 activity들이 다수 존재 함</li>
+  <li>포럼 및 커뮤니티가 있어서 이슈 사항 해결시 도움이 됨</li>
+</ul>
+
+<p><strong>Robot Framework</strong></p>
+<ul>
+  <li>python으로 기반으로 개발됨(python 2, 3 기반)</li>
+  <li>Jython(JVM), IronPython(.NET), PyPy 실행 가능</li>
+  <li>python과 java로 모듈을 확장 할 수 있음</li>
+  <li>v3.1 부터 공식적으로 RPA 지원이 되었음</li>
+</ul>
+
+<p><br /></p>
+
+<hr />
+
+<h2 id="tagui-도입-배경">TagUI 도입 배경</h2>
+
+<p>오픈 소스 비교 후 검토 항목에 적합한 Tagui를 선택하게 되었습니다.
+RPA POC 개발 방안이 솔루션 도입이 아닌 자체 스크립트 개발 하는 방안으로 결정 되기도 했고,
+무료 오픈소스이며, browser에서 일어나는 작업에 대해서 자동화 해주는 기능의 Tagui를 선택하했습니다.</p>
+
+<p><strong>TagUI</strong></p>
+
+<ul>
+  <li>Open Source + Easy Learning Curve</li>
+  <li>Reference 확보를 위한 다양한 개발자 / 사용자 층 보유</li>
+  <li>기능 확장을 위한 다양한 언어 지원 : Python, Javascript, R</li>
+  <li>다양한 방식의 자동화 지원 : URL, email, CLI, api, 스케줄러 지원</li>
+  <li>웹 액션의 Recording 기능 지원 : Chrome 한정</li>
+  <li>다양한 OS 환경 지원 : Window, macOS, Linux</li>
+  <li>사용하기 쉬워 개발+배포가 빠름</li>
+  <li>소스코드를 오픈 및 무료</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="tagui-기능">TagUI 기능</h2>
+
+<p><a href="https://github.com/kelaberetiv/TagUI">TagUI 참고</a></p>
+
+<ul>
+  <li>휴먼 언어를 지원하며 프로토타이핑 및 배포 유지관리가 가능</li>
+  <li>스케쥴링, 명령행, API, 이메일 등을 통해 자동화 flow를 실행 할 수 있음</li>
+  <li>브라우저 없이 백그라운드에서 작업이 가능</li>
+  <li>API or 명령행 호출은 다른 Application과 통합이 가능</li>
+  <li>CI / CD 통합은 CasperJS 프레임워크와 TagUI Chrome 통합으로 지원 가능</li>
+  <li>자동화 flow에 javascript를 직접 작성 가능</li>
+  <li>실시간 TagUI step이나 javascript검증을 위한 대화식 live mode 지원</li>
+  <li>silkui와 통합을 통해서 웹사이트/데스크탑의 시각적 자동화 지원</li>
+  <li>Browser에서 일어나는 작업들에 대해서 자동화 해주는 기능을 주로 가지고 있음</li>
+</ul>
+
+<p><strong>실행 component 구조</strong></p>
+
+<p><a href="http://10.100.0.202:80/rpa_tagui.png"><img src="http://10.100.0.202:80/img/rpa/rpa_tagui.png" /></a></p>
+
+<p><strong>Steps 설명</strong></p>
+
+<p>클릭, 링크이동, 선택 등 웹 브라우져 event에 대해서 스크립트로 작성할 수 있습니다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Basic Step</th>
+      <th style="text-align: left">Parameters (separator in bold)</th>
+      <th style="text-align: left">Purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">http(s): //</td>
+      <td style="text-align: left">just enter full url of webpage (<code class="highlighter-rouge">variable</code> for variable)</td>
+      <td style="text-align: left">go to specified webpage</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">click</td>
+      <td style="text-align: left">element to click</td>
+      <td style="text-align: left">click on an element</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">rclick</td>
+      <td style="text-align: left">element to right-click</td>
+      <td style="text-align: left">right-click on an element</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">dclick</td>
+      <td style="text-align: left">element to double-click</td>
+      <td style="text-align: left">double-click on an element</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">hover</td>
+      <td style="text-align: left">element to hover</td>
+      <td style="text-align: left">move cursor to element</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">type</td>
+      <td style="text-align: left">element as text ([enter] = enter, [clear] = clear field)</td>
+      <td style="text-align: left">enter element as text</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">select</td>
+      <td style="text-align: left">element to select as option value ([clear] = clear selection)</td>
+      <td style="text-align: left">choose dropdown option</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">read</td>
+      <td style="text-align: left">element to read (page = webpage) to variable name</td>
+      <td style="text-align: left">fetch element text to variable</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">show</td>
+      <td style="text-align: left">element to read (page = webpage, ie raw html)</td>
+      <td style="text-align: left">print element text to output</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">save</td>
+      <td style="text-align: left">element (page = webpage) to optional filename</td>
+      <td style="text-align: left">save element text to file</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">snap</td>
+      <td style="text-align: left">element (page = webpage) to optional filename</td>
+      <td style="text-align: left">save screenshot to file</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">snap</td>
+      <td style="text-align: left">(pdf)	page to filename.pdf (headless Chrome / PhantomJS)</td>
+      <td style="text-align: left">save webpage to basic pdf</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">load</td>
+      <td style="text-align: left">filename to variable name</td>
+      <td style="text-align: left">load file content to variable</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">echo</td>
+      <td style="text-align: left">text (in quotation marks) and variables</td>
+      <td style="text-align: left">print text/variables to output</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">dump</td>
+      <td style="text-align: left">text (in quotation marks) and variables to optional filename</td>
+      <td style="text-align: left">save text/variables to file</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">write</td>
+      <td style="text-align: left">text (in quotation marks) and variables to optional filename</td>
+      <td style="text-align: left">append text/variables to file</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">variable_name</td>
+      <td style="text-align: left">= value (for text, put in quotes, use + to concat)</td>
+      <td style="text-align: left">define variable variable_name</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">// (on new line)</td>
+      <td style="text-align: left">user comments (ignored during execution)</td>
+      <td style="text-align: left">add user comments</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ask</td>
+      <td style="text-align: left">question or instruction for user (reply stored in ask_result)</td>
+      <td style="text-align: left">ask user for input</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">live</td>
+      <td style="text-align: left">try steps or code interactively for Chrome / visual automation</td>
+      <td style="text-align: left">enter live mode (Firefox not yet)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<h2 id="tagui-기능-확장-및-추가-모듈-개발">TagUI 기능 확장 및 추가 모듈 개발</h2>
+
+<p>RPA 업무 진행시에 메일 발송 모듈,  문서 이미지에서 필요한 텍스트 추출 기능,  스프레드시트 연동 등이 필요했습니다.
+    Tagui에서는 해당 기능을 지원하지 않았고, 해당 기능 모듈을 파이썬을 통해 개발하여 Tagui에서 파이썬 모듈을 호출하는 방식으로 해결하였습니다.</p>
+
+<ul>
+  <li>
+    <p><strong>Python 통합</strong><br />
+   “py” 키워드를 이용하여 python 명령어를 사용 가능(v2, v3 모두 지원)하며
+py 명령어로 python 명령어를 실행, py_result로 python에서 실행된 결과 정보를 받아 오게 됩니다.</p>
+
+    <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Python</span> <span class="err">통합</span> <span class="err">방법</span> <span class="err">예시</span>
+
+<span class="o">//</span> <span class="n">using</span> <span class="n">py</span> <span class="n">step</span> <span class="n">to</span> <span class="n">denote</span> <span class="n">Python</span> <span class="n">code</span><span class="p">,</span> <span class="ow">and</span> <span class="n">getting</span> <span class="n">back</span> <span class="n">output</span> <span class="k">from</span> <span class="n">py_result</span>
+<span class="n">py</span> <span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">b</span><span class="o">=</span><span class="mi">2</span>
+<span class="n">py</span> <span class="n">c</span><span class="o">=</span><span class="n">a</span><span class="o">+</span><span class="n">b</span>
+<span class="n">py</span> <span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="n">echo</span> <span class="n">py_result</span>
+
+<span class="o">//</span> <span class="n">alternatively</span><span class="p">,</span> <span class="n">you</span> <span class="n">can</span> <span class="n">use</span> <span class="n">py</span> <span class="n">begin</span> <span class="ow">and</span> <span class="n">py</span> <span class="n">finish</span> <span class="n">to</span> <span class="n">denote</span> <span class="n">a</span> <span class="n">Python</span> <span class="n">code</span> <span class="n">block</span>
+<span class="o">//</span> <span class="n">indentation</span> <span class="n">of</span> <span class="n">Python</span> <span class="n">code</span> <span class="ow">is</span> <span class="n">also</span> <span class="n">supported</span><span class="p">,</span> <span class="k">for</span> <span class="n">example</span> <span class="ow">in</span> <span class="n">conditions</span> <span class="ow">or</span> <span class="n">loops</span>
+<span class="n">py</span> <span class="n">begin</span>
+<span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">b</span><span class="o">=</span><span class="mi">2</span>
+<span class="n">c</span><span class="o">=</span><span class="n">a</span><span class="o">+</span><span class="n">b</span>
+<span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="n">py</span> <span class="n">finish</span>
+<span class="n">echo</span> <span class="n">py_result</span>
+
+<span class="o">//</span> <span class="n">an</span> <span class="n">example</span> <span class="n">of</span> <span class="n">passing</span> <span class="n">dynamically</span> <span class="n">generated</span> <span class="n">variables</span> <span class="n">to</span> <span class="n">Python</span> <span class="n">integraton</span>
+<span class="n">phone</span> <span class="o">=</span> <span class="mi">1234567</span>
+<span class="n">name</span> <span class="o">=</span> <span class="s">'donald duck'</span>
+<span class="n">py_step</span><span class="p">(</span><span class="s">'phone = '</span> <span class="o">+</span> <span class="n">phone</span><span class="p">)</span>
+<span class="n">py_step</span><span class="p">(</span><span class="s">'name = "'</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s">'"'</span><span class="p">)</span>
+
+<span class="n">py</span> <span class="k">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="n">echo</span> <span class="n">py_result</span>
+<span class="n">py</span> <span class="k">print</span><span class="p">(</span><span class="n">phone</span><span class="p">)</span>
+<span class="n">echo</span> <span class="n">py_result</span>
+</code></pre></div>    </div>
+    <p><br /></p>
+  </li>
+  <li>
+    <p><strong>Google Vision API 연동을 통한 OCR 기능</strong>   <br />
+ OCR 처리는 Google Vsion API를 통해 개발 하였습니다.
+ Google Vision API 연동 기능을 python 모듈을 이용하여 개발하고 tagui에서 py로 python 모듈을 호출 하여 처리 하였습니다.</p>
+
+    <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//sample Code</span>
+
+ <span class="nx">py_step</span><span class="p">(</span><span class="s1">'file_path = "'</span><span class="o">+</span><span class="nx">path</span><span class="o">+</span><span class="s1">'"'</span><span class="p">)</span>
+ <span class="nx">py_step</span><span class="p">(</span><span class="s1">'py_path = "'</span><span class="o">+</span><span class="nx">py_path</span><span class="o">+</span><span class="s1">'"'</span><span class="p">)</span>
+
+ <span class="nx">js</span> <span class="nx">log_echo</span><span class="p">(</span><span class="nx">test_mode</span><span class="p">,</span> <span class="s2">"debug"</span><span class="p">,</span> <span class="s2">"OCR CALL START :::::: PYTHON MODULE"</span><span class="p">)</span>
+ <span class="nx">py</span> <span class="nx">exec</span><span class="p">(</span><span class="nx">open</span><span class="p">(</span><span class="nx">py_path</span> <span class="o">+</span> <span class="s1">'/ocr/image_to_data.py'</span><span class="p">,</span> <span class="nx">encoding</span><span class="o">=</span><span class="s1">'utf8'</span><span class="p">).</span><span class="nx">read</span><span class="p">())</span>  <span class="c1">// Ocr 처리 파이썬 모듈 연동</span>
+ <span class="nx">js</span> <span class="nx">log_echo</span><span class="p">(</span><span class="nx">test_mode</span><span class="p">,</span> <span class="s2">"debug"</span><span class="p">,</span> <span class="s2">"OCR CALL END :::::: PYTHON MODULE :: "</span> <span class="o">+</span> <span class="nx">py_result</span><span class="p">)</span>
+
+ <span class="c1">//CON_3 : 증빙자료명 비교</span>
+
+ <span class="nx">js</span> <span class="nx">con_echo</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s2">"증빙자료명 비교"</span><span class="p">)</span>
+
+ <span class="nx">js</span> <span class="nx">begin</span>
+
+ <span class="kd">var</span> <span class="nx">temp_ocr_result</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">py_result</span><span class="p">);</span> <span class="c1">// 파이썬 모듈 호출 응답 결과</span>
+ <span class="nx">ocr_result</span> <span class="o">=</span> <span class="nx">temp_ocr_result</span>
+ <span class="nx">js</span> <span class="nx">finish</span>
+</code></pre></div>    </div>
+    <p><br /></p>
+  </li>
+  <li>
+    <p><strong>메일 발송 기능</strong><br />
+메일 발송 처리는 사내의 메일 서버를 연동을 통해 메일 발송을 처리 했습니다.
+연동 모듈을 파이썬을 통해 개발하고, python 모듈을 호출 하여 처리 하였습니다.</p>
+
+    <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//sample Code</span>
+
+<span class="nx">company_name</span> <span class="o">=</span> <span class="nx">company_info_data</span><span class="p">.</span><span class="nx">comNm</span>
+
+<span class="c1">// 파이썬 모듈 호출시</span>
+<span class="nx">py_step</span><span class="p">(</span><span class="s1">'reject_code ='</span><span class="o">+</span><span class="nx">status_code</span><span class="p">)</span>
+<span class="nx">py_step</span><span class="p">(</span><span class="s1">'email = "'</span><span class="o">+</span><span class="nx">email</span><span class="o">+</span><span class="s1">'"'</span><span class="p">)</span>
+<span class="nx">py_step</span><span class="p">(</span><span class="s1">'company_name = "'</span><span class="o">+</span><span class="nx">company_name</span><span class="o">+</span><span class="s1">'"'</span><span class="p">)</span>
+<span class="nx">py_step</span><span class="p">(</span><span class="s1">'send_flag = "'</span><span class="o">+</span><span class="nx">send_flag</span><span class="o">+</span><span class="s1">'"'</span><span class="p">)</span>
+
+<span class="nx">py_step</span><span class="p">(</span><span class="s1">'py_path = "'</span><span class="o">+</span><span class="nx">py_path</span><span class="o">+</span><span class="s1">'"'</span><span class="p">)</span>
+<span class="nx">js</span> <span class="nx">log_echo</span><span class="p">(</span><span class="nx">test_mode</span><span class="p">,</span> <span class="s2">"info"</span><span class="p">,</span> <span class="s2">"call mail_interface.py python"</span><span class="p">)</span>
+
+<span class="nx">py</span> <span class="nx">exec</span><span class="p">(</span><span class="nx">open</span><span class="p">(</span><span class="nx">py_path</span> <span class="o">+</span> <span class="s1">'/mail/mail_interface.py'</span><span class="p">,</span> <span class="nx">encoding</span><span class="o">=</span><span class="s1">'utf8'</span><span class="p">).</span><span class="nx">read</span><span class="p">())</span>
+
+<span class="nx">js</span> <span class="nx">log_echo</span><span class="p">(</span><span class="nx">test_mode</span><span class="p">,</span> <span class="s2">"info"</span><span class="p">,</span> <span class="s2">"exec result : "</span><span class="o">+</span><span class="nx">py_result</span><span class="p">)</span>
+</code></pre></div>    </div>
+    <p><br /></p>
+  </li>
+  <li>
+    <p><strong>실행 스크립트 스케쥴링 기능</strong><br />
+해당 업무 스케줄에 따라 RPA를 실행시키는 스케줄러가 필요했고, 해당기능을 Window 작업 스케줄러 기능을 사용 하여 처리하였습니다.
+해당 스케줄러로 rpa가 실행되게 하려면 tagui 실행 스크립트를 작성해야합니다.
+작업 스케줄러에의해  tagui 실행(*.cmd, *.bat) 스크립트 파일이 실행 되게 됩니다.</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//    
+@echo on
+c:
+<span class="nb">cd </span>C:<span class="se">\t</span>agui<span class="se">\s</span>rc  // Tagui 설치 경로
+tagui samples/1_yahoo chrome //tagui 파일
+</code></pre></div>    </div>
+    <p><br /></p>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="개발-및-실무-적용">개발 및 실무 적용</h2>
+
+<p>대상 업무를 선택 기준에 따라 저희 개발팀에서는 2가지 업무를 선택하여 POC를 진행하였습니다.</p>
+
+<p><strong>대상 업무 선택 기준</strong></p>
+<ul>
+  <li>단순 반복 적인 업무</li>
+  <li>정해진 규칙에 따른 처리 업무</li>
+  <li>대량 업무 (예: 처리 건수 100건, 처리시간 1시간 이상) 처리</li>
+  <li>동일한 데이터 처리</li>
+  <li>Digital Data 를 다루는 업무</li>
+</ul>
+
+<p><strong>대상 업무</strong></p>
+
+<ul>
+  <li>
+    <p>고객 지원팀 기업 인증 업무<br />
+기업이 인증 불일치이거나 미인증일 때는 서비스 이용에 제한이 되는 경우가 있어,  고객센터로 인증 요청이 들어오게 되면 해당 기업에 대한 인증 신청 업무(매일 10 또는 20 분 주기 실행, 일 평균 80건 이상) 를 하고 있습니다.</p>
+  </li>
+  <li>
+    <p>공고 관리팀 불량 기업 모니터링 업무<br />
+ 불량 기업 제어 / 불량 공고를 올린 기업이나 불량 공고를 올리기 위해 가입한 기업들의 ‘기업 구분’ 정보를 ‘수시’로 변경(이용 제한)하는 업무를 하고 있습니다.</p>
+  </li>
+</ul>
+
+<p><a href="http://10.100.0.202:80/rpa_dev.PNG"><img src="http://10.100.0.202:80/img/rpa/rpa_dev.PNG" /></a></p>
+
+<p>해당 업무들은 엑셀 문서 작성, 메일 작성, 상태 변경 등의 task가 있었으며, task를 수행하기 위해 웹 브라우져와 사람인 관리자 사이트 등을 이용하고, 문서 및 정보 비교 등의 작업을 해야 했습니다.</p>
+
+<p>기업인증 업무의 경우</p>
+<ol>
+  <li>기업 인증 신청 목록 확인</li>
+  <li>인증 신청 기업의 등록된 대표자명,  회사명,  사업자 등록번호 등의 정보를 확인</li>
+  <li>등록된 사업자등록증 문서 열람</li>
+  <li>사업자등록증과 기업의 정보 비교</li>
+  <li>정보 일치 시 인증, 불일치 시 인증 보류 및 보류 이유 메일 피드백</li>
+</ol>
+
+<p>업무를 처리했습니다.</p>
+
+<p>해당 task를 Tagui를 통해 위와 같이 사람이 처리하는 event 기반으로 정의된 스크립트를 작성하였고,  스크립트에 따라 프로세스가 수행하게 됩니다.</p>
+
+<p><br /></p>
+
+<h2 id="rpa-업무-처리-이력-관리">RPA 업무 처리 이력 관리</h2>
+
+<p>RPA 처리 결과를 로그로 확인 할 수 있으나, 로그를 통해 이력 관리 및 모니터링의 어려움이 있었습니다.
+그래서 스프레드시트 연동을 통한 시작/종료/처리 결과 등의 이력 관리를 위한 파이썬 스프레드시트 연동 모듈을 추가 개발하여 모니터링 및 이력관리를 하였습니다.</p>
+
+<p>고객 지원팀, 공고 관리팀 에서는 스프레드시트에 추가된 이력을 통해 실패 건에 대해서만 추가로 처리하고 있습니다.</p>
+
+<p>스프레드시트 이력 관리 예시</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">등록일</th>
+      <th style="text-align: left">no</th>
+      <th style="text-align: left">처리 결과</th>
+      <th style="text-align: left">아이디</th>
+      <th style="text-align: left">대표자명</th>
+      <th style="text-align: left">회사명</th>
+      <th style="text-align: left">기업 구분 정보</th>
+      <th style="text-align: left">상태 정보</th>
+      <th style="text-align: left">OCR 처리 결과</th>
+      <th style="text-align: left">수행 시간</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">2019-05-22-14:40</td>
+      <td style="text-align: left">13793</td>
+      <td style="text-align: left">보류</td>
+      <td style="text-align: left">saramin_id</td>
+      <td style="text-align: left">김용환</td>
+      <td style="text-align: left">(주)사람인HR</td>
+      <td style="text-align: left">일반</td>
+      <td style="text-align: left">사업자 등록증 유효 기간 만료</td>
+      <td style="text-align: left">{“title”:”사업자등록증”,”regi_num”:”000-00-00000”,”company_name”:”사람인”,”owner_name”:”김용환”,”receive_date”:”2017-07-18 00:00:00”}</td>
+      <td style="text-align: left">2019-05-22-14:41</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<h2 id="rpa-적용-후">RPA 적용 후</h2>
+
+<p><strong>기업 인증 업무</strong></p>
+
+<ul>
+  <li>1일 처리 건수 및 상태별 통계</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">총 건수</th>
+      <th style="text-align: left">인증</th>
+      <th style="text-align: left">인증(오탐)</th>
+      <th style="text-align: left">보류</th>
+      <th style="text-align: left">보류(오탐)</th>
+      <th style="text-align: left">실패(수동처리)</th>
+      <th style="text-align: left">PASS</th>
+      <th style="text-align: left">기타(수동처리)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">713</td>
+      <td style="text-align: left">285</td>
+      <td style="text-align: left">20</td>
+      <td style="text-align: left">199</td>
+      <td style="text-align: left">5</td>
+      <td style="text-align: left">160</td>
+      <td style="text-align: left">39</td>
+      <td style="text-align: left">5</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">39.9%</td>
+      <td style="text-align: left">2.8%</td>
+      <td style="text-align: left">27.9%</td>
+      <td style="text-align: left">0.7%</td>
+      <td style="text-align: left">22.4%</td>
+      <td style="text-align: left">5.4%</td>
+      <td style="text-align: left">0.7%</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><a href="http://10.100.0.202:80/rpa_chart1.PNG"><img src="http://10.100.0.202:80/img/rpa/rpa_chart1.PNG" /></a></p>
+
+<p>처리 시간 일 평균 2시간 &gt; 30분 으로 단축 되었고,
+ 대부분의 실패 처리는 OCR 처리 실패(이미지 화질 문제, 확장자 문제 등)로 인한 실패였습니다.</p>
+
+<p><strong>불량 기업 이용 제한 업무</strong></p>
+
+<ul>
+  <li>1일 처리 건수 및 상태별 통계</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">총 건수</th>
+      <th style="text-align: left">ID 불량</th>
+      <th style="text-align: left">ID 불량(오탐)</th>
+      <th style="text-align: left">기업명불량</th>
+      <th style="text-align: left">기업명불량(오탐)</th>
+      <th style="text-align: left">공고불량</th>
+      <th style="text-align: left">공고불량(오탐)</th>
+      <th style="text-align: left">중복IP</th>
+      <th style="text-align: left">중복IP(오탐)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">42</td>
+      <td style="text-align: left">18</td>
+      <td style="text-align: left">4</td>
+      <td style="text-align: left">0</td>
+      <td style="text-align: left">0</td>
+      <td style="text-align: left">0</td>
+      <td style="text-align: left">2</td>
+      <td style="text-align: left">0</td>
+      <td style="text-align: left">18</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">42.8%</td>
+      <td style="text-align: left">9.5%</td>
+      <td style="text-align: left">27.9%</td>
+      <td style="text-align: left">0%</td>
+      <td style="text-align: left">0%</td>
+      <td style="text-align: left">4.7%</td>
+      <td style="text-align: left">0%</td>
+      <td style="text-align: left">42.8%</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><a href="http://10.100.0.202:80/rpa_chart2.PNG"><img src="http://10.100.0.202:80/img/rpa/rpa_chart2.PNG" /></a></p>
+
+<p>상시 처리하던 업무를 오탐에 대한 건수 1일 1회 처리로 단축 되었습니다.</p>
+
+<p>PoC 기간 동안 지속적인 업데이트를 통해 실패율을 조금씩 줄여나갔으며,
+ 기존 대비 업무 처리 시간 단축으로 현업 팀에서는 해당 업무 처리 시간에 조금 더 의미있는 작업을 할 수 있었습니다.
+<br /></p>
+
+<p>물론 개발을 진행하면서 문제점도 발생했습니다. alert/confirm창에 대한 제어의 문제가 발생했고,  popup으로 뜨는 페이지에 대한 처리가 불가능했습니다.  또한 OCR 처리에도 문제가 발생했습니다.  기업에서 문서 이미지와는 전혀 상관없는 이미지를 올린다거나, OCR 처리 시 text 추출 정확도가 100%가 아니었습니다.  이미지의 선명도 화질 문제 등으로 인한 오류율이 높았습니다.  OCR 처리 중 Case by Case로 처리 가능한 부분은 OCR 텍스트 추출 후 처리하였으며,  OCR 처리 중 오류 발생하는 비율은 약 10% 정도였습니다.  RPA 진행 시 스크립트를 직접 작성하여 개발하였기 때문에 업무 프로세스가 변경되거나, 관리자 사이트 기능 변경 시 스크립트를 수정해야 하는 이슈도 있었습니다.</p>
+
+<p>그러나 RPA 적용 후 고객지원팀, 공고 모니터링 팀의 만족도도 높았고,  RPA POC 적용 이후 계속 운영 중입니다. <br />
+기대했던 것보다 좋은 결과를 얻었고, 새로운 기술을 경험해 볼 수 있었던 의미 있는 프로젝트였습니다.</p>
+
+	    
+        <div class="disqus-comments">
+	        
+        </div>
+	        
+        <div class="staticman-comments">
+          
+
+        </div>
+	    
+    </div>
+  </div>
+</div>
+
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links"><li><a href="/feed.xml" title="RSS"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">RSS</span>
+              </a>
+            </li><li><a href="https://www.facebook.com/saramin.dream" title="Facebook"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">Facebook</span>
+              </a>
+            </li></ul>
+      <p class="copyright text-muted">
+      	Copyright © SaraminHR Tech Blog 2017
+      </p>
+          <!-- Please don't remove this, keep my open source work credited :) -->
+    <p class="theme-by text-muted">
+    </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+  
+  </body>
+</html>
