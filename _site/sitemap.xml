@@ -21,6 +21,14 @@
 <lastmod>2019-05-23T00:00:00+09:00</lastmod>
 </url>
 <url>
+<loc>http://10.100.0.202/2019-08-28-2/</loc>
+<lastmod>2019-08-28T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://10.100.0.202/2019-09-17-kafka/</loc>
+<lastmod>2019-09-17T00:00:00+09:00</lastmod>
+</url>
+<url>
 <loc>http://10.100.0.202/aboutme/</loc>
 </url>
 <url>
@@ -28,5 +36,8 @@
 </url>
 <url>
 <loc>http://10.100.0.202/tags/</loc>
+</url>
+<url>
+<loc>http://10.100.0.202/page2/</loc>
 </url>
 </urlset>
