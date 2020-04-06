@@ -7,6 +7,39 @@
     <atom:link href="http://10.100.0.202:80/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Heimdall - 로그 수집 관제 시스템</title>
+        <description>
+          
+          Heimdall - 로그 수집 관제 시스템 안녕하세요. 사람인HR IT연구소 서비스인프라개발팀 임종현입니다. 이번 블로그에서는 로그수집과 관제알림을 위해서 구축된 관제시스템 &quot;Heimdall&quot;에 대해서 공유하고자 합니다. 1. Heimdall 개요 1.1. Heimdall이란? 사람인HR에서 사용하던 기존 Argus 관제시스템에서 UI 및 기능을 개선한 새로운 관제시스템입니다. 1.2. Heimdall 주요 기능 어플리케이션 등의 로그를 수집하고 수집된 로그를 기반으로 검색이...
+        </description>
+        <pubDate>Wed, 01 Apr 2020 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2020-04-01-heimdall/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2020-04-01-heimdall/</guid>
+      </item>
+    
+      <item>
+        <title>Elastic APM 적용 해보기 - #2. 장점 및 Newrelic 비교</title>
+        <description>
+          
+          사람인HR에서 Elastic APM을 적용한 경험에 대해서 공유하고자 합니다. 안녕하세요. 사람인HR IT연구소 서비스인프라개발팀 임재호입니다. 사람인HR에서 서비스 모니터링을 위한 APM시스템을 구축 하였습니다. 시스템을 구축하며 조사한 자료에 대해서 공유 하고자 합니다. 목차 1. APM 소개 2. APM 설치 및 구성 3. Kibana 화면을 통한 APM 데이터 확인 4. 도입시 장점 및 기대 효과...
+        </description>
+        <pubDate>Tue, 24 Mar 2020 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2020-03-24-elastic-apm-2/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2020-03-24-elastic-apm-2/</guid>
+      </item>
+    
+      <item>
+        <title>Elastic APM 적용 해보기 - #1. 소개 및 설치</title>
+        <description>
+          
+          사람인HR에서 Elastic APM을 적용한 경험에 대해서 공유하고자 합니다. 안녕하세요. 사람인HR IT연구소 서비스인프라개발팀 임재호입니다. 사람인HR에서 서비스 모니터링을 위한 APM시스템을 구축 하였습니다. 시스템을 구축하며 조사한 자료에 대해서 공유 하고자 합니다. 목차 1. APM 소개 2. APM 설치 및 구성 3. Kibana 화면을 통한 APM 데이터 확인 4. 도입시 장점 및 기대 효과...
+        </description>
+        <pubDate>Tue, 24 Mar 2020 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2020-03-24-elastic-apm-1/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2020-03-24-elastic-apm-1/</guid>
+      </item>
+    
+      <item>
         <title>kafka 설정을 사용한 문제해결</title>
         <description>
           

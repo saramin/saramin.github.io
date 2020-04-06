@@ -1,0 +1,1388 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+
+  <title>Heimdall - 로그 수집 관제 시스템</title>
+
+  <meta name="author" content="" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="SaraminHR Tech - SaraminHR Tech Blog / 사람인HR 기술 블로그" href="/feed.xml" />
+
+  
+
+  
+
+  
+
+
+  
+    
+      
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="Heimdall - 로그 수집 관제 시스템" />
+  
+
+   
+  <meta property="og:description" content="Heimdall - 로그 수집 관제 시스템 안녕하세요. 사람인HR IT연구소 서비스인프라개발팀 임종현입니다. 이번 블로그에서는 로그수집과 관제알림을 위해서 구축된 관제시스템 &quot;Heimdall&quot;에 대해서 공유하고자 합니다. 1. Heimdall 개요 1.1. Heimdall이란? 사람인HR에서 사용하던 기존 Argus 관제시스템에서 UI 및 기능을 개선한 새로운 관제시스템입니다. 1.2. Heimdall 주요 기능 어플리케이션 등의 로그를 수집하고 수집된 로그를 기반으로 검색이...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://10.100.0.202:80/2020-04-01-heimdall/" />
+  <link rel="canonical" href="http://10.100.0.202:80/2020-04-01-heimdall/" />
+  
+
+  
+  <meta property="og:image" content="http://10.100.0.202:80/img/avatar-icon.png" />
+  
+
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@" />
+  <meta name="twitter:creator" content="@" />
+
+  
+  <meta name="twitter:title" content="Heimdall - 로그 수집 관제 시스템" />
+  
+
+  
+  <meta name="twitter:description" content="Heimdall - 로그 수집 관제 시스템 안녕하세요. 사람인HR IT연구소 서비스인프라개발팀 임종현입니다. 이번 블로그에서는 로그수집과 관제알림을 위해서 구축된 관제시스템 &quot;Heimdall&quot;에 대해서 공유하고자 합니다. 1. Heimdall 개요 1.1. Heimdall이란? 사람인HR에서 사용하던 기존 Argus 관제시스템에서 UI 및 기능을 개선한 새로운 관제시스템입니다. 1.2. Heimdall 주요 기능 어플리케이션 등의 로그를 수집하고 수집된 로그를 기반으로 검색이...">
+  
+
+  
+  <meta name="twitter:image" content="http://10.100.0.202:80/img/avatar-icon.png" />
+  
+
+  
+
+  
+
+</head>
+
+
+  <body>
+
+    
+
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://10.100.0.202:80">SaraminHR Tech</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+
+
+
+
+
+
+<a href="http://www.saramin.co.kr">saramin</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://10.100.0.202:80">
+	      <img class="avatar-img" src="/img/avatar-icon.png" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+  <div id="header-big-imgs" data-num-img=1
+    
+	  
+	  
+	    
+		  data-img-src-1="/img/heimdall/heimdall_system.png"
+		
+	  
+    
+  ></div>
+
+
+<header class="header-section has-img">
+
+<div class="big-img intro-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>Heimdall - 로그 수집 관제 시스템</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted by 임종현  on April 1, 2020</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+  <span class='img-desc'></span>
+</div>
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>Heimdall - 로그 수집 관제 시스템</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted by 임종현  on April 1, 2020</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      
+
+      <article role="main" class="blog-post">
+        <h1 id="heimdall---로그-수집-관제-시스템">Heimdall - 로그 수집 관제 시스템</h1>
+<pre><code class="language-SATA">안녕하세요.
+사람인HR IT연구소 서비스인프라개발팀 임종현입니다.
+이번 블로그에서는 로그수집과 관제알림을 위해서 구축된 관제시스템 "Heimdall"에 대해서 공유하고자 합니다.
+</code></pre>
+
+<h1 id="1-heimdall-개요">1. Heimdall 개요</h1>
+<hr />
+<h2 id="11-heimdall이란">1.1. Heimdall이란?</h2>
+<blockquote>
+  <p>사람인HR에서 사용하던 기존 Argus 관제시스템에서 UI 및 기능을 개선한 새로운 관제시스템입니다.</p>
+</blockquote>
+
+<h2 id="12-heimdall-주요-기능">1.2. Heimdall 주요 기능</h2>
+<blockquote>
+  <ol>
+    <li>어플리케이션 등의 로그를 수집하고 수집된 로그를 기반으로 검색이 가능합니다.</li>
+    <li>수집된 로그데이터를 각각의 그래프, DataTable,Map 등으로 표현될 수 있고..이것을 하나의  Dashboard로 구성이 가능합니다.</li>
+    <li>로그 내용을 기반으로 관제 조건을 설정할 수 있고, 관제 조건 부합 시 Telegram으로 관제 메시지를 전송이 가능합니다.<br />
+ex) 에러 로그 발생 또는 Excpetion 발생 시 관제 메시지 전송</li>
+  </ol>
+</blockquote>
+
+<h2 id="13-heimdall-고도화-개선-내용">1.3. Heimdall 고도화 개선 내용</h2>
+<p>Heimdall 고도화는 기존 서버 기반에서 쿠버네티스 기반의 컨테이너로 서비스 배포 및 기동으로 전환되면서 기존 로그 수집과 컨테이이너 기반 로그 수집을 모두 수용할 수 있도록 개발이 진행되었습니다. 
+개발을 진행하면서 관리자 화면 및 기존에 불편한 부분에 대한 개선 및 신규 기능을 추가함으로써 사용자가 쉽게 로그를 수집하고 분석할 수 있도록 처리했습니다.
+Kibana Dashboard에 로그 수집과 Metric에 대한 화면도 추가로 구성하였습니다.</p>
+
+<blockquote>
+  <p>주요 개선 내용은 다음과 같습니다.</p>
+</blockquote>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. Heimdall 관리자 화면 UI 개선
+2. Jenkins 기반 배포에서 Gitlab/Docker/Kubernetes/Rancher 기반의 배포로 변경
+3. 모니터링/관제 개선
+    3.1. Container 기반 로그 수집
+        - Log 취합
+        - 로그 수집 분리
+	기존) Logstash -&gt; ElasticSearch -&gt; Kibana
+	신규) Filebeat -&gt; Kafka -&gt; Logstash -&gt; ElasticSearch -&gt; Kibana
+
+    3.2. Container 기반 Metric 수집
+        - Metric 정보 취합
+        - Metric Dashboard 구성
+        - Metric Alert 구성
+4. ElastAlert을 사용한 관제 설정 추가
+5. 모니터링 분석을 위한 다양한 종류의 Kibana Dashboard 구성
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h1 id="2-heimdall-시스템-구성">2. Heimdall 시스템 구성</h1>
+<hr />
+
+<h2 id="21-heimdall-아키텍쳐">2.1. Heimdall 아키텍쳐</h2>
+<blockquote>
+  <p>Heimdall은 컨테이너 기반 어플리케이션과 Baremetal 기반 어플리케이션에 대한 로그수집을 지원합니다.</p>
+</blockquote>
+
+<table>
+  <tbody>
+    <tr>
+      <td>컨테이너 기반 로그 수집</td>
+    </tr>
+    <tr>
+      <td><img src="http://10.100.0.202:80/img/heimdall/arch_container.png" alt="Heimdall Container 아키텍쳐" /></td>
+    </tr>
+    <tr>
+      <td>Baremetal 기반 로그 수집</td>
+    </tr>
+    <tr>
+      <td><img src="http://10.100.0.202:80/img/heimdall/arch_beremetal.png" alt="Heimdall Bere 아키텍쳐" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="22-heimdall-구성-설명">2.2. Heimdall 구성 설명</h2>
+
+<h3 id="관리자-화면"><span style="color:#4c80d9">관리자 화면</span></h3>
+
+<ul>
+  <li>Heimdall Admin - 로그수집 설정 및 관제에 대한 설정을 관리할 수 있는 페이지입니다.</li>
+</ul>
+
+<h3 id="로그-설정"><span style="color:#4c80d9">로그 설정</span></h3>
+
+<ul>
+  <li>SideCar - 컨테이너 기반이 아닌 로그수집에 대해서 Filebeat/Metricbeat 설정을 변경할 수 있는 Agent입니다.</li>
+  <li>Zookeeper - Filebeat/Metricbeat 설정 및 변경에 대한 Watcher 기능을 제공하는 저장소로 사용합니다.</li>
+</ul>
+
+<h3 id="로그수집-agent"><span style="color:#4c80d9">로그수집 Agent</span></h3>
+
+<ul>
+  <li>Filebeat - 일반적인 로그 수집을 위한 Agent입니다.</li>
+  <li>Metricbeat - Metric 정보 수집을 위한 Agent입니다.</li>
+  <li>Kafka - Filebeat에서 수집된 로그 데이터의 중간 저장소입니다.</li>
+  <li>Logstash - Kafka에서 저장된 로그데이터를 가져와서 로그 패턴에 따라 분리 후 ElasticSearch에 저장해주는 역활을 합니다.</li>
+</ul>
+
+<h3 id="로그-수집저장소"><span style="color:#4c80d9">로그 수집저장소</span></h3>
+
+<ul>
+  <li>ElasticSearch - 로그 및 Metric 데이터를 저장하는 저장소입니다.</li>
+</ul>
+
+<h3 id="dashboard"><span style="color:#4c80d9">DashBoard</span></h3>
+
+<ul>
+  <li>Kibana - ElasticSearch 저장된 데이터를 기반으로 데이터 검색 및 Dashboard 및 그래프등을 표현해줍니다.</li>
+</ul>
+
+<h3 id="관제-알림"><span style="color:#4c80d9">관제 알림</span></h3>
+
+<ul>
+  <li>ElastAlert - ElasticSearch 저장된 데이터를 기반으로 Telegram으로 관제 메시지를 생성하여 전송해줍니다.</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="3-heimdall로-어떤것을-할-수-있을까요">3. Heimdall로 어떤것을 할 수 있을까요?</h1>
+<hr />
+<blockquote>
+  <p>지금까지 Heimdall 관제 시스템이 무엇인지 어떻게 구성되어 있는지 알아보았습니다.<br />
+그럼 Heidmall로 무엇을 할 수 있을까요?</p>
+</blockquote>
+
+<h2 id="31-어플리케이션-로그-수집-및-관제-활용-사례">3.1. 어플리케이션 로그 수집 및 관제 활용 사례</h2>
+<pre style="color:white; background-color:black">
+여러 대의 서버에 어플리케이션 설치되어 있고, 
+로그파일 경로는 /home/platform/data/lets_agent_avatar/logs/app.log이라고 할때,
+해당 서비스에 에러나 정상처리 유무를 확인하려고 한다면 가정해봅시다. 
+
+<b style="color:yellow">어떻게 확인하게 될까요?</b>
+	1. 어플리케이션이 6대의 서버에 설치되어 동작되고 있다면 모든 서버에 접근해야 할 것입니다.
+	2. 서버에 접근 후 로그파일이 위치한 디렉토리에 이동 후 모든 로그파일 열고
+	3. 어떤 서버에서 문제가 있는지 VI 검색이나 OS 명령어를 통해서 에러가 발생된 로그를 찾아야 할 것입니다.
+
+<b style="color:yellow">위에 과정이 번거롭다고 느껴지지는 않나요?
+어떻게 이 과정을 쉽게 할 수 있을까요?</b>
+	Heimdall을 사용하면 서버에 직접 접근하지 않아도 특정 로그를 수집할 수 있습니다.
+	6대의 서버에서 수집된 로그는 ElasticSearch에 날짜별로 특정 인덱스에 통합하여 저장되면
+	Kibana를 사용하여 모든 로그를 한 곳에서 검색이 될 수 있습니다.
+	또 이 로그들을 각각의 수치/그래프/DataTable 등 다양한 형태로 표현하고 Dashboard를 생성하면 한 곳에서
+	한 눈에 원하는 정보를 확인할 수 있습니다.
+
+<b style="color:yellow">어떤가요? 이제 관심이 좀 생기시나요? 아래 사용 사례를 정리해놨습니다.</b>
+</pre>
+
+<p>1) 어플리케이션 서버에 Sidecar 설치</p>
+<blockquote>
+  <p>Sidecar를 설치하면 로그 수집을 위한 Filebeat/Metricbeat이 설치되고 로그 수집에 관련한 기본 설정이 자동으로 설정됩니다.<br />
+Heimdall Admin에서 설정한 정보는 Sidecar를 통해서 서버에 설치된 Filebeat/Metricbeat에 반영되게 됩니다.</p>
+</blockquote>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>STEP1. 설치 파일 다운로드
+$ wget http://nexus.saraminhr.co.kr/content/repositories/releases/in/saram/heimdall.sidecar/0.0.2/heimdall.sidecar-0.0.2.tar.gz
+$ wget http://nexus.saraminhr.co.kr/content/repositories/releases/in/saram/heimdall.sidecar/install-systemctl/heimdall.sidecar-install-systemctl.sh
+$ wget http://nexus.saraminhr.co.kr/content/repositories/releases/in/saram/heimdall.sidecar/install-init/heimdall.sidecar-install-init.sh
+
+ 
+STEP2. Sidecar 설치
+# centos 7.x 일경우
+$ sh heimdall.sidecar-install-systemctl.sh {version} {dev|prod}
+	{version} : 배포 버전 정보
+	{dev|prod} : 개발기 dev , 운영기 prod 설정
+
+ex) sh heimdall.sidecar-install-systemctl.sh 0.0.2 dev # 설치 후 확인
+
+# centos 6.x 일 경우
+$ sh heimdall.sidecar-install-init.sh {version} {dev|prod}
+	{version} : 배포 버전 정보
+	{dev|prod} : 개발기 dev , 운영기 prod 설정
+ex) sh heimdall.sidecar-install-init.sh 0.0.2 dev # 설치 후 확인
+</code></pre></div></div>
+
+<p>2) Heimdall Admin 화면에서 로그 수집 설정</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>STEP1. 로그 수집 서버 지정</td>
+    </tr>
+    <tr>
+      <td><img src="http://10.100.0.202:80/img/heimdall/heimdall_3_1.png" alt="Sidecar Agent 지정" width="800" height="400" /></td>
+    </tr>
+    <tr>
+      <td>STEP2. 로그 수집 설정 - 수집할 로그 파일 경로를 지정한다.</td>
+    </tr>
+    <tr>
+      <td><img src="http://10.100.0.202:80/img/heimdall/heimdall_3_2.png" alt="Filebeat 수집 설정" width="800" height="400" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>3) Logstash에서 로그 내용 가공</p>
+<pre><code class="language-SATA">Logstash에서는 로그에 대해서 크게 3가지로 분리되어 처리됩니다.
+1. Input
+	Kafka와 연동하여 Topic 단위로 로그를 가져옵니다.
+2. Filter
+	Filter 설정 부분에서 로그의 각 라인은 규칙에 맞게 필드로 분리되어 집니다.
+	ex) total : {NUMBER:total} : total : 문자열 뒤에 오는  건 number type의 값이고, 이 값을 total이란 필드에 저장하겠다는 의미입니다.
+3. Output
+	 ElasticSearch를 연동하여 로그를 저장합니다. 
+</code></pre>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>input {
+	kafka {
+		bootstrap_servers =&gt; "heimdall.prod.kafka.saramin.host:31090,heimdall.prod.kafka.saramin.host:31091,heimdall.prod.kafka.saramin.host:31092"
+		topics =&gt; ["lets"]
+		codec =&gt; "json"
+		consumer_threads =&gt; 3
+	}                                                 
+}
+filter {
+	if "app" in [log][file][path] {
+		grok {
+			match =&gt; { 
+				"message" =&gt; [
+				"\[%{TIMESTAMP_ISO8601:logdate}\] \[%{WORD:loglevel}%{GREEDYDATA:classpath}\] campaign:%{GREEDYDATA:id}, group:%{GREEDYDATA:groupId}, netpoin:%{NUMBER:netpion}, avatar:%{NUMBER:avatar}, seq:%{NUMBER:seq}, size:%{NUMBER:size}, time:%{GREEDYDATA:db_insert_time} - %{GREEDYDATA:result}",
+				"\[%{TIMESTAMP_ISO8601:logdate}\] \[%{WORD:loglevel}%{GREEDYDATA:classpath}\] campaign:%{GREEDYDATA:id}, group:%{GREEDYDATA:groupId}, netpoin:%{NUMBER:netpion}, mailSeq:%{NUMBER:mailSeq}, memIdx:%{NUMBER:memIdx}, seq:%{NUMBER:seq}, time:%{GREEDYDATA:db_insert_time} - %{GREEDYDATA:result}",
+				"\[%{TIMESTAMP_ISO8601:logdate}\] \[%{WORD:loglevel}%{GREEDYDATA:classpath}\] Complete Summary id : {GREEDYDATA:SummaryId}, total : {NUMBER:total}, success : {NUMBER:success}, filtered : {NUMBER:filtered}, missing : {NUMBER:missing}, induceSuccess : {NUMBER:induceSuccess}, error: {NUMBER:error} campaign:%{GREEDYDATA:id}, group:%{GREEDYDATA:groupId}, netpoin:%{NUMBER:netpion}, mailSeq:%{NUMBER:mailSeq}, memIdx:%{NUMBER:memIdx}, seq:%{NUMBER:seq}, time:%{GREEDYDATA:db_insert_time} - %{GREEDYDATA:result}"
+				]
+			}
+		}
+	}
+	else {
+		grok {
+			match =&gt; [
+			"message", "\[%{TIMESTAMP_ISO8601:timestamp}\] \[%{LOGLEVEL:log-level} %{GREEDYDATA:classpath}\] %{GREEDYDATA:msg}"
+			]
+		}
+	}
+	ruby {
+		code =&gt; "event.set('index_date', Time.now());"
+	} 
+  ruby {
+    code =&gt; "event.set('index_day',  event.get('[@timestamp]').time.localtime.strftime('%Y.%m.%d'));event.set('kafka_in_time',event.get('[@timestamp]'));event.set('@timestamp',event.get('index_date'))" 
+  }
+}
+output {
+	elasticsearch {
+		hosts =&gt; ["elasticsearch.heimdall:9200"]
+		index =&gt; "filebeat-sri-%{[@metadata][topic]}-%{index_day}"
+	}
+}
+</code></pre></div></div>
+
+<p>4) 로그 데이터 검색</p>
+<ul>
+  <li>3번 단계에서 처리된 로그는 ElaistcSearh에서 filebeat-sri-%{[@metadata][topic]}-%{index_day}로 인덱스가 생성되어 저장됩니다.</li>
+  <li>이렇게 수집된 수집된 로그는 Kibana 통하여 검색할 수 있습니다.</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>아래는 검색에 대한 예제입니다.
+토픽명이 lets이면서 sri-mail-content2번 서버에 수집된 로그를 기준으로 검색하면서, 
+로그 메시지 내용에 sucess가 포함된 것만 검색하겠다고 조건식을 작성하여 나온 결과입니다.
+로그 시간 범위는 최근 한  시간동안 수집된 로그에 대해서만 포함되게 지정하였습니다.
+</code></pre></div></div>
+
+<p><img src="http://10.100.0.202:80/img/heimdall/heimdall_3_3.png" alt="Kibana 검색 결과" /></p>
+
+<p>5) Dashboard를 구성해보자</p>
+<ul>
+  <li>로그 내용을 기반으로 검색은 4번 방법으로도 충분하다.</li>
+  <li>그렇지만 예를 들어 30분 단위의 DB Insert 개수를 보여주는 수치인 경우 검색보다는 DashBoard를 구성하여 그래프를 보여주는 방법이 더욱 효과적일 것입니다.</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>다음과 같이 Dashboard를 구성할 수 있습니다.
+	Lets-Result-Count2 : 총 발송 개수에서 성공/실패등을 수치를 숫자로 표시
+	Lets-Db-Total-Count : 총 DB Insert  개수를 숫자로 표시
+	Lets-DB-Insert : 30분 단위로 DB Insert  개수를 Line Graph로 표시
+	Lets-server chart : 서버별로 수집된 로그 개수를 30분 단위로 표시
+..생략.. 
+</code></pre></div></div>
+
+<p><img src="http://10.100.0.202:80/img/heimdall/heimdall_3_4.png" alt="Lets Dashboard 화면" /></p>
+
+<p>6) 관제 알림</p>
+<ul>
+  <li>어플리케이션 에러가 발생된 경우 개발자에게 해당 내용을 통지해야 최소한의 서비스 장애나 중단으로 처리가 될 것입니다.</li>
+  <li>Heimdall에서는 ElastAlert을 사용하여 관제 조건을 설정하고, 에러가 발생 시 Telegram으로 통지하는 기능을 제공합니다.</li>
+  <li>관제 알림에 대한 설정은 Heimdall Admin에서 추가할 수 있습니다.</li>
+</ul>
+
+<table>
+  <tbody>
+    <tr>
+      <td>STEP1. 관제 Rule 추가</td>
+    </tr>
+    <tr>
+      <td><img src="http://10.100.0.202:80/img/heimdall/heimdall_3_7.png" alt="관제룰 등록" width="800" height="400" /></td>
+    </tr>
+    <tr>
+      <td>STEP2. 관제 추가 후 목록에서 관제 기능 ON/OFF 지정도 가능</td>
+    </tr>
+    <tr>
+      <td><img src="http://10.100.0.202:80/img/heimdall/heimdall_3_8.png" alt="관제 목록" width="800" height="400" /></td>
+    </tr>
+    <tr>
+      <td>STEP3. 관제 발생 시 Telegram으로 메시지 전송</td>
+    </tr>
+    <tr>
+      <td><img src="http://10.100.0.202:80/img/heimdall/heimdall_7.png" alt="ElastAlert" width="800" height="400" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="32-metric-수집을-활용한-kafka-상태-정보-확인">3.2. Metric 수집을 활용한 Kafka 상태 정보 확인</h2>
+<pre style="color:yellow; background-color:black">
+서버에 어플리케이션에 연동된 DB, Kafka, Redis가 갑자기 중지되어 장애가 난 경험을 한 적 없으신가요?
+Heimdall에서는 이런 연동 모듈에 대해서 상태 정보를 수집하여 다양한 정보를 제공합니다.
+</pre>
+
+<p>1) 어플리케이션 서버에 Sidecar 설치</p>
+<ul>
+  <li>3.1 내용과 동일합니다</li>
+</ul>
+
+<p>2) Heimdall Admin 화면에서 Metric 수집 설정</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>STEP1. 로그 수집 서버 지정</td>
+    </tr>
+    <tr>
+      <td><img src="http://10.100.0.202:80/img/heimdall/heimdall_3_1.png" alt="Sidecar Agent 지정" width="800" height="400" /></td>
+    </tr>
+    <tr>
+      <td>STEP2. Metric 수집 설정 - 수집할 Metric 모듈에 대한 설정</td>
+    </tr>
+    <tr>
+      <td><img src="http://10.100.0.202:80/img/heimdall/heimdall_3_5.png" alt="Metric 수집 설정" width="800" height="400" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>3) Metric 데이터 검색</p>
+<ul>
+  <li>Metric 정보는 Kafka, Logstash를 거치지 않고 ElasticSearh에서 metricbeat-kafka-* 인덱스가 생성되어 저장됩니다.</li>
+  <li>이렇게 수집된 수집된 로그는 Kibana 통하여 검색할 수 있습니다.</li>
+</ul>
+
+<blockquote>
+  <p>Kafka에서 수집된 정보는 metricset 별로 분리되어 수집됩니다.<br />
+그럼 예제로 kafka partition에 대해서만 필터링해서 검색해보죠</p>
+</blockquote>
+
+<p><img src="http://10.100.0.202:80/img/heimdall/heimdall_3_6.png" alt="Metric 검색 결과" /></p>
+
+<p>4) Metric Dashboard</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Kafka Dashboard 구성 예제입니다.
+	[SRI]Kafka Cluster Selector : select box를 사용하여 조건별로 필터링 기능을 제공
+	Kafka Metrics : 카프카의 topics, partions 개수를 숫자로 표시
+	Consumer Group Lag by Topic : Topic에 데이터가 쌓이게 되면 Lag 수치가 올라가는데 이 수치를 그래프로 표시
+..생략.. 
+</code></pre></div></div>
+
+<p><img src="http://10.100.0.202:80/img/heimdall/heimdall_10.png" alt="Kafka 대쉬보드" /></p>
+
+<p>5) 관제 알림</p>
+<ul>
+  <li>Metric에 대해서 관제 설정 및 알림 설정이 가능합니다.</li>
+  <li>이 내용은 위에 3.1 내용과 동일합니다</li>
+</ul>
+
+<p><br /></p>
+<h1 id="4-heimdall-시스템-고도화-기능">4. Heimdall 시스템 고도화 기능</h1>
+<hr />
+<blockquote>
+  <p>이 섹터에서는 Heimdall 고도화에 적용된 기술 및 개선 내용에 대해서 설명하겠습니다.</p>
+</blockquote>
+
+<h2 id="41-heimdall-관리자-화면-ui-개선">4.1. Heimdall 관리자 화면 UI 개선</h2>
+<pre><code class="language-SATA">1. spring boot 최신 버전으로 변경
+	- 최신 기술을 반영하면 전체적인 패키지 구조 및 리팩토링 진행
+2. mustache -&gt; thymeleaf 템플릿으로 변경
+	- Thymeleaf Layout  구성으로 전체적인 화면 구조  재구성
+	- 공통모듈 분리로 확장성 고려	
+3. 서비스 구조를 그룹 구조로 분리하여 검색 및 관리에 대한 화면 및 기능 개선
+	- 메뉴화면 추가 	
+	- Group 구조로 관리되어 필터링 및 관리 개선
+4. Path 연동
+	- 로그인 기능 추가
+	- 사용자 요청 별 권한 관리 처리
+</code></pre>
+
+<table>
+  <tbody>
+    <tr>
+      <td>기존 관리자 화면</td>
+    </tr>
+    <tr>
+      <td><img src="http://10.100.0.202:80/img/heimdall/heimdall_4_1.png" alt="Heimdall 기존 관리자 화면" width="800" height="300" /></td>
+    </tr>
+    <tr>
+      <td>신규 관리자 화면</td>
+    </tr>
+    <tr>
+      <td><img src="http://10.100.0.202:80/img/heimdall/heimdall_2.png" alt="Heimdall 신규 관리자 화면" width="800" height="300" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="42-gitlabdockerkubernetesrancher-기반의-배포로-변경">4.2. Gitlab/Docker/Kubernetes/Rancher 기반의 배포로 변경</h2>
+<blockquote>
+  <p>쿠버네티스 환경으로 Heimdall 시스템을 이관하면서 배포환경도 변경되었습니다.</p>
+</blockquote>
+
+<table>
+  <tbody>
+    <tr>
+      <td>기존. Jenkins 기반 배포</td>
+      <td>변경. Rancher 기반 배포</td>
+    </tr>
+    <tr>
+      <td><img src="http://10.100.0.202:80/img/heimdall/git_jenkins_flow.png" alt="git_jenkins" width="400" height="200" /></td>
+      <td><img src="http://10.100.0.202:80/img/heimdall/git_rancher_flow.png" alt="git_rancher" width="400" height="200" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="421--기존의-소스-배포-흐름">4.2.1  기존의 소스 배포 흐름</h3>
+
+<ul>
+  <li>기존 배포의 경우 Jenkins를 활용한 배포 방법은 다음과 같은 과정을 거치게 됩니다.<br />
+  git -&gt; jenkins build -&gt; 각 서버 접속 -&gt; 어플리케이션 중지 -&gt; install.sh 설치 -&gt; 어플리케이션 기동 및 확인</li>
+  <li>모든 서버에 들어가서 위에 단계를 반복하게 됩니다.</li>
+</ul>
+
+<h3 id="422-변경된-소스-배포-흐름">4.2.2 변경된 소스 배포 흐름</h3>
+
+<ul>
+  <li>일반 서버의 배포라면 Jenkins 사용한 배포도 나쁘지 않다고 생각합니다.</li>
+  <li>그러나 Kubernetes 환경이라면 이미지 배포에서 Rancher를 사용하여 좀 더 편한게 진행할 수 있습니다.</li>
+</ul>
+
+<p>1) 소스 수정 및 git commit &amp; push</p>
+
+<p>2) gitlab에서 소스 변경 시 docker build를 수행 후 docker regstiry 서버에 이미지를 업로드 해줍니다.</p>
+<ul>
+  <li>gitlab-ci.yml 설정 파일</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>stages:
+  - compile
+  - build
+  - push
+  - deploy
+
+variables:
+  CI_REGISTRY: sri-docker-registry.saraminhr.co.kr:5000/platform/heimdall-admin
+  BUILD_TAG: $CI_COMMIT_REF_NAME-$CI_PIPELINE_ID
+  GIT_SUBMODULE_STRATEGY: recursive
+  
+.gram-runner: &amp;tag_def
+  tags: [gram]
+
+
+compile:
+  &lt;&lt;: *tag_def
+  stage: compile
+  script:
+    - gradle clean build
+    
+build admin:
+  &lt;&lt;: *tag_def
+  variables:
+    GIT_STRATEGY: none
+  stage: build
+  script:
+    - &gt;  # admin build
+      docker build  
+      -t $CI_REGISTRY:$BUILD_TAG . 
+      -f heimdall.admin/build/resources/main/Dockerfile
+
+push tag:
+  &lt;&lt;: *tag_def
+  variables:
+    GIT_STRATEGY: none
+  stage: push
+  script:
+    - docker push $CI_REGISTRY:$BUILD_TAG
+
+Push latest:
+  &lt;&lt;: *tag_def
+  variables:
+    GIT_STRATEGY: none
+  stage: push
+  only:
+    - master
+  script:
+    - docker tag $CI_REGISTRY:$BUILD_TAG $CI_REGISTRY:latest
+    - docker push $CI_REGISTRY:latest
+  when: manual
+</code></pre></div></div>
+
+<p>3) rancher 서버에 접속 후 이미지 버전만 변경하고 적용하면 기존 이미지 버전의 어플리케이션이 내려가고 새로운 이미지 버전으로 어플리케이션을 자동으로 기동해줍니다.
+<img src="http://10.100.0.202:80/img/heimdall/heimdall_3.png" alt="Rancher 배포 화면" /></p>
+
+<p>4) Admin이 배포되어 기동된 것을 확인할 수 있습니다.
+<img src="http://10.100.0.202:80/img/heimdall/heimdall_4.png" alt="Kubernetes Deployment" /></p>
+
+<h2 id="43-모니터링관제-개선">4.3. 모니터링/관제 개선</h2>
+<h3 id="431-로그-처리-구조-개선">4.3.1. 로그 처리 구조 개선</h3>
+
+<h4 id="1--로그-수집-처리-변경">1)  로그 수집 처리 변경</h4>
+
+<table>
+  <tbody>
+    <tr>
+      <td>기존 로그 수집 구조 : Logstash -&gt; ElasticSearch</td>
+    </tr>
+    <tr>
+      <td><img src="http://10.100.0.202:80/img/heimdall/heimdall_4_3.png" alt="기존 Filebeat Flow" width="800" height="150" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<pre><code class="language-SATA">문제점1. Logstash 지연 및 성능 이슈
+	- 로그에 대한 수집과 로그 문자열 분리 작업을 모두 처리하게 되어서 부하가 발생되고
+	- 이로 인하여 성능 저하와 로그 유실이 발생되었습니다.
+문제점2. 로그 파일 관리 문제
+	- Logstash 설정 파일 하나에서 여러개의 로그 파일을 관리하기 때문에
+	- 로그파일이 증가될 때마다 내용도 길어지고, 조건식 분기 구문이 늘어나는 구조여서 관리가 힘들었습니다.
+</code></pre>
+
+<p><br /></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>개선된 로그 수집 구조 : Filebeat -&gt; Kafka -&gt; Logstash -&gt; ElasticSearch</td>
+    </tr>
+    <tr>
+      <td><img src="http://10.100.0.202:80/img/heimdall/heimdall_5.png" alt="Filebeat Flow" width="800" height="165" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<pre><code class="language-SATA">개선1. 로그 수집 분리
+	- Logstash의 파일 수집에 대해서 Filebeat(경량 로그 수집)로 이관하고,
+	- Filebeat과 Logstash 사이에 중간 버퍼 역활을 위한 Kafka를 구성하여 Logstash의 부하를 줄이므로써
+	- 로그 지연 및 성능을 개선하였습니다.
+개선2. 로그 파일 관리 개선
+	- Filebeat에서 로그 개수에 따라 설정 파일을 분리해서 로그 관리가 수월해졌습니다.	
+</code></pre>
+
+<p><br /></p>
+
+<h3 id="432-로그-처리">4.3.2. 로그 처리</h3>
+<blockquote>
+  <p>기존 관제시스템은 서버 기반 로그 수집만 가능했습니다.<br />
+Heimdall 관제시스템은 K8S 컨테이너 기반의 로그수집과 Baremetal Server 기반의 기존 로그수집 모두 가능하게 변경하였습니다.<br />
+Baremetal Server 기반의 기존 로그수집은 위에 “3.1 어플리케이션 로그 수집 및 관제 활용 사례”에서 언급을 했으니
+이번 섹터에서는 “K8S 컨테이너 기반 로그 수집”에 대해서 설명하겠습니다.</p>
+</blockquote>
+
+<h4 id="1-k8s-컨테이너-기반의-로그수집-과정">1) K8S 컨테이너 기반의 로그수집 과정</h4>
+<ul>
+  <li>컨테이너 기반 로그 수집은 Baremetal Server 방식에서 사용되던 Sidecar를 통한 로그 수집이 아닌 어플리케이션 내부에서
+Filebeat이 Sidecar 형태로 로그를 수집하는 구조입니다.</li>
+</ul>
+
+<p><img src="http://10.100.0.202:80/img/heimdall/heimdall_4_4.png" alt="Filebeat 컨테이너 흐름" /></p>
+
+<p>1-1) Rancher에서 설정</p>
+<ul>
+  <li>Rancher + Helm Chart를 사용하여 컨테이너 로그 수집에 대한 ON/OFF를 설정하게 했습니다.</li>
+</ul>
+
+<p><img src="http://10.100.0.202:80/img/heimdall/heimdall_4_2.png" alt="Rancher Sidecar" /></p>
+
+<p>1-2) K8S 컨테이너 - Filebeat 설정 참고</p>
+<ul>
+  <li>어플리케이션과 로그수집을 위한 Filebeat이 하나의 Pod로 구성이 되며,</li>
+  <li>Filebeat은 Sidecar 형태로 배포되어 어플리케이션 로그를 수집하게 됩니다.</li>
+  <li>아래는 Filebeat 설정을 위한 Helm Chart 내용입니다.</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apiVersion: v1
+kind: ConfigMap
+metadata:
+	name: --filebeat-config
+data:
+	filebeat.yml: |-
+		filebeat.config:
+			inputs:
+				path: ${path.config}/inputs.d/*.yml
+				reload.enabled: true
+				reload.period: 30s
+			modules:
+				path: ${path.config}/modules.d/*.yml
+				reload.enabled: true
+				reload.period: 30s
+
+		processors:
+			- add_locale: ~
+			- add_fields:
+					fields:
+						sri.namespace: '${SRI_NAMESPACE}'
+						sri.project.name: '${SRI_PROJECT_NAME}'
+						sri.release.name: '${SRI_RELEASE_NAME}'
+						sri.server.name: '${SRI_POD_NAME}'
+		monitoring: 
+			enabled: 
+			elasticsearch:
+				hosts: [""]
+				metrics.period: 30s
+
+		output.kafka:
+			hosts: []
+			topic: '${SRI_NAMESPACE}-${SRI_PROJECT_NAME}'
+			partition.round_robin:
+				reachable_only: false
+			required_acks: 1
+			compression: gzip
+			max_message_bytes: 1000000
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+	name: --filebeat-inputs
+data:
+	heimdall-admin-log.yml: |-
+		- type: log
+			paths:
+				- ''
+			exclude_lines: ['DEBUG']
+			tail_files: "true"
+			## json.message_key: log
+			## json.keys_under_root: false
+			multiline.pattern: "^\\["
+			multiline.negate: true
+			multiline.match: after
+			multiline.max_lines: 50
+			multiline.timeout: 10s
+			processors:
+				- add_kubernetes_metadata:
+						in_cluster: true
+</code></pre></div></div>
+
+<p>1-3) ConfigMap을 통한 Filebeat 설정 관리</p>
+<ul>
+  <li>Helm Chart로 배포된 설정은 ConfigMap 형태로 관리가 됩니다.</li>
+  <li>배포 이후에 설정에 변경 시 ConfigMap 부분만 변경하면 어플리케이션의 재기동 없이도 적용이 됩니다.</li>
+  <li>아래는 실제  배포된 내용이입니다.<br />
+  <strong>paths</strong> : 수집될 로그 경로<br />
+  <strong>exclude_lines</strong>: [‘DEBUG’] : 디버그 로그는 제외하고 수집<br />
+  <strong>multiline</strong> : multiline 로그 처리</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- type: log
+  paths:
+    - '/home/platform/heimdall.admin/data/logs/heimdall-webapp.log'
+  exclude_lines: ['DEBUG']
+  tail_files: "true"
+  ## json.message_key: log
+  ## json.keys_under_root: false
+  multiline.pattern: "^\\["
+  multiline.negate: true
+  multiline.match: after
+  multiline.max_lines: 50
+  multiline.timeout: 10s
+  processors:
+    - add_kubernetes_metadata:
+        in_cluster: true
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="433-metric-로그-수집-추가">4.3.3. Metric 로그 수집 추가</h3>
+<pre style="color:white; background-color:black">
+<b style="color:yellow">Metric 로그 수집 추가는 이번에 고도화를 진행하면서 새롭게 추가된 부분입니다.</b>
+어플리케이션에서 문제가 발생하는 경우 로그 수집으로 확인이 가능했지만,
+어플리케이션에서 연동되는 서버스가 문제가 되는 경우, 장애에 대한 인지가 늦어 대응이 늦는 경우가 발생되었습니다.
+이에 대응하기 위해서 <b style="color:yellow">Metric 기반의 로그를 수집하여 정상 기동 및 장애 발생에 대응할 수 있었습니다.</b>
+다른 한가지 이유는 Heimdall 시스템 및 기존 어플리케이션을 Kubernetes 환경에서 배포가 진행되면서 
+Kubernetes에 대한 서비스, 노드, 파드에 대한 관리가 필요하기 때문에 Metric 기반 로그 수집은 중요해졌습니다.
+MetricBeat은 기본으로 Kubernetes, System에 대한 Metric을 수집하지만
+<b style="color:yellow">추가적인 모듈 설치로 다양한 Metric 정보를 수집할 수 있다.</b>
+</pre>
+
+<h4 id="1-metric-로그-수집-과정">1) Metric 로그 수집 과정</h4>
+<ul>
+  <li>Filebeat 로그 수집과 동일하게 Metric 로그 수집도 Baremetal Server 방식에서 사용되던 Sidecar를 통한 로그 수집이 아닌 어플리케이션 내부에서
+Metricbeat이 Sidecar 형태로 Metric 정보를 수집하는 구조입니다.</li>
+</ul>
+
+<p><img src="http://10.100.0.202:80/img/heimdall/heimdall_4_5.png" alt="Metric 로그 수집 Flow" /></p>
+
+<h4 id="2-metric-모듈-종류">2) Metric 모듈 종류</h4>
+<ul>
+  <li>MetricBeat은 기본으로 Kubernetes, System에 대한 Metric을 수집하지만 추가적인 모듈 설치로 다양한 Metric 정보를 수집할 수 있다.</li>
+  <li>아래는 수집할 수 있는 모듈 종류입니다. 더 많은 정보는 아래 링크를 참고해주세요.
+  <a href="https://www.elastic.co/guide/en/beats/metricbeat/7.3/metricbeat-modules.html" target="_blank">https://www.elastic.co/guide/en/beats/metricbeat/7.3/metricbeat-modules.html</a></li>
+  <li>참고로 Metric 모듈은 버전이 올라갈 때마 더 많은 연동 모듈이 추가되고 있습니다.</li>
+</ul>
+
+<pre><code class="language-SATA">• System
+• Kubernetes
+• Apache
+• Nginx
+• Docker
+• Elasticsearch
+• HAProxy
+• Envoyproxy
+• Jmx
+• Kafka
+• Logstash
+• MySQL
+• Redis
+• Zookeeper
+• PHP_FPM
+......
+</code></pre>
+
+<h4 id="3--metric-설정-예제">3)  Metric 설정 예제</h4>
+
+<pre><code class="language-SATA">Metric 로그 수집도 K8S 컨테이너 기반의 로그수집과 Baremetal Server 기반의 기존 로그수집 모두 가능합니다.
+
+1. K8S 컨테이너 기반의 로그수집	
+	Helm Chart로 로그 수집 설정이 관리되면 Rancher에서 ON/OFF를 지정할 수 있습니다.  
+	로그수집을 ON으로 지정 시 컨테이너 내부에 Metricbeat Sidecar 형식으로 동작됩니다.
+
+2. Baremetal Server 기반의 기존 로그수집
+	Heimdall Admin에서 Metric 설정 페이지가 추가되었습니다.
+	Metric 로그 수집을 설정하게 되면 지정된 서버에 설치된 Sidecar Agent를 통해서 Metricbeat 통해서 수집이 진행됩니다.
+	
+Baremetal Server 기반의 기존 로그수집은 
+위에 "3.1 어플리케이션 로그 수집 및 관제 활용 사례"에서 언급을 했으니
+이번 섹터에서는 "K8S 컨테이너 기반 Metric 로그 수집"에 대해서 설명하겠습니다.
+</code></pre>
+
+<h4 id="3-1-k8s-컨테이너-기반의-metric-로그-수집">3-1) K8S 컨테이너 기반의 Metric 로그 수집</h4>
+
+<p>1) Rancher에서 설정</p>
+<ul>
+  <li>Rancher + Helm Chart를 사용하여 컨테이너 로그 수집에 대한 ON/OFF를 설정하게 했습니다.</li>
+</ul>
+
+<p><img src="http://10.100.0.202:80/img/heimdall/heimdall_4_2.png" alt="Rancher Sidecar" /></p>
+
+<p>2) K8S 컨테이너 - Metricbeat 설정 참고</p>
+<ul>
+  <li>어플리케이션과 로그수집을 위한 Metricbeat이 하나의 Pod로 구성이 되며,</li>
+  <li>Metricbeat은 Sidecar 형태로 배포되어 설정된 모듈을 기반으로 Metric 정보를 수집하게 됩니다.</li>
+  <li>아래는 Metricbeat 설정을 위한 Helm Chart 내용입니다.</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: --metricbeat-config
+  labels:
+    kubernetes.io/cluster-service: "true"
+data:
+  metricbeat.yml: |-
+    metricbeat.config.modules:
+      path: ${path.config}/modules.d/*.yml
+      reload.enabled: true
+      reload.period: 30s
+    processors:
+      - add_locale: ~
+      - add_kubernetes_metadata:
+          in_cluster: true
+      - add_fields:
+          fields:
+            sri.namespace: '${SRI_NAMESPACE}'
+            sri.project.name: '${SRI_PROJECT_NAME}'
+            sri.release.name: '${SRI_RELEASE_NAME}'
+            sri.server.name: '${SRI_POD_NAME}'
+    monitoring:
+      enabled: true
+      elasticsearch:
+        metrics.period: 30s
+    output.elasticsearch:
+      hosts: [""]
+      index: 'metricbeat-%{[event.module]}-${SRI_NAMESPACE}-${SRI_PROJECT_NAME}-%{+yyyy.MM.dd}'
+    setup.template:
+      enabled: true
+      name: 'metricbeat-sri'
+      pattern: 'metricbeat-*'
+    setup.ilm:
+      enabled: false
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: --metricbeat-module
+data:
+  jolokia_metric.yml: |-
+    - module: jolokia
+      enabled: true
+      metricsets: ["jmx"]
+      namespace: "jmx"
+      hosts: ["localhost:8778"]
+      path: "/jolokia"
+      http_method: "GET"
+      jmx.mappings:
+        - mbean: 'java.lang:type=Runtime'
+          attributes:
+          - attr: Uptime
+            field: uptime
+          - attr: StartTime
+            field: starttime
+        - mbean: 'java.lang:type=OperatingSystem'
+          attributes:
+          - attr: ProcessCpuLoad
+            field: processcpuload
+          - attr: ProcessCpuTime
+            field: processcputime
+        - mbean: 'java.lang:type=Memory'
+          attributes:
+          - attr: HeapMemoryUsage
+            field: heapmemoryusage
+          - attr: NonHeapMemoryUsage
+            field: nonheapmemoryusage
+          - attr: ObjectPendingFinalizationCount
+            field: objectpendingfinalizationcount
+        - mbean: 'java.lang:name=*,type=MemoryPool'
+          attributes:
+          - attr: Usage
+            field: usage
+          - attr: PeakUsage
+            field: peakusage
+          - attr: CollectionUsage
+            field: collectionusage
+        - mbean: 'java.lang:name=*,type=GarbageCollector'
+          attributes:
+          - attr: CollectionTime
+            field: collectiontime
+          - attr: CollectionCount
+            field: collectioncount
+        - mbean: 'java.lang:name=*,type=GarbageCollector'
+          attributes:
+          - attr: LastGcInfo
+            field: lastgcinfo
+        - mbean: 'java.lang:type=Threading'
+          attributes:
+          - attr: TotalStartedThreadCount
+            field: totalstartedthreadcount
+          - attr: ThreadCount
+            field: threadcount
+          - attr: DaemonThreadCount
+            field: daemonthreadcount
+          - attr: PeakThreadCount
+            field: peakthreadcount
+        - mbean: 'java.lang:type=ClassLoading'
+          attributes:
+          - attr: LoadedClassCount
+            field: loadedclasscount
+          - attr: UnloadedClassCount
+            field: unloadedclasscount
+          - attr: TotalLoadedClassCount
+            field: totalloadedclasscount
+</code></pre></div></div>
+
+<p>3) ConfigMap을 통한 Metricbeat 설정 관리</p>
+<ul>
+  <li>Helm Chart로 배포된 설정은 ConfigMap 형태로 관리가 됩니다.</li>
+  <li>배포 이후에 설정에 변경 시 ConfigMap 부분만 변경하면 어플리케이션의 재기동 없이도 적용이 됩니다.</li>
+  <li>아래는 elasticsearch 모듈 설정 내용입니다.<br />
+  <strong>module</strong> :  Metric 연동 모듈이름<br />
+  <strong>metricsets</strong>: 수집된 MetricSets입니다. 하나의 모듈에 여러가지 Metricsets이 존재합니다.<br />
+  <strong>period</strong> : 수집 주기<br />
+  <strong>hosts</strong> : ElasticSearch 연동 정보</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- module: elasticsearch
+  metricsets:
+    #- ccr
+    - cluster_stats
+    - index
+    - index_recovery
+    - index_summary
+    #- ml_job
+    - node
+    - node_stats
+    - pending_tasks
+    #- shard
+  period: 30s
+  hosts: ["http://localhost:9200"]
+  #username: "elastic"
+  #password: "changeme"
+  index_recovery.active_only: true
+  #xpack.enabled: false
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="44-elastalert을-사용한-관제-설정-추가">4.4. ElastAlert을 사용한 관제 설정 추가</h2>
+<blockquote>
+  <p>기존에는 any, frequency에 대한 관제 타입 설정만 가능했다.<br />
+고도화를 진행하면 다양한 관제 타입을 추가하였다.</p>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th>관제 타입</th>
+      <th>관제설명</th>
+      <th>기존</th>
+      <th>신규</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Any</td>
+      <td>매칭 Event 발생</td>
+      <td>O</td>
+      <td>O</td>
+    </tr>
+    <tr>
+      <td>Frequency</td>
+      <td>기간동안 매칭 Event 빈도 Flatline : Event 수의 임계치 미만</td>
+      <td>O</td>
+      <td>O</td>
+    </tr>
+    <tr>
+      <td>Cardinality</td>
+      <td>매칭되는 Event의 Unique Count의 임계값 초과/미만</td>
+      <td>X</td>
+      <td>O</td>
+    </tr>
+    <tr>
+      <td>Percentage Match</td>
+      <td>기간동안 매칭되는 Event의 발생 비율(%)의 임계값 초과/미만</td>
+      <td>X</td>
+      <td>O</td>
+    </tr>
+    <tr>
+      <td>Spike</td>
+      <td>기간동안 Event 개수의 급격한 증가/감소 Schedule : 해당 스케쥴 시간의 Event 발생이 없는 경우</td>
+      <td>X</td>
+      <td>O</td>
+    </tr>
+    <tr>
+      <td>Change</td>
+      <td>Field의 Value 변경</td>
+      <td>X</td>
+      <td>O</td>
+    </tr>
+    <tr>
+      <td>New_term</td>
+      <td>Field의 Value가 새로운 값 나타남</td>
+      <td>X</td>
+      <td>O</td>
+    </tr>
+    <tr>
+      <td>Metric Aggregation</td>
+      <td>Field의 Value에 대한 min, max, avg, sum, cardinality, value_count의 임계값 초과/미만</td>
+      <td>X</td>
+      <td>O</td>
+    </tr>
+    <tr>
+      <td>Spike</td>
+      <td>Filed Value	Field의 Value에 대한 min, max, avg, sum, cardinality, value_count의 급격한 증가/감소</td>
+      <td>X</td>
+      <td>O</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>ElastAlert 구성 
+<img src="http://10.100.0.202:80/img/heimdall/heimdall_7.png" alt="ElastAlert" /></p>
+</blockquote>
+
+<h2 id="45-모니터링-분석을-위한-다양한-종류의-kibana-dashboard-구성">4.5. 모니터링 분석을 위한 다양한 종류의 Kibana Dashboard 구성</h2>
+<blockquote>
+  <p>ElasticSearch로 수집된 로그데이터를 각각의 그래프, DataTable,Map 등으로 표현될 수 있고..이것을 하나의  Dashboard로 구성이 가능합니다.</p>
+</blockquote>
+
+<p><img src="http://10.100.0.202:80/img/heimdall/heimdall_8.png" alt="Kibana" /></p>
+
+<h3 id="451-로그-기반-대쉬보드-구성-예제">4.5.1 로그 기반 대쉬보드 구성 예제</h3>
+<pre><code class="language-SATA">아래 그림은 사람인HR IT연구소의 푸쉬 전송 시스템의 로그를 기반으로 대쉬보드를 구성한 경우입니다.
+메시지 푸쉬 타입별 카운트를 DataTable/Line Graphe등으로 표시하고 총 전송개수 및 발송에 대한 수치는  Metric으로 표현했습니다. 
+데이터 분석 시간은 분/시간/일/월 등으로 범위지정도 가능합니다. 
+</code></pre>
+
+<p><img src="http://10.100.0.202:80/img/heimdall/heimdall_9.png" alt="어플리케이션 대쉬보드" /></p>
+
+<h3 id="452-metric-기반-대쉬보드-구성-예제">4.5.2 Metric 기반 대쉬보드 구성 예제</h3>
+<pre><code class="language-SATA">Metric 로그 수집이 추가되면서 Kibana에서 연동 시스템에 대한 정보도 대쉬보드를 추가하였습니다.
+아래 그림은 Kafka에 대해서 수집된 Metric을 기반으로 Dashboard를 구성한 예제입니다.
+연동 서비스에 대해서 Dashboard도 구성하여 문제 발생 시 어떤 서비스에 문제가 있는지 
+지연이 발생된 시간이나 수치를 분석함으로써 빠른 대응이 가능합니다.
+</code></pre>
+
+<p><img src="http://10.100.0.202:80/img/heimdall/heimdall_10.png" alt="Metric 대쉬보드" /></p>
+
+<h1 id="5-마무리">5. 마무리</h1>
+<p>Heimdall 로그 관제 시스템에 대한 정리는 여기서 마칩니다.  <br />
+로그에 대한 에러 및 분석에 대해서는 모든 개발자들이 고민하는 부분이고<br />
+각자만의 방식과 개발팀에 서비스에 따라 처리하는 방식들도 다양할 거 같습니다.<br />
+서비스인프라개발팀에서는 ELK 기반에서 로그에 대한 처리를 조금 더 쉽게 처리할 수 있게 고민하여 
+지금의 시스템이 구축하였습니다.</p>
+
+<p><strong>출처 및 참고 사이트</strong></p>
+
+<p>Kubernetes : <a href="https://kubernetes.io/ko/docs/concepts/overview/what-is-kubernetes/" target="_blank">https://kubernetes.io/ko/docs/concepts/overview/what-is-kubernetes/</a><br />
+Filebeat : <a href="https://www.elastic.co/kr/beats/filebeat" target="_blank">https://www.elastic.co/kr/beats/filebeat</a><br />
+Metricbeat : <a href="https://www.elastic.co/kr/beats/metricbeat" target="_blank">https://www.elastic.co/kr/beats/metricbeat</a><br />
+Kafka : <a href="https://kafka.apache.org/intro" target="_blank">https://kafka.apache.org/intro</a><br />
+Logstash : <a href="https://www.elastic.co/kr/logstash" target="_blank">https://www.elastic.co/kr/logstash</a><br />
+ElasticSearch : <a href="https://www.elastic.co/kr" target="_blank">https://www.elastic.co/kr</a></p>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+          
+            <a href="/tags#heimdall">heimdall</a>
+          
+            <a href="/tags#log system">log system</a>
+          
+            <a href="/tags#kibana">kibana</a>
+          
+            <a href="/tags#alert">alert</a>
+          
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+  <span class="sr-only">Share: </span>
+
+  
+  <!--- Share on Twitter -->
+    <a href="https://twitter.com/intent/tweet?text=Heimdall+-+%EB%A1%9C%EA%B7%B8+%EC%88%98%EC%A7%91+%EA%B4%80%EC%A0%9C+%EC%8B%9C%EC%8A%A4%ED%85%9C+http://10.100.0.202:80/2020-04-01-heimdall/"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
+      <span class="sr-only">Twitter</span>
+    </a>
+  
+
+  
+  <!--- Share on Facebook -->
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://10.100.0.202:80/2020-04-01-heimdall/"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
+      <span class="sr-only">Facebook</span>
+    </a>
+  
+
+  
+
+  
+  <!--- Share on LinkedIn -->
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://10.100.0.202:80/2020-04-01-heimdall/"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+      <span class="sr-only">LinkedIn</span>
+    </a>
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2020-03-24-elastic-apm-2/" data-toggle="tooltip" data-placement="top" title="Elastic APM 적용 해보기 - #2. 장점 및 Newrelic 비교">&larr; Previous Post</a>
+        </li>
+        
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+        </div>
+          
+        <div class="staticman-comments">
+          
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links"><li><a href="/feed.xml" title="RSS"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">RSS</span>
+              </a>
+            </li><li><a href="https://www.facebook.com/saramin.dream" title="Facebook"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">Facebook</span>
+              </a>
+            </li></ul>
+      <p class="copyright text-muted">
+      	Copyright © SaraminHR Tech Blog 2017
+      </p>
+          <!-- Please don't remove this, keep my open source work credited :) -->
+    <p class="theme-by text-muted">
+    </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+  
+  </body>
+</html>
