@@ -10,7 +10,7 @@
         <title>Heimdall - 로그 수집 관제 시스템</title>
         <description>
           
-          Heimdall - 로그 수집 관제 시스템 안녕하세요. 사람인HR IT연구소 서비스인프라개발팀 임종현입니다. 이번 블로그에서는 로그수집과 관제알림을 위해서 구축된 관제시스템 &quot;Heimdall&quot;에 대해서 공유하고자 합니다. 1. Heimdall 개요 1.1. Heimdall이란? 사람인HR에서 사용하던 기존 Argus 관제시스템에서 UI 및 기능을 개선한 새로운 관제시스템입니다. 1.2. Heimdall 주요 기능 어플리케이션 등의 로그를 수집하고 수집된 로그를 기반으로 검색이...
+          Heimdall - 로그 수집 관제 시스템 안녕하세요. 사람인HR IT연구소 서비스인프라개발팀 임종현입니다. 이번 블로그에서는 로그수집과 관제알림을 위해서 구축된 관제시스템 &quot;Heimdall&quot;에 대해서 공유하고자 합니다. 1. Heimdall 개요 1.1. Heimdall이란? 사람인HR에서 사용하던 기존 관제시스템에서 UI 및 기능을 개선한 관제시스템입니다. Heimdall 유래 북유럽 신화의 아스가르드의 수문장으로 아홉 우주의 만물을 보고 들을 수 있다고 합니다....
         </description>
         <pubDate>Wed, 01 Apr 2020 00:00:00 +0900</pubDate>
         <link>http://10.100.0.202:80/2020-04-01-heimdall/</link>
