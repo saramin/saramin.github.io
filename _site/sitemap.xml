@@ -41,6 +41,10 @@
 <lastmod>2020-04-01T00:00:00+09:00</lastmod>
 </url>
 <url>
+<loc>http://10.100.0.202/2020-05-01-k8s-cicd/</loc>
+<lastmod>2020-05-01T00:00:00+09:00</lastmod>
+</url>
+<url>
 <loc>http://10.100.0.202/aboutme/</loc>
 </url>
 <url>
@@ -51,5 +55,8 @@
 </url>
 <url>
 <loc>http://10.100.0.202/page2/</loc>
+</url>
+<url>
+<loc>http://10.100.0.202/page3/</loc>
 </url>
 </urlset>
