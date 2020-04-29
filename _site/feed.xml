@@ -7,6 +7,17 @@
     <atom:link href="http://10.100.0.202:80/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>K8S 인프라 CI/CD</title>
+        <description>
+          사내 Kubernetes인프라에 어플리케이션 빌드/배포 프로세스를 공유 - 
+          K8S 인프라 CI/CD 처리 사내 구축된 Kubernetes 인프라에 어플리케이션을 빌드하고 배포하는 프로세스에 대한 전반적인 설명 글입니다. 시작에 앞서 이 글은 Kubernetes 클러스터 환경 구축을 전제로 어플리케이션을 빌드하고 배포하는 과정의 프로세스를 설명하는 글이므로, 전반적인 Kubernetes의 구조와 개념에 대해서는 다루지 않음을 양해바랍니다. CI/CD(지속적 통합/지속적 배포) 는 각각 Continuous Integration, Continuous Delivery(또는 Deploy)의...
+        </description>
+        <pubDate>Fri, 01 May 2020 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2020-05-01-k8s-cicd/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2020-05-01-k8s-cicd/</guid>
+      </item>
+    
+      <item>
         <title>Heimdall - 로그 수집 관제 시스템</title>
         <description>
           
