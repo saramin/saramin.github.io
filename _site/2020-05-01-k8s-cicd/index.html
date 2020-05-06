@@ -416,9 +416,9 @@ gitlab-ci.yml에 작성된 파이프라인 스크립트가 실행되는 게 전�
 
 <span class="c1"># 스크립트에서 사용할 변수 설정</span>
 <span class="na">variables</span><span class="pi">:</span>
-  <span class="na">CI_REGISTRY</span><span class="pi">:</span> <span class="s">sri-docker-registry.saraminhr.co.kr:5000/iris</span>
+  <span class="na">CI_REGISTRY</span><span class="pi">:</span> <span class="s">docker-registry.saramin.co.kr/iris</span>
   <span class="na">BUILD_TAG</span><span class="pi">:</span> <span class="s">$CI_COMMIT_REF_NAME-$CI_PIPELINE_ID</span>
-  <span class="na">WEBHOOK_URL</span><span class="pi">:</span> <span class="s">test.sid-dev.saraminhr.co.kr/api/auto-update</span>
+  <span class="na">WEBHOOK_URL</span><span class="pi">:</span> <span class="s">webhook.saramin.co.kr/api/auto-update</span>
  
 <span class="c1"># maven 빌드 처리 </span>
 <span class="na">compile</span><span class="pi">:</span>
@@ -478,8 +478,8 @@ gitlab-ci.yml에 작성된 파이프라인 스크립트가 실행되는 게 전�
 <p>Docekr 이미지 빌드를 하기 위해서는 <strong><code class="highlighter-rouge">Dockerfile</code></strong> 이 존재해야 하며, Dockerfile 내용은 아래와 같이 정말 <strong>간단</strong>합니다.<br />
 spring boot 기반의 어플리케이션이라 빌드된 jar파일 하나만 copy를 하면 되고, java 명령어로 실행을 시켜주는게 다입니다.</p>
 
-<pre><code class="language-Dockerfile">FROM sri-docker-registry.saraminhr.co.kr:5000/alpine/openjdk-8:1.1.0 
-LABEL maintainer="kangjd81@saramin.co.kr"
+<pre><code class="language-Dockerfile">FROM docker-registry.saramin.co.kr/alpine/openjdk-8:1.1.0 
+LABEL maintainer="user@saramin.co.kr"
 
 RUN mkdir -p /opt/app
 COPY ./iris/target /opt/app
@@ -608,7 +608,7 @@ node.js 의 npm 과 비슷한 형태로 Kubernetes 패키지 배포를 가능하
 
 <span class="c1">## 2. image info</span>
 <span class="na">image</span><span class="pi">:</span>
-  <span class="na">repository</span><span class="pi">:</span> <span class="s">sri-docker-registry.saraminhr.co.kr:5000/iris</span>
+  <span class="na">repository</span><span class="pi">:</span> <span class="s">docker-registry.saramin.co.kr/iris</span>
   <span class="na">tag</span><span class="pi">:</span> <span class="s">master-10502</span>
   <span class="na">pullPolicy</span><span class="pi">:</span> <span class="s">IfNotPresent</span>
 
@@ -691,7 +691,7 @@ Rancher Catalog - Chart List</p>
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">questions</span><span class="pi">:</span> 
 <span class="c1">## 2. image info</span>
 <span class="pi">-</span> <span class="na">variable</span><span class="pi">:</span> <span class="s">image.repository</span>
-  <span class="na">default</span><span class="pi">:</span> <span class="s2">"</span><span class="s">sri-docker-registry.saraminhr.co.kr:5000/iris"</span>
+  <span class="na">default</span><span class="pi">:</span> <span class="s2">"</span><span class="s">docker-registry.saramin.co.kr/iris"</span>
   <span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Deploy</span><span class="nv"> </span><span class="s">Image</span><span class="nv"> </span><span class="s">Name"</span>
   <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
   <span class="na">label</span><span class="pi">:</span> <span class="s">Image Name</span>
