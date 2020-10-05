@@ -7,6 +7,17 @@
     <atom:link href="http://10.100.0.202:80/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>등용문S 개발기 (채용홈페이지)</title>
+        <description>
+          FE개발자 주도로 스토리보드를 그리고 디자인을 생각하며 화면을 개발하다 - 
+          안녕하세요. 사람인HR IT연구소 UI개발2팀 정영환입니다. 등용문S 프로젝트를 진행하면서 겪은 프론트엔드 개발자로서의 개발 경험을 공유하고자 합니다. 등용문S은 HR솔루션으로써 이력서 접수, 심사, 발표를 한번에 관리하는 기업 맞춤형 채용관리 시스템입니다. 기존 등용문 3.0과 5.0의 결합체이며, 기존의 채용홈페이지와 채용관리자를 새롭게 구축 하였습니다. 또한, 기업관리자가 쉽게 홈페이지를 커스터마이징 할 수 있도록 채용홈페이지 빌더도 업그레이드 되었습니다....
+        </description>
+        <pubDate>Thu, 01 Oct 2020 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2020-10-01-s/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2020-10-01-s/</guid>
+      </item>
+    
+      <item>
         <title>K8S 인프라 CI/CD</title>
         <description>
           사내 Kubernetes인프라에 어플리케이션 빌드/배포 프로세스를 공유 - 
