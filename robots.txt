@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: http://saramin.github.io/sitemap.xml

@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+
+  <title>Elastic APM 적용 해보기 - #1. 소개 및 설치</title>
+
+  <meta name="author" content="" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="SaraminHR Tech - SaraminHR Tech Blog / 사람인HR 기술 블로그" href="/feed.xml" />
+
+  
+
+  
+
+  
+
+
+  
+    
+      
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="Elastic APM 적용 해보기 - #1. 소개 및 설치" />
+  
+
+   
+  <meta property="og:description" content="사람인HR에서 Elastic APM을 적용한 경험에 대해서 공유하고자 합니다. 안녕하세요. 사람인HR IT연구소 서비스인프라개발팀 임재호입니다. 사람인HR에서 서비스 모니터링을 위한 APM시스템을 구축 하였습니다. 시스템을 구축하며 조사한 자료에 대해서 공유 하고자 합니다. 목차 1. APM 소개 2. APM 설치 및 구성 3. Kibana 화면을 통한 APM 데이터 확인 4. 도입시 장점 및 기대 효과...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://10.100.0.202:80/2020-03-24-elastic-apm-1/" />
+  <link rel="canonical" href="http://10.100.0.202:80/2020-03-24-elastic-apm-1/" />
+  
+
+  
+  <meta property="og:image" content="http://10.100.0.202:80/img/avatar-icon.png" />
+  
+
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@" />
+  <meta name="twitter:creator" content="@" />
+
+  
+  <meta name="twitter:title" content="Elastic APM 적용 해보기 - #1. 소개 및 설치" />
+  
+
+  
+  <meta name="twitter:description" content="사람인HR에서 Elastic APM을 적용한 경험에 대해서 공유하고자 합니다. 안녕하세요. 사람인HR IT연구소 서비스인프라개발팀 임재호입니다. 사람인HR에서 서비스 모니터링을 위한 APM시스템을 구축 하였습니다. 시스템을 구축하며 조사한 자료에 대해서 공유 하고자 합니다. 목차 1. APM 소개 2. APM 설치 및 구성 3. Kibana 화면을 통한 APM 데이터 확인 4. 도입시 장점 및 기대 효과...">
+  
+
+  
+  <meta name="twitter:image" content="http://10.100.0.202:80/img/avatar-icon.png" />
+  
+
+  
+
+  
+
+</head>
+
+
+  <body>
+
+    
+
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://10.100.0.202:80">SaraminHR Tech</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+
+
+
+
+
+
+<a href="http://www.saramin.co.kr">saramin</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://10.100.0.202:80">
+	      <img class="avatar-img" src="/img/avatar-icon.png" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+  <div id="header-big-imgs" data-num-img=1
+    
+	  
+	  
+	    
+		  data-img-src-1="/img/apm/apm_bg.png"
+		
+	  
+    
+  ></div>
+
+
+<header class="header-section has-img">
+
+<div class="big-img intro-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>Elastic APM 적용 해보기 - #1. 소개 및 설치</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted by 임재호  on March 24, 2020</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+  <span class='img-desc'></span>
+</div>
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>Elastic APM 적용 해보기 - #1. 소개 및 설치</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted by 임재호  on March 24, 2020</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      
+
+      <article role="main" class="blog-post">
+        <p>사람인HR에서 Elastic APM을 적용한 경험에 대해서 공유하고자 합니다.</p>
+
+<pre><code class="language-SATA">안녕하세요. 사람인HR IT연구소 서비스인프라개발팀 임재호입니다.
+사람인HR에서 서비스 모니터링을 위한 APM시스템을 구축 하였습니다.
+시스템을 구축하며 조사한 자료에 대해서 공유 하고자 합니다.
+</code></pre>
+
+<p>목차<br />
+<strong><a href="#1">1. APM 소개</a><br />
+<a href="#2">2. APM 설치 및 구성</a><br />
+<a href="#3">3. Kibana 화면을 통한 APM 데이터 확인</a><br />
+<a href="http://10.100.0.202:80/2020-03-24-elastic-apm-2/#4" target="_blank">4. 도입시 장점 및 기대 효과</a><br />
+<a href="http://10.100.0.202:80/2020-03-24-elastic-apm-2/#add" target="_blank">부록. Elastic vs Newrelic의 비교</a><br /></strong></p>
+<h5 id="elasti-apm-도입시의-장점-및-newrelic과의-비교는-2편을-참고해-주세요"><em>« Elasti APM 도입시의 장점 및 Newrelic과의 비교는 <a href="http://10.100.0.202:80/2020-03-24-elastic-apm-2" target="_blank">2편을 참고</a>해 주세요»</em></h5>
+<hr />
+<p><a name="1"></a><br /></p>
+<h2 id="1-apm-소개">1. APM 소개</h2>
+<p>저희 팀에서는 여러 APM 솔루션 중 다음과 같은 이유로 Elastic APM을 선정하여 사용하였습니다.</p>
+<ul>
+  <li>팀내에 이미 ELK 스택에 대한 사용 경험이 있음</li>
+  <li>Basic License(무료 사용)만으로 APM의 전체적인 기능을 사용 가능</li>
+  <li>이미 Metric, Log에 대한 모니터링 시스템을 구축하여 사용하고 있음</li>
+</ul>
+
+<p>Elastic에서 APM뿐아니라 Metric, Log에 대한 All-In-One 시스템을 제공해 주고 있어서 모니터링이 필요하신 분들을 한번쯤 사용해 보면 좋은 기회가 될것 같습니다.</p>
+
+<h3 id="1-1-apm-이란">1-1. APM 이란</h3>
+<p>APM은 Application Performance Monitoring의 약어로,  Application에 대한 <strong>성능정보</strong> 및 발생한 <strong>Error정보</strong> 그리고 Application이 동작중인 서버의 기본적인 <strong>Metric정보</strong>를 수집 할 수 있는 기능을 지원합니다.<br />
+또한 MicroService 환경에서 서비스를 구성하는 여러 Application간의 Request를 하나의 Trace로 묶어서 추적 할 수 있는 <strong>분산 Tracing</strong>(distributed tracing)에 대한 기능도 지원합니다.<br />
+APM은 위와 같이 수집된 여러 데이터를 바탕으로 하여  Application에 지연이 발생하였을때  <strong>지연에 대한 병목 구간</strong>을 찾아 낼 수 있는 모니터링 서비스 입니다.</p>
+
+<h3 id="1-2-apm-시스템-구성">1-2. APM 시스템 구성</h3>
+<p>APM에서 데이터를 수집하기 위해서는 Agent와 서버가 모두 필요하며 아래와 같은 시스템으로 구성됩니다.</p>
+
+<p><img src="http://10.100.0.202:80/img/apm/apm_archtecture.png" alt="Elastic APM 시스템 구성도" /></p>
+
+<p>Elastic APM은 데이터를 수집 하기 위한 APM Agent와 수집된 데이터의 가공을 위한 APM Server로 구성됩니다<br />
+APM Server를 통해 수집된 데이터는 최종적으로 Elasticsearch에 적제되어 Kibana의 APM UI를 이용하여 조회 가능 합니다.</p>
+<ul>
+  <li>APM Agent
+    <ul>
+      <li>실시간으로 Performance 및 error 데이터를 수집 하여 APM Server로 전달</li>
+      <li>APM 서버 연동 실패시 데이터 저장을 위한 memory buffer가 존재 함</li>
+    </ul>
+  </li>
+  <li>APM Server
+    <ul>
+      <li>APM Agent에서 수집된 데이터에 대한 유효성 체크</li>
+      <li>수집된 데이터를 Elasticsearch의 Document 포멧으로 변환</li>
+    </ul>
+  </li>
+  <li>Elasticsearch
+    <ul>
+      <li>APM 데이터에 대한 저장, 검색, 분석을 지원</li>
+      <li>성능 데이터에 대한 집계 기능 제공</li>
+    </ul>
+  </li>
+  <li>Kibana
+    <ul>
+      <li>APM UI에서 데이터 필터링 및 Service, Trace, Trasaction, Error, Metric에 대한 Overview 및 상세  기능 제공</li>
+      <li>Dashboard/Visualization을 이용하여 사용자가 원하는 형태로 데이터 가시화 가능</li>
+      <li>APM Agent Configuration, Machine Learning 통합(일부 License 필요) 기능 지원</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="1-3-elastic-지원-apm-agent">1-3. Elastic 지원 APM Agent</h3>
+<p>Elastic에서는 다양한 언어로된 APM Agent를 지원하고 있습니다. <br />
+지원하는 언어들에서는 APM을 위한 별도의 Agent나 연동 모듈을 개발하지 않고 사용가능 합니다.</p>
+<ul>
+  <li><a href="https://www.elastic.co/guide/en/apm/agent/go/1.x/introduction.html">Go agent</a></li>
+  <li><a href="https://www.elastic.co/guide/en/apm/agent/java/1.x/intro.html">JAVA agent</a></li>
+  <li><a href="https://www.elastic.co/guide/en/apm/agent/dotnet/1.x/intro.html">.NET agent</a></li>
+  <li><a href="https://www.elastic.co/guide/en/apm/agent/nodejs/3.x/intro.html">Node.js agent</a></li>
+  <li><a href="https://www.elastic.co/guide/en/apm/agent/python/5.x/getting-started.html">Python agent</a></li>
+  <li><a href="https://www.elastic.co/guide/en/apm/agent/ruby/3.x/introduction.html">Ruby agent</a></li>
+  <li><a href="https://www.elastic.co/guide/en/apm/agent/rum-js/5.x/intro.html">JavaScript RUM(Real User Monitoring) agent</a>
+    <blockquote>
+      <p>JavaScript RUM : RUM은 Browser에서 실행되는 성능 데이터 및 metric을 수집 하는 것으로 아래의 정보를 수집함</p>
+      <ul>
+        <li>Page Load Metric</li>
+        <li>정적 데이터 Load 시간</li>
+        <li>API Request(XMLHttpRequest and Fetch)</li>
+      </ul>
+    </blockquote>
+  </li>
+</ul>
+
+<h3 id="1-4-apm-데이터-모델">1-4. APM 데이터 모델</h3>
+<p>APM에서 사용되는 성능 데이터는 Transaction, Span, Error, Metric, Metadata와 같은 데이터 모델로 관리 됩니다. <br />
+아래는 데이터 모델 중  Transaction, Span의 관계를 좀더 쉽게 이해하기 위한 그림입니다.
+<img src="http://10.100.0.202:80/img/apm/distributed_tracing.png" alt="" /></p>
+
+<p><strong>1. Transaction</strong></p>
+
+<ul>
+  <li>Application내에서 측정되는 최상위 작업 (ex. Server의 Request, Batch Job, Background Job 등)</li>
+  <li>데이터 구성
+    <ul>
+      <li>Event Timestamp</li>
+      <li>ID, type, name</li>
+      <li>Event가 생성된 환경에 대한 데이터</li>
+    </ul>
+  </li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>환경</th>
+      <th>환경별 수집 데이터</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Server</td>
+      <td>environment, framework, language, etc.</td>
+    </tr>
+    <tr>
+      <td>Host</td>
+      <td>architecture, hostname, IP, etc.</td>
+    </tr>
+    <tr>
+      <td>Process</td>
+      <td>args, PID, PPID, etc.</td>
+    </tr>
+    <tr>
+      <td>URL</td>
+      <td>full, domain, port, query, etc.</td>
+    </tr>
+    <tr>
+      <td>User</td>
+      <td>(if supplied) email, ID, username, etc.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>2. Span</strong></p>
+
+<ul>
+  <li>실행을 추적하기 위한 논리 작업 단위</li>
+  <li>실행되는 Code의 시작 및 소요시간 정보가 있음</li>
+  <li>span 사이의 부모/자식 관계를 가질 수 있음</li>
+  <li>데이터 구성
+    <ul>
+      <li><strong>transaction.id</strong>, parent.id</li>
+      <li>start time, <strong>duration</strong></li>
+      <li>name, type, stacktrace</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>3. Error</strong></p>
+
+<ul>
+  <li>Application에서 발생한 Error Exception정보 및 로그</li>
+  <li>데이터 구성
+    <ul>
+      <li><strong>Error 발생위치</strong></li>
+      <li>Stacktrace 정보
+        <ul>
+          <li>Error Exception</li>
+          <li>Error log</li>
+        </ul>
+      </li>
+      <li>transaction.id</li>
+      <li>Error Event가 생성된 환경에 대한 데이터</li>
+    </ul>
+
+    <table>
+      <thead>
+        <tr>
+          <th>환경</th>
+          <th>환경별 수집 데이터</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Server</td>
+          <td>environment, framework, language, etc.</td>
+        </tr>
+        <tr>
+          <td>Host</td>
+          <td>architecture, hostname, IP, etc.</td>
+        </tr>
+        <tr>
+          <td>Process</td>
+          <td>args, PID, PPID, etc.</td>
+        </tr>
+        <tr>
+          <td>URL</td>
+          <td>full, domain, port, query, etc.</td>
+        </tr>
+        <tr>
+          <td>User</td>
+          <td>(if supplied) email, ID, username, etc.</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ul>
+
+<p><strong>4. Metric</strong></p>
+
+<ul>
+  <li>Agent Host에 대한 CPU, Memory 등의 기본 Metric 정보를 자동으로 수집</li>
+  <li>JAVA의 JVM Metric이나 Go의 런타임 Metric도 수집 가능</li>
+</ul>
+
+<p><strong>5. Metadata</strong></p>
+
+<ul>
+  <li>Event에 대한 부가적인 정보</li>
+  <li>종류
+    <ul>
+      <li>Label</li>
+    </ul>
+
+    <table>
+      <thead>
+        <tr>
+          <th>속성</th>
+          <th>설명</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Indexed</td>
+          <td>Yes</td>
+        </tr>
+        <tr>
+          <td>Elasticsearch type</td>
+          <td>object</td>
+        </tr>
+        <tr>
+          <td>Elasticsearch field</td>
+          <td>labels</td>
+        </tr>
+        <tr>
+          <td>Apply</td>
+          <td>Transactions | Spans | Errors</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <ul>
+      <li>Custom context</li>
+    </ul>
+
+    <table>
+      <thead>
+        <tr>
+          <th>속성</th>
+          <th>설명</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Indexed</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td>Elasticsearch type</td>
+          <td>object</td>
+        </tr>
+        <tr>
+          <td>Elasticsearch field</td>
+          <td>transaction.custom | error.custom</td>
+        </tr>
+        <tr>
+          <td>Apply</td>
+          <td>Transactions | Errors</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <ul>
+      <li>User context</li>
+    </ul>
+
+    <table>
+      <thead>
+        <tr>
+          <th>속성</th>
+          <th>설명</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Indexed</td>
+          <td>Yes</td>
+        </tr>
+        <tr>
+          <td>Elasticsearch type</td>
+          <td>keywords</td>
+        </tr>
+        <tr>
+          <td>Elasticsearch field</td>
+          <td>user.email | user.name | user.id</td>
+        </tr>
+        <tr>
+          <td>Apply</td>
+          <td>Transactions | Errors</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ul>
+
+<p><a name="2"></a><br /></p>
+<h2 id="2-apm-설치-및-구성">2. APM 설치 및 구성</h2>
+<p>APM 시스템 구축을 위한 서버 및 Agent(java, php)를 설치 하는 방법에 대해서 간단히 설명하도록 하겠습니다.</p>
+
+<h3 id="2-1-apm-서버-설치-및-설정">2-1. APM 서버 설치 및 설정</h3>
+<p>APM 서버는 Elasticsearch 버전과 호환되는 버전으로 설치 하면됩니다.<br />
+현재 Elasticsearch 7.3.2를 사용중 이므로 APM Server도 7.3.2를 설치 하도록 하겠습니다.<br />
+APM 서버를 설치하는 방법은 다양하지만 저희는 kubernetes 환경을 구축하여 사용중 이기 때문에 kubernetes 환경 기반의 설치를 진행하였습니다.<br />
+(참고 : <a href="https://www.elastic.co/guide/en/apm/server/current/installing.html">Elastic APM Server Install 방법</a>)</p>
+
+<p><strong>1. APM 서버 설치</strong></p>
+
+<p>APM 서버 설치를 위한 Deployment 및 NodePort Service YAML</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apiVersion: apps/v1
+kind: Deployment
+metadata:
+	labels:
+		app.kubernetes.io/name: apmserver
+	name: apm-server
+spec:
+	replicas: 1
+	selector:
+		matchLabels:
+			app.kubernetes.io/name: apmserver
+	template:
+		metadata:
+			labels:
+				app.kubernetes.io/name: apmserver
+		spec:
+			containers:
+			- name: apmserver
+				image: docker.elastic.co/apm/apm-server:7.3.2
+				ports:
+				- containerPort: 8200
+					name: http
+					protocol: TCP
+				resources: {}
+				volumeMounts:
+				- mountPath: /usr/share/apm-server/apm-server.yml
+					name: apmserver-config
+					readOnly: true
+					subPath: apm-server.yml
+			volumes:
+			- configMap:
+					defaultMode: 420
+					name: apmserver-config
+				name: apmserver-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+	name: apmserver-nodeport
+spec:
+	type: NodePort
+	selector:
+		app.kubernetes.io/name: apmserver
+	ports:
+	- name: apmserver-nodeport
+		nodePort: 30082
+		port: 8200
+		protocol: TCP
+		targetPort: 8200
+</code></pre></div></div>
+<p>APM 서버의 설정 파일은 별도의 Kubernetes ConfigMap을 이용하여 설정 합니다.</p>
+
+<p><strong>2. APM 서버 설정 파일 설치</strong></p>
+
+<p>APM 서버 설정 ConfigMap YAML</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apiVersion: v1
+kind: ConfigMap
+metadata:
+	labels:
+		app.kubernetes.io/name: apmserver
+	name: apmserver-config
+data:
+	apm-server.yml: |-
+		apm-server:
+			host: "0.0.0.0:8200"
+		output.elasticsearch:
+			hosts: [ "&lt;&lt;elasticsearch domain&gt;&gt;:9200" ]
+			index: "apm-%{[observer.version]}-%{[processor.event]}"
+</code></pre></div></div>
+<p>Elasticsearch로 저장을 위한 output 설정을 해주어야 합니다.<br />
+(APM Server config에 대한 상세 정보 : <a href="https://www.elastic.co/guide/en/apm/server/current/configuring-howto-apm-server.html">Elastic APM Server Config</a>)</p>
+
+<p><strong>3. APM 서버 설치 확인</strong></p>
+
+<p>Kubernetes에 YAML을 적용하고 “http://« kubernetes node ip »:30082”로 접속하면 아래와 같은 결과 화면을 확인 할 수 있습니다.</p>
+
+<p><img src="http://10.100.0.202:80/img/apm/apmserver_result.png" alt="" /></p>
+
+<p>데이터가 정상적으로 조회 되면 APM Server의 설치가 완료된 것입니다.</p>
+
+<h3 id="2-2-apm-agent-설치">2-2. APM Agent 설치</h3>
+<p>APM Agent는 Application의 library형태로 제공되기 때문에 Application이 개발된 언어에 맞는 Agent를 설치 해야 합니다.<br />
+Elastic에서 공식적으로 지원하는 Agent는 설치 후 별다른 설정을 하지 않아도 Request/Response, HTTP 연동, DB 연동등에 대한 성능 정보를 수집 할 수 있습니다.</p>
+
+<h4 id="2-2-1-java-agent에-대한-설치-및-설정-방법">2-2-1. JAVA Agent에 대한 설치 및 설정 방법</h4>
+<p>Elastic APM JAVA Agent를 설치 하는 방법은 manual, automatic, programmatic 세가지 방법이 존재 하지만 해당 문서에서는 manual방법에 대해서만 설명합니다.<br />
+다른 설치 방법에 대해서는 아래 참고 내용을 확인 부탁드립니다.<br />
+(참고 : <a href="https://www.elastic.co/guide/en/apm/agent/java/1.x/setup.html">Elastic APM JAVA Agent Install 방법</a>)</p>
+
+<p><strong>1. 설치를 위한 APM Agent jar 파일 다운로드</strong></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## 수동으로 jar 파일을 다운로드함
+##   - maven repository에서 다운로드
+다운로드 링크 : https://search.maven.org/search?q=g:co.elastic.apm%20AND%20a:elastic-apm-agent
+</code></pre></div></div>
+
+<p><strong>2. Application 실행시 “-javaagent” 옵션을 설정 하여 APM Agent를 설치</strong></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>java -javaagent:&lt;download&gt;/&lt;path&gt;/elastic-apm-agent.jar 
+		-Delastic.apm.server_urls=http://&lt;&lt; kubernetes node ip &gt;&gt;:30082
+		-Delastic.apm.service_name=demoappjava-es
+		-Delastic.apm.environment=dev
+		-Delastic.apm.application_packages=com.example
+	 -jar demoappjava.jar
+</code></pre></div></div>
+<p>실행시 설정한 Command Line Parameter는 아래에 정리 하였습니다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>항목</th>
+      <th>설명</th>
+      <th>참고 링크</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>service_name</td>
+      <td>Application의 APM서비스 이름 (kibana ui에 서비스 구분자로 사용됨)</td>
+      <td><a href="https://www.elastic.co/guide/en/apm/agent/java/1.x/config-core.html#config-service-name">service_name 상세</a></td>
+    </tr>
+    <tr>
+      <td>environment</td>
+      <td>Application의 실행 환경 정보 (kibana ui에서 필터링 항목을 사용가능)</td>
+      <td><a href="https://www.elastic.co/guide/en/apm/agent/java/1.x/config-core.html#config-environment">environment 상세</a></td>
+    </tr>
+    <tr>
+      <td>application_packages</td>
+      <td>Application의 최상위 Package 이름(Trace하는 Frame의 in-app구분을 위해 사용, 이외는 library로 구분됨)</td>
+      <td><a href="https://www.elastic.co/guide/en/apm/agent/java/1.x/config-stacktrace.html#config-application-packages">application_package 상세</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>3. 추가 설정 항목</strong></p>
+
+<p>기본적인 설정 항목 이외에도 Method 단위의 성능 데이터 수집이나 APM 수집 데이터 양을 조절을 위한 다양한 설정 항목이 있습니다.<br />
+전체 설정 항목은 <a href="https://www.elastic.co/guide/en/apm/agent/java/1.x/configuration.html">Elastic APM JAVA Agent 설정 문서</a>를 참고 하시면 됩니다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>항목</th>
+      <th>설명</th>
+      <th>default값</th>
+      <th>참고 링크</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>transaction_sample_rate</td>
+      <td>Transaction 데이터 수집 비율로 1.0 ~ 0.0까지 설정 가능 (샘플링에서 제외된 Transaction은 수집 되고 해당 Transaction의 Span만 수집 되지 않음)</td>
+      <td>1.0</td>
+      <td><a href="https://www.elastic.co/guide/en/apm/agent/java/1.x/config-core.html#config-transaction-sample-rate">transaction_sample_rate 상세</a></td>
+    </tr>
+    <tr>
+      <td>trace_methods</td>
+      <td>Transaction 데이터 수집을 위한 method 목록(“*“를 이용하여 다중 설정 가능 )<br /> ex) * org.example.MyClas*#myMe*(*.String, int[])</td>
+      <td>N/A</td>
+      <td><a href="https://www.elastic.co/guide/en/apm/agent/java/1.x/config-core.html#config-trace-methods">trace_methods 상세</a></td>
+    </tr>
+    <tr>
+      <td>stack_trace_limit</td>
+      <td>StackTrace를 수집할 Frame 최대 개수 (많은 frame을 수집하면 APM 데이터 수집 성능에 영향이 있을 수 있음)</td>
+      <td>50</td>
+      <td><a href="https://www.elastic.co/guide/en/apm/agent/java/1.x/config-stacktrace.html#config-stack-trace-limit">stack_trace_limit 상세</a></td>
+    </tr>
+    <tr>
+      <td>disable_instrumentations</td>
+      <td>APM으로 계측이 불필요한 모듈에 대한 설정</td>
+      <td>incubating</td>
+      <td><a href="https://www.elastic.co/guide/en/apm/agent/java/1.x/config-core.html#config-disable-instrumentations">disable_instrumentations 상세</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>4. JAVA Agent 동작 원리</strong></p>
+
+<p>JAVA Agent는 APM 성능 데이터 수집을 위해 필요한 Code들을 <a href="https://bytebuddy.net/#/">Byte Buddy</a>라는 library를 이용하여 Compile된 Application Byte Code에 직접 삽입합니다.<br />
+따라서, Agent를 Command Line Parameter로 설정만 해주면 별도의 BizLogic 수정 없이 APM 성능 데이터 수집이 가능 합니다. 
+<img src="http://10.100.0.202:80/img/apm/byte_buddy.png" alt="Byte Buddy" /></p>
+
+<h4 id="2-2-2-php를-위한-apm-agent-설치">2-2-2. PHP를 위한 APM Agent 설치</h4>
+<p>Elastic APM에서 공식적으로 지원하는 PHP Agent는 존재 하지 않습니다.<br />
+그러나 Elastic Engineer인 <a href="https://github.com/philkra">“Philip Krauss”</a>가 개발하여 공개한 <a href="https://github.com/philkra/elastic-apm-php-agent">PHP Agent library</a>가 있습니다.<br />
+해당 문서에서는 “Philip Krauss”가 개발한 Agent library를 이용하여 PHP Application에 Elastic APM을 적용하는 방법을 설명합니다.</p>
+
+<p>먼저 Agent library에서 제공하는 기능에 대해서 살펴 보면 아래와 같습니다.</p>
+
+<ul>
+  <li>APM Agent 사용을 위한 객체 생성 및 Config 설정</li>
+  <li>Transaction 데이터 전송을 위한 코드 작성 및 데이터 설정 기능 제공</li>
+  <li>Span 데이터 전송을 위한 코드 작성 및 데이터 설정 기능 제공</li>
+  <li>Transaction에 Span binding 기능 제공</li>
+  <li>Exception을 기반으로 이용하여 Error 데이터를 capture 할 수 있는 기능 제공</li>
+  <li>외부 연동 시 HTTP Header에 Tracing과 관련된 데이터를 생성 해주는 기능 제공 (W3C의 Trace 규격 수용)
+  (단, Request Header에 삽입은 별도의 코딩 필요)</li>
+</ul>
+
+<p><strong>1.   composer를 이용한 Agent library 설치</strong></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## "php.ini" 파일에 "curl" extension 추가 필요 (아래는 개인 환경에 따라 다름)
+vi ../php.ini
+	extension="php_curl.so"
+
+## composer.json 파일 수정 후 composer update
+## APM Server가 7.3.2 이므로 elastic-apm-php-agent library도 호환 가능한 7.0.0-RC1 이상의 버전 설치 필요
+vi ../conposer.json
+	"require" : {
+				...
+				"philkra/elastic-apm-php-agent" : "&gt;=7.0.0-RC1" 
+		},
+</code></pre></div></div>
+<ul>
+  <li>참고 자료 : <a href="https://github.com/philkra/elastic-apm-php-agent/blob/master/docs/install.md">설치 방법 참고 링크</a>, <a href="https://packagist.org/packages/philkra/elastic-apm-php-agent">php library 다운로드 링크</a></li>
+</ul>
+
+<p><strong>2. Agent 생성 및 Config 설정</strong></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	$this-&gt;agent = new Agent( [
+	 'appName' =&gt; 'demoappphp-es',                             ## apm application의 서비스 이름 (kibana ui에 서비스 구분자로 사용됨)
+	 'environment' =&gt; 'dev',                                    ## application 구동 환경
+	 'serverUrl' =&gt; 'http://&lt;&lt; kubernetes node ip &gt;&gt;:30082',     ## APM Server URL
+	]);
+</code></pre></div></div>
+
+<p><strong>3. Transaction 및 Span 생성</strong></p>
+
+<p>PHP인 경우에는 Application의 성능을 측정 하고자 하는 위치의 Source Code에 직접 Transaction과 Span 생성을 위한 Code를 작성해 주어야 합니다.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public function test()
+	{
+			/* for APM - start*/
+			$trxName = get_class($this).' - test';
+			$transaction = $this-&gt;agent-&gt;startTransaction( $trxName );                       # Transaction 생성
+
+			$span = $this-&gt;agent-&gt;factory()-&gt;newSpan('SELECT php_user', $transaction);     # span 생성
+			$span-&gt;setType('db.mysql');                                                      # span의 type 지정
+			$span-&gt;start();                                                                  # span 시작
+			/* for APM - end*/
+
+			.... (Application 코드)
+
+			/* for APM - start*/
+			$span-&gt;stop();                                                                   # span 종료
+			$this-&gt;agent-&gt;putEvent($span);                                                    # span을 Event로 등록 
+																																								#    - Transaction이 종료되는 시점에 Transaction과 Span 데이터가 한번에 APM 서버로 전송됨
+
+			$this-&gt;agent-&gt;stopTransaction($transaction-&gt;getTransactionName(),[          # Trasaction 종료
+					'result' =&gt; 'HTTP 2xx',
+					'type' =&gt; 'request'
+			]);
+			/* for APM - end*/
+
+			return $return_value;
+	}
+</code></pre></div></div>
+
+<p><strong>4. Exception Capture</strong></p>
+
+<p>Exception 정보는 captureThrowable Method를 이용하여 쉽게 수집 할 수 있습니다.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	try {
+	.... (Application 코드)
+}
+catch (Exception $e) {
+	 /* for APM - start*/
+	 $this-&gt;agent-&gt;captureThrowable($e, [], $transaction);             # Exception Capture
+	 /* for APM - end*/
+}
+</code></pre></div></div>
+
+<p><strong>5. 외부 Application으로 HTTP 연동시 Trance ID를 전달</strong></p>
+
+<p>Application 외부 연동시 분산 trace를 위한 값을 HTTP Header로 전달<br />
+(<a href="https://www.w3.org/TR/trace-context/#header-name">W3C의 trace 규격</a>을 따르고 있음)</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$request = $client-&gt;request('GET', $url, [
+ ## Http Header 값으로 tarce 정보를 전달
+ // 'headers' =&gt; [DistributedTracing::HEADER_NAME =&gt; $span-&gt;getDistributedTracing()]
+ ## TraceFlag를 00 --&gt; 01로 전달하도록 임의로 header value 조정 (현재 php-agent library에서는 TraceFlag 변경 기능을 지원하지 않음)
+ ## Elastic APM에서 분사 Tracing을 위해서는 Flag값을 01로 설정해 주어야 함
+ 'headers' =&gt; [DistributedTracing::HEADER_NAME =&gt; substr($span-&gt;getDistributedTracing(),0,-3).'-01']    
+]);
+</code></pre></div></div>
+
+<p><a name="3"></a><br /></p>
+<h2 id="3-kibana-화면을-통한-apm-데이터-확인">3. Kibana 화면을 통한 APM 데이터 확인</h2>
+<p>kibana Basic License를 설치 하면 APM에 대한 데이터를 확인 할 수 있는 APM 전용 UI Plug-in이 같이 설치가 되며, Kibana를 접속하면 아래의 화면과 같이 해당 메뉴를 확인 할 수 있습니다.
+<img src="http://10.100.0.202:80/img/apm/kibana_menu.png" alt="" /></p>
+
+<p>APM 메뉴를 클릭 후 Service를 선택하면 Transaction, Error, Metric등을 확인 할 수 있는 메뉴들이 있습니다.</p>
+<h5 id="transaction-확인">Transaction 확인</h5>
+<p>Transaction을 선택하였을 경우 Transaction에 대한 상세 내용을 확인 할수 있는 화면 예시 입니다.
+<a href="http://10.100.0.202:80/img/apm/transaction_detail.png" target="_blank"><img src="http://10.100.0.202:80/img/apm/transaction_detail.png" /></a></p>
+
+<h5 id="error-확인">Error 확인</h5>
+<p>Error 메뉴를 선택하였을 경우 Transaction에 대한 상세 내용을 확인 할수 있는 화면 예시 입니다.
+<a href="http://10.100.0.202:80/img/apm/error_detail.png" target="_blank"><img src="http://10.100.0.202:80/img/apm/error_detail.png" /></a></p>
+
+<h5 id="metric-확인">Metric 확인</h5>
+<p>Metric 메뉴를 선택하였을 경우 Transaction에 대한 상세 내용을 확인 할수 있는 화면 예시 입니다.
+<a href="http://10.100.0.202:80/img/apm/metric_detail.png" target="_blank"><img src="http://10.100.0.202:80/img/apm/metric_detail.png" /></a></p>
+
+<p><b><em><a href="http://10.100.0.202:80/2020-03-24-elastic-apm-2">« Elasti APM 도입시의 장점 및 Newrelic과의 비교는 2편 에서 계속 됩니다» </a></em></b></p>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+          
+            <a href="/tags#APM">APM</a>
+          
+            <a href="/tags#elastic">elastic</a>
+          
+            <a href="/tags#application">application</a>
+          
+            <a href="/tags#monitoring">monitoring</a>
+          
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+  <span class="sr-only">Share: </span>
+
+  
+  <!--- Share on Twitter -->
+    <a href="https://twitter.com/intent/tweet?text=Elastic+APM+%EC%A0%81%EC%9A%A9+%ED%95%B4%EB%B3%B4%EA%B8%B0+-+%231.+%EC%86%8C%EA%B0%9C+%EB%B0%8F+%EC%84%A4%EC%B9%98+http://10.100.0.202:80/2020-03-24-elastic-apm-1/"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
+      <span class="sr-only">Twitter</span>
+    </a>
+  
+
+  
+  <!--- Share on Facebook -->
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://10.100.0.202:80/2020-03-24-elastic-apm-1/"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
+      <span class="sr-only">Facebook</span>
+    </a>
+  
+
+  
+
+  
+  <!--- Share on LinkedIn -->
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://10.100.0.202:80/2020-03-24-elastic-apm-1/"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+      <span class="sr-only">LinkedIn</span>
+    </a>
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2019-09-17-kafka/" data-toggle="tooltip" data-placement="top" title="kafka 설정을 사용한 문제해결">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2020-03-24-elastic-apm-2/" data-toggle="tooltip" data-placement="top" title="Elastic APM 적용 해보기 - #2. 장점 및 Newrelic 비교">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+        </div>
+          
+        <div class="staticman-comments">
+          
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links"><li><a href="/feed.xml" title="RSS"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">RSS</span>
+              </a>
+            </li><li><a href="https://www.facebook.com/saramin.dream" title="Facebook"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">Facebook</span>
+              </a>
+            </li></ul>
+      <p class="copyright text-muted">
+      	Copyright © SaraminHR Tech Blog 2017
+      </p>
+          <!-- Please don't remove this, keep my open source work credited :) -->
+    <p class="theme-by text-muted">
+    </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+  
+  </body>
+</html>

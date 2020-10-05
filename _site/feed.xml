@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SaraminHR Tech</title>
+    <description>SaraminHR Tech Blog / 사람인HR 기술 블로그</description>
+    <link>http://10.100.0.202:80</link>
+    <atom:link href="http://10.100.0.202:80/feed.xml" rel="self" type="application/rss+xml" />
+    
+      <item>
+        <title>등용문S 개발기 (채용홈페이지)</title>
+        <description>
+          FE개발자 주도로 스토리보드를 그리고 디자인을 생각하며 화면을 개발하다 - 
+          안녕하세요. 사람인HR IT연구소 UI개발2팀 정영환입니다. 등용문S 프로젝트를 진행하면서 겪은 프론트엔드 개발자로서의 개발 경험을 공유하고자 합니다. 등용문S은 HR솔루션으로써 이력서 접수, 심사, 발표를 한번에 관리하는 기업 맞춤형 채용관리 시스템입니다. 기존 등용문 3.0과 5.0의 결합체이며, 기존의 채용홈페이지와 채용관리자를 새롭게 구축 하였습니다. 또한, 기업관리자가 쉽게 홈페이지를 커스터마이징 할 수 있도록 채용홈페이지 빌더도 업그레이드 되었습니다....
+        </description>
+        <pubDate>Thu, 01 Oct 2020 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2020-10-01-s/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2020-10-01-s/</guid>
+      </item>
+    
+      <item>
+        <title>K8S 인프라 CI/CD</title>
+        <description>
+          사내 Kubernetes인프라에 어플리케이션 빌드/배포 프로세스를 공유 - 
+          K8S 인프라 CI/CD 처리 사내 구축된 Kubernetes 인프라에 어플리케이션을 빌드하고 배포하는 프로세스에 대한 전반적인 설명 글입니다. 시작에 앞서 이 글은 Kubernetes 클러스터 환경 구축을 전제로 어플리케이션을 빌드하고 배포하는 과정의 프로세스를 설명하는 글이므로, 전반적인 Kubernetes의 구조와 개념에 대해서는 다루지 않음을 양해바랍니다. CI/CD(지속적 통합/지속적 배포) 는 각각 Continuous Integration, Continuous Delivery(또는 Deploy)의...
+        </description>
+        <pubDate>Fri, 01 May 2020 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2020-05-01-k8s-cicd/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2020-05-01-k8s-cicd/</guid>
+      </item>
+    
+      <item>
+        <title>Heimdall - 로그 수집 관제 시스템</title>
+        <description>
+          
+          Heimdall - 로그 수집 관제 시스템 안녕하세요. 사람인HR IT연구소 서비스인프라개발팀 임종현입니다. 이번 블로그에서는 로그수집과 관제알림을 위해서 구축된 관제시스템 &quot;Heimdall&quot;에 대해서 공유하고자 합니다. 1. Heimdall 개요 1.1. Heimdall이란? 사람인HR에서 사용하던 기존 관제시스템에서 UI 및 기능을 개선한 관제시스템입니다. Heimdall 유래 북유럽 신화의 아스가르드의 수문장으로 아홉 우주의 만물을 보고 들을 수 있다고 합니다....
+        </description>
+        <pubDate>Wed, 01 Apr 2020 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2020-04-01-heimdall/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2020-04-01-heimdall/</guid>
+      </item>
+    
+      <item>
+        <title>Elastic APM 적용 해보기 - #2. 장점 및 Newrelic 비교</title>
+        <description>
+          
+          사람인HR에서 Elastic APM을 적용한 경험에 대해서 공유하고자 합니다. 안녕하세요. 사람인HR IT연구소 서비스인프라개발팀 임재호입니다. 사람인HR에서 서비스 모니터링을 위한 APM시스템을 구축 하였습니다. 시스템을 구축하며 조사한 자료에 대해서 공유 하고자 합니다. 목차 1. APM 소개 2. APM 설치 및 구성 3. Kibana 화면을 통한 APM 데이터 확인 4. 도입시 장점 및 기대 효과...
+        </description>
+        <pubDate>Tue, 24 Mar 2020 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2020-03-24-elastic-apm-2/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2020-03-24-elastic-apm-2/</guid>
+      </item>
+    
+      <item>
+        <title>Elastic APM 적용 해보기 - #1. 소개 및 설치</title>
+        <description>
+          
+          사람인HR에서 Elastic APM을 적용한 경험에 대해서 공유하고자 합니다. 안녕하세요. 사람인HR IT연구소 서비스인프라개발팀 임재호입니다. 사람인HR에서 서비스 모니터링을 위한 APM시스템을 구축 하였습니다. 시스템을 구축하며 조사한 자료에 대해서 공유 하고자 합니다. 목차 1. APM 소개 2. APM 설치 및 구성 3. Kibana 화면을 통한 APM 데이터 확인 4. 도입시 장점 및 기대 효과...
+        </description>
+        <pubDate>Tue, 24 Mar 2020 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2020-03-24-elastic-apm-1/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2020-03-24-elastic-apm-1/</guid>
+      </item>
+    
+      <item>
+        <title>kafka 설정을 사용한 문제해결</title>
+        <description>
+          
+          안녕하세요. 사람인HR 기술연구소 서비스인프라개발팀 안경민입니다. 메일 시스템 구조개선을 진행하면서 kafka를 사용하며 부딪혔던 문제와 해결했던 방법을 공유하여 같은 문제를 겪을 수 있는 분들에게 도움이 되고자 작성하게 되었습니다. 최근 시스템솔루션개발파트에서는 MSA구조로 개선하는 프로젝트를 진행하고 있습니다. 이에 일환으로 메일 시스템의 구조개선을 진행하였습니다. 구조개선에 대한 자세한 설명은 이전 포스트를 참고 부탁드립니다. 분산처리 시스템 구조개선...
+        </description>
+        <pubDate>Tue, 17 Sep 2019 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2019-09-17-kafka/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2019-09-17-kafka/</guid>
+      </item>
+    
+      <item>
+        <title>Spring Cloud Stream 적용해보기</title>
+        <description>
+          
+          안녕하세요. 사람인에이치알 IT연구소 서비스인프라개발팀의 이현규 입니다. 지난 8월에 런칭한 대량 메일 컨텐츠 생성 시스템 개발을 진행하며, 경험했던 것들을 공유하고자 이 포스트를 작성합니다. 먼저, 이번에 개발된 시스템은 이전에 포스팅된 분산처리 시스템 구조개선 프로젝트와 동일한 아키텍쳐를 바탕으로 개발되어 있습니다. 구조가 궁금하시다면 이전 포스트를 참고 부탁 드립니다. 저희 시스템은 크게 Spring Cloud Stream과...
+        </description>
+        <pubDate>Wed, 28 Aug 2019 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2019-08-28-2/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2019-08-28-2/</guid>
+      </item>
+    
+      <item>
+        <title>TagUI 기반으로 한 RPA 개발</title>
+        <description>
+          
+          RPA POC 개발 경험과 자료 공유 안녕하세요. 사람인HR IT연구소 서비스인프라개발팀 김아라 입니다. 저희팀에서 RPA POC를 진행하며, 조사했던 자료와 경험했던 것들을 공유하고자합니다. RPA 란? 들어가기에 앞서 RPA 는 다음과 같이 정의 할 수 있습니다. 비즈니스 프로세스를 사람이 아닌 S/W 로봇이 수행하도록 자동화 하는 것 프로세스 처리를 위한 이기종 디지털 자원 간의...
+        </description>
+        <pubDate>Thu, 23 May 2019 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2019-05-23-rpa_tagui/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2019-05-23-rpa_tagui/</guid>
+      </item>
+    
+      <item>
+        <title>분산처리 시스템 구조개선 (2)</title>
+        <description>
+          
+          도메인 별 프로세스와 구조개선을 통해 나아진점을 설명 구성 분산처리 시스템 구조개선 (1) 분산처리 시스템 구조개선 (2) 도메인 역할 및 프로세스 앞선 포스트에서 설명드렸듯이 기존 시스템의 Engine이 가지고 있던 기능들을 도메인으로 역할을 분리했고, 컨테이너화를 통해 독립적인 애플리케이션으로 구축을 진행했습니다. 저희가 운영중인 시스템에는 캠페인 정보, Push 메시지 생성 결과에 대한 Summary 데이터를...
+        </description>
+        <pubDate>Thu, 28 Feb 2019 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2019-02-28-msa-cloud-system-2/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2019-02-28-msa-cloud-system-2/</guid>
+      </item>
+    
+      <item>
+        <title>분산처리 시스템 구조개선 (1)</title>
+        <description>
+          
+          구조개선을 하려 했던 이유와 전체 시스템 설계에 대한 설명, 주요 기술, 빌드, 배포에 대해 공유 안녕하세요. 사람인HR IT연구소 서비스인프라개발팀 박동형입니다. 이 포스트는 저희가 2년여간 운영해온 분산처리 시스템의 구조개선 프로젝트에 대해서 시스템 구축에 사용한 기술과 경험을 공유하고자 합니다 구성 분산처리 시스템 구조개선 (1) 분산처리 시스템 구조개선 (2) 왜 구조개선을 생각하게 됐는가?...
+        </description>
+        <pubDate>Mon, 25 Feb 2019 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2019-02-25-msa-cloud-system-1/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2019-02-25-msa-cloud-system-1/</guid>
+      </item>
+    
+      <item>
+        <title>도커 swarm을 이용한 서비스 런칭하기</title>
+        <description>
+          서비스 런칭을 위해 준비했던 것들과 경험하고 있는 것들을 공유합니다. - 
+          Foreword 안녕하세요. 사람인 SM팀의 박요안입니다. 3월 저희 회사에서 조용하게 런칭한 재능마켓 서비스를 구축하며 경험한 것들을 공유하려고 합니다. 시작은 목표는 간단(?)했습니다. 새로운 기술을 도입하자. 서비스 배포/롤백 작업을 최대한 단순하게 진행되도록 하자. 서비스 안정성은 최대한 확보하자. 런칭 후 내가 편하자 왜 Docker swarm 인가 사람인에서는 사용하지 않는 새로운 기술, 서비스 배포와 롤백을...
+        </description>
+        <pubDate>Fri, 02 Jun 2017 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2017-06-02-swarm-service/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2017-06-02-swarm-service/</guid>
+      </item>
+    
+      <item>
+        <title>Hello World</title>
+        <description>
+          Hello World, Hello Saramin Tech Blog - 
+          “HELLO”
+안녕하세요! 사람인HR의 기술블로그입니다.
+
+사람인HR은 대표적으로 대한민국 NO.1 취업포털 사람인 및 재능마켓 서비스 오투잡을 운영중 입니다.
+
+사람인 운영을 위해 검토되고 적용된 기술 부터 작게는 소소한 팁까지 조금씩 공유해보려 합니다.
+
+아무쪼록 본 공간에 다양한 기술관련 정보가 축적되길 희망합니다.
+
+감사합니다.
+
+        </description>
+        <pubDate>Fri, 02 Jun 2017 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2017-06-02-hello-world-saramin-tech-blog/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2017-06-02-hello-world-saramin-tech-blog/</guid>
+      </item>
+    
+  </channel>
+</rss>
