@@ -49,6 +49,10 @@
 <lastmod>2020-10-01T00:00:00+09:00</lastmod>
 </url>
 <url>
+<loc>http://10.100.0.202/2020-11-09-MSR/</loc>
+<lastmod>2020-11-09T00:00:00+09:00</lastmod>
+</url>
+<url>
 <loc>http://10.100.0.202/aboutme/</loc>
 </url>
 <url>
@@ -62,5 +66,13 @@
 </url>
 <url>
 <loc>http://10.100.0.202/page3/</loc>
+</url>
+<url>
+<loc>http://10.100.0.202/google128fbd4766f33bb4.html</loc>
+<lastmod>2020-10-06T09:01:55+09:00</lastmod>
+</url>
+<url>
+<loc>http://10.100.0.202/google736190a198e3d31e.html</loc>
+<lastmod>2020-10-06T09:01:55+09:00</lastmod>
 </url>
 </urlset>

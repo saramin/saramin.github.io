@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+
+  <title>MySQL MSR(Multi Source Replication) 도입</title>
+
+  <meta name="author" content="" />
+
+  
+  <meta name="description" content="MySQL Multi Source Replication 도입 사례">
+  
+
+  <link rel="alternate" type="application/rss+xml" title="SaraminHR Tech - SaraminHR Tech Blog / 사람인HR 기술 블로그" href="/feed.xml" />
+
+  
+
+  
+
+  
+<!-- Google Analytics -->
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-141704631-1', 'auto');
+    ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+
+
+  
+    
+      
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="MySQL MSR(Multi Source Replication) 도입" />
+  
+
+   
+  <meta property="og:description" content="MySQL Multi Source Replication 도입 사례">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://10.100.0.202:80/2020-11-09-MSR/" />
+  <link rel="canonical" href="http://10.100.0.202:80/2020-11-09-MSR/" />
+  
+
+  
+  <meta property="og:image" content="http://10.100.0.202:80/img/avatar-icon.png" />
+  
+
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@" />
+  <meta name="twitter:creator" content="@" />
+
+  
+  <meta name="twitter:title" content="MySQL MSR(Multi Source Replication) 도입" />
+  
+
+  
+  <meta name="twitter:description" content="MySQL Multi Source Replication 도입 사례">
+  
+
+  
+  <meta name="twitter:image" content="http://10.100.0.202:80/img/avatar-icon.png" />
+  
+
+  
+
+  
+  
+  <link href="//www.saramin.co.kr/favicon.ico?ver=2" rel="favicon">
+  <link href="//www.saramin.co.kr/favicon.ico?ver=2" rel="icon" type="image/x-icon">
+  <link href="//www.saramin.co.kr/favicon.ico?ver=2" rel="shortcut icon" type="image/x-icon">
+
+</head>
+
+
+  <body>
+
+    
+
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://10.100.0.202:80">SaraminHR Tech</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+
+
+
+
+
+
+<a href="http://www.saramin.co.kr">saramin</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://10.100.0.202:80">
+	      <img class="avatar-img" src="/img/avatar-icon.png" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+  <div id="header-big-imgs" data-num-img=1
+    
+	  
+	  
+	    
+		  data-img-src-1="/img/msr/image-20200811142324085.png"
+		
+	  
+    
+  ></div>
+
+
+<header class="header-section has-img">
+
+<div class="big-img intro-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading"  style="color:#AAAAAA">
+          <h1>MySQL MSR(Multi Source Replication) 도입</h1>
+		  
+		    
+			<h2 class="post-subheading">MySQL Multi Source Replication 도입 사례</h2>
+			
+		  
+		  
+		  
+		  <span class="post-meta">Posted by 김의연  on November 9, 2020</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+  <span class='img-desc'></span>
+</div>
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>MySQL MSR(Multi Source Replication) 도입</h1>
+		  
+		    
+			<h2 class="post-subheading">MySQL Multi Source Replication 도입 사례</h2>
+			
+		  
+		  
+		  
+		  <span class="post-meta">Posted by 김의연  on November 9, 2020</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      
+
+      <article role="main" class="blog-post">
+        <pre><code class="language-SATA">큰 하나의 데이터베이스(Monolithic)를 여러개의 데이터베이스(MSA)로 구조를 개선하면서  
+발생하는 이슈에 좀 더 쉽게 대응하기 위하여 MSR을 도입한 사례에 대해서 간략하게 설명하겠습니다.
+</code></pre>
+<hr />
+
+<h3 id="소개">소개</h3>
+
+<p>저희 IT전략팀은 사람인의 계속적인 서비스 확장에 따른 개발 복장성 증가 및 서비스 간 강한 결합으로 인한 각 개발팀간 병렬 작업에 따르는 복잡한 상호 의존을 제거하기 위하여, 기존 Legacy 시스템을 MSA(Microservice Architecture)로 전환 및 고도화하는 프로젝트를 담당하고 있습니다.</p>
+
+<hr />
+<h3 id="도입-이유">도입 이유</h3>
+
+<p>그 중 개발의 편의 및 관리를 용이하게 하기 위해 Monolithic 로 구현 된 환경을 Microservice 로 일부 서비스에 대하여 전환을 진행하며, 하나의 거대한 Database 시스템을 서비스 단위로 분리하는 작업을 진행했습니다. 하지만 서비스 및 DB를 분리하였음에도 불구하고, 내부 시스템에서 필요로하는 데이터 동기화 요구, 메인 데이터베이스 참조에 따른 문제, 지표를 보기 위해 SQL로 쉽게 JOIN 및 데이터 추출이 필요해야 한다면, 배치 작업으로 DB간 데이터를 복사하거나, 큰 시스템에 복원해서 작업해야 하는 이슈가 있습니다.</p>
+
+<hr />
+<h3 id="구현">구현</h3>
+
+<p>아래 그림은 기본적인 MySQL Master/Slave Replication 구성 방법입니다.</p>
+
+<p><a href="http://10.100.0.202:80/img/msr/image-20200810170020529.png"><img src="http://10.100.0.202:80/img/msr/image-20200810170020529.png" /></a></p>
+
+<p><strong>위와 같이 Master(쓰기)는 1대를 사용하며, Slave(읽기)는 n대를 사용하여 부하를 분산합니다.</strong></p>
+
+<p>개발 및 관리의 편의와 같은 목적으로 시작 된 Monolithic 으로 구현 된 환경은 사업이 확장하고 사용자가 증가함에 따라서 자연스럽게 부하 및 트래픽이 증가됩니다. 또한 작은 장애가 전체 시스템의 장애로 이어집니다. 이에 장애를 최소화 하고 부하 및 트래픽을 분산하기 위하여  개발과 같이 Microservice 로 전환하면 또 다른 문제가 발생합니다.</p>
+
+<p><a href="http://10.100.0.202:80/img/msr/image-20200811141018350.png"><img src="http://10.100.0.202:80/img/msr/image-20200811141018350.png" /></a></p>
+
+<p>각 서비스 별 장애는 최소화 되었으며, 부하 및 트래픽도 분산되었지만, 서비스가 작은 단위로 이루어져 관리 및 모니터링이 불편합니다. 또한 데이터 분석 및 내부 시스템을 활용해야하는 부분에서 여러 기술이 사용되어지게 됩니다. 실시산으로 데이터 동기화가 필요한 시스템은 CDC, 준 실시간 및 일 단위 등의 데이터가 필요한 시스템은 ETL 및 Shell Script로 데이터를 동기화하며, Elasticsearch같은 빅데이터 등 DW 를 위한 데이터 동기화를 위한 Logstash 같은 여러 어플리케이션을 활용하게 됩니다.</p>
+
+<p><strong>그렇지만 MSR 기술을 사용해 다중의 마스터를 하나의 슬레이브로 복제 할 수 있도록 시스템을 구축한다면 ?</strong></p>
+
+<p><a href="http://10.100.0.202:80/img/msr/image-20200810172353875.png"><img src="http://10.100.0.202:80/img/msr/image-20200810172353875.png" /></a></p>
+
+<p>MySQL MSR은 기본 Replication구조에서 확장 된 개념으로 Binary Log를 기본으로 하여 각각의 마스터를 CHANNEL로 연결하여 Replicate하는 구조입니다. 각각의 CHANNEL을 통해 Master / Slave간 연결을 하고, 이 CHANNEL은 Replication 연결에 사용되는 Thread(IO, SQL, Worker 및 Coordinator 등)들을 관리합니다.</p>
+
+<p><a href="http://10.100.0.202:80/img/msr/image-20200811142324085.png"><img src="http://10.100.0.202:80/img/msr/image-20200811142324085.png" /></a></p>
+
+<p>예를 들어서 어떤 시스템이 공통DB, 메인DB, 로그DB로 구성되어 있고 로그DB는 여러개로 샤딩(Sharding)되어 물리적으로 다른 장비에서 서비스를 하고있다고 생각해 볼 수 있습니다. <br />
+그런데 어떤 지표를 보기 위해서 모든 DB에서 한방에 쿼리를 해서 join 을 걸어야 한다면, 예전에는 batch 작업으로 특정시점에 데이터를 모두 백업해서, 커다란 장비에 복원해야 했습니다. 엄청 오래걸리고 까다롭습니다.<br />
+MySQL의 복원은 특히 오래 걸립니다. 그런데, MSR이 사용된다면? 그냥 큰 디스크가 존재하는 장비하나에 모든 DB의 Slave 로 Channel로 구성 할 수 있습니다. 예전처럼 여러 벤더사의 Third Party Tool을 사용하지 않고, MySQL의 자체 기능을 사용하여 관리하기 용이한 시스템을 구축 할 수 있습니다.</p>
+
+<h4 id="msr-구성-방법">MSR 구성 방법</h4>
+
+<ul>
+  <li>필수 설정</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql&gt; show variables like '%repository%';
++---------------------------+-------+
+| Variable_name             | Value |
++---------------------------+-------+
+| master_info_repository    | TABLE |
+| relay_log_info_repository | TABLE |
++---------------------------+-------+
+2 rows in set (0.25 sec)
+</code></pre></div></div>
+
+<p>-&gt; MSR 설정을 위해서는 Repository를 FILE이 아닌 TABLE에 저장해야 합니다.</p>
+
+<ul>
+  <li>그 외 다른 문법</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql&gt;  CHANGE MASTER TO
+    -&gt;  MASTER_HOST='XXX.XXX.X.001',
+    -&gt;  MASTER_USER='xxxxxxxx',
+    -&gt;  MASTER_PASSWORD='xxxxxxxx,
+    -&gt;  MASTER_LOG_FILE='mysql-bin.000001',
+    -&gt;  MASTER_LOG_POS=919
+    -&gt;  FOR CHANNEL 'sri-xxxxxx_1';
+Query OK, 0 rows affected, 2 warnings (0.06 sec)
+
+mysql&gt;  CHANGE MASTER TO
+    -&gt;  MASTER_HOST='XXX.XXX.X.002',
+    -&gt;  MASTER_USER='xxxxxxxx',
+    -&gt;  MASTER_PASSWORD='xxxxxxxx,
+    -&gt;  MASTER_LOG_FILE='mysql-bin.000002',
+    -&gt;  MASTER_LOG_POS=275
+    -&gt;  FOR CHANNEL 'sri-xxxxxx_2';
+Query OK, 0 rows affected, 2 warnings (0.02 sec)
+
+mysql&gt;  CHANGE MASTER TO
+    -&gt;  MASTER_HOST='XXX.XXX.X.003',
+    -&gt;  MASTER_USER='xxxxxxxx',
+    -&gt;  MASTER_PASSWORD='xxxxxxxx,
+    -&gt;  MASTER_LOG_FILE='mysql-bin.000003',
+    -&gt;  MASTER_LOG_POS=101
+    -&gt;  FOR CHANNEL 'sri-xxxxxx_3';
+Query OK, 0 rows affected, 2 warnings (0.05 sec)
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>START SLAVE FOR CHANNEL 'sri-xxxxxx_1';
+STOP SLAVE FOR CHANNEL 'sri-xxxxxx_1';
+START SLAVE FOR CHANNEL 'sri-xxxxxx_2';
+STOP SLAVE FOR CHANNEL 'sri-xxxxxx_2';
+START SLAVE FOR CHANNEL 'sri-xxxxxx_3';
+STOP SLAVE FOR CHANNEL 'sri-xxxxxx_3';
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql&gt; show slave status for channel 'sri-xxxxxx_1'\G;
+*************************** 1. row ***************************
+               Slave_IO_State: Waiting for master to send event
+~~~
+                  Master_User: xxxxxxxx
+                  Master_Port: 3306
+~~~
+             Slave_IO_Running: Yes
+            Slave_SQL_Running: Yes
+~~~
+        Seconds_Behind_Master: 0
+~~~
+             Master_Info_File: mysql.slave_master_info
+~~~
+                 Channel_Name: sri-xxxxxx_1
+~~~
+1 row in set (0.00 sec)
+</code></pre></div></div>
+<hr />
+<h2 id="문제">문제</h2>
+
+<p>※ MySQL Replication 복제 시 지연을 생각하지 않을 수 없는데 MSR은 어떨까요?<br />
+실제 서비스 운영 시, Master / Slave 간 Replication Delay는 0.1초 미만으로 지연되게끔 구현하고 있습니다.<br />
+그렇다면 MSR의 CHANNEL은 지연이 언제 생기는 것인가 ?</p>
+
+<p>-&gt; 일반적으로 Replication 지연이 발생될만한 상황에선 MSR도 동일하게 지연이 발생됩니다.</p>
+
+<p>​      (대용량 CTAS, 대용량 ALTER TABLE 등)</p>
+
+<p><strong>확인 된 이슈 사항</strong></p>
+
+<p>3개의 Master DB에 총 10개의 테이블에 순차적으로 100만건 Insert 작업 시, Replication 이 구성 된 Slave에서는 IO_Running 및 SQL_Running이 정상 동작. Multi Source Replication으로 구성 된 Slave에서는 SQL_Running은 정상 동작하지만 IO_Running이 끊어지며 자동으로 Reconnect 되지만, Replication Delay가 끊어진 시간만큼 발생합니다.</p>
+
+<p>3개의 Master DB에 총 2개의 테이블에 순차적으로 100만건 Insert 작업 시 위와 같은 문제는 발생하지 않않습니다.</p>
+
+<p>(대량 작업 시 MSR Slave는 Replication이 일시적으로 끊어질 수 있음을 의미합니다.)</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql&gt; show slave status\G;
+*************************** 1. row ***************************
+               Slave_IO_State: Waiting for master to send event
+             Slave_IO_Running: Yes
+            Slave_SQL_Running: Yes
+        Seconds_Behind_Master: 0
+                 Channel_Name: sri-xxxxxx_1
+*************************** 1. row ***************************
+               Slave_IO_State: Waiting for master to send event
+             Slave_IO_Running: Yes
+            Slave_SQL_Running: Yes
+        Seconds_Behind_Master: 0
+                 Channel_Name: sri-xxxxxx_2
+*************************** 1. row ***************************
+               Slave_IO_State: Waiting for master to send event
+             Slave_IO_Running: Reconnect
+            Slave_SQL_Running: Yes
+        Seconds_Behind_Master: 0
+                 Channel_Name: sri-xxxxxx_3
+3 row in set (0.00 sec)
+</code></pre></div></div>
+
+<p>3개의 Master DB에 각각의 CTAS 작업 수행 시 3개 전부 동시에 수행됨을 확인(Multi Thread Replication이 정상 동작됨을 확인)</p>
+
+<p>한 마디로 대량의 트랜잭션이 들어온다면 MSR은 일부 CHANNEL을 스스로 일시적으로 동기화를 중단합니다.
+I/O Thread가 중단되므로 실제 일부 CHANNEL은 Master에서 Binary Log를 더이상 읽어오지 않습니다.
+(이 때, Master의 Binary Log가 지워진다면 Slave는 Master의 데이터를 복제 할 수 없습니다.)</p>
+
+<p>제 경우엔 3개의 CHANNEL 중, C라는 CHANNEL에서 트랜잭션을 길게 사용하는 부분이 있었는데,
+Master / Slave간에는 전혀 Replication 지연이 발생하지 않지만, MSR에서 해당 CHANNEL을 동기화 중단하고 다시 연결하는 현상을 발견했습니다.</p>
+
+<p><a href="http://10.100.0.202:80/img/msr/image-20200813154427042.png"><img src="http://10.100.0.202:80/img/msr/image-20200813154427042.png" /></a></p>
+
+<p><a href="http://10.100.0.202:80/img/msr/image-20200813154503284.png"><img src="http://10.100.0.202:80/img/msr/image-20200813154503284.png" /></a></p>
+
+<p>※ 예상 되는 부분으로는 Semi-Synchronous Replication 동작 중, Master까지 ACK를 주는 부분에서 큰 트랜잭션에 대한 부분이 다른 채널에서 사용중이라 대기하고 있는 현상으로 보여집니다.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SET global rpl_semi_sync_slave_enabled=OFF;
+</code></pre></div></div>
+<p>실제 MSR에서 해당 파라메터 변경 시, 더이상의 지연은 발생되지 않습니다.<br />
+ (하지만 이런 설정은 문제가 존재합니다. Semi-Sync Replication의 ACK 부분이 문제가 됩니다.)</p>
+
+<p><strong>이에 해당하는 트랜잭션을 하나의 큰 트랜잭션이 아닌 작은 단위의 트랜잭션으로 분리 후 해결하였습니다.</strong></p>
+
+<p>pt-online-schema-change 사용에도 MSR의 Channel을 Lag 를 감지하지 못 하고 오류가 발생하는 부분도 존재하였으며, <br />
+(정상적으로 수행은되나 Lag delay현상을 감지하지 못 하고 무시하고 수행 됨)<br />
+특정 버젼 이상에서 정상적으로 사용 가능한 것으로 확인되었습니다.</p>
+
+<p>참고 URL :  <a href="https://jira.percona.com/browse/PT-1502">https://jira.percona.com/browse/PT-1502</a></p>
+
+<p><strong>현재 저희가 사용하는 MSR 시스템은 내부 관리시스템, 백업, 빅데이터 및 ETL/CDC 등을 위한 용도로만 사용하고 있습니다.</strong></p>
+
+<hr />
+<h2 id="후기">후기</h2>
+
+<p>현재로선 내부시스템 용도로 만족스럽게 사용하고 있습니다. <br />
+사실 더 안정적이었다면 메인 서비스로 고려도 해보겠지만, 딜레이 이슈 및 Semi-Sync의 장점을 가져가지 못 한다는 부분에서 내부 서비스로만 사용하고 있습니다. <br />
+현재도 문제가 발견되고 있지만 이러한 문제를  계속적으로 해결하여 잘 사용 할 수 있도록 도와주고 지원해주신 IT전략팀 및 DA팀원 분들께 감사드립니다.</p>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+          
+            <a href="/tags#MSA">MSA</a>
+          
+            <a href="/tags#MySQL">MySQL</a>
+          
+            <a href="/tags#MSR">MSR</a>
+          
+            <a href="/tags#Replication">Replication</a>
+          
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+  <span class="sr-only">Share: </span>
+
+  
+  <!--- Share on Twitter -->
+    <a href="https://twitter.com/intent/tweet?text=MySQL+MSR%28Multi+Source+Replication%29+%EB%8F%84%EC%9E%85+http://10.100.0.202:80/2020-11-09-MSR/"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
+      <span class="sr-only">Twitter</span>
+    </a>
+  
+
+  
+  <!--- Share on Facebook -->
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://10.100.0.202:80/2020-11-09-MSR/"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
+      <span class="sr-only">Facebook</span>
+    </a>
+  
+
+  
+
+  
+  <!--- Share on LinkedIn -->
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://10.100.0.202:80/2020-11-09-MSR/"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+      <span class="sr-only">LinkedIn</span>
+    </a>
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2020-10-01-s/" data-toggle="tooltip" data-placement="top" title="등용문S 개발기 (채용홈페이지)">&larr; Previous Post</a>
+        </li>
+        
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+        </div>
+          
+        <div class="staticman-comments">
+          
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links"><li><a href="/feed.xml" title="RSS"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">RSS</span>
+              </a>
+            </li><li><a href="https://www.facebook.com/saramin.dream" title="Facebook"><span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">Facebook</span>
+              </a>
+            </li></ul>
+      <p class="copyright text-muted">
+      	Copyright © SaraminHR Tech Blog 2017
+      </p>
+          <!-- Please don't remove this, keep my open source work credited :) -->
+    <p class="theme-by text-muted">
+    </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+  
+  </body>
+</html>

@@ -7,6 +7,17 @@
     <atom:link href="http://10.100.0.202:80/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>MySQL MSR(Multi Source Replication) 도입</title>
+        <description>
+          MySQL Multi Source Replication 도입 사례 - 
+          큰 하나의 데이터베이스(Monolithic)를 여러개의 데이터베이스(MSA)로 구조를 개선하면서 발생하는 이슈에 좀 더 쉽게 대응하기 위하여 MSR을 도입한 사례에 대해서 간략하게 설명하겠습니다. 소개 저희 IT전략팀은 사람인의 계속적인 서비스 확장에 따른 개발 복장성 증가 및 서비스 간 강한 결합으로 인한 각 개발팀간 병렬 작업에 따르는 복잡한 상호 의존을 제거하기 위하여, 기존 Legacy 시스템을...
+        </description>
+        <pubDate>Mon, 09 Nov 2020 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2020-11-09-MSR/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2020-11-09-MSR/</guid>
+      </item>
+    
+      <item>
         <title>등용문S 개발기 (채용홈페이지)</title>
         <description>
           FE개발자 주도로 스토리보드를 그리고 디자인을 생각하며 화면을 개발하다 - 
