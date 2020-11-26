@@ -11,8 +11,6 @@
   <meta name="author" content="" />
 
   
-  <meta name="description" content="SaraminHR - 사람인HR의 기술블로그">
-  
 
   <link rel="alternate" type="application/rss+xml" title="SaraminHR Tech - SaraminHR Tech Blog / 사람인HR 기술 블로그" href="/feed.xml" />
 
@@ -73,11 +71,11 @@
   
 
   
-  <meta property="og:title" content="Saramin Tech Blog" />
+  <meta property="og:title" content="사람인 기술블로그" />
   
 
    
-  <meta property="og:description" content="SaraminHR - 사람인HR의 기술블로그">
+  <meta property="og:description" content="{% for post in paginator.posts %} {{ post.title }} {% if post.subtitle %} {{ post.subtitle }} {% endif %} Posted {% if post.author %}by {{post.author}} {% endif %} on {{ post.date | date: &quot;%B %-d, %Y&quot; }} {% if post.image %} {% endif %} {{ post.excerpt | strip_html | xml_escape...">
   
 
 
@@ -99,11 +97,11 @@
   <meta name="twitter:creator" content="@" />
 
   
-  <meta name="twitter:title" content="Saramin Tech Blog" />
+  <meta name="twitter:title" content="사람인 기술블로그" />
   
 
   
-  <meta name="twitter:description" content="SaraminHR - 사람인HR의 기술블로그">
+  <meta name="twitter:description" content="{% for post in paginator.posts %} {{ post.title }} {% if post.subtitle %} {{ post.subtitle }} {% endif %} Posted {% if post.author %}by {{post.author}} {% endif %} on {{ post.date | date: &quot;%B %-d, %Y&quot; }} {% if post.image %} {% endif %} {{ post.excerpt | strip_html | xml_escape...">
   
 
   
@@ -205,12 +203,7 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="page-heading" >
-          <h1>Saramin Tech Blog</h1>
-		  
-		    
-            <hr class="small">
-            <span class="page-subheading">SaraminHR - 사람인HR의 기술블로그</span>
-			
+          <h1>사람인 기술블로그</h1>
 		  
 		  
 		  
@@ -226,12 +219,7 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="page-heading">
-          <h1>Saramin Tech Blog</h1>
-		  
-		    
-            <hr class="small">
-            <span class="page-subheading">SaraminHR - 사람인HR의 기술블로그</span>
-			
+          <h1>사람인 기술블로그</h1>
 		  
 		  
 		  
@@ -250,6 +238,53 @@
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <div class="posts-list">
+  
+  <article class="post-preview">
+    <a href="/2019-02-28-msa-cloud-system-2/">
+	  <h2 class="post-title">분산처리 시스템 구조개선 (2)</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted by 박동형  on February 28, 2019
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        도메인 별 프로세스와 구조개선을 통해 나아진점을 설명
+
+
+        
+        
+          <a href="/2019-02-28-msa-cloud-system-2/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+      
+      <a href="/tags#MSA">MSA</a>
+      
+      <a href="/tags#Docker">Docker</a>
+      
+      <a href="/tags#Docker Swarm">Docker Swarm</a>
+      
+      <a href="/tags#Apache Kafka">Apache Kafka</a>
+      
+      <a href="/tags#KStream">KStream</a>
+      
+      <a href="/tags#Spring Cloud Stream">Spring Cloud Stream</a>
+      
+      
+    </div>
+    
+
+   </article>
   
   <article class="post-preview">
     <a href="/2019-02-25-msa-cloud-system-1/">

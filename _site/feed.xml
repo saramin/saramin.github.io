@@ -7,6 +7,17 @@
     <atom:link href="http://10.100.0.202:80/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>사람인 GIT 전환</title>
+        <description>
+          SVN &gt; Git 전환과정 공유 - 
+          Saramin 형상관리 전환과정을 설명합니다. SSG TF 소개 사람인 서비스의 형상관리 전환을 위해 IT연구소 내부에서 자발적 지원으로 구성된 TF팀이며 Saramin SVN to Git 이라는 의미를 담고 있습니다. 저희 SSG 팀에서 SVN 에서 GIT으로의 형상관리 전환과정에 대해 공유드리고자 이 글을 작성합니다. 배경 사람인의 주요서비스 중 일부는 지난 10여년간 SVN (Subversion)을 사용해왔습니다. 회사가...
+        </description>
+        <pubDate>Tue, 17 Nov 2020 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2020-11-17-SSG/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2020-11-17-SSG/</guid>
+      </item>
+    
+      <item>
         <title>MySQL MSR(Multi Source Replication) 도입</title>
         <description>
           MySQL Multi Source Replication 도입 사례 - 

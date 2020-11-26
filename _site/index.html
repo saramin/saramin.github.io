@@ -11,8 +11,6 @@
   <meta name="author" content="" />
 
   
-  <meta name="description" content="SaraminHR - 사람인HR의 기술블로그">
-  
 
   <link rel="alternate" type="application/rss+xml" title="SaraminHR Tech - SaraminHR Tech Blog / 사람인HR 기술 블로그" href="/feed.xml" />
 
@@ -73,11 +71,11 @@
   
 
   
-  <meta property="og:title" content="Saramin Tech Blog" />
+  <meta property="og:title" content="사람인 기술블로그" />
   
 
    
-  <meta property="og:description" content="SaraminHR - 사람인HR의 기술블로그">
+  <meta property="og:description" content="{% for post in paginator.posts %} {{ post.title }} {% if post.subtitle %} {{ post.subtitle }} {% endif %} Posted {% if post.author %}by {{post.author}} {% endif %} on {{ post.date | date: &quot;%B %-d, %Y&quot; }} {% if post.image %} {% endif %} {{ post.excerpt | strip_html | xml_escape...">
   
 
 
@@ -99,11 +97,11 @@
   <meta name="twitter:creator" content="@" />
 
   
-  <meta name="twitter:title" content="Saramin Tech Blog" />
+  <meta name="twitter:title" content="사람인 기술블로그" />
   
 
   
-  <meta name="twitter:description" content="SaraminHR - 사람인HR의 기술블로그">
+  <meta name="twitter:description" content="{% for post in paginator.posts %} {{ post.title }} {% if post.subtitle %} {{ post.subtitle }} {% endif %} Posted {% if post.author %}by {{post.author}} {% endif %} on {{ post.date | date: &quot;%B %-d, %Y&quot; }} {% if post.image %} {% endif %} {{ post.excerpt | strip_html | xml_escape...">
   
 
   
@@ -205,12 +203,7 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="page-heading" >
-          <h1>Saramin Tech Blog</h1>
-		  
-		    
-            <hr class="small">
-            <span class="page-subheading">SaraminHR - 사람인HR의 기술블로그</span>
-			
+          <h1>사람인 기술블로그</h1>
 		  
 		  
 		  
@@ -226,12 +219,7 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="page-heading">
-          <h1>Saramin Tech Blog</h1>
-		  
-		    
-            <hr class="small">
-            <span class="page-subheading">SaraminHR - 사람인HR의 기술블로그</span>
-			
+          <h1>사람인 기술블로그</h1>
 		  
 		  
 		  
@@ -250,6 +238,52 @@
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <div class="posts-list">
+  
+  <article class="post-preview">
+    <a href="/2020-11-17-SSG/">
+	  <h2 class="post-title">사람인 GIT 전환</h2>
+
+	  
+	  <h3 class="post-subtitle">
+	    SVN > Git 전환과정 공유
+	  </h3>
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted by 김종성  on November 17, 2020
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        Saramin 형상관리 전환과정을 설명합니다.
+
+
+
+        
+        
+          <a href="/2020-11-17-SSG/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+      
+      <a href="/tags#git">git</a>
+      
+      <a href="/tags#gitlab-ci">gitlab-ci</a>
+      
+      <a href="/tags#CI/CD">CI/CD</a>
+      
+      
+    </div>
+    
+
+   </article>
   
   <article class="post-preview">
     <a href="/2020-11-09-MSR/">
@@ -461,49 +495,6 @@
       <a href="/tags#kibana">kibana</a>
       
       <a href="/tags#alert">alert</a>
-      
-      
-    </div>
-    
-
-   </article>
-  
-  <article class="post-preview">
-    <a href="/2020-03-24-elastic-apm-2/">
-	  <h2 class="post-title">Elastic APM 적용 해보기 - #2. 장점 및 Newrelic 비교</h2>
-
-	  
-    </a>
-
-    <p class="post-meta">
-      Posted by 임재호  on March 24, 2020
-    </p>
-
-    <div class="post-entry-container">
-      
-      <div class="post-entry">
-        사람인HR에서 Elastic APM을 적용한 경험에 대해서 공유하고자 합니다.
-
-
-        
-        
-          <a href="/2020-03-24-elastic-apm-2/" class="post-read-more">[Read&nbsp;More]</a>
-        
-      </div>
-    </div>
-
-    
-    <div class="blog-tags">
-      Tags:
-      
-      
-      <a href="/tags#APM">APM</a>
-      
-      <a href="/tags#elastic">elastic</a>
-      
-      <a href="/tags#application">application</a>
-      
-      <a href="/tags#monitoring">monitoring</a>
       
       
     </div>
