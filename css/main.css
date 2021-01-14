@@ -419,6 +419,10 @@ footer .theme-by {
   margin-bottom: 0;
 }
 
+.intro-header.big-img {
+  min-height:50px;
+}
+
 @media only screen and (min-width: 768px) {
   .post-preview .blog-tags {
     margin-top: 10px;
@@ -452,7 +456,6 @@ footer .theme-by {
   -o-background-size: cover;
   margin-top: 51px; /* The small navbar is 50px tall + 1px border */
   margin-bottom: 35px;
-  min-height:50px;
 }
 .intro-header.big-img  .big-img-transition {
   position: absolute;
