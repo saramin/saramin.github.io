@@ -7,6 +7,39 @@
     <atom:link href="http://10.100.0.202:80/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>네트워크장비 트래픽 모니터링 - 평균의 함정</title>
+        <description>
+          
+          안녕하세요. 사람인HR IT연구소 SE팀 박용철입니다. SE팀은 사람인HR에서 제공하는 서비스의 전반적인 인프라 구성/운영/관제를 담당하며 서비스가 안정적으로 운영이 되도록 모니터링을 하기 위해 다양한 오픈소스툴을 활용하거나 필요에 따라 직접 개발하기도 합니다. 이번 포스팅은 IDC 의 서비스트래픽 모니터링을 위해 오랜기간 사용중이던 cacti 에서 telegraf, grafana, influxdb 를 활용한 사례를 공유하고자 합니다. 2018년 11월경에 응답속도가...
+        </description>
+        <pubDate>Mon, 28 Dec 2020 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2020-12-28-se-networkmonitoring/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2020-12-28-se-networkmonitoring/</guid>
+      </item>
+    
+      <item>
+        <title>장애 확산을 막기 위한 서킷브레이커 패턴을 PHP에서 구현해보자</title>
+        <description>
+          PHP에 적합한 서킷브레이커 라이브러리 소개 - 
+          Java는 Hystrix와 Resilience4j, 그렇다면 PHP는?! 안녕하세요, 사람인의 빌링 서비스를 개발하는 이현재입니다. 저희 파트가 운영하는 도메인은 Spring Boot를 사용하여 MSA로 분리되어 있습니다. MSA를 위한 여러 가지 기법이 존재하는데, 그중에서 서킷브레이커 패턴을 활용하는 방법에 대해 살펴보도록 합시다. 이번에는 오픈소스 라이브러리를 활용해볼 건데, 사실 서킷브레이커 패턴은 원리만 이해하면 구현 자체가 어렵지 않습니다. 물론...
+        </description>
+        <pubDate>Mon, 21 Dec 2020 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2020-12-21-php-circuit-breaker-ganesha/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2020-12-21-php-circuit-breaker-ganesha/</guid>
+      </item>
+    
+      <item>
+        <title>외부 API로 빚어진 장애대응 후일담 after 1years</title>
+        <description>
+          클라이언트에 서킷브레이커를 입히다 - 
+          외부 API 장애에 대한 트러블슈팅 경험을 공유드립니다. 안녕하세요, 사람인의 빌링 서비스를 개발하는 이현재입니다. 프로젝트를 진행하면 API를 활용할 일이 많습니다. 어떻게 해야 API와의 의존성을 줄일 수 있는지 고민해보셨나요? 모든 전말은 1년 전으로 거슬러 올라갑니다. 이야기를 풀기 위해 잠깐 사람인 개발 문화에 대해 소개해드릴게요. 사람인 IT연구소는 개발자의 역량 향상을 위한 지원을 아끼지...
+        </description>
+        <pubDate>Fri, 18 Dec 2020 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2020-12-18-post-api-with-circuit-breaker/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2020-12-18-post-api-with-circuit-breaker/</guid>
+      </item>
+    
+      <item>
         <title>사람인 GIT 전환</title>
         <description>
           SVN &gt; Git 전환과정 공유 - 
