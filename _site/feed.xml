@@ -7,6 +7,17 @@
     <atom:link href="http://10.100.0.202:80/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Amazon Chime SDK를 활용한 영상면접 서비스 개발</title>
+        <description>
+          코로나19로 인한 면접방식의 변화 - 
+          들어가며 안녕하세요. 사람인 신규 서비스 개발 및 운영을 담당하고 있는 개발1팀 김갑훈입니다. 코로나19로 인하여 많은 기업들이 재택근무를 시행하고 있으며 이와 더불어 비대면 서비스의 도입 및 활용이 증가하고 있습니다. 이에 따라 채용 과정의 필수 요소인 면접도 비대면으로 전환되고 있는 추세입니다. 사람인에서는 이러한 변화에 대응하기 위해 비대면으로 면접을 진행할 수 있는 영상면접...
+        </description>
+        <pubDate>Tue, 09 Mar 2021 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2021-03-09-amazon-chime-sdk-video-interview/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2021-03-09-amazon-chime-sdk-video-interview/</guid>
+      </item>
+    
+      <item>
         <title>네트워크장비 트래픽 모니터링 - 평균의 함정</title>
         <description>
           
