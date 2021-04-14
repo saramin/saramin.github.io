@@ -7,6 +7,17 @@
     <atom:link href="http://10.100.0.202:80/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>인턴에서 사람인 개발자로 합류하기까지 - 개발 2팀 이정규</title>
+        <description>
+          
+          시작하며 안녕하세요. 2020년 사람인 IT 연구소 신입 개발자 공채 1기를 거쳐 정규직으로 전환되어 개발 2팀에 근무하고 있는 이정규입니다.👍 취준생이였을 때 사람인을 통해 입사 지원도 하면서 자주 사용해왔는데, 내가 사용했던 서비스를 직접 개발하고 있다는 걸 생각하니까 신기하기도 하고 한편으론 책임감도 느껴집니다! 😊 저는 전자공학을 전공했는데, 웹 개발자로 진로를 정하기까지 고민이 많았어요....
+        </description>
+        <pubDate>Fri, 09 Apr 2021 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2021-04-09-intern_jklee/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2021-04-09-intern_jklee/</guid>
+      </item>
+    
+      <item>
         <title>사람인 DBA 인턴 성장기</title>
         <description>
           
@@ -213,27 +224,6 @@
         <pubDate>Fri, 02 Jun 2017 00:00:00 +0900</pubDate>
         <link>http://10.100.0.202:80/2017-06-02-swarm-service/</link>
         <guid isPermaLink="true">http://10.100.0.202:80/2017-06-02-swarm-service/</guid>
-      </item>
-    
-      <item>
-        <title>Hello World</title>
-        <description>
-          Hello World, Hello Saramin Tech Blog - 
-          “HELLO”
-안녕하세요! 사람인HR의 기술블로그입니다.
-
-사람인HR은 대표적으로 대한민국 NO.1 취업포털 사람인 및 재능마켓 서비스 오투잡을 운영중 입니다.
-
-사람인 운영을 위해 검토되고 적용된 기술 부터 작게는 소소한 팁까지 조금씩 공유해보려 합니다.
-
-아무쪼록 본 공간에 다양한 기술관련 정보가 축적되길 희망합니다.
-
-감사합니다.
-
-        </description>
-        <pubDate>Fri, 02 Jun 2017 00:00:00 +0900</pubDate>
-        <link>http://10.100.0.202:80/2017-06-02-hello-world-saramin-tech-blog/</link>
-        <guid isPermaLink="true">http://10.100.0.202:80/2017-06-02-hello-world-saramin-tech-blog/</guid>
       </item>
     
   </channel>
