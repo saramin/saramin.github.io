@@ -7,6 +7,28 @@
     <atom:link href="http://10.100.0.202:80/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>사람인 신입 개발자 6개월 입사기</title>
+        <description>
+          
+          들어가며 안녕하세요. 저는 개발2팀 빌링파트에서 일하고있는 사람인 IT 공채1기 최재우입니다. 작년 7월 인턴을 시작으로 어느덧 사람인에 입사해 개발한지 9개월을 넘기고 있습니다. 😀 취업준비로 힘들어하던게 바로 엊그제 같은데 저희 IT 연구소 소장님이 좀 있으면 사람인 개발자 공채2기를 모집한다는 말씀을 해주셨습니다. 그래서 사람인에이치알에 관심이 있으신 신입 개발자분들에게 조금이나마 도움이 되고자 이 글을...
+        </description>
+        <pubDate>Tue, 20 Apr 2021 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2021-04-20-cjaewoo-intern/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2021-04-20-cjaewoo-intern/</guid>
+      </item>
+    
+      <item>
+        <title>사람인 Android App Kotlin Converting</title>
+        <description>
+          
+          안녕하세요. 사람인HR 서비스인프라개발팀 안드로이드 앱 개발 담당 강덕현 연구원입니다. 벌써 4년이나 지난 2017년, 구글의 Kotlin 공식지원 발표 및 2019년 Kotlin first 선언 이후 많은 앱과 라이브러리들이 Kotlin으로 전환되었고, 현재도 전환과정에 있으며, 앞으로도 Kotlin의 비중은 커져갈 것으로 예상되고 있습니다. 이러한 추세 속에 사람인 안드로이드 앱도 지난 2020년 초 Kotlin으로 코드레벨 리뉴얼이...
+        </description>
+        <pubDate>Mon, 19 Apr 2021 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2021-04-19-android-kotlin-converting/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2021-04-19-android-kotlin-converting/</guid>
+      </item>
+    
+      <item>
         <title>인턴에서 사람인 개발자로 합류하기까지 - 개발 2팀 이정규</title>
         <description>
           
@@ -202,28 +224,6 @@
         <pubDate>Thu, 28 Feb 2019 00:00:00 +0900</pubDate>
         <link>http://10.100.0.202:80/2019-02-28-msa-cloud-system-2/</link>
         <guid isPermaLink="true">http://10.100.0.202:80/2019-02-28-msa-cloud-system-2/</guid>
-      </item>
-    
-      <item>
-        <title>분산처리 시스템 구조개선 (1)</title>
-        <description>
-          
-          구조개선을 하려 했던 이유와 전체 시스템 설계에 대한 설명, 주요 기술, 빌드, 배포에 대해 공유 안녕하세요. 사람인HR IT연구소 서비스인프라개발팀 박동형입니다. 이 포스트는 저희가 2년여간 운영해온 분산처리 시스템의 구조개선 프로젝트에 대해서 시스템 구축에 사용한 기술과 경험을 공유하고자 합니다 구성 분산처리 시스템 구조개선 (1) 분산처리 시스템 구조개선 (2) 왜 구조개선을 생각하게 됐는가?...
-        </description>
-        <pubDate>Mon, 25 Feb 2019 00:00:00 +0900</pubDate>
-        <link>http://10.100.0.202:80/2019-02-25-msa-cloud-system-1/</link>
-        <guid isPermaLink="true">http://10.100.0.202:80/2019-02-25-msa-cloud-system-1/</guid>
-      </item>
-    
-      <item>
-        <title>도커 swarm을 이용한 서비스 런칭하기</title>
-        <description>
-          서비스 런칭을 위해 준비했던 것들과 경험하고 있는 것들을 공유합니다. - 
-          Foreword 안녕하세요. 사람인 SM팀의 박요안입니다. 3월 저희 회사에서 조용하게 런칭한 재능마켓 서비스를 구축하며 경험한 것들을 공유하려고 합니다. 시작은 목표는 간단(?)했습니다. 새로운 기술을 도입하자. 서비스 배포/롤백 작업을 최대한 단순하게 진행되도록 하자. 서비스 안정성은 최대한 확보하자. 런칭 후 내가 편하자 왜 Docker swarm 인가 사람인에서는 사용하지 않는 새로운 기술, 서비스 배포와 롤백을...
-        </description>
-        <pubDate>Fri, 02 Jun 2017 00:00:00 +0900</pubDate>
-        <link>http://10.100.0.202:80/2017-06-02-swarm-service/</link>
-        <guid isPermaLink="true">http://10.100.0.202:80/2017-06-02-swarm-service/</guid>
       </item>
     
   </channel>
