@@ -1,6 +1,11 @@
 ---
-title: 인턴에서 사람인 개발자로 합류하기까지 - 개발 2팀 이정규
+title: 인턴에서 사람인 개발자로 합류하기까지
 author: 이정규
+tags:
+- internship
+- recruitment
+- 2020tech_internship
+- saraminhr
 ---
 
 ## 시작하며

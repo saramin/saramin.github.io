@@ -1,5 +1,11 @@
 ---
 title: 사람인 신입 개발자 6개월 입사기
+tags:
+- internship
+- recruitment
+- 2020tech_internship
+- saraminhr
+author: 최재우
 ---
 
 # 들어가며

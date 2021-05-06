@@ -5,6 +5,11 @@ comments: true
 social-share: true
 show-avatar: true
 author: 노혜민
+tags:
+- internship
+- recruitment
+- 2020tech_internship
+- saraminhr
 ---
 
 안녕하세요,  개발1팀에서 일하고 있는 노혜민입니다. 2020년 공채 1기에 선발되어 3개월의 인턴 생활 끝에 정직원으로 전환되어 현재 6개월째 사람인 웹 개발 업무를 담당하고 있습니다.
