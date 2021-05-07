@@ -1,6 +1,11 @@
 ---
 title: 사람인 DBA 인턴 성장기
 author: 심윤정
+tags:
+- internship
+- recruitment
+- 2020tech_internship
+- saraminhr
 ---
 
 ## 🍀들어가기전에
