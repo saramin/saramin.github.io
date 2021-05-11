@@ -509,7 +509,7 @@ filter {
 }
 output {
 	elasticsearch {
-		hosts =&gt; [":9200"]
+		hosts =&gt; ["{{elasticsearch 호스트}}:9200"]
 		index =&gt; "filebeat-sri-%{[@metadata][topic]}-%{index_day}"
 	}
 }
@@ -733,7 +733,7 @@ Consumer Group Lag by Topic : Topic에 데이터가 쌓이게 되면 Lag 수치�
   - deploy
 
 variables:
-  CI_REGISTRY: 
+  CI_REGISTRY: {{docker registry 주소}}
   BUILD_TAG: $CI_COMMIT_REF_NAME-$CI_PIPELINE_ID
   GIT_SUBMODULE_STRATEGY: recursive
   
@@ -756,7 +756,7 @@ build admin:
     - &gt;  # admin build
       docker build  
       -t $CI_REGISTRY:$BUILD_TAG . 
-      -f 
+      -f {{Dockerfile 경로}}
 
 push tag:
   &lt;&lt;: *tag_def
@@ -867,7 +867,7 @@ Filebeat이 Sidecar 형태로 로그를 수집하는 구조입니다.</li>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apiVersion: v1
 kind: ConfigMap
 metadata:
-	name: --filebeat-config
+	name: {{ .Release.Name }}-{{ include "heimdall.name" . }}-filebeat-config
 data:
 	filebeat.yml: |-
 		filebeat.config:
@@ -889,13 +889,13 @@ data:
 						sri.release.name: '${SRI_RELEASE_NAME}'
 						sri.server.name: '${SRI_POD_NAME}'
 		monitoring: 
-			enabled: 
+			enabled: {{ .Values.global.sidecar.filebeat.monitor }}
 			elasticsearch:
-				hosts: [""]
+				hosts: ["{{ .Values.global.sidecar.filebeat.esHost }}"]
 				metrics.period: 30s
 
 		output.kafka:
-			hosts: []
+			hosts: [{{ .Values.global.sidecar.filebeat.kafkaHost }}]
 			topic: '${SRI_NAMESPACE}-${SRI_PROJECT_NAME}'
 			partition.round_robin:
 				reachable_only: false
@@ -906,12 +906,12 @@ data:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-	name: --filebeat-inputs
+	name: {{ .Release.Name }}-{{ include "heimdall.name" . }}-filebeat-inputs
 data:
-	.yml: |-
+	{{ConfigMap명}}.yml: |-
 		- type: log
 			paths:
-				- ''
+				- '{{ .Values.sidecar.filebeat.logPath }}'
 			exclude_lines: ['DEBUG']
 			tail_files: "true"
 			## json.message_key: log
@@ -938,7 +938,7 @@ data:
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- type: log
   paths:
-    - ''
+    - '{{로그 경로}}'
   exclude_lines: ['DEBUG']
   tail_files: "true"
   ## json.message_key: log
@@ -1045,7 +1045,7 @@ Baremetal Server 기반의 기존 로그수집은
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: --metricbeat-config
+  name: {{ .Release.Name }}-{{ include "heimdall.name" . }}-metricbeat-config
   labels:
     kubernetes.io/cluster-service: "true"
 data:
@@ -1069,7 +1069,7 @@ data:
       elasticsearch:
         metrics.period: 30s
     output.elasticsearch:
-      hosts: [""]
+      hosts: ["{{ .Values.global.sidecar.metricbeat.esHost }}"]
       index: 'metricbeat-%{[event.module]}-${SRI_NAMESPACE}-${SRI_PROJECT_NAME}-%{+yyyy.MM.dd}'
     setup.template:
       enabled: true
@@ -1081,7 +1081,7 @@ data:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: --metricbeat-module
+  name: {{ .Release.Name }}-{{ include "heimdall.name" . }}-metricbeat-module
 data:
   jolokia_metric.yml: |-
     - module: jolokia
