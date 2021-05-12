@@ -1,5 +1,5 @@
 ---
-title: 사람인 인턴 생활기 - 공채1기 장경석
+title: 사람인 인턴 생활기 - 공채1기
 tags:
 - internship
 - recruitment

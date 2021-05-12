@@ -14,7 +14,7 @@
   <meta name="description" content="사내 Kubernetes인프라에 어플리케이션 빌드/배포 프로세스를 공유">
   
 
-  <link rel="alternate" type="application/rss+xml" title="SaraminHR Tech - SaraminHR Tech Blog / 사람인HR 기술 블로그" href="/feed.xml" />
+  <link rel="alternate" type="application/rss+xml" title="사람인HR 기술 블로그 - SaraminHR Tech Blog / 사람인HR 기술 블로그" href="/feed.xml" />
 
   
 
@@ -136,7 +136,7 @@
         <span class="icon-bar"></span>
       </button>
       
-        <a class="navbar-brand" href="http://10.100.0.202:80">SaraminHR Tech</a>
+        <a class="navbar-brand" href="http://10.100.0.202:80">사람인HR 기술 블로그</a>
       
     </div>
 
@@ -565,57 +565,58 @@ node.js 의 npm 과 비슷한 형태로 Kubernetes 패키지 배포를 가능하
 <p>사내 프로젝트에 적용된 <code class="highlighter-rouge">Deployment.yaml</code> 과 <code class="highlighter-rouge">Values.yaml</code> Sample 입니다.</p>
 
 <h4 id="deploymentyaml">deployment.yaml</h4>
+
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">apps/v1</span>
 <span class="na">kind</span><span class="pi">:</span> <span class="s">Deployment</span>
 <span class="na">metadata</span><span class="pi">:</span>
-  <span class="na">name</span><span class="pi">:</span> <span class="pi">{{</span>  <span class="nv">include "fullname" .</span> <span class="pi">}}</span>
-  <span class="na">labels</span><span class="pi">:</span>
-<span class="pi">{{</span> <span class="nv">include "labels" . | indent 4</span> <span class="pi">}}</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="pi">{{</span><span class="s1">'</span><span class="s">{{</span><span class="nv">  </span><span class="s">include</span><span class="nv"> </span><span class="s">"fullname"</span><span class="nv"> </span><span class="s">.</span><span class="nv"> </span><span class="s">'</span> <span class="s1">'</span><span class="s">}}}}</span>
+  <span class="s">labels:</span>
+<span class="s">{{'</span><span class="pi">{{</span> <span class="nv">include "labels" . | indent 4 '</span><span class="pi">}}}}</span>
 <span class="na">spec</span><span class="pi">:</span> 
-  <span class="na">replicas</span><span class="pi">:</span> <span class="pi">{{</span> <span class="nv">.Values.replicaCount</span> <span class="pi">}}</span>
+  <span class="na">replicas</span><span class="pi">:</span> <span class="pi">{{</span><span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">.Values.replicaCount</span><span class="nv"> </span><span class="s">'</span><span class="pi">}}</span><span class="err">}}</span>
   <span class="na">selector</span><span class="pi">:</span>
     <span class="na">matchLabels</span><span class="pi">:</span>
-<span class="pi">{{</span> <span class="nv">include "labels" . | indent 6</span> <span class="pi">}}</span>
+<span class="pi">{{</span><span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">include</span><span class="nv"> </span><span class="s">"labels"</span><span class="nv"> </span><span class="s">.</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">indent</span><span class="nv"> </span><span class="s">6</span><span class="nv"> </span><span class="s">'</span><span class="pi">}}</span><span class="err">}}</span>
   <span class="na">template</span><span class="pi">:</span>
     <span class="na">metadata</span><span class="pi">:</span>
       <span class="na">labels</span><span class="pi">:</span>
-<span class="pi">{{</span> <span class="nv">include "labels" . | indent 8</span> <span class="pi">}}</span>
+<span class="pi">{{</span><span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">include</span><span class="nv"> </span><span class="s">"labels"</span><span class="nv"> </span><span class="s">.</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">indent</span><span class="nv"> </span><span class="s">8</span><span class="nv"> </span><span class="s">'</span><span class="pi">}}</span><span class="err">}}</span>
     <span class="na">spec</span><span class="pi">:</span>
-    <span class="pi">{{</span><span class="nv">- with .Values.imagePullSecrets</span> <span class="pi">}}</span>
+    <span class="pi">{{</span><span class="s1">'</span><span class="s">{{-</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">.Values.imagePullSecrets</span><span class="nv"> </span><span class="s">'</span><span class="pi">}}</span><span class="err">}}</span>
       <span class="na">imagePullSecrets</span><span class="pi">:</span>
-        <span class="pi">{{</span><span class="nv">- toYaml . | nindent 8</span> <span class="pi">}}</span>
-    <span class="pi">{{</span><span class="nv">- end</span> <span class="pi">}}</span>
+        <span class="pi">{{</span><span class="s1">'</span><span class="s">{{-</span><span class="nv"> </span><span class="s">toYaml</span><span class="nv"> </span><span class="s">.</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">nindent</span><span class="nv"> </span><span class="s">8</span><span class="nv"> </span><span class="s">'</span><span class="pi">}}</span><span class="err">}}</span>
+    <span class="pi">{{</span><span class="s1">'</span><span class="s">{{-</span><span class="nv"> </span><span class="s">end</span><span class="nv"> </span><span class="s">'</span><span class="pi">}}</span><span class="err">}}</span>
       <span class="na">containers</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="pi">{{</span> <span class="nv">.Chart.Name</span> <span class="pi">}}</span>
-          <span class="na">image</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">.Values.image.repository</span><span class="nv"> </span><span class="s">}}:{{</span><span class="nv"> </span><span class="s">.Values.image.tag</span><span class="nv"> </span><span class="s">}}"</span>
-          <span class="na">imagePullPolicy</span><span class="pi">:</span> <span class="pi">{{</span> <span class="nv">.Values.image.pullPolicy</span> <span class="pi">}}</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="pi">{{</span><span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">.Chart.Name</span><span class="nv"> </span><span class="s">'</span><span class="pi">}}</span><span class="err">}}</span>
+          <span class="na">image</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{'{{</span><span class="nv"> </span><span class="s">.Values.image.repository</span><span class="nv"> </span><span class="s">'}}}}:{{'{{</span><span class="nv"> </span><span class="s">.Values.image.tag</span><span class="nv"> </span><span class="s">'}}}}"</span>
+          <span class="na">imagePullPolicy</span><span class="pi">:</span> <span class="pi">{{</span><span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">.Values.image.pullPolicy</span><span class="nv"> </span><span class="s">'</span><span class="pi">}}</span><span class="err">}}</span>
           <span class="na">env</span><span class="pi">:</span> 
-            <span class="pi">{{</span> <span class="nv">$root</span> <span class="pi">:</span><span class="nv">= .</span><span class="pi">}}</span>
-            <span class="pi">{{</span><span class="nv">- range $key</span><span class="pi">,</span> <span class="nv">$value</span> <span class="pi">:</span><span class="nv">= .Values.extraEnv</span> <span class="pi">}}</span>
-            <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="pi">{{</span> <span class="nv">$key</span> <span class="pi">}}</span>
-              <span class="na">value</span><span class="pi">:</span> <span class="pi">{{</span> <span class="nv">tpl ($value | quote) $root</span> <span class="pi">}}</span>
-            <span class="pi">{{</span><span class="nv">- end</span> <span class="pi">}}</span>
+            <span class="pi">{{</span><span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">$root</span><span class="nv"> </span><span class="s">:=</span><span class="nv"> </span><span class="s">.'</span><span class="pi">}}</span><span class="err">}}</span>
+            <span class="pi">{{</span><span class="s1">'</span><span class="s">{{-</span><span class="nv"> </span><span class="s">range</span><span class="nv"> </span><span class="s">$key,</span><span class="nv"> </span><span class="s">$value</span><span class="nv"> </span><span class="s">:=</span><span class="nv"> </span><span class="s">.Values.extraEnv</span><span class="nv"> </span><span class="s">'</span><span class="pi">}}</span><span class="err">}}</span>
+            <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="pi">{{</span><span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">$key</span><span class="nv"> </span><span class="s">'</span><span class="pi">}}</span><span class="err">}}</span>
+              <span class="na">value</span><span class="pi">:</span> <span class="pi">{{</span><span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">tpl</span><span class="nv"> </span><span class="s">($value</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">quote)</span><span class="nv"> </span><span class="s">$root</span><span class="nv"> </span><span class="s">'</span><span class="pi">}}</span><span class="err">}}</span>
+            <span class="pi">{{</span><span class="s1">'</span><span class="s">{{-</span><span class="nv"> </span><span class="s">end</span><span class="nv"> </span><span class="s">'</span><span class="pi">}}</span><span class="err">}}</span>
           <span class="na">ports</span><span class="pi">:</span>
             <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">http</span>
-              <span class="na">containerPort</span><span class="pi">:</span> <span class="pi">{{</span> <span class="nv">.Values.containerPort</span> <span class="pi">}}</span>
+              <span class="na">containerPort</span><span class="pi">:</span> <span class="pi">{{</span><span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">.Values.containerPort</span><span class="nv"> </span><span class="s">'</span><span class="pi">}}</span><span class="err">}}</span>
               <span class="na">protocol</span><span class="pi">:</span> <span class="s">TCP</span>
           <span class="na">resources</span><span class="pi">:</span>
-          <span class="pi">{{</span><span class="nv">- if .Values.resources.enabled -</span><span class="pi">}}</span>
-<span class="pi">{{</span> <span class="nv">tpl (toYaml .Values.resources.resource | nindent 12) .</span> <span class="pi">}}</span>
-          <span class="pi">{{</span><span class="nv">- end</span> <span class="pi">}}</span>
+          <span class="pi">{{</span><span class="s1">'</span><span class="s">{{-</span><span class="nv"> </span><span class="s">if</span><span class="nv"> </span><span class="s">.Values.resources.enabled</span><span class="nv"> </span><span class="s">-'</span><span class="pi">}}</span><span class="err">}}</span>
+<span class="pi">{{</span><span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">tpl</span><span class="nv"> </span><span class="s">(toYaml</span><span class="nv"> </span><span class="s">.Values.resources.resource</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">nindent</span><span class="nv"> </span><span class="s">12)</span><span class="nv"> </span><span class="s">.</span><span class="nv"> </span><span class="s">'</span><span class="pi">}}</span><span class="err">}}</span>
+          <span class="pi">{{</span><span class="s1">'</span><span class="s">{{-</span><span class="nv"> </span><span class="s">end</span><span class="nv"> </span><span class="s">'</span><span class="pi">}}</span><span class="err">}}</span>
         
-    <span class="pi">{{</span><span class="nv">- if .Values.affinity.enabled</span> <span class="pi">}}</span>
+    <span class="pi">{{</span><span class="s1">'</span><span class="s">{{-</span><span class="nv"> </span><span class="s">if</span><span class="nv"> </span><span class="s">.Values.affinity.enabled</span><span class="nv"> </span><span class="s">'</span><span class="pi">}}</span><span class="err">}}</span>
       <span class="na">affinity</span><span class="pi">:</span> 
         <span class="na">nodeAffinity</span><span class="pi">:</span> 
           <span class="na">requiredDuringSchedulingIgnoredDuringExecution</span><span class="pi">:</span>
             <span class="na">nodeSelectorTerms</span><span class="pi">:</span>
             <span class="pi">-</span> <span class="na">matchExpressions</span><span class="pi">:</span>
-              <span class="pi">-</span> <span class="na">key</span><span class="pi">:</span> <span class="pi">{{</span> <span class="nv">.Values.affinity.nodeAffinityKey</span> <span class="pi">}}</span>
+              <span class="pi">-</span> <span class="na">key</span><span class="pi">:</span> <span class="pi">{{</span><span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">.Values.affinity.nodeAffinityKey</span><span class="nv"> </span><span class="s">'</span><span class="pi">}}</span><span class="err">}}</span>
                 <span class="na">operator</span><span class="pi">:</span> <span class="s">In</span>
                 <span class="na">values</span><span class="pi">:</span> 
-                <span class="pi">-</span> <span class="pi">{{</span> <span class="nv">.Values.affinity.nodeAffinityValue</span> <span class="pi">}}</span>
+                <span class="pi">-</span> <span class="pi">{{</span><span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">.Values.affinity.nodeAffinityValue</span><span class="nv"> </span><span class="s">'</span><span class="pi">}}</span><span class="err">}}</span>
   
-<span class="err">    </span><span class="pi">{{</span><span class="nv">- end</span> <span class="pi">}}</span>
+<span class="err">    </span><span class="pi">{{</span><span class="s1">'</span><span class="s">{{-</span><span class="nv"> </span><span class="s">end</span><span class="nv"> </span><span class="s">'</span><span class="pi">}}</span><span class="err">}}</span>
 
 </code></pre></div></div>
 
