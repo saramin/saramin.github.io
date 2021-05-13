@@ -1,5 +1,5 @@
 ---
-title: 공채 1기 사람인 신입 개발자 생활기
+title: 인턴 프로젝트 수행기, 그리고 현재
 tags:
 - internship
 - recruitment
