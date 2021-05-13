@@ -1,5 +1,5 @@
 ---
-title: 사람인 인턴 생활기 - 공채1기
+title: 취준생에서 사람인 개발자 되기
 tags:
 - internship
 - recruitment

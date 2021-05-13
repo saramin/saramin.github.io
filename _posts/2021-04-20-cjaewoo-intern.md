@@ -1,5 +1,5 @@
 ---
-title: 사람인 신입 개발자 6개월 입사기
+title: 사람인 빌링파트 막내의 회사 생존기
 tags:
 - internship
 - recruitment
