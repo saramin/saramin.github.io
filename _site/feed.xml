@@ -7,6 +7,28 @@
     <atom:link href="http://10.100.0.202:80/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Boost GitLab CI / CD Pipeline Efficiency</title>
+        <description>
+          온-프렘 쿠버네티스 클러스터에서 GitLab Auto DevOps 기능을 사용하면서 빌드 속도를 향상시킨  커스터마이징 내용을 소개 - 
+          CI / CD 파이프라인 효율성 향상시키기 새로운 프로젝트를 시작하면서 기본 구성에서 시작하여 시행 착오를 통해 시간이 지남에 따라 파이프라인 구성을 개선하는 것이 일반적입니다. 더 나은 프로세스는 효율성을 즉시 개선하고 더 빠른 소프트웨어 개발 수명주기를 더 일찍 확보하는 파이프 라인 기능을 사용하는 것입니다. 파이프라인을 보다 효율적으로 만들면 개발자 시간을 절약할 수...
+        </description>
+        <pubDate>Thu, 01 Jul 2021 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2021-07-01-gitlab-ci-pipeline-efficiency/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2021-07-01-gitlab-ci-pipeline-efficiency/</guid>
+      </item>
+    
+      <item>
+        <title>Customize GitLab Auto DevOps with Existing Cluster (On-Premise Kubernetes)</title>
+        <description>
+          온-프레미스 환경에서 실행되는 쿠버네티스 클러스터에서 깃랩 자동 데브옵스 커스터마이징 - 
+          소개 최근 (주)사람인HR IT연구소/IT 전략팀에서는 등용문S (채용홈페이지 및 채용관리자) 프로젝트에서 GitLab Auto DevOps 기능을 활용하여 쿠버네티스 클러스터로 배포하기 시작했습니다. 이후 새 프로젝트를 진행하는데 있어 GitLab Auto DevOps 는 소프트웨어 배포에 대한 복잡성을 줄이는데 도움이 되었고, 빠르게 시작할 수 있었습니다. 이 게시물에서는 GitLab Auto DevOps 기능을 온-프레미스 환경에서 직접 kubespray로 설치한...
+        </description>
+        <pubDate>Wed, 30 Jun 2021 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2021-06-30-customize-gitlab-auto-devops-with-existing-cluster-on-premise-kubernetes/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2021-06-30-customize-gitlab-auto-devops-with-existing-cluster-on-premise-kubernetes/</guid>
+      </item>
+    
+      <item>
         <title>사람인 IT연구소 공채 인턴십만의 특징!</title>
         <description>
           
@@ -202,28 +224,6 @@
         <pubDate>Tue, 24 Mar 2020 00:00:00 +0900</pubDate>
         <link>http://10.100.0.202:80/2020-03-24-elastic-apm-2/</link>
         <guid isPermaLink="true">http://10.100.0.202:80/2020-03-24-elastic-apm-2/</guid>
-      </item>
-    
-      <item>
-        <title>Elastic APM 적용 해보기 - #1. 소개 및 설치</title>
-        <description>
-          
-          사람인HR에서 Elastic APM을 적용한 경험에 대해서 공유하고자 합니다. 안녕하세요. 사람인HR IT연구소 서비스인프라개발팀 임재호입니다. 사람인HR에서 서비스 모니터링을 위한 APM시스템을 구축 하였습니다. 시스템을 구축하며 조사한 자료에 대해서 공유 하고자 합니다. 목차 1. APM 소개 2. APM 설치 및 구성 3. Kibana 화면을 통한 APM 데이터 확인 4. 도입시 장점 및 기대 효과...
-        </description>
-        <pubDate>Tue, 24 Mar 2020 00:00:00 +0900</pubDate>
-        <link>http://10.100.0.202:80/2020-03-24-elastic-apm-1/</link>
-        <guid isPermaLink="true">http://10.100.0.202:80/2020-03-24-elastic-apm-1/</guid>
-      </item>
-    
-      <item>
-        <title>kafka 설정을 사용한 문제해결</title>
-        <description>
-          
-          안녕하세요. 사람인HR 기술연구소 서비스인프라개발팀 안경민입니다. 메일 시스템 구조개선을 진행하면서 kafka를 사용하며 부딪혔던 문제와 해결했던 방법을 공유하여 같은 문제를 겪을 수 있는 분들에게 도움이 되고자 작성하게 되었습니다. 최근 시스템솔루션개발파트에서는 MSA구조로 개선하는 프로젝트를 진행하고 있습니다. 이에 일환으로 메일 시스템의 구조개선을 진행하였습니다. 구조개선에 대한 자세한 설명은 이전 포스트를 참고 부탁드립니다. 분산처리 시스템 구조개선...
-        </description>
-        <pubDate>Tue, 17 Sep 2019 00:00:00 +0900</pubDate>
-        <link>http://10.100.0.202:80/2019-09-17-kafka/</link>
-        <guid isPermaLink="true">http://10.100.0.202:80/2019-09-17-kafka/</guid>
       </item>
     
   </channel>

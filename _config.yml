@@ -63,8 +63,9 @@ footer-link-col: "#404040"
 
 # Change all these values or delete the ones you don't want.
 # Important: you must keep the "name" parameter, everything else you can remove
-#author:
+author:
 #  name: Some Person
+  twitter: saraminHR
 
 # Select your active Social Network Links.
 # Uncomment the links you want to show in the footer and add your information to each link.
@@ -74,8 +75,8 @@ social-network-links:
   rss: true
   #email: "help@saramin.co.kr"
   facebook: saramin.dream
- # github: daattali
- # twitter: daattali
+  github: saramin
+#  twitter: saraminHR
 #  reddit: yourname
 #  google-plus: +DeanAttali
 #  linkedin: daattali
@@ -160,7 +161,7 @@ title-separator: "-"
 markdown: kramdown
 highlighter: rouge
 permalink: /:year-:month-:day-:title/
-paginate: 5
+paginate: 15
 
 kramdown:
   input: GFM
@@ -251,8 +252,13 @@ prose:
 plugins:
   - jekyll-paginate
   - jekyll-sitemap
+  - jekyll-admin
 
 
+jekyll_admin:
+  homepage: "posts"
+  hidden_links:
+    - configuration
 
 
 
