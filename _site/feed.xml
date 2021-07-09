@@ -7,6 +7,17 @@
     <atom:link href="http://10.100.0.202:80/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>웹 사이트 성능 최적화, 새로운 경험</title>
+        <description>
+          사람인 &amp; 베트남 Topdev 웹 사이트 성능 향상을 위해 적용한 방법은? - 
+          안녕하세요. 사람인HR IT연구소 개발1팀 권종성입니다 :) 저는 웹 개발자로 사람인 채용포털 전반에 걸친 서비스를 개발하고 있으며, 이번에 좋은 기회로 사람인 모바일 페이지와 베트남 자회사인 앱랜서에서 IT직무에 특화된 채용포털 사이트인 Topdev 웹 사이트 성능을 최적화하는 작업을 하게 되었습니다. 지금부터 기존에 어떤 성능 이슈들이 있었고, 어떻게 최적화를 하였는지 하나씩 알아보겠습니다. 시작은? 사람인HR...
+        </description>
+        <pubDate>Fri, 02 Jul 2021 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2021-07-02-web-site-optimization/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2021-07-02-web-site-optimization/</guid>
+      </item>
+    
+      <item>
         <title>Boost GitLab CI / CD Pipeline Efficiency</title>
         <description>
           온-프렘 쿠버네티스 클러스터에서 GitLab Auto DevOps 기능을 사용하면서 빌드 속도를 향상시킨  커스터마이징 내용을 소개 - 
@@ -213,17 +224,6 @@
         <pubDate>Wed, 01 Apr 2020 00:00:00 +0900</pubDate>
         <link>http://10.100.0.202:80/2020-04-01-heimdall/</link>
         <guid isPermaLink="true">http://10.100.0.202:80/2020-04-01-heimdall/</guid>
-      </item>
-    
-      <item>
-        <title>Elastic APM 적용 해보기 - #2. 장점 및 Newrelic 비교</title>
-        <description>
-          
-          사람인HR에서 Elastic APM을 적용한 경험에 대해서 공유하고자 합니다. 안녕하세요. 사람인HR IT연구소 서비스인프라개발팀 임재호입니다. 사람인HR에서 서비스 모니터링을 위한 APM시스템을 구축 하였습니다. 시스템을 구축하며 조사한 자료에 대해서 공유 하고자 합니다. 목차 1. APM 소개 2. APM 설치 및 구성 3. Kibana 화면을 통한 APM 데이터 확인 4. 도입시 장점 및 기대 효과...
-        </description>
-        <pubDate>Tue, 24 Mar 2020 00:00:00 +0900</pubDate>
-        <link>http://10.100.0.202:80/2020-03-24-elastic-apm-2/</link>
-        <guid isPermaLink="true">http://10.100.0.202:80/2020-03-24-elastic-apm-2/</guid>
       </item>
     
   </channel>
