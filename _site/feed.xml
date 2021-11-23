@@ -7,6 +7,17 @@
     <atom:link href="http://10.100.0.202:80/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Private Docker Registry를 바꿔보자!</title>
+        <description>
+          사람인 Docker-Registry - 
+          Private Docker Registry를 바꿔보자! 소개 안녕하세요. 사람인HR IT연구소 SE팀 윤진주 입니다. SE팀은 사람인에서 운영되는 전체 서비스가 보다 안정적으로 운영될 수 있도록 운영되는 모든 시스템을 관리하고 있습니다. 전체 서비스의 안정적인 운영을 위해 모든 서버들을 오픈소스를 이용하여 이중화 구축 진행하고 있으며 시스템을 보다 안정적으로 관리하기 위해 자체 개발한 모니터링 시스템들을 개선해 나가고...
+        </description>
+        <pubDate>Tue, 23 Nov 2021 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2021-11-23-harbor-registry/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2021-11-23-harbor-registry/</guid>
+      </item>
+    
+      <item>
         <title>어느날 갑자기 배포가 되지 않았다.</title>
         <description>
           사람인 GitLab-Runner - 
@@ -213,17 +224,6 @@
         <pubDate>Mon, 09 Nov 2020 00:00:00 +0900</pubDate>
         <link>http://10.100.0.202:80/2020-11-09-MSR/</link>
         <guid isPermaLink="true">http://10.100.0.202:80/2020-11-09-MSR/</guid>
-      </item>
-    
-      <item>
-        <title>등용문S 개발기 (채용홈페이지)</title>
-        <description>
-          FE개발자 주도로 스토리보드를 그리고 디자인을 생각하며 화면을 개발하다 - 
-          안녕하세요. 사람인HR IT연구소 UI개발2팀 정영환입니다. 등용문S 프로젝트를 진행하면서 겪은 프론트엔드 개발자로서의 개발 경험을 공유하고자 합니다. 등용문S은 HR솔루션으로써 이력서 접수, 심사, 발표를 한번에 관리하는 기업 맞춤형 채용관리 시스템입니다. 기존 등용문 3.0과 5.0의 결합체이며, 기존의 채용홈페이지와 채용관리자를 새롭게 구축 하였습니다. 또한, 기업관리자가 쉽게 홈페이지를 커스터마이징 할 수 있도록 채용홈페이지 빌더도 업그레이드 되었습니다....
-        </description>
-        <pubDate>Thu, 01 Oct 2020 00:00:00 +0900</pubDate>
-        <link>http://10.100.0.202:80/2020-10-01-s/</link>
-        <guid isPermaLink="true">http://10.100.0.202:80/2020-10-01-s/</guid>
       </item>
     
   </channel>
