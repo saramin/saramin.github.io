@@ -25,10 +25,9 @@ SE팀은 사람인에서 운영되는 전체 서비스가 보다 안정적으로
 
 이에 따라 충분한 사용량 확보 및 보안성 향상 그리고 사용자 친화 WEB UI 등 많은것들이 현재 사용하는 Docker Registry보다 향상된 Harbor Registry에 대한 니즈를 더이상 미룰수 없었습니다.
 
+## Harbor란 무엇인가?
 
-## 하버란 무엇인가?
-
-공식 홈페이지에서는하버를 다음과 같이 설명하고 있습니다.
+공식 홈페이지에서는 Harbor를 다음과 같이 설명하고 있습니다.
 
 > Harbor is an open source registry that secures artifacts with policies and role-based access control, ensures images are scanned and free from vulnerabilities,
 and signs images as trusted.Harbor, a CNCF Graduated project, delivers compliance, performance, and interoperability to help you consistently and securely manage artifacts
@@ -80,7 +79,7 @@ trident-operator-6598486bf7-6lmjq   1/1     Running   1          68d
 <br>
 ### Harbor 설치
 
-위에서 언급한데로 helm 으로 쉽게 설치를 진행했습니다.
+위에서 언급한데로 Helm 으로 쉽게 설치를 진행했습니다.
 
 #### 1. Harbor Namespace 추가
 ```bash
@@ -172,18 +171,18 @@ harbor-harbor-registry-67f45587d7-6gvpg        2/2     Running   0          5h58
 harbor-harbor-trivy-0                          1/1     Running   0          5h57m
 ```
 <br>
-정상적으로 배포가 완료되면 아래와 같이 로그인 화면을 확인할 수 있다
+정상적으로 배포가 완료되면 아래와 같이 로그인 화면을 확인할 수 있습니다.
 
 ![Harbor로그인](/img/harbor/harbor-login.PNG)
 <br><br>
 ### Harbor LDAP 연동
 
-Harbor를 도입하려고 한 이유중 가장 중요한 이유가 LDAP 연동을 통한 RBAC (RollBase Access Control) 를 하기 위함이었다.
+Harbor를 도입하려고 한 이유중 가장 중요한 이유가 LDAP 연동을 통한 RBAC (Role Based Access Control) 를 하기 위함이었습니다.
 기존 Docker Registry의 경우 계정 연동이 되어 있지 않고, URL만 입력하면 바로 레지스트리 이미지들이 노출되었기 때문에
-보안성 측면에서 취약한 부분이 있었기 때문에 이를 개선하기 위해 LDAP 연동을 통해 RBAC 설정을 해보고자 한다.
+보안성 측면에서 취약한 부분이 있었기 때문에 이를 개선하기 위해 LDAP 연동을 통해 RBAC 설정을 해보고자 합니다.
 
 #### 1. Harbor RBAC는?
-> 자세한 사항은 [Harbor GitHub](https://github.com/goharbor/harbor/blob/26905baca2df158437792010274d2c257b69a47f/docs/permissions.md) 참고
+> 자세한 사항은 [Harbor GitHub](https://github.com/goharbor/harbor/blob/26905baca2df158437792010274d2c257b69a47f/docs/permissions.md) 참고 부탁드립니다.
  * ProjectAdmin: Master
  * Master: Image Clone, Project Clone
  * Developer: Project Read/Write
@@ -195,23 +194,22 @@ Harbor를 도입하려고 한 이유중 가장 중요한 이유가 LDAP 연동�
 <br>
 #### 2. LDAP 설정
 
-아래와 같이 설정하면 LDAP 계정으로 로그인이 가능하다 (인증정보는 중요한 정보이기 때문에 가렸다.)
-아래와 같이 설정을 하면 로그인시 유저가 자동으로 생성되며, 그룹의 경우는 수동으로 생성을 해줘야 한다.
-그룹은 필요에 따라서 설정하면 될것 같다.
+아래와 같이 설정하면 LDAP 계정으로 로그인이 가능하며, 로그인시 유저가 자동으로 생성됩니다.
+그룹의 경우는 수동으로 생성을 해줘야 하며, 필요에 따라서 설정하면 될것 같습니다.
 
 ![HarborLDAP](/img/harbor/harbor-ldap.PNG)
 <br>
 ### Harbor 업그레이드
 
-Helm 차트로 배포했기 때문에 업그레이드 명령으로 쉽게 버전 업그레이드가 가능했다
-위에 설치에서 자세한 내용을 기재했기 때문에 업그레이드 내용은 별도 기재하지 않겠다
+Helm 차트로 배포했기 때문에 업그레이드 명령으로 쉽게 버전 업그레이드가 가능했습니다.
+위에 설치에서 자세한 내용을 기재했기 때문에 업그레이드 내용은 별도 기재하지 않겠습니다.
 
 
 ### 기존 레지스트리 데이터를 어떻게 이관했을까?
 
-개발자들이 기존 도커 레지스트리를 사용하고 있었기 때문에 어떻게 데이터를 이관해야 할지 기능적인 부분으로 확인했었는데  Harbor에서는 리플리케이션이라는 아주 편리한 기능을 제공하고 있습니다. 그래서 기존 레지스트리 데이터를 하루 2회정도 스케쥴을 통해  레지스트리 데이타 전체  동기화를 진행했습니다.
+개발자들이 기존 도커 레지스트리를 사용하고 있었기 때문에 어떻게 데이터를 이관해야 할지 기능적인 부분으로 확인했었는데  Harbor는 리플리케이션이라는 아주 편리한 기능을 제공하고 있습니다. 그래서 기존 레지스트리 데이터를 하루 2회정도 스케쥴을 통해  데이타 전체  동기화를 진행했습니다.
 
-그리고 전체 프로젝트를 한번에 이관하기에는 리스크가 존재하기  때문에  IT전략팀, 채용시스템개발팀, 서비스인프라개발팀과 협업하여 먼저 개발/스테이징 전환 테스트를 순차적으로 진행하였으며, 프로덕션의 경우 사용하는  프로젝트를 순차적으로 신규 레지스트리로 이관하는 작업을 진행하였습니다.
+그리고 전체 프로젝트를 한번에 이관하기에는 리스크가 존재하기  때문에  IT전략팀, 채용시스템개발팀, 서비스인프라개발팀과 협업하여 먼저 개발/스테이징 전환 테스트를 순차적으로 진행하였으며, 프로덕션의 경우 사용하는  프로젝트를 순차적으로 신규 레지스트리로 이관하는 작업을 진행했습니다.
 
 이런 방식으로 진행했기 때문에 별도의 서비스 다운없이 안정적으로 레지스트리 이관을 진행할 수 있었습니다.
 
@@ -222,8 +220,6 @@ Helm 차트로 배포했기 때문에 업그레이드 명령으로 쉽게 버전
 초기 파일럿 시점부터  테스트 및 실제 도입까지 많은 문제를 해결 할 수 있도록 도와주고 작업을 지원해주신 IT전략팀, 채용시스템개발팀, 서비스인프라개발팀 개발자 분들께 감사드립니다.
 
 그리고 글을 끝까지 읽어주신 모든 분들께 감사드립니다.
-
-글쓰는건 참 어렵네요..
 
 
 ## 참고자료
