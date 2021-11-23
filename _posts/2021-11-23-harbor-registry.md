@@ -2,7 +2,11 @@
 title: Private Docker Registry를 바꿔보자!
 author: 윤진주
 subtitle: 사람인 Docker-Registry
-tags: Docker-Registry Container-Registry Harbor k8s
+tags:
+- Docker-Registry
+- Container-Registry
+- Harbor
+- k8s
 ---
 
 # Private Docker Registry를 바꿔보자!
