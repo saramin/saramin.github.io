@@ -7,6 +7,17 @@
     <atom:link href="http://10.100.0.202:80/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>AWS로 배포를 해보자!</title>
+        <description>
+          CodeDeploy와 S3, CloudFront를 이용해서 배포하기 - 
+          소개 안녕하세요, IT전략팀 김미란입니다. 지난 해 말 사람인에서 THE PL:LAB(더플랩)을 런칭하였습니다. THE PL:LAB은 ESG기반으로 인사담당자 관점에서 만든 새로운 HR 서비스입니다. 그 중 인사담당자들에게 정보와 지식을 공유하는 INSIGHT(인사이트) 프로젝트에 참여하여 개발하였습니다. 구직자는 비교적 쉽게 채용에 대한 다양한 정보를 찾아볼 수 있지만, 인사담당자들을 위한 정보는 쉽사리 찾을 수 없었습니다. 이러한 문제를 사람인에이치알에서...
+        </description>
+        <pubDate>Fri, 25 Feb 2022 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2022-02-25-hello-aws/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2022-02-25-hello-aws/</guid>
+      </item>
+    
+      <item>
         <title>SPRING CLOUD GATEWAY를 이용한 API GATEWAY 구축기</title>
         <description>
           
@@ -26,6 +37,28 @@
         <pubDate>Thu, 23 Dec 2021 00:00:00 +0900</pubDate>
         <link>http://10.100.0.202:80/2021-12-23-hello-aws/</link>
         <guid isPermaLink="true">http://10.100.0.202:80/2021-12-23-hello-aws/</guid>
+      </item>
+    
+      <item>
+        <title>스토리북을 이용한 컴포넌트 제작</title>
+        <description>
+          분석, 설계, 구현 그리고 산출물을 통한 프로젝트 진행 과정 소개 - 
+          안녕하세요. 사람인HR IT연구소 UI개발2팀 정영환입니다. 지난 등용문S 개발기에 이어 Vue로 프로젝트를 진행하였습니다. 그 당시와 달리 작년 9월에 릴리즈한 Vue3로 개발하면서 storybook을 활용했다는 차이가 있겠네요. Vue3에 대한 이야기는 안수미 연구원님께서 정리한 Vue, 원피스로 떠나는 여정에 담았으니 이 글은 storybook에 집중해볼게요. 커넥트는 기업과 핵심인재를 연결하는 인재 발굴 플랫폼입니다. 인사담당자 관점에서 만든 서비스로...
+        </description>
+        <pubDate>Tue, 21 Dec 2021 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2021-12-21-connect/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2021-12-21-connect/</guid>
+      </item>
+    
+      <item>
+        <title>Vue, 원피스로 떠나는 여정</title>
+        <description>
+          Vue3 이용한 프로젝트 적용기 - 
+          Vue, 원피스로 떠나는 여정 안녕하세요. IT연구소 UI개발2팀 안수미입니다. UI개발팀은 웹 접근성과 함께 웹 표준에 맞추어 사용자가 서비스를 이용하며 접하는 UI를 구현합니다. 빠질 수 없는 HTML, CSS, ECMAScript는 물론이고 Vue.js를 활용하여 프로젝트를 진행합니다. 이번에는 Vue3를 다루게 되어 공유하고자 정리해보았습니다. 기존에 사용하던 Vue2와 무엇이 다른지, 도입하기 전에 고려할 사항으로 어떤 게 존재하는지...
+        </description>
+        <pubDate>Wed, 15 Dec 2021 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2021-12-15-vue2-vs-vue3/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2021-12-15-vue2-vs-vue3/</guid>
       </item>
     
       <item>
@@ -191,39 +224,6 @@
         <pubDate>Tue, 30 Mar 2021 00:00:00 +0900</pubDate>
         <link>http://10.100.0.202:80/2021-03-30-intern-log-yoonjung/</link>
         <guid isPermaLink="true">http://10.100.0.202:80/2021-03-30-intern-log-yoonjung/</guid>
-      </item>
-    
-      <item>
-        <title>혜민이의 공채 1기 인턴 생활기</title>
-        <description>
-          
-          안녕하세요, 개발1팀에서 일하고 있는 노혜민입니다. 2020년 공채 1기에 선발되어 3개월의 인턴 생활 끝에 정직원으로 전환되어 현재 6개월째 사람인 웹 개발 업무를 담당하고 있습니다. 인턴 생활을 마치고 시간이 꽤 지났지만 공채 지원부터 인턴 생활, 정직원 전환 후 현재까지 사람인에서 제가 배우고 느낀 점들을 소개하고자 글을 쓰게 되었습니다. 공채 지원🎯 2020년 2월...
-        </description>
-        <pubDate>Mon, 29 Mar 2021 00:00:00 +0900</pubDate>
-        <link>http://10.100.0.202:80/2021-03-29-intern-log-hyemin/</link>
-        <guid isPermaLink="true">http://10.100.0.202:80/2021-03-29-intern-log-hyemin/</guid>
-      </item>
-    
-      <item>
-        <title>Amazon Chime SDK를 활용한 영상면접 서비스 개발</title>
-        <description>
-          코로나19로 인한 면접방식의 변화 - 
-          들어가며 안녕하세요. 사람인 신규 서비스 개발 및 운영을 담당하고 있는 개발1팀 김갑훈입니다. 코로나19로 인하여 많은 기업들이 재택근무를 시행하고 있으며 이와 더불어 비대면 서비스의 도입 및 활용이 증가하고 있습니다. 이에 따라 채용 과정의 필수 요소인 면접도 비대면으로 전환되고 있는 추세입니다. 사람인에서는 이러한 변화에 대응하기 위해 비대면으로 면접을 진행할 수 있는 영상면접...
-        </description>
-        <pubDate>Tue, 09 Mar 2021 00:00:00 +0900</pubDate>
-        <link>http://10.100.0.202:80/2021-03-09-amazon-chime-sdk-video-interview/</link>
-        <guid isPermaLink="true">http://10.100.0.202:80/2021-03-09-amazon-chime-sdk-video-interview/</guid>
-      </item>
-    
-      <item>
-        <title>네트워크장비 트래픽 모니터링 - 평균의 함정</title>
-        <description>
-          
-          안녕하세요. 사람인HR IT연구소 SE팀 박용철입니다. SE팀은 사람인HR에서 제공하는 서비스의 전반적인 인프라 구성/운영/관제를 담당하며 서비스가 안정적으로 운영이 되도록 모니터링을 하기 위해 다양한 오픈소스툴을 활용하거나 필요에 따라 직접 개발하기도 합니다. 이번 포스팅은 IDC 의 서비스트래픽 모니터링을 위해 오랜기간 사용중이던 cacti 에서 telegraf, grafana, influxdb 를 활용한 사례를 공유하고자 합니다. 2018년 11월경에 응답속도가...
-        </description>
-        <pubDate>Mon, 28 Dec 2020 00:00:00 +0900</pubDate>
-        <link>http://10.100.0.202:80/2020-12-28-se-networkmonitoring/</link>
-        <guid isPermaLink="true">http://10.100.0.202:80/2020-12-28-se-networkmonitoring/</guid>
       </item>
     
   </channel>
