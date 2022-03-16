@@ -7,6 +7,50 @@
     <atom:link href="http://10.100.0.202:80/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>SPRING CLOUD GATEWAY를 이용한 API GATEWAY 구축기</title>
+        <description>
+          
+          안녕하세요. 사람인에이치알 서비스인프라개발팀 이현규 입니다. 이번 포스팅은 현재 사람인에이치알에 구축되어 운영되고 있는 API GATEWAY에 대하여 공유하는 내용의 포스팅입니다. API GATEWAY란? 정말 간단하게 정의하자면, API GATEWAY는 클라이언트와 백엔드 서비스 사이에 위치하는 리버스 프록시 역활을 하는 서비스 입니다. 더불어 인증, 속도제어, 서킷브레이커, 모니터링등 여러 공동 모듈 및 관리포인트들을 추가하여 모든 API들의 관문(GATEWAY)의...
+        </description>
+        <pubDate>Thu, 20 Jan 2022 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2022-01-20-spring-cloud-gateway-api-gateway/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2022-01-20-spring-cloud-gateway-api-gateway/</guid>
+      </item>
+    
+      <item>
+        <title>AWS로 배포를 처음하는 이들에게</title>
+        <description>
+          
+          소개 안녕하세요, IT전략팀 김미란입니다. 지난 해 말 사람인에서 THE PL:LAB(더플랩)을 런칭하였습니다. THE PL:LAB은 ESG기반으로 인사담당자 관점에서 만든 새로운 HR 서비스입니다. 그 중 인사담당자들에게 정보와 지식을 공유하는 INSIGHT(인사이트) 프로젝트에 참여하여 개발하였습니다. 구직자는 비교적 쉽게 채용에 대한 다양한 정보를 찾아볼 수 있지만, 인사담당자들을 위한 정보는 쉽사리 찾을 수 없었습니다. 이러한 문제를 사람인에이치알에서...
+        </description>
+        <pubDate>Thu, 23 Dec 2021 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2021-12-23-hello-aws/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2021-12-23-hello-aws/</guid>
+      </item>
+    
+      <item>
+        <title>스토리북을 이용한 컴포넌트 제작</title>
+        <description>
+          분석, 설계, 구현 그리고 산출물을 통한 프로젝트 진행 과정 소개 - 
+          안녕하세요. 사람인HR IT연구소 UI개발2팀 정영환입니다. 지난 등용문S 개발기에 이어 이번 프로젝트도 Vue로 프로젝트를 진행하였습니다. 그 당시와 달리 작년 9월에 릴리즈한 Vue3로 개발하면서 storybook을 활용했다는 차이가 있겠네요. Vue3에 대한 이야기는 안수미 연구원님께서 정리한 Vue, 원피스로 떠나는 여정에 담겨서 이 글은 스토리북에 집중해볼게요. 커넥트 프로젝트를 진행하면서 겪었던 이슈와 함께 어떻게 대응하였는지 소개해드리고자...
+        </description>
+        <pubDate>Mon, 13 Dec 2021 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2021-12-13-connect/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2021-12-13-connect/</guid>
+      </item>
+    
+      <item>
+        <title>Vue, 원피스로 떠나는 여정</title>
+        <description>
+          Vue3 이용한 프로젝트 적용기 - 
+          Vue, 원피스로 떠나는 여정 안녕하세요. IT연구소 UI개발2팀 안수미입니다. UI개발팀은 웹 접근성과 함께 웹 표준에 맞추어 사용자가 서비스를 이용하며 접하는 UI를 구현합니다. 빠질 수 없는 HTML, CSS, ECMAScript는 물론이고 Vue.js를 활용하여 프로젝트를 진행합니다. 이번에는 Vue3를 다루게 되어 공유하고자 정리해보았습니다. 기존에 사용하던 Vue2와 무엇이 다른지, 도입하기 전에 고려할 사항으로 어떤 게 존재하는지...
+        </description>
+        <pubDate>Wed, 01 Dec 2021 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2021-12-01-vue2-vs-vue3/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2021-12-01-vue2-vs-vue3/</guid>
+      </item>
+    
+      <item>
         <title>Private Docker Registry를 바꿔보자!</title>
         <description>
           사람인 Docker-Registry - 
@@ -180,50 +224,6 @@
         <pubDate>Mon, 28 Dec 2020 00:00:00 +0900</pubDate>
         <link>http://10.100.0.202:80/2020-12-28-se-networkmonitoring/</link>
         <guid isPermaLink="true">http://10.100.0.202:80/2020-12-28-se-networkmonitoring/</guid>
-      </item>
-    
-      <item>
-        <title>장애 확산을 막기 위한 서킷브레이커 패턴을 PHP에서 구현해보자</title>
-        <description>
-          PHP에 적합한 서킷브레이커 라이브러리 소개 - 
-          Java는 Hystrix와 Resilience4j, 그렇다면 PHP는?! 안녕하세요, 사람인의 빌링 서비스를 개발하는 이현재입니다. 저희 파트가 운영하는 도메인은 Spring Boot를 사용하여 MSA로 분리되어 있습니다. MSA를 위한 여러 가지 기법이 존재하는데, 그중에서 서킷브레이커 패턴을 활용하는 방법에 대해 살펴보도록 합시다. 이번에는 오픈소스 라이브러리를 활용해볼 건데, 사실 서킷브레이커 패턴은 원리만 이해하면 구현 자체가 어렵지 않습니다. 물론...
-        </description>
-        <pubDate>Mon, 21 Dec 2020 00:00:00 +0900</pubDate>
-        <link>http://10.100.0.202:80/2020-12-21-php-circuit-breaker-ganesha/</link>
-        <guid isPermaLink="true">http://10.100.0.202:80/2020-12-21-php-circuit-breaker-ganesha/</guid>
-      </item>
-    
-      <item>
-        <title>외부 API로 빚어진 장애대응 후일담 after 1years</title>
-        <description>
-          클라이언트에 서킷브레이커를 입히다 - 
-          외부 API 장애에 대한 트러블슈팅 경험을 공유드립니다. 안녕하세요, 사람인의 빌링 서비스를 개발하는 이현재입니다. 프로젝트를 진행하면 API를 활용할 일이 많습니다. 어떻게 해야 API와의 의존성을 줄일 수 있는지 고민해보셨나요? 모든 전말은 1년 전으로 거슬러 올라갑니다. 이야기를 풀기 위해 잠깐 사람인 개발 문화에 대해 소개해드릴게요. 사람인 IT연구소는 개발자의 역량 향상을 위한 지원을 아끼지...
-        </description>
-        <pubDate>Fri, 18 Dec 2020 00:00:00 +0900</pubDate>
-        <link>http://10.100.0.202:80/2020-12-18-post-api-with-circuit-breaker/</link>
-        <guid isPermaLink="true">http://10.100.0.202:80/2020-12-18-post-api-with-circuit-breaker/</guid>
-      </item>
-    
-      <item>
-        <title>사람인 GIT 전환</title>
-        <description>
-          SVN &gt; Git 전환과정 공유 - 
-          Saramin 형상관리 전환과정을 설명합니다. SSG TF 소개 사람인 서비스의 형상관리 전환을 위해 IT연구소 내부에서 자발적 지원으로 구성된 TF팀이며 Saramin SVN to Git 이라는 의미를 담고 있습니다. 저희 SSG 팀에서 SVN 에서 GIT으로의 형상관리 전환과정에 대해 공유드리고자 이 글을 작성합니다. 배경 사람인의 주요서비스 중 일부는 지난 10여년간 SVN (Subversion)을 사용해왔습니다. 회사가...
-        </description>
-        <pubDate>Tue, 17 Nov 2020 00:00:00 +0900</pubDate>
-        <link>http://10.100.0.202:80/2020-11-17-SSG/</link>
-        <guid isPermaLink="true">http://10.100.0.202:80/2020-11-17-SSG/</guid>
-      </item>
-    
-      <item>
-        <title>MySQL MSR(Multi Source Replication) 도입</title>
-        <description>
-          MySQL Multi Source Replication 도입 사례 - 
-          큰 하나의 데이터베이스(Monolithic)를 여러개의 데이터베이스(MSA)로 구조를 개선하면서 발생하는 이슈에 좀 더 쉽게 대응하기 위하여 MSR을 도입한 사례에 대해서 간략하게 설명하겠습니다. 소개 저희 IT전략팀은 사람인의 계속적인 서비스 확장에 따른 개발 복장성 증가 및 서비스 간 강한 결합으로 인한 각 개발팀간 병렬 작업에 따르는 복잡한 상호 의존을 제거하기 위하여, 기존 Legacy 시스템을...
-        </description>
-        <pubDate>Mon, 09 Nov 2020 00:00:00 +0900</pubDate>
-        <link>http://10.100.0.202:80/2020-11-09-MSR/</link>
-        <guid isPermaLink="true">http://10.100.0.202:80/2020-11-09-MSR/</guid>
       </item>
     
   </channel>
