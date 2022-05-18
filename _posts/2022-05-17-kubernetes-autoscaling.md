@@ -17,7 +17,7 @@ tags:
 
 ![컨테이너 오케스트레이션 트렌드]({{site.url}}/img/k8s/container-orchestration-trends.png)
 
-* 출처 : https://trends.google.co.kr/trends/explore?date=2014-06-01%202022-12-31&q=Kubernetes,OpenShift,Mesosphere,OpenStack,CloudFoundry*
+*출처 : https://trends.google.co.kr/trends/explore?date=2014-06-01%202022-12-31&q=Kubernetes,OpenShift,Mesosphere,OpenStack,CloudFoundry*
 
 이러한 퍼블릭 클라우드 컴퓨팅 플랫폼에서는 리소스를 사용한 만큼 비용이 청구됩니다. 그래서 유입되는 트래픽에 따라 탄력적인 리소스 관리를 위해서 [GCP Autoscale groups of VMs](https://cloud.google.com/compute/docs/autoscaler), [AWS Auto Scaling](https://aws.amazon.com/autoscaling/), [Azure Autoscale](https://azure.microsoft.com/en-us/features/autoscale/), [NAVER Cloud Auto Scaling](https://www.ncloud.com/product/compute/autoScaling), [Kakao i Cloud 오토스케일링](https://www.kakaoicloud.com/service/detail/3-5) 등의 기능을 제공하고 있으며 쿠버네티스에서도 [Horizontal Pod Autoscaling(이하 HPA)](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)를 제공하고 있습니다.
 
@@ -178,9 +178,9 @@ spec:
 
 ``` bash
 $ kubectl get apiservices
-NAME                                   SERVICE                      AVAILABLE     AGE
+NAME                       SERVICE                        AVAILABLE     AGE
 ...
-v1beta1.metrics.k8s.io                 kube-system/metrics-server   True          1d
+v1beta1.metrics.k8s.io     kube-system/metrics-server     True          1d
 ...
 ```
 
@@ -196,8 +196,8 @@ v1beta1.metrics.k8s.io                 kube-system/metrics-server   True        
 
 *출처 : https://tech.kakao.com/2018/12/24/kubernetes-deploy/*
 
-쿠버네티스에서는 하나 이상의 컨테이너로 구성된 [파드(Pod)](https://kubernetes.io/docs/concepts/workloads/pods/) 단위로 배포가 되고 [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)로 파드와 ReplicaSet을 관리하며 [Service](https://kubernetes.io/docs/concepts/services-networking/service/)와 Ingress를 사용하여 [애플리케이션을 외부로 노출](https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/)하게 됩니다.
-이렇게 노출된 어플리케이션으로 트래픽이 유입되고 Ingress를 거쳐 파드에 도착하여 처리된 트래픽은 사용자에게 보여지게 되는데 평소 서비스 운영에서 문제가 없었으므로 트래픽이 파드까지 도달하는데는 문제가 없던 것으로 보입니다. 하지만 대량의 트래픽으로 인해 Scale Out 하며 새로운 파드가 추가될 때 간혈적으로 유실 현상이 나타났으므로 파드에 대해 자세히 알아봐야 할 것 같습니다.
+쿠버네티스에서는 하나 이상의 컨테이너로 구성된 [파드(Pod)](https://kubernetes.io/docs/concepts/workloads/pods/) 단위로 배포가 되고 [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)로 파드와 ReplicaSet을 관리하며 [Service](https://kubernetes.io/docs/concepts/services-networking/service/)와 [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/)를 사용하여 [애플리케이션을 외부로 노출](https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/)하게 됩니다.
+이렇게 노출된 어플리케이션으로 트래픽이 유입되고 `Ingress`를 거쳐 파드에 도착하여 처리된 트래픽은 사용자에게 보여지게 되는데 평소 서비스 운영에서 문제가 없었으므로 트래픽이 파드까지 도달하는데는 문제가 없던 것으로 보입니다. 하지만 대량의 트래픽으로 인해 Scale Out 하며 새로운 파드가 추가될 때 간혈적으로 유실 현상이 나타났으므로 파드에 대해 자세히 알아봐야 할 것 같습니다.
 
 #### Pod phase
 파드의 `status`는 `phase`를 포함하는 `PodStatus` 오브젝트로 정의되며, [Pod phase](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#pod-phase)는 다음과 같은 상태를 표시하게 됩니다.
@@ -210,12 +210,12 @@ v1beta1.metrics.k8s.io                 kube-system/metrics-server   True        
 이 내용을 바탕으로 생성된 파드를 모니터링 한 결과, `Pending`을 거쳐 `Running`으로만 표시되었으며, `Failed`가 관찰되지 않았으므로 파드에는 문제가 없는 것으로 확인되었습니다. 이제 파드 내부의 컨테이너를 살펴보겠습니다.
 
 #### Container states
-파드가 가지고 있는 각 컨테이너는 다음과 같은 상태를 표시하게 됩니다.
+파드가 가지고 있는 각 컨테이너는 다음과 같은 [상태](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-states)를 표시하게 됩니다.
 * 컨테이너 이미지를 다운받고 있거나 필요한 시크릿 데이터를 적용중인 경우 `Waiting`
 * 컨테이너가 정상적으로 실행되고 있을 경우 `Running`
 * 컨테이너가 종료되었거나 실패한 경우 `Terminated`
 
-이 내용을 바탕으로 생성된 파드의 컨테이너를 모니터링 한 결과, `Waiting`에서 `Running`으로만 표시되었으며, `Terminate`는 관찰되지 않았으므로 컨테이너에도 문제가 없는 것으로 확인되었습니다.  
+이 내용을 바탕으로 생성된 파드의 컨테이너를 모니터링 한 결과, `Waiting`에서 `Running`으로만 표시되었으며, `Terminated`는 관찰되지 않았으므로 컨테이너에도 문제가 없는 것으로 확인되었습니다.  
 하지만 일부 컨테이너에서 아직 애플리케이션이 준비되지 않았음에도 `status`가 `Running`로 표시되며 Pod phase가 `Running`이 되었고, 그 결과 준비되지 않은 컨테이너가 포함된 파드로 트래픽이 유입되며 유실되는 현상을 확인할 수 있었습니다. 파드의 모든 컨테이너의 준비가 끝난 이후에 트래픽이 유입될 수 있다면 해결될 것 같습니다.
 
 #### Container probes
@@ -310,17 +310,17 @@ spec:
 한숨 돌렸다고 생각하였으나 트래픽이 감소하고 파드가 줄어들면서 다시 간혈적으로 트래픽이 유실되기 시작하였습니다. 파드가 종료되는 부분을 살펴보고 원인을 찾아봐야겠습니다.
 
 #### Termination of Pods
-[파드의 종료](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#pod-termination)를 요청하면 Pod phase에는 `Terminating`이 표시된 후 컨테이너에 정의된 [container lifecycle hooks](https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/)의 `preStop`이 실행되며 동시에 [Service](https://kubernetes.io/docs/concepts/services-networking/service/)와 Ingress에서는 파드를 제거하여 추가 트래픽의 유입을 막아줍니다. preStop이 정의되지 않았거나 실행이 끝났다면, 컨테이너 이미지에 정의된 `STOPSIGNAL` 또는 `SIGTERM` 시그널을 컨테이너의 기본 프로세스(PID 1)에 전송하여 안전하게 종료되도록 요청하고, 종료된 파드는 삭제됩니다. 이러한 과정에서 파드와 컨테이너가 `terminationGracePeriodSeconds`로 정의된 시간 또는 기본 유예 기간인 30초가 지난 후에도 여전히 동작하고 있었다면, `SIGKILL` 시그널을 컨테이너의 모든 프로세스에 전송하고 파드를 강제 종료시킵니다.
+[파드의 종료](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#pod-termination)를 요청하면 Pod phase에는 `Terminating`이 표시된 후 컨테이너에 정의된 [container lifecycle hooks](https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/)의 `preStop`이 실행되며 동시에 `Service`와 `Ingress`에서는 파드를 제거하여 추가 트래픽의 유입을 막아줍니다. preStop이 정의되지 않았거나 실행이 끝났다면, 컨테이너 이미지에 정의된 `STOPSIGNAL` 또는 `SIGTERM` 시그널을 컨테이너의 기본 프로세스(PID 1)에 전송하여 안전하게 종료되도록 요청하고, 종료된 파드는 삭제됩니다. 이러한 과정에서 파드와 컨테이너가 `terminationGracePeriodSeconds`로 정의된 시간 또는 기본 유예 기간인 30초가 지난 후에도 여전히 동작하고 있었다면, `SIGKILL` 시그널을 컨테이너의 모든 프로세스에 전송하고 파드를 강제 종료시킵니다.
 
 파드가 종료되는 과정들을 살펴본 결과, 유입된 트래픽을 처리하는 도중 `STOPSIGNAL` 또는 `SIGTERM` 시그널을 수신받아 프로세스가 종료되어 트래픽이 중단되었거나, `Service`와 `Ingress`에서 파드가 제거되는 시점과 컨테이너와 파드가 안전하게 종료되는 시점이 보장되지 않아 트래픽이 유입되었지만 목적지가 이미 종료되었을 상황에서 문제가 발생했을 것이라 추측해보았습니다. 먼저 컨테이너의 `STOPSIGNAL`에 대해 확인해보겠습니다.
 
 #### Graceful shutdown
 파드가 종료될때는 컨테이너 이미지에 정의된 `STOPSIGNAL` 또는 `SIGTERM` 시그널을 컨테이너의 기본 프로세스(PID 1)에 전송하여 안전하게 종료되도록 요청한다고 하였습니다. 본문에 제시된 `deployment.yaml`에서 정의된 컨테이너는 `nginx:latest`와 `php:fpm` 이미지를 사용하고 있으며, `nginx:latest`의 Dockerfile에서 `STOPSIGNAL`은 [SIGQUIT](https://github.com/nginxinc/docker-nginx/blob/master/Dockerfile-debian.template#L102), 기본 프로세스(PID 1)는 [nginx -g daemon off](https://github.com/nginxinc/docker-nginx/blob/master/Dockerfile-debian.template#L104)를 쓰고 있는걸 확인할 수 있습니다. `php:fpm`의 Dockerfile에서도 `STOPSIGNAL`은 [SIGQUIT](https://github.com/docker-library/php/blob/master/8.1/bullseye/fpm/Dockerfile#L268), 기본 프로세스(PID 1)는 [php-fpm](https://github.com/docker-library/php/blob/master/8.1/bullseye/fpm/Dockerfile#L271)을 쓰고 있으며, 실제 빌드된 [nginx:latest](https://hub.docker.com/layers/nginx/library/nginx/latest/images/sha256-61face6bf030edce7ef6d7dd66fe452298d6f5f7ce032afdd01683ef02b2b841?context=explore)와 [php:fpm](https://hub.docker.com/layers/php/library/php/fpm/images/sha256-8a0c9103db9db3e8eb61ac0214dcabfd2a7a232488ef5458ed6cdbbc09807cec?context=explore)의 이미지 레이어 정보에서도 동일하게 확인되었습니다.
 
-`SIGQUIT` 시그널이 [nginx 공식문서](http://nginx.org/en/docs/control.html)에서 `graceful shutdown`을, [man php-fpm](https://linux.die.net/man/8/php-fpm)에서 `graceful stop`을 지원하고 있다고 하였으므로 유입된 트래픽을 처리하는 도중 프로세스가 갑작스럽게 종료되는 상황은 발생하지 않는 것으로 파악되었습니다. 그렇다면 안전하게 종료된 컨테이너에 트래픽이 유입되었을 상황만 남았으므로 `preStop`이 있는 `container lifecycle hooks`을 확인해보겠습니다.
+`SIGQUIT` 시그널이 [nginx 공식문서](http://nginx.org/en/docs/control.html)에서 `graceful shutdown`을, [man php-fpm](https://linux.die.net/man/8/php-fpm)에서 `graceful stop`을 지원하고 있다고 하였으므로 유입된 트래픽을 처리하는 도중 프로세스가 갑작스럽게 종료되는 상황은 발생하지 않는 것으로 파악되었습니다. 그렇다면 안전하게 종료된 컨테이너에 트래픽이 유입되었을 상황만 남았으므로 파드의 종료 요청시 트래픽 유입을 차단함과 동시에 동작하는 container lifecycle hooks의 `preStop`을 확인해보겠습니다.
 
 #### container lifecycle hooks
-[container lifecycle hooks](https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/)의 `postStart` 와 `preStop` 을 통해 컨테이너 라이프사이클의 특정 지점에서 실행할 이벤트를 트리거할 수 있으며, `preStop`은 [Container states](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-states)에서 [Terminated](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-state-terminated)상태에 들어가기 전에 실행됩니다. `preStop`이 끝난 후 컨테이너에 시그널이 전송되고 프로세스가 안전하게 종료되어 파드가 종료되므로 `Service`와 `Ingress`에서 파드가 제거되어 트래픽이 차단된 후 파드의 종료가 시작되도록 시간적으로 여유를 둔다면 해결될 것 같습니다. 그래서 다음과 같이 `deployment.yaml`에 `terminationGracePeriodSeconds`와 `.lifecycle.preStop`를 추가해보았습니다.
+kubelet이 관리하는 컨테이너는 container lifecycle hooks의 `postStart` 와 `preStop` 을 통해 컨테이너 라이프사이클의 특정 지점에서 실행할 이벤트를 트리거할 수 있으며, 그 중 `preStop`은 컨테이너가 `Terminated`상태에 들어가기 전에 실행됩니다. `preStop`이 끝난 컨테이너는 이미지에 정의된 `STOPSIGNAL` 또는 `SIGTERM` 시그널을 전송받고 프로세스가 안전하게 종료되어 파드가 종료되므로 `Service`와 `Ingress`에서 파드가 제거되어 트래픽이 차단된 후 파드의 종료가 시작되도록 시간적으로 여유를 둔다면 해결될 것 같습니다. 그래서 다음과 같이 `deployment.yaml`에 `terminationGracePeriodSeconds`와 `.lifecycle.preStop`를 추가해보았습니다.
 
 ##### deployment.yaml
 {% raw %}
