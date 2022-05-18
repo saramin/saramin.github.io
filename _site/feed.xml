@@ -7,6 +7,17 @@
     <atom:link href="http://10.100.0.202:80/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Kubernetes에서 HPA를 활용한 오토스케일링(Auto Scaling)</title>
+        <description>
+          
+          소개 안녕하세요, 사람인HR IT연구소 채용시스템개발팀의 김용태입니다. 채용시스템개발팀은 채용 홈페이지 제작부터 채용 설계, 지원서 접수, 지원자 관리, 데이터 관리, 합격 과정에 이르기까지 원스톱으로 지원하는 채용 솔루션 시스템(등용문 2.5, 5.0, S)을 관리하고 있으며, 그 중 등용문 S는 SaaS형 솔루션으로 Kubernetes(이하 쿠버네티스) 플랫폼을 활용하여 서비스를 제공하고 있습니다. 쿠버네티스는 아래의 구글 트랜드 그래프에서 보시다시피...
+        </description>
+        <pubDate>Tue, 17 May 2022 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2022-05-17-kubernetes-autoscaling/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2022-05-17-kubernetes-autoscaling/</guid>
+      </item>
+    
+      <item>
         <title>AWS로 배포를 해보자!</title>
         <description>
           CodeDeploy와 S3, CloudFront를 이용해서 배포하기 - 
@@ -213,17 +224,6 @@
         <pubDate>Tue, 09 Mar 2021 00:00:00 +0900</pubDate>
         <link>http://10.100.0.202:80/2021-03-09-amazon-chime-sdk-video-interview/</link>
         <guid isPermaLink="true">http://10.100.0.202:80/2021-03-09-amazon-chime-sdk-video-interview/</guid>
-      </item>
-    
-      <item>
-        <title>네트워크장비 트래픽 모니터링 - 평균의 함정</title>
-        <description>
-          
-          안녕하세요. 사람인HR IT연구소 SE팀 박용철입니다. SE팀은 사람인HR에서 제공하는 서비스의 전반적인 인프라 구성/운영/관제를 담당하며 서비스가 안정적으로 운영이 되도록 모니터링을 하기 위해 다양한 오픈소스툴을 활용하거나 필요에 따라 직접 개발하기도 합니다. 이번 포스팅은 IDC 의 서비스트래픽 모니터링을 위해 오랜기간 사용중이던 cacti 에서 telegraf, grafana, influxdb 를 활용한 사례를 공유하고자 합니다. 2018년 11월경에 응답속도가...
-        </description>
-        <pubDate>Mon, 28 Dec 2020 00:00:00 +0900</pubDate>
-        <link>http://10.100.0.202:80/2020-12-28-se-networkmonitoring/</link>
-        <guid isPermaLink="true">http://10.100.0.202:80/2020-12-28-se-networkmonitoring/</guid>
       </item>
     
   </channel>
