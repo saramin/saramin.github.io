@@ -7,6 +7,17 @@
     <atom:link href="http://10.100.0.202:80/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>사람인 Android App Refactoring</title>
+        <description>
+          
+          안녕하세요. 사람인HR 서비스인프라개발팀 안드로이드 앱 개발 담당 한동훈입니다. 해당 내용은 지난 2021년에 아이엠그라운드앱 구조개선을위해 진행했던 앱리펙토링 공유하는 포스팅입니다. 필요성? 기존에 서비스중인 아이엠그라운드 앱은 MVC패턴구조로 아래와 같은 문제점들이 있었습니다. 기존 문제점 MVC패턴을 사용하고 있어 Activity,Fragment가 Controller역할을 해서 view,model에 대해 프로세스를 정의하기 때문에 프로젝트가 진행될수록 코드가 비대해지고, 그결과 가독성이 떨어지고 서비스가 확장될수록...
+        </description>
+        <pubDate>Mon, 23 May 2022 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2022-05-23-android-app-refactoring/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2022-05-23-android-app-refactoring/</guid>
+      </item>
+    
+      <item>
         <title>Kubernetes에서 HPA를 활용한 오토스케일링(Auto Scaling)</title>
         <description>
           
@@ -213,17 +224,6 @@
         <pubDate>Mon, 29 Mar 2021 00:00:00 +0900</pubDate>
         <link>http://10.100.0.202:80/2021-03-29-intern-log-hyemin/</link>
         <guid isPermaLink="true">http://10.100.0.202:80/2021-03-29-intern-log-hyemin/</guid>
-      </item>
-    
-      <item>
-        <title>Amazon Chime SDK를 활용한 영상면접 서비스 개발</title>
-        <description>
-          코로나19로 인한 면접방식의 변화 - 
-          들어가며 안녕하세요. 사람인 신규 서비스 개발 및 운영을 담당하고 있는 개발1팀 김갑훈입니다. 코로나19로 인하여 많은 기업들이 재택근무를 시행하고 있으며 이와 더불어 비대면 서비스의 도입 및 활용이 증가하고 있습니다. 이에 따라 채용 과정의 필수 요소인 면접도 비대면으로 전환되고 있는 추세입니다. 사람인에서는 이러한 변화에 대응하기 위해 비대면으로 면접을 진행할 수 있는 영상면접...
-        </description>
-        <pubDate>Tue, 09 Mar 2021 00:00:00 +0900</pubDate>
-        <link>http://10.100.0.202:80/2021-03-09-amazon-chime-sdk-video-interview/</link>
-        <guid isPermaLink="true">http://10.100.0.202:80/2021-03-09-amazon-chime-sdk-video-interview/</guid>
       </item>
     
   </channel>
