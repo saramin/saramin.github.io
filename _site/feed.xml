@@ -7,6 +7,17 @@
     <atom:link href="http://10.100.0.202:80/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Terraform IaC 도구를 활용한 AWS 웹콘솔 클릭 노가다 해방기</title>
+        <description>
+          
+          테라폼이란? HashiCorp 에서 오픈소스로 개발중인, 클라우드 및 온프레미스 인프라를 코드로 관리할 수 있는 도구입니다. 인프라 환경 구성시 웹 콘솔 등이 아닌 Ansible 같은 선언적 코드형식으로 리소스 들을 생성, 수정, 삭제 하여 관리가 가능한 IaC (Infrastructure as Code) 프로비저닝 도구입니다. HCL 이라는 자체 언어를 사용하여 리소스를 선언하고 AWS, GCP, Azure 와...
+        </description>
+        <pubDate>Fri, 21 Oct 2022 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2022-10-21-terraform/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2022-10-21-terraform/</guid>
+      </item>
+    
+      <item>
         <title>FreeIPA 를 활용한 IdM 구축</title>
         <description>
           중앙집중식 인증을 위한 IdM 구축 - 
@@ -213,17 +224,6 @@
         <pubDate>Mon, 19 Apr 2021 00:00:00 +0900</pubDate>
         <link>http://10.100.0.202:80/2021-04-19-android-kotlin-converting/</link>
         <guid isPermaLink="true">http://10.100.0.202:80/2021-04-19-android-kotlin-converting/</guid>
-      </item>
-    
-      <item>
-        <title>인턴에서 사람인 개발자로 합류하기까지</title>
-        <description>
-          
-          시작하며 안녕하세요. 2020년 사람인 IT 연구소 신입 개발자 공채 1기를 거쳐 정규직으로 전환되어 개발 2팀에 근무하고 있는 이정규입니다.👍 취준생이였을 때 사람인을 통해 입사 지원도 하면서 자주 사용해왔는데, 내가 사용했던 서비스를 직접 개발하고 있다는 걸 생각하니까 신기하기도 하고 한편으론 책임감도 느껴집니다! 😊 저는 전자공학을 전공했는데, 웹 개발자로 진로를 정하기까지 고민이 많았어요....
-        </description>
-        <pubDate>Fri, 09 Apr 2021 00:00:00 +0900</pubDate>
-        <link>http://10.100.0.202:80/2021-04-09-intern_jklee/</link>
-        <guid isPermaLink="true">http://10.100.0.202:80/2021-04-09-intern_jklee/</guid>
       </item>
     
   </channel>
