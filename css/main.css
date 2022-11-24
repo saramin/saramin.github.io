@@ -420,7 +420,7 @@ footer .theme-by {
 }
 
 .intro-header.big-img {
-  min-height:260px;
+  min-height:200px;
 }
 .intro-header.big-img .page-heading {
   display: none;
