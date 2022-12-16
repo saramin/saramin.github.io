@@ -229,7 +229,7 @@ GEM
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
     public_suffix (2.0.5)
-    racc (1.5.2)
+    racc (1.6.0)
     rack (1.6.13)
     rack-protection (1.5.5)
       rack
