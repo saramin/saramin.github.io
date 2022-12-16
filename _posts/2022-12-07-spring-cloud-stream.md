@@ -1,5 +1,12 @@
 ---
 title: Spring Cloud Stream 재시도 구현하기
+author: 이창섭
+tags:
+- Spring Cloud Stream
+- Spring Retry
+- Spring boot
+---
+
 ---
 
 안녕하세요. 사람인 HR IT 연구소 IT 전략팀 이창섭입니다.     
