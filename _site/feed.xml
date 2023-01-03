@@ -7,6 +7,17 @@
     <atom:link href="http://10.100.0.202:80/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>사람인 접근성 개선 회고</title>
+        <description>
+          
+          지난 2022년 사람인 서비스의 전반적인 접근성 향상의 초석을 마련하고자 FE 개발 1팀을 주축으로 길드를 구성하여 FE 개발자 2명과 사람인 사업실로부터 1명의 디자인 담당자를 지원받아 웹 접근성 개선을 위한 프로젝트를 진행하였습니다. 지난 한 해 동안 길드에서 접근성 향상을 위해 어떤 일들을 진행했는지 공유해 드리고자 합니다. 접근성 기준을 마련하려고 고려 중인 조직이나...
+        </description>
+        <pubDate>Mon, 02 Jan 2023 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2023-01-02-saramin-a11y/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2023-01-02-saramin-a11y/</guid>
+      </item>
+    
+      <item>
         <title>Spring Cloud Stream 재시도 구현하기</title>
         <description>
           
@@ -213,17 +224,6 @@
         <pubDate>Fri, 30 Apr 2021 00:00:00 +0900</pubDate>
         <link>http://10.100.0.202:80/2021-04-30-intern_jcpark/</link>
         <guid isPermaLink="true">http://10.100.0.202:80/2021-04-30-intern_jcpark/</guid>
-      </item>
-    
-      <item>
-        <title>사람인 빌링파트 막내의 회사 생존기</title>
-        <description>
-          
-          들어가며 안녕하세요. 저는 개발2팀 빌링파트에서 일하고있는 사람인 IT 공채 1기 최재우입니다. 작년 7월 인턴을 시작으로 어느덧 사람인에 입사해 개발한 지 9개월을 넘기고 있습니다. 😀 취업 준비로 힘들어하던 게 바로 엊그제 같은데 저희 IT 연구소 소장님이 좀 있으면 사람인 개발자 공채2기를 모집한다는 말씀을 해주셨습니다. 그래서 사람인에이치알에 관심이 있으신 신입 개발자분들에게 조금이나마...
-        </description>
-        <pubDate>Tue, 20 Apr 2021 00:00:00 +0900</pubDate>
-        <link>http://10.100.0.202:80/2021-04-20-cjaewoo-intern/</link>
-        <guid isPermaLink="true">http://10.100.0.202:80/2021-04-20-cjaewoo-intern/</guid>
       </item>
     
   </channel>
