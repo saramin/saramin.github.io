@@ -14,10 +14,10 @@ baseurl: ""
 # Of course don't forget to change the username and projectname to YOUR username and project
 
 # Name of website
-title: 사람인HR 기술 블로그
+title: 사람인 기술 블로그
 
 # Short description of your site
-description: SaraminHR Tech Blog / 사람인HR 기술 블로그
+description: Saramin Tech Blog / 사람인 기술 블로그
 
 # --- Navigation bar options --- #
 
@@ -65,7 +65,7 @@ footer-link-col: "#404040"
 # Important: you must keep the "name" parameter, everything else you can remove
 author:
 #  name: Some Person
-  twitter: saraminHR
+  twitter: saramin
 
 # Select your active Social Network Links.
 # Uncomment the links you want to show in the footer and add your information to each link.
