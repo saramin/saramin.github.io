@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>사람인HR 기술 블로그</title>
-    <description>SaraminHR Tech Blog / 사람인HR 기술 블로그</description>
+    <title>사람인 기술 블로그</title>
+    <description>Saramin Tech Blog / 사람인 기술 블로그</description>
     <link>http://10.100.0.202:80</link>
     <atom:link href="http://10.100.0.202:80/feed.xml" rel="self" type="application/rss+xml" />
+    
+      <item>
+        <title>Janus 를 활용한 WebRTC 기반의 음성대화 서비스 개발</title>
+        <description>
+          
+          안녕하세요. 사람인 서비스인프라개발팀 정다운 입니다. 앞서 3/28일, 사람인 멘토링 매치 서비스가 런칭하였습니다. 🎊🥳 멘토링 매치 서비스는 회사, 직무 등 커리어 관련해서 궁금한 점이 있는 사람들이 사람인 내 1:1 음성 대화를 통해 경험과 정보를 얻을 수 있는 서비스입니다. 많은 관심 부탁드립니다. 🤗 저는 멘토링 매치 서비스 중 1:1음성대화 기능을 제공하는 백엔드...
+        </description>
+        <pubDate>Mon, 17 Apr 2023 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2023-04-17-janus-webrtc/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2023-04-17-janus-webrtc/</guid>
+      </item>
     
       <item>
         <title>사람인 접근성 개선 회고</title>
@@ -120,7 +131,7 @@
         <title>Vue, 원피스로 떠나는 여정</title>
         <description>
           Vue3 이용한 프로젝트 적용기 - 
-          Vue, 원피스로 떠나는 여정 안녕하세요. IT연구소 UI개발2팀 안수미입니다. UI개발팀은 웹 접근성과 함께 웹 표준에 맞추어 사용자가 서비스를 이용하며 접하는 UI를 구현합니다. 빠질 수 없는 HTML, CSS, ECMAScript는 물론이고 Vue.js를 활용하여 프로젝트를 진행합니다. 이번에는 Vue3를 다루게 되어 공유하고자 정리해보았습니다. 기존에 사용하던 Vue2와 무엇이 다른지, 도입하기 전에 고려할 사항으로 어떤 게 존재하는지...
+          Vue, 원피스로 떠나는 여정 dagweag 안녕하세요. IT연구소 UI개발2팀 안수미입니다. UI개발팀은 웹 접근성과 함께 웹 표준에 맞추어 사용자가 서비스를 이용하며 접하는 UI를 구현합니다. 빠질 수 없는 HTML, CSS, ECMAScript는 물론이고 Vue.js를 활용하여 프로젝트를 진행합니다. 이번에는 Vue3를 다루게 되어 공유하고자 정리해보았습니다. 기존에 사용하던 Vue2와 무엇이 다른지, 도입하기 전에 고려할 사항으로 어떤 게...
         </description>
         <pubDate>Wed, 15 Dec 2021 00:00:00 +0900</pubDate>
         <link>http://10.100.0.202:80/2021-12-15-vue2-vs-vue3/</link>
@@ -213,17 +224,6 @@
         <pubDate>Tue, 04 May 2021 00:00:00 +0900</pubDate>
         <link>http://10.100.0.202:80/2021-05-04-jks-intern/</link>
         <guid isPermaLink="true">http://10.100.0.202:80/2021-05-04-jks-intern/</guid>
-      </item>
-    
-      <item>
-        <title>인턴 프로젝트 수행기, 그리고 현재</title>
-        <description>
-          
-          들어가며 안녕하세요. 사람인 IT연구소 개발 1팀 박종철 입니다. 어쩌면 사람인을 통해 제 자그마한 코드들로 먼저 인사 드렸을지도 모르겠네요.😀 처음 입사 지원을 하던 기억들을 떠올리며 IT 연구소는 어떤 곳인가 궁금해 하실 분들을 위해 인턴부터 지금까지의 경험과 느낀점에 대해 간단히 말씀드리려 합니다. 📌인턴 생활 인턴 기간은 총 3개월간 진행하게 되는데 사람인에 대한...
-        </description>
-        <pubDate>Fri, 30 Apr 2021 00:00:00 +0900</pubDate>
-        <link>http://10.100.0.202:80/2021-04-30-intern_jcpark/</link>
-        <guid isPermaLink="true">http://10.100.0.202:80/2021-04-30-intern_jcpark/</guid>
       </item>
     
   </channel>
