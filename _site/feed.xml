@@ -7,6 +7,17 @@
     <atom:link href="http://10.100.0.202:80/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>사람인 결제 서버 과부하 이슈 공유</title>
+        <description>
+          
+          안녕하세요. IT연구소 서비스개발팀 빌링파트 최재우입니다. 2022년 12월 7일 사람인의 결제 및 상품을 담당하는 Order API 서버의 CPU, Memory과부하가 지속되는 이슈가 발생했었습니다. 해당 이슈를 통해 발생한 에러들과 원인이 무엇인지 분석한 것에 대해 공유해 드리고자 합니다. 원인이 무엇이었나 저희 Order API는 Spring Boot 2.X, JPA(hibernate), Mysql(HikariCP)을 사용 중입니다. 먼저 결론부터 말씀드리면 이번...
+        </description>
+        <pubDate>Thu, 27 Apr 2023 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2023-04-27-order-error/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2023-04-27-order-error/</guid>
+      </item>
+    
+      <item>
         <title>Janus 를 활용한 WebRTC 기반의 음성대화 서비스 개발</title>
         <description>
           
@@ -213,17 +224,6 @@
         <pubDate>Tue, 04 May 2021 00:00:00 +0900</pubDate>
         <link>http://10.100.0.202:80/2021-05-04-youngjun-intern/</link>
         <guid isPermaLink="true">http://10.100.0.202:80/2021-05-04-youngjun-intern/</guid>
-      </item>
-    
-      <item>
-        <title>취준생에서 사람인 개발자 되기</title>
-        <description>
-          
-          1. 인사 안녕하세요. 서비스인프라개발팀 메세징모바일개발파트에서 일하고 있는 장경석입니다. 2020년 공채 1기로 사람인 개발자가 된 제가 인턴기간동안 했던 생각들, 고민들을 공유하고 싶습니다. 제가 인턴에 들어오기 전 궁금했던 점들 위주로 글을 썼으니 끝까지 봐주세요! 2. 입사지원 대학교 4학년 2학기 취업계를 내고 개발관련 오프라인 강의를 듣고나니 5월이었습니다. 원래 목표는 강의가 끝나기 전에 꼭...
-        </description>
-        <pubDate>Tue, 04 May 2021 00:00:00 +0900</pubDate>
-        <link>http://10.100.0.202:80/2021-05-04-jks-intern/</link>
-        <guid isPermaLink="true">http://10.100.0.202:80/2021-05-04-jks-intern/</guid>
       </item>
     
   </channel>
