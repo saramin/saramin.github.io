@@ -325,7 +325,7 @@ docker service create <span class="se">\</span>
 <span class="nt">-p</span> 1936:1936 <span class="se">\ </span><span class="c"># HAProxy stat 페이지</span>
 <span class="nt">-e</span> <span class="nv">OPTION</span><span class="o">=</span><span class="s1">'accept-invalid-http-request'</span> <span class="se">\</span>
 <span class="nt">-e</span> <span class="nv">EXTRA_DEFAULT_SETTINGS</span><span class="o">=</span><span class="s1">'errorfile 503 /noticepage/error.html, errorfile 502 /noticepage/error.html'</span> <span class="se">\</span>
-<span class="nt">-e</span> <span class="nv">DEFAULT_SSL_CERT</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>awk 1 <span class="nv">ORS</span><span class="o">=</span><span class="s1">'\\n'</span> /home/cert.pem<span class="k">)</span><span class="s2">"</span> <span class="se">\</span>
+<span class="nt">-e</span> <span class="nv">DEFAULT_SSL_CERT</span><span class="o">=</span><span class="s2">"</span><span class="si">$(</span><span class="nb">awk </span>1 <span class="nv">ORS</span><span class="o">=</span><span class="s1">'\\n'</span> /home/cert.pem<span class="si">)</span><span class="s2">"</span> <span class="se">\</span>
 <span class="nt">--constraint</span> <span class="s2">"node.role == manager"</span> <span class="se">\ </span><span class="c"># 관리자 노드에서 실행되도록 합니다.</span>
 dockercloud/haproxy:1.6.3
 </code></pre></div></div>

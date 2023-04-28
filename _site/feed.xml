@@ -7,7 +7,7 @@
     <atom:link href="http://10.100.0.202:80/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
-        <title>사람인 결제 서버 과부하 이슈 공유</title>
+        <title>[장애회고] ORM(JPA) 사용 시 예상치 못한 쿼리로 인한 HikariCP 이슈</title>
         <description>
           
           안녕하세요. IT연구소 서비스개발팀 빌링파트 최재우입니다. 2022년 12월 7일 사람인의 결제 및 상품을 담당하는 Order API 서버의 CPU, Memory과부하가 지속되는 이슈가 발생했었습니다. 해당 이슈를 통해 발생한 에러들과 원인이 무엇인지 분석한 것에 대해 공유해 드리고자 합니다. 원인이 무엇이었나 저희 Order API는 Spring Boot 2.X, JPA(hibernate), Mysql(HikariCP)을 사용 중입니다. 먼저 결론부터 말씀드리면 이번...

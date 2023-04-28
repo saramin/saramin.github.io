@@ -282,40 +282,40 @@
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Data</span>
 <span class="nd">@NoArgsConstructor</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Campaign</span> <span class="kd">implements</span> <span class="n">Serializable</span> <span class="o">{</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Campaign</span> <span class="kd">implements</span> <span class="nc">Serializable</span> <span class="o">{</span>
 
 	<span class="c1">// 캠페인 아이디</span>
-	<span class="kd">private</span> <span class="n">Integer</span> <span class="n">id</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="nc">Integer</span> <span class="n">id</span><span class="o">;</span>
 	
 	<span class="c1">// 캠페인 명</span>
-	<span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
 	
 	<span class="c1">// 캠페인 설명</span>
-	<span class="kd">private</span> <span class="n">String</span> <span class="n">description</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="nc">String</span> <span class="n">description</span><span class="o">;</span>
 	
 	<span class="c1">// 캠페인 작성자, 등록자</span>
-	<span class="kd">private</span> <span class="n">String</span> <span class="n">register</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="nc">String</span> <span class="n">register</span><span class="o">;</span>
 	
 	<span class="c1">// 에이전트 타입</span>
-	<span class="kd">private</span> <span class="n">Agent</span> <span class="n">type</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="nc">Agent</span> <span class="n">type</span><span class="o">;</span>
 	
 	<span class="c1">// 발송 스케쥴</span>
-	<span class="kd">private</span> <span class="n">SendSchedule</span> <span class="n">schedule</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="nc">SendSchedule</span> <span class="n">schedule</span><span class="o">;</span>
 	
 	<span class="c1">// 상태</span>
-	<span class="kd">private</span> <span class="n">State</span> <span class="n">state</span> <span class="o">=</span> <span class="n">State</span><span class="o">.</span><span class="na">UNREGISTER</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="nc">State</span> <span class="n">state</span> <span class="o">=</span> <span class="nc">State</span><span class="o">.</span><span class="na">UNREGISTER</span><span class="o">;</span>
 	
 	<span class="c1">// 캠페인 최초 등록시간</span>
-	<span class="kd">private</span> <span class="n">LocalDateTime</span> <span class="n">createdDate</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="nc">LocalDateTime</span> <span class="n">createdDate</span><span class="o">;</span>
 	
 	<span class="c1">// 캠페인 최종 수정시간</span>
-	<span class="kd">private</span> <span class="n">LocalDateTime</span> <span class="n">modifiedDate</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="nc">LocalDateTime</span> <span class="n">modifiedDate</span><span class="o">;</span>
 	
 	<span class="c1">// 푸시 정보</span>
-	<span class="kd">private</span> <span class="n">Push</span> <span class="n">push</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="nc">Push</span> <span class="n">push</span><span class="o">;</span>
 		
 	<span class="c1">//푸시 타이틀</span>
-	<span class="kd">private</span> <span class="n">String</span> <span class="n">title</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="nc">String</span> <span class="n">title</span><span class="o">;</span>
 		
 	<span class="kd">public</span> <span class="nf">Campaign</span><span class="o">(</span><span class="kt">int</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
 		<span class="k">this</span><span class="o">.</span><span class="na">id</span> <span class="o">=</span> <span class="n">id</span><span class="o">;</span>
@@ -356,16 +356,16 @@ kafka 전송을 위한 설정은 yaml 파일을 통해 쉽게 설정이 가능�
       <span class="na">kafka</span><span class="pi">:</span>
         <span class="s">streams.binder</span><span class="pi">:</span> 
           <span class="na">brokers</span><span class="pi">:</span> <span class="pi">{</span><span class="nv">kafka server list</span><span class="pi">}</span>
-          <span class="na">min-partition-count</span><span class="pi">:</span> <span class="s">3</span>
-          <span class="na">replication-factor</span><span class="pi">:</span> <span class="s">3</span>
+          <span class="na">min-partition-count</span><span class="pi">:</span> <span class="m">3</span>
+          <span class="na">replication-factor</span><span class="pi">:</span> <span class="m">3</span>
           <span class="na">configuration</span><span class="pi">:</span> 
             <span class="s">default.key.serde</span><span class="pi">:</span> <span class="s">org.apache.kafka.common.serialization.Serdes$IntegerSerde</span>
             <span class="s">default.value.serde</span><span class="pi">:</span> <span class="s">org.apache.kafka.common.serialization.Serdes$StringSerde</span>
-            <span class="s">commit.interval.ms</span><span class="pi">:</span> <span class="s">1000</span>
+            <span class="s">commit.interval.ms</span><span class="pi">:</span> <span class="m">1000</span>
         <span class="na">binder</span><span class="pi">:</span> 
           <span class="na">brokers</span><span class="pi">:</span> <span class="pi">{</span><span class="nv">kafka server list</span><span class="pi">}</span>
-          <span class="na">min-partition-count</span><span class="pi">:</span> <span class="s">3</span>
-          <span class="na">replication-factor</span><span class="pi">:</span> <span class="s">3</span>
+          <span class="na">min-partition-count</span><span class="pi">:</span> <span class="m">3</span>
+          <span class="na">replication-factor</span><span class="pi">:</span> <span class="m">3</span>
       <span class="na">bindings</span><span class="pi">:</span> 
         <span class="s">target-out.destination</span><span class="pi">:</span> <span class="s">target</span>
         <span class="s">target-in.destination</span><span class="pi">:</span> <span class="s">target</span>
@@ -385,28 +385,28 @@ yaml 파일 설정에 Input, Output에 대한 interface를 작성하여 어노�
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 대상자 조회 프로세스 바인더</span>
 <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">TargetUserBinder</span> <span class="o">{</span>
 
-	<span class="n">String</span> <span class="n">TARGET_OUT</span> <span class="o">=</span> <span class="s">"target-out"</span><span class="o">;</span>
-	<span class="n">String</span> <span class="n">TARGET_IN</span> <span class="o">=</span> <span class="s">"target-in"</span><span class="o">;</span>
+	<span class="nc">String</span> <span class="no">TARGET_OUT</span> <span class="o">=</span> <span class="s">"target-out"</span><span class="o">;</span>
+	<span class="nc">String</span> <span class="no">TARGET_IN</span> <span class="o">=</span> <span class="s">"target-in"</span><span class="o">;</span>
 	
-	<span class="nd">@Output</span><span class="o">(</span><span class="n">TARGET_OUT</span><span class="o">)</span>
-	<span class="n">MessageChannel</span> <span class="nf">targetSearch</span><span class="o">();</span>
+	<span class="nd">@Output</span><span class="o">(</span><span class="no">TARGET_OUT</span><span class="o">)</span>
+	<span class="nc">MessageChannel</span> <span class="nf">targetSearch</span><span class="o">();</span>
 	
-	<span class="nd">@Input</span><span class="o">(</span><span class="n">TARGET_IN</span><span class="o">)</span>
-	<span class="n">SubscribableChannel</span> <span class="nf">targetFilter</span><span class="o">();</span>
+	<span class="nd">@Input</span><span class="o">(</span><span class="no">TARGET_IN</span><span class="o">)</span>
+	<span class="nc">SubscribableChannel</span> <span class="nf">targetFilter</span><span class="o">();</span>
 	
 <span class="o">}</span>
 
 <span class="c1">// Push 메시지 생성 프로세스 바인더</span>
 <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">PushMessageBinder</span> <span class="o">{</span>
 
-	<span class="n">String</span> <span class="n">PROCESS_OUT</span> <span class="o">=</span> <span class="s">"process-out"</span><span class="o">;</span>
-	<span class="n">String</span> <span class="n">PROCESS_IN</span> <span class="o">=</span> <span class="s">"process-in"</span><span class="o">;</span>
+	<span class="nc">String</span> <span class="no">PROCESS_OUT</span> <span class="o">=</span> <span class="s">"process-out"</span><span class="o">;</span>
+	<span class="nc">String</span> <span class="no">PROCESS_IN</span> <span class="o">=</span> <span class="s">"process-in"</span><span class="o">;</span>
 	
-	<span class="nd">@Output</span><span class="o">(</span><span class="n">PROCESS_OUT</span><span class="o">)</span>
-	<span class="n">MessageChannel</span> <span class="nf">createMessage</span><span class="o">();</span>
+	<span class="nd">@Output</span><span class="o">(</span><span class="no">PROCESS_OUT</span><span class="o">)</span>
+	<span class="nc">MessageChannel</span> <span class="nf">createMessage</span><span class="o">();</span>
 	
-	<span class="nd">@Input</span><span class="o">(</span><span class="n">PROCESS_IN</span><span class="o">)</span>
-	<span class="n">SubscribableChannel</span> <span class="nf">messagePush</span><span class="o">();</span>
+	<span class="nd">@Input</span><span class="o">(</span><span class="no">PROCESS_IN</span><span class="o">)</span>
+	<span class="nc">SubscribableChannel</span> <span class="nf">messagePush</span><span class="o">();</span>
 	
 <span class="o">}</span>
 </code></pre></div></div>
@@ -414,31 +414,31 @@ yaml 파일 설정에 Input, Output에 대한 interface를 작성하여 어노�
 연결에 대한 설정이 완료되면 실제 프로세스에서 Listener 어노테이션 설정으로 데이터 수신, 전송이 이뤄집니다.</p>
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 대상자 조회 후 대상자별로 데이터 설정 후 kafka 전송</span>
 <span class="nd">@Slf4j</span>
-<span class="nd">@EnableBinding</span><span class="o">(</span><span class="n">value</span><span class="o">=</span> <span class="o">{</span><span class="n">TargetUserBinder</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">PushMessageBinder</span><span class="o">.</span><span class="na">class</span><span class="o">})</span>
+<span class="nd">@EnableBinding</span><span class="o">(</span><span class="n">value</span><span class="o">=</span> <span class="o">{</span><span class="nc">TargetUserBinder</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="nc">PushMessageBinder</span><span class="o">.</span><span class="na">class</span><span class="o">})</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">TargetUserProcess</span> <span class="o">{</span>
 	
-	<span class="kd">private</span> <span class="n">PushMessageBinder</span> <span class="n">pushMessageBinder</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="nc">PushMessageBinder</span> <span class="n">pushMessageBinder</span><span class="o">;</span>
 	
 	<span class="nd">@Autowired</span>
-	<span class="kd">public</span> <span class="nf">TargetUserProcess</span><span class="o">(</span><span class="n">PushMessageBinder</span> <span class="n">pushMessageBinder</span><span class="o">)</span> <span class="o">{</span>		
+	<span class="kd">public</span> <span class="nf">TargetUserProcess</span><span class="o">(</span><span class="nc">PushMessageBinder</span> <span class="n">pushMessageBinder</span><span class="o">)</span> <span class="o">{</span>		
 		<span class="k">this</span><span class="o">.</span><span class="na">pushMessageBinder</span> <span class="o">=</span> <span class="n">pushMessageBinder</span><span class="o">;</span>
 	<span class="o">}</span>
 
 	<span class="c1">//바인더를 통한 데이터 전송</span>
-	<span class="nd">@StreamListener</span><span class="o">(</span><span class="n">TargetUserBinder</span><span class="o">.</span><span class="na">TARGET_IN</span><span class="o">)</span>
-	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">targetUserSearch</span><span class="o">(</span><span class="nd">@Payload</span> <span class="n">TargetMeta</span> <span class="n">targetMeta</span><span class="o">)</span> <span class="o">{</span>
-		<span class="n">pushMessageBinder</span><span class="o">.</span><span class="na">createMessage</span><span class="o">().</span><span class="na">send</span><span class="o">(</span><span class="n">MessageBuilder</span><span class="o">.</span><span class="na">withPayload</span><span class="o">(</span><span class="n">targetMeta</span><span class="o">).</span><span class="na">build</span><span class="o">());</span>
+	<span class="nd">@StreamListener</span><span class="o">(</span><span class="nc">TargetUserBinder</span><span class="o">.</span><span class="na">TARGET_IN</span><span class="o">)</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">targetUserSearch</span><span class="o">(</span><span class="nd">@Payload</span> <span class="nc">TargetMeta</span> <span class="n">targetMeta</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">pushMessageBinder</span><span class="o">.</span><span class="na">createMessage</span><span class="o">().</span><span class="na">send</span><span class="o">(</span><span class="nc">MessageBuilder</span><span class="o">.</span><span class="na">withPayload</span><span class="o">(</span><span class="n">targetMeta</span><span class="o">).</span><span class="na">build</span><span class="o">());</span>
 	<span class="o">}</span>
 <span class="o">}</span>
 
 <span class="c1">// 대상자별 데이터를 기반으로 메시지 생성 후 전송, 결과 데이터 리턴</span>
 <span class="nd">@Slf4j</span>
-<span class="nd">@EnableBinding</span><span class="o">(</span><span class="n">value</span><span class="o">=</span> <span class="o">{</span><span class="n">PushMessageBinder</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">ResultBinder</span><span class="o">.</span><span class="na">class</span><span class="o">})</span>
+<span class="nd">@EnableBinding</span><span class="o">(</span><span class="n">value</span><span class="o">=</span> <span class="o">{</span><span class="nc">PushMessageBinder</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="nc">ResultBinder</span><span class="o">.</span><span class="na">class</span><span class="o">})</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">PushMessageProcess</span> <span class="o">{</span>
 
-	<span class="nd">@StreamListener</span><span class="o">(</span><span class="n">PushMessageBinder</span><span class="o">.</span><span class="na">PROCESS_IN</span><span class="o">)</span>
-	<span class="nd">@SendTo</span><span class="o">(</span><span class="n">ResultBinder</span><span class="o">.</span><span class="na">RESULT_OUT</span><span class="o">)</span>  <span class="c1">// 어노테이션 설정으로 데이터 전송</span>
-	<span class="kd">public</span> <span class="n">Summary</span> <span class="nf">messagePush</span><span class="o">(</span><span class="nd">@Payload</span> <span class="n">TargetMeta</span> <span class="n">targetMeta</span><span class="o">)</span> <span class="o">{</span>
+	<span class="nd">@StreamListener</span><span class="o">(</span><span class="nc">PushMessageBinder</span><span class="o">.</span><span class="na">PROCESS_IN</span><span class="o">)</span>
+	<span class="nd">@SendTo</span><span class="o">(</span><span class="nc">ResultBinder</span><span class="o">.</span><span class="na">RESULT_OUT</span><span class="o">)</span>  <span class="c1">// 어노테이션 설정으로 데이터 전송</span>
+	<span class="kd">public</span> <span class="nc">Summary</span> <span class="nf">messagePush</span><span class="o">(</span><span class="nd">@Payload</span> <span class="nc">TargetMeta</span> <span class="n">targetMeta</span><span class="o">)</span> <span class="o">{</span>
 		<span class="k">return</span> <span class="n">summary</span><span class="o">;</span>
 	<span class="o">}</span>
 <span class="o">}</span>
@@ -447,33 +447,33 @@ yaml 파일 설정에 Input, Output에 대한 interface를 작성하여 어노�
 
 <p>대상자에 대해 메시지 전송이 끝나면 결과를 통합하여 summary 데이터를 저장하고 있으며, kstream을 이용하여 간편히 데이터 처리를 진행했습니다.</p>
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Slf4j</span>
-<span class="nd">@EnableBinding</span><span class="o">(</span><span class="n">value</span><span class="o">=</span> <span class="o">{</span><span class="n">ResultBinder</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">SummaryBinder</span><span class="o">.</span><span class="na">class</span><span class="o">})</span>
+<span class="nd">@EnableBinding</span><span class="o">(</span><span class="n">value</span><span class="o">=</span> <span class="o">{</span><span class="nc">ResultBinder</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="nc">SummaryBinder</span><span class="o">.</span><span class="na">class</span><span class="o">})</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">SummaryProcess</span> <span class="o">{</span>
 	
-	<span class="nd">@StreamListener</span><span class="o">(</span><span class="n">ResultBinder</span><span class="o">.</span><span class="na">RESULT_IN</span><span class="o">)</span>
-	<span class="nd">@SendTo</span><span class="o">(</span><span class="n">SummaryBinder</span><span class="o">.</span><span class="na">SUMMARY_OUT</span><span class="o">)</span>
-	<span class="kd">public</span> <span class="n">KStream</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">,</span> <span class="n">Summary</span><span class="o">&gt;</span> <span class="nf">process</span><span class="o">(</span><span class="n">KStream</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">,</span> <span class="n">Summary</span><span class="o">&gt;</span> <span class="n">input</span><span class="o">)</span> <span class="o">{</span>
+	<span class="nd">@StreamListener</span><span class="o">(</span><span class="nc">ResultBinder</span><span class="o">.</span><span class="na">RESULT_IN</span><span class="o">)</span>
+	<span class="nd">@SendTo</span><span class="o">(</span><span class="nc">SummaryBinder</span><span class="o">.</span><span class="na">SUMMARY_OUT</span><span class="o">)</span>
+	<span class="kd">public</span> <span class="nc">KStream</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">Summary</span><span class="o">&gt;</span> <span class="nf">process</span><span class="o">(</span><span class="nc">KStream</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">Summary</span><span class="o">&gt;</span> <span class="n">input</span><span class="o">)</span> <span class="o">{</span>
 		
 		<span class="c1">// 4. 요약 처리 </span>
 		<span class="k">return</span> <span class="n">input</span>
 			<span class="o">.</span><span class="na">selectKey</span><span class="o">((</span><span class="n">k</span><span class="o">,</span><span class="n">v</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">v</span><span class="o">.</span><span class="na">getId</span><span class="o">())</span>
-			<span class="o">.</span><span class="na">groupByKey</span><span class="o">(</span><span class="n">Serialized</span><span class="o">.</span><span class="na">with</span><span class="o">(</span><span class="n">Serdes</span><span class="o">.</span><span class="na">Integer</span><span class="o">(),</span> <span class="n">serde</span><span class="o">))</span>
+			<span class="o">.</span><span class="na">groupByKey</span><span class="o">(</span><span class="nc">Serialized</span><span class="o">.</span><span class="na">with</span><span class="o">(</span><span class="nc">Serdes</span><span class="o">.</span><span class="na">Integer</span><span class="o">(),</span> <span class="n">serde</span><span class="o">))</span>
 			<span class="o">.</span><span class="na">reduce</span><span class="o">((</span><span class="n">v1</span><span class="o">,</span> <span class="n">v2</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">{</span>
-				<span class="n">Summary</span> <span class="n">summary</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Summary</span><span class="o">(</span><span class="n">v1</span><span class="o">.</span><span class="na">getId</span><span class="o">(),</span> <span class="n">v1</span><span class="o">.</span><span class="na">getEventMessageId</span><span class="o">(),</span> <span class="n">v1</span><span class="o">.</span><span class="na">getCampaignId</span><span class="o">());</span>
+				<span class="nc">Summary</span> <span class="n">summary</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Summary</span><span class="o">(</span><span class="n">v1</span><span class="o">.</span><span class="na">getId</span><span class="o">(),</span> <span class="n">v1</span><span class="o">.</span><span class="na">getEventMessageId</span><span class="o">(),</span> <span class="n">v1</span><span class="o">.</span><span class="na">getCampaignId</span><span class="o">());</span>
 				<span class="n">summary</span><span class="o">.</span><span class="na">setSuccess</span><span class="o">(</span><span class="n">v1</span><span class="o">.</span><span class="na">getSuccess</span><span class="o">()</span> <span class="o">+</span> <span class="n">v2</span><span class="o">.</span><span class="na">getSuccess</span><span class="o">());</span>
 				<span class="n">summary</span><span class="o">.</span><span class="na">setError</span><span class="o">(</span><span class="n">v1</span><span class="o">.</span><span class="na">getError</span><span class="o">()</span> <span class="o">+</span> <span class="n">v2</span><span class="o">.</span><span class="na">getError</span><span class="o">());</span>
 				<span class="n">summary</span><span class="o">.</span><span class="na">setMissing</span><span class="o">(</span><span class="n">v1</span><span class="o">.</span><span class="na">getMissing</span><span class="o">()</span> <span class="o">+</span> <span class="n">v2</span><span class="o">.</span><span class="na">getMissing</span><span class="o">());</span>
 				<span class="n">summary</span><span class="o">.</span><span class="na">setFiltered</span><span class="o">(</span><span class="n">v1</span><span class="o">.</span><span class="na">getFiltered</span><span class="o">()</span> <span class="o">+</span> <span class="n">v2</span><span class="o">.</span><span class="na">getFiltered</span><span class="o">());</span>
 				<span class="k">return</span> <span class="n">summary</span><span class="o">;</span>
-			<span class="o">},</span> <span class="n">Materialized</span><span class="o">.&lt;</span><span class="n">Integer</span><span class="o">,</span> <span class="n">Summary</span><span class="o">,</span> <span class="n">KeyValueStore</span><span class="o">&lt;</span><span class="n">Bytes</span><span class="o">,</span> <span class="kt">byte</span><span class="o">[]&gt;&gt;</span><span class="n">as</span><span class="o">(</span><span class="n">STORE_NAME</span><span class="o">).</span><span class="na">withKeySerde</span><span class="o">(</span><span class="n">Serdes</span><span class="o">.</span><span class="na">Integer</span><span class="o">()).</span><span class="na">withValueSerde</span><span class="o">(</span><span class="n">serde</span><span class="o">))</span>
-			<span class="o">.</span><span class="na">toStream</span><span class="o">().</span><span class="na">map</span><span class="o">((</span><span class="n">k</span><span class="o">,</span> <span class="n">v</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="k">new</span> <span class="n">KeyValue</span><span class="o">&lt;&gt;(</span><span class="n">k</span><span class="o">,</span> <span class="n">v</span><span class="o">));</span>
+			<span class="o">},</span> <span class="nc">Materialized</span><span class="o">.&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">Summary</span><span class="o">,</span> <span class="nc">KeyValueStore</span><span class="o">&lt;</span><span class="nc">Bytes</span><span class="o">,</span> <span class="kt">byte</span><span class="o">[]&gt;&gt;</span><span class="n">as</span><span class="o">(</span><span class="no">STORE_NAME</span><span class="o">).</span><span class="na">withKeySerde</span><span class="o">(</span><span class="nc">Serdes</span><span class="o">.</span><span class="na">Integer</span><span class="o">()).</span><span class="na">withValueSerde</span><span class="o">(</span><span class="n">serde</span><span class="o">))</span>
+			<span class="o">.</span><span class="na">toStream</span><span class="o">().</span><span class="na">map</span><span class="o">((</span><span class="n">k</span><span class="o">,</span> <span class="n">v</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="k">new</span> <span class="nc">KeyValue</span><span class="o">&lt;&gt;(</span><span class="n">k</span><span class="o">,</span> <span class="n">v</span><span class="o">));</span>
 	<span class="o">}</span>
 	
 	<span class="cm">/*
 	 * 5. 요약 수신
 	 */</span>
-	<span class="nd">@StreamListener</span><span class="o">(</span><span class="n">SummaryBinder</span><span class="o">.</span><span class="na">SUMMARY_IN</span><span class="o">)</span>
-	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">listener</span><span class="o">(</span><span class="nd">@Payload</span> <span class="n">Summary</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span>
+	<span class="nd">@StreamListener</span><span class="o">(</span><span class="nc">SummaryBinder</span><span class="o">.</span><span class="na">SUMMARY_IN</span><span class="o">)</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">listener</span><span class="o">(</span><span class="nd">@Payload</span> <span class="nc">Summary</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span>
 		<span class="c1">// reduce 처리된 데이터에 대해 DB 업데이트 처리</span>
 	<span class="o">}</span>
 <span class="o">}</span>

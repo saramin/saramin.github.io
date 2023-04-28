@@ -1,5 +1,5 @@
 ---
-title: 사람인 결제 서버 과부하 이슈 공유
+title: "[장애회고] ORM(JPA) 사용 시 예상치 못한 쿼리로 인한 HikariCP 이슈"
 author: 최재우
 tags:
 - ''

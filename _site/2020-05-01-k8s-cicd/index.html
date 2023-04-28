@@ -275,7 +275,7 @@
 <h3 id="시작에-앞서">시작에 앞서</h3>
 <p>이 글은 Kubernetes 클러스터 환경 구축을 전제로 어플리케이션을 빌드하고 배포하는 과정의 프로세스를 설명하는 글이므로, 전반적인 Kubernetes의 구조와 개념에 대해서는 다루지 않음을 양해바랍니다.</p>
 
-<p><strong><code class="highlighter-rouge">CI/CD(지속적 통합/지속적 배포)</code></strong> 는 각각 Continuous Integration, Continuous Delivery(또는 Deploy)의 약자로, 짧은 주기를 두고 지속적으로 <strong>빌드/배포</strong>하는 것을 의미합니다.<br />
+<p><strong><code class="language-plaintext highlighter-rouge">CI/CD(지속적 통합/지속적 배포)</code></strong> 는 각각 Continuous Integration, Continuous Delivery(또는 Deploy)의 약자로, 짧은 주기를 두고 지속적으로 <strong>빌드/배포</strong>하는 것을 의미합니다.<br />
 짧은 주기의 빌드/배포가 가능하기 위해서는 빌드 및 배포 <strong>자동화</strong>가 선행되어야 하고,
 자동화를 위해 <strong><a href="http://saraminhr.co.kr/">사람인HR</a></strong> 에서 도입한 CI/CD 파이프라인 프로세스 소개를 하도록 하겠습니다.</p>
 
@@ -284,7 +284,7 @@
 
 <p><strong>GitOps</strong>는 Kubernetes 클러스터를 관리하고 클러스터에 어플리케이션을 배포하는 방법론 중 하나로, <a href="https://www.weave.works/blog/gitops-operations-by-pull-request">Weaveworks</a>에서 창안했습니다. <br />
 GitOps의 핵심은 어플리케이션 소스 뿐만 아니라, 배포 설정까지 Git 저장소(config 저장소)를 통해 관리한다는 것 입니다.<br />
-즉, Git 저장소에 <strong><code class="highlighter-rouge">선언적으로 기술</code></strong> 된 Kubernetes 매니페스트와 같은 파일을 저장하고, 이를 사용하여 배포를 진행하는 방식(개념) 입니다.</p>
+즉, Git 저장소에 <strong><code class="language-plaintext highlighter-rouge">선언적으로 기술</code></strong> 된 Kubernetes 매니페스트와 같은 파일을 저장하고, 이를 사용하여 배포를 진행하는 방식(개념) 입니다.</p>
 
 <p><img src="/img/k8s/2020-04-02-14-10-49.png" alt="Weaveworks-GitOps" /></p>
 
@@ -305,7 +305,7 @@ GitOps의 핵심은 어플리케이션 소스 뿐만 아니라, 배포 설정까
 </blockquote>
 
 <blockquote>
-  <p>Kubernetes에서 가장 중요한 것은 <code class="highlighter-rouge">desired state (원하는 상태)</code> 라는 개념입니다.<br />
+  <p>Kubernetes에서 가장 중요한 것은 <code class="language-plaintext highlighter-rouge">desired state (원하는 상태)</code> 라는 개념입니다.<br />
 원하는 상태라 함은 사용자가 바라는 환경을 의미하고 좀 더 구체적으로는 얼마나 많은 웹서버가 떠 있으면 좋은지, 몇 번 포트로 서비스하기를 원하는지 등을 말합니다.</p>
 
   <p>Kubernetes는 마이크로서비스 컴포넌트들로 구성되어 복잡하고 다양한 작업을 하지만, 핵심은 <strong>current state (현재 상태)를 모니터링 하면서 사용자가 설정한 원하는 상태를 유지</strong> 하려고 내부적으로 이런저런 작업을 하는 메카니즘을 가지고 있습니다.</p>
@@ -345,11 +345,11 @@ CI/CD-프로세스</p>
 
 <p>전체적인 Flow를 크게 2가지 단계로 나눌수 있습니다.</p>
 <ol>
-  <li><strong><code class="highlighter-rouge">GitLab</code> 기반의 CI (빌드) 프로세스</strong></li>
-  <li><strong><code class="highlighter-rouge">Rancher</code> 기반의 CD (배포) 프로세스</strong></li>
+  <li><strong><code class="language-plaintext highlighter-rouge">GitLab</code> 기반의 CI (빌드) 프로세스</strong></li>
+  <li><strong><code class="language-plaintext highlighter-rouge">Rancher</code> 기반의 CD (배포) 프로세스</strong></li>
 </ol>
 
-<p>CI와 CD의 분리가 되어 있는 구조이며, 각 단계의 기반이 되는 플랫폼인 <code class="highlighter-rouge">GitLab-CI</code> 와 <code class="highlighter-rouge">Rancher</code> 에 대해서는 뒤에서 다루도록 하겠습니다.</p>
+<p>CI와 CD의 분리가 되어 있는 구조이며, 각 단계의 기반이 되는 플랫폼인 <code class="language-plaintext highlighter-rouge">GitLab-CI</code> 와 <code class="language-plaintext highlighter-rouge">Rancher</code> 에 대해서는 뒤에서 다루도록 하겠습니다.</p>
 
 <p><br /></p>
 <h3 id="좀더-상세한-프로세스">좀더 상세한 프로세스</h3>
@@ -359,8 +359,8 @@ CI/CD-프로세스</p>
 <p>보시는 바와 같이 GitOps의 방식으로 두 개의 Git 저장소를 사용하게 됩니다.</p>
 
 <ul>
-  <li><strong><code class="highlighter-rouge">code 저장소</code>: 어플리케이션 자체의 소스 코드를 저장.</strong></li>
-  <li><strong><code class="highlighter-rouge">config 저장소</code>: Kubernetes 배포용 매니페스트 저장.</strong>  <br />
+  <li><strong><code class="language-plaintext highlighter-rouge">code 저장소</code>: 어플리케이션 자체의 소스 코드를 저장.</strong></li>
+  <li><strong><code class="language-plaintext highlighter-rouge">config 저장소</code>: Kubernetes 배포용 매니페스트 저장.</strong>  <br />
 .</li>
 </ul>
 
@@ -404,8 +404,8 @@ GitLab Architecture</p>
 gitlab-ci.yml에 작성된 파이프라인 스크립트가 실행되는 게 전체 프로세스 입니다.</p>
 
 <ul>
-  <li>프로젝트 루트에 <code class="highlighter-rouge">.gitlab-ci.yml</code>이 존재하면 됩니다.</li>
-  <li>.gitlab-ci.yml 에 <code class="highlighter-rouge">파이프라인(Job 묶음) 스크립트</code>를 작성하면 트리거 형태로 실행이 됩니다.</li>
+  <li>프로젝트 루트에 <code class="language-plaintext highlighter-rouge">.gitlab-ci.yml</code>이 존재하면 됩니다.</li>
+  <li>.gitlab-ci.yml 에 <code class="language-plaintext highlighter-rouge">파이프라인(Job 묶음) 스크립트</code>를 작성하면 트리거 형태로 실행이 됩니다.</li>
   <li>job은 다음과 같은 기능들을 처리합니다.
     <ul>
       <li><strong>테스트</strong>: 유닛 테스트, 통합 테스트, E2E 테스트, 테스트 커버리지 측정</li>
@@ -502,26 +502,26 @@ gitlab-ci.yml에 작성된 파이프라인 스크립트가 실행되는 게 전�
 
 <p><br /></p>
 <h3 id="dockerfile">Dockerfile</h3>
-<p>Docekr 이미지 빌드를 하기 위해서는 <strong><code class="highlighter-rouge">Dockerfile</code></strong> 이 존재해야 하며, Dockerfile 내용은 아래와 같이 정말 <strong>간단</strong>합니다.<br />
+<p>Docekr 이미지 빌드를 하기 위해서는 <strong><code class="language-plaintext highlighter-rouge">Dockerfile</code></strong> 이 존재해야 하며, Dockerfile 내용은 아래와 같이 정말 <strong>간단</strong>합니다.<br />
 spring boot 기반의 어플리케이션이라 빌드된 jar파일 하나만 copy를 하면 되고, java 명령어로 실행을 시켜주는게 다입니다.</p>
 
-<pre><code class="language-Dockerfile">FROM docker-registry.saramin.co.kr/alpine/openjdk-8:1.1.0 
-LABEL maintainer="user@saramin.co.kr"
+<div class="language-Dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">FROM</span><span class="s"> docker-registry.saramin.co.kr/alpine/openjdk-8:1.1.0 </span>
+<span class="k">LABEL</span><span class="s"> maintainer="user@saramin.co.kr"</span>
 
-RUN mkdir -p /opt/app
-COPY ./iris/target /opt/app
+<span class="k">RUN </span><span class="nb">mkdir</span> <span class="nt">-p</span> /opt/app
+<span class="k">COPY</span><span class="s"> ./iris/target /opt/app</span>
 
-WORKDIR /opt/app
-RUN cp iris-*.jar iris.jar
+<span class="k">WORKDIR</span><span class="s"> /opt/app</span>
+<span class="k">RUN </span><span class="nb">cp </span>iris-<span class="k">*</span>.jar iris.jar
 
-ENTRYPOINT exec java $JAVA_OPTS -jar iris.jar
-</code></pre>
+<span class="k">ENTRYPOINT</span><span class="s"> exec java $JAVA_OPTS -jar iris.jar</span>
+</code></pre></div></div>
 
 <p>.gitlab-ci 파이프라인에 docker image 빌드 job이 존재한다면 위의 Dockerfile이 존재해야 함으로 이점을 주의 해주시면 됩니다.</p>
 
 <p><a href="http://10.100.0.202:80/img/k8s/2020-04-03-14-57-19.png"><img src="http://10.100.0.202:80/img/k8s/2020-04-03-14-57-19.png" /></a></p>
 
-<p>메뉴의 <code class="highlighter-rouge">CI/CD &gt; Pipelines</code> 에 가면 해당 커밋에 대한 파이프라인의 실행 내역에 대해 확인이 가능합니다.</p>
+<p>메뉴의 <code class="language-plaintext highlighter-rouge">CI/CD &gt; Pipelines</code> 에 가면 해당 커밋에 대한 파이프라인의 실행 내역에 대해 확인이 가능합니다.</p>
 
 <p>모든 브랜치의 커밋은 <strong>자동으로 빌드</strong>되어 바로 배포 가능한 <strong>도커 이미지가 생성</strong>이 되게 됩니다.<br />
 물론 CI 스크립트(.gitlab-ci.yml)를 수정하여 빌드 제외 할 브랜치 설정도 가능합니다.</p>
@@ -529,7 +529,7 @@ ENTRYPOINT exec java $JAVA_OPTS -jar iris.jar
 <p><img src="/img/k8s/2020-04-02-12-32-34_.png" alt="gitlab-branches" /></p>
 
 <p>pipeline 이 완료되면 이미지 저장소인 사내 <strong>도커 레지스트리</strong>에 생성된 Container Image 확인이 가능하고,
-이제 우리의 어플리케이션을 어떤 환경이든지 배포를 할 <code class="highlighter-rouge">첫번째 단계가 완료</code> 되었습니다.</p>
+이제 우리의 어플리케이션을 어떤 환경이든지 배포를 할 <code class="language-plaintext highlighter-rouge">첫번째 단계가 완료</code> 되었습니다.</p>
 
 <p class="text-center"><a href="http://10.100.0.202:80/img/k8s/2020-04-03-16-27-36_.png"><img src="http://10.100.0.202:80/img/k8s/2020-04-03-16-27-36_.png" /></a><br />
 Docker Registry UI</p>
@@ -540,10 +540,10 @@ Docker Registry UI</p>
 
 <h2 id="cd-프로세스">CD 프로세스</h2>
 <p>기본적으로 Kubernetes 배포를 위해서는 다양한 오브젝트의 명세를 <strong>YAML 파일로 정의</strong>하고 kubectl CLI를 활용하여 명령어를 입력하는 방식으로 배포를 진행 하게 됩니다. <br />
-그 과정에서 <strong>불편한 배포방식</strong>과 YAML 파일 관리 및 변경에 대한 History 등,, 의 <strong>관리의 어려움</strong>이 발생을 하게 되는데, 이 문제 해결을 위해 <code class="highlighter-rouge">Helm</code> 을 도입하였습니다.</p>
+그 과정에서 <strong>불편한 배포방식</strong>과 YAML 파일 관리 및 변경에 대한 History 등,, 의 <strong>관리의 어려움</strong>이 발생을 하게 되는데, 이 문제 해결을 위해 <code class="language-plaintext highlighter-rouge">Helm</code> 을 도입하였습니다.</p>
 
 <h3 id="helm-이란">Helm 이란?</h3>
-<p>Helm 은 <code class="highlighter-rouge">Kubernetes용 패키지 매니저</code>로 kubernetes cluster에 어플리케이션을 배포하는 도구입니다.<br />
+<p>Helm 은 <code class="language-plaintext highlighter-rouge">Kubernetes용 패키지 매니저</code>로 kubernetes cluster에 어플리케이션을 배포하는 도구입니다.<br />
 node.js 의 npm 과 비슷한 형태로 Kubernetes 패키지 배포를 가능하게 하는 tool 이라고 보시면 됩니다.</p>
 
 <p><img src="/img/k8s/2020-04-02-17-12-51.png" alt="helm-img" /></p>
@@ -559,20 +559,20 @@ node.js 의 npm 과 비슷한 형태로 Kubernetes 패키지 배포를 가능하
 <p><br /></p>
 
 <h3 id="templates--values">Templates &amp; Values</h3>
-<p>Helm은 기본적으로 <strong><code class="highlighter-rouge">템플릿 기능</code></strong> 을 제공합니다.  <br />
+<p>Helm은 기본적으로 <strong><code class="language-plaintext highlighter-rouge">템플릿 기능</code></strong> 을 제공합니다.  <br />
 템플릿을 만들어놓은 후 사용자에 의해 자주 변경되는 값들이나 프로퍼티 값들로 Values.yaml 파일로 분리해서 차트 설치 시 <strong>동적으로 값을 변경</strong> 할수 있는 기능입니다.
 간단히 아래의 그림과 같은 개념입니다.</p>
 
 <p><img src="/img/k8s/2020-04-02-12-35-50.png" alt="helm-vlaue" /></p>
 
 <h3 id="chart-구조">Chart 구조</h3>
-<p>차트 생성은 <code class="highlighter-rouge">helm create {챠트명}</code> 을 통해 쉽게 생성 가능하고, 다음과 같은 기본적인 구조를 가지고 있습니다.</p>
+<p>차트 생성은 <code class="language-plaintext highlighter-rouge">helm create {챠트명}</code> 을 통해 쉽게 생성 가능하고, 다음과 같은 기본적인 구조를 가지고 있습니다.</p>
 
 <p><img src="/img/k8s/2020-04-06-14-07-31.png" alt="helm-structure" /></p>
 
 <p>Helml Chart 에 대한 더 자세한 설명 및 사용법은 <a href="https://helm.sh/docs/">Helm 공식사이트</a> 를 참고하시며 됩니다.</p>
 
-<p>사내 프로젝트에 적용된 <code class="highlighter-rouge">Deployment.yaml</code> 과 <code class="highlighter-rouge">Values.yaml</code> Sample 입니다.</p>
+<p>사내 프로젝트에 적용된 <code class="language-plaintext highlighter-rouge">Deployment.yaml</code> 과 <code class="language-plaintext highlighter-rouge">Values.yaml</code> Sample 입니다.</p>
 
 <h4 id="deploymentyaml">deployment.yaml</h4>
 
@@ -632,7 +632,7 @@ node.js 의 npm 과 비슷한 형태로 Kubernetes 패키지 배포를 가능하
 
 <h4 id="valuesyaml">values.yaml</h4>
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">## 1. pod count</span>
-<span class="na">replicaCount</span><span class="pi">:</span> <span class="s">1</span>
+<span class="na">replicaCount</span><span class="pi">:</span> <span class="m">1</span>
 
 <span class="c1">## 2. image info</span>
 <span class="na">image</span><span class="pi">:</span>
@@ -641,7 +641,7 @@ node.js 의 npm 과 비슷한 형태로 Kubernetes 패키지 배포를 가능하
   <span class="na">pullPolicy</span><span class="pi">:</span> <span class="s">IfNotPresent</span>
 
 <span class="na">imagePullSecrets</span><span class="pi">:</span> <span class="pi">[]</span>
-<span class="na">containerPort</span><span class="pi">:</span> <span class="s">8000</span>
+<span class="na">containerPort</span><span class="pi">:</span> <span class="m">8000</span>
 
 <span class="c1">## 3. environment</span>
 <span class="na">extraEnv</span><span class="pi">:</span> 
@@ -666,7 +666,7 @@ node.js 의 npm 과 비슷한 형태로 Kubernetes 패키지 배포를 가능하
   
 </code></pre></div></div>
 
-<p><code class="highlighter-rouge">values.yaml</code> 으로 다음의 설정에 대해 수정이 가능하도록 Chart를 구성 하였습니다.</p>
+<p><code class="language-plaintext highlighter-rouge">values.yaml</code> 으로 다음의 설정에 대해 수정이 가능하도록 Chart를 구성 하였습니다.</p>
 <ol>
   <li>구동할 컨테이너수를 <strong>replicaCount</strong>로 조절이 가능.</li>
   <li><strong>이미지명</strong>과 <strong>태그</strong>를 변경하여 배포/업그레이드가 가능하도록 설정.</li>
@@ -686,7 +686,7 @@ node.js 의 npm 과 비슷한 형태로 Kubernetes 패키지 배포를 가능하
 <h3 id="rancher">Rancher</h3>
 <p>Kubernetes 관리를 위해 저희는 <a href="https://rancher.com/">Rancher</a> 를 활용하고 있습니다.</p>
 
-<p>Rancher를 간략히 설명을 하자면, <code class="highlighter-rouge">멀티 Kubernetes 클러스터 관리 플랫폼</code> 이라고 할 수 있습니다.</p>
+<p>Rancher를 간략히 설명을 하자면, <code class="language-plaintext highlighter-rouge">멀티 Kubernetes 클러스터 관리 플랫폼</code> 이라고 할 수 있습니다.</p>
 <blockquote>
   <p>Multi-Cluster Kubernetes Management<br />
 One Platform for Kubernetes Management<br />
@@ -697,20 +697,20 @@ Rancher is open-source software for delivering Kubernetes-as-a-Service.</p>
 <img src="/img/k8s/2020-04-07-10-36-56.png" alt="rancher" /></p>
 
 <h3 id="rancher-catalog">Rancher Catalog</h3>
-<p>Rancher 유용한 기능 중 <code class="highlighter-rouge">Helm 기반 의 Chart</code> 를 검색하고 실행할 수 있는 <code class="highlighter-rouge">Application Catalog</code> 기능이 존재합니다.<br />
+<p>Rancher 유용한 기능 중 <code class="language-plaintext highlighter-rouge">Helm 기반 의 Chart</code> 를 검색하고 실행할 수 있는 <code class="language-plaintext highlighter-rouge">Application Catalog</code> 기능이 존재합니다.<br />
 사용자는 UI를 통해 쉽게 Chart를 검색하고 마우스 버튼을 한번 클릭하는 것으로 간단하게 어플리케이션을 배포 및 실행할 수 있습니다.</p>
 
 <p>기존의 CLI 명령행 도구를 사용하는 것보다 좀 더 사용자 편의성이 고려된 <strong>UI 제공</strong>을 할 수 있고, Rancher 통해 chart 관리도 좀 더 쉽고 수월하게 할 수 있어 아주 유용하게 사용하는 기능 중 하나입니다.<br />
 Chart (Kubernetes 배포용 매니페스트)가 저장된 Git config 저장소 주소를 <strong>Catalogs 항목에 등록</strong> 해주기만 하면 바로 <strong>Chart 검색</strong>이 가능합니다.</p>
 
-<p>Rancher 상단 메뉴의 <code class="highlighter-rouge">Apps &gt; Launch</code> 버튼을 클릭하면 등록된 차트가 아래와 같이 리스트 되어 보여집니다.</p>
+<p>Rancher 상단 메뉴의 <code class="language-plaintext highlighter-rouge">Apps &gt; Launch</code> 버튼을 클릭하면 등록된 차트가 아래와 같이 리스트 되어 보여집니다.</p>
 
 <p class="text-center"><a href="http://10.100.0.202:80/img/k8s/2020-04-07-11-06-10.png"><img src="http://10.100.0.202:80/img/k8s/2020-04-07-11-06-10.png" /></a><br />
 Rancher Catalog - Chart List</p>
 
 <h3 id="rancher-charts">Rancher Charts</h3>
 <p>Rancher에서는 Helm 기반의 Chart를 기본적으로 노출을 해주지만, 추가적으로 UI로 <strong>사용자 입력</strong>을 받을 수 있도록 할 수 있습니다.
-<code class="highlighter-rouge">questions.yml</code> 파일로 UI를 구성하면 Chart 설치 상세 페이지에서 사용자 입력을 받아 <strong>values.yaml 의 값을 대체</strong> 해주는 방식입니다.</p>
+<code class="language-plaintext highlighter-rouge">questions.yml</code> 파일로 UI를 구성하면 Chart 설치 상세 페이지에서 사용자 입력을 받아 <strong>values.yaml 의 값을 대체</strong> 해주는 방식입니다.</p>
 
 <p>values.yaml 파일의 key 값이 variable 의 값과 정확히 일치 해야만 변경되는 점에 유의 하시면 됩니다.<br />
 위의 values.yaml 의 5가지 조건에 대해서 UI 구성한 예제입니다.</p>
@@ -731,7 +731,7 @@ Rancher Catalog - Chart List</p>
 
 <span class="c1">## 1. pod count</span>
 <span class="pi">-</span> <span class="na">variable</span><span class="pi">:</span> <span class="s">replicaCount</span>
-  <span class="na">default</span><span class="pi">:</span> <span class="s">1</span>
+  <span class="na">default</span><span class="pi">:</span> <span class="m">1</span>
   <span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Container</span><span class="nv"> </span><span class="s">Image</span><span class="nv"> </span><span class="s">Replica</span><span class="nv"> </span><span class="s">Count"</span>
   <span class="na">label</span><span class="pi">:</span> <span class="s">Replica Count</span>
   <span class="na">type</span><span class="pi">:</span> <span class="s">int</span>
@@ -789,7 +789,7 @@ Rancher Catalog - Chart List</p>
     <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
 </code></pre></div></div>
 
-<p>위와 같이 <code class="highlighter-rouge">questions.yaml</code>을 생성 후 Chart에 반영을 하고 차트 설치를 위한 상세 페이지로 가보도록 하겠습니다.</p>
+<p>위와 같이 <code class="language-plaintext highlighter-rouge">questions.yaml</code>을 생성 후 Chart에 반영을 하고 차트 설치를 위한 상세 페이지로 가보도록 하겠습니다.</p>
 
 <p class="text-center"><a href="http://10.100.0.202:80/img/k8s/2020-04-07-14-13-39.png"><img src="http://10.100.0.202:80/img/k8s/2020-04-07-14-13-39.png" /></a><br />
 Rancher Catalog - Chart Detail</p>
@@ -804,7 +804,7 @@ Rancher Catalog - Chart Detail</p>
   <li>특정 노드에 배포되도록 <strong>nodeAffinity</strong> 설정.</li>
 </ol>
 
-<p>보시면 <code class="highlighter-rouge">values.yaml</code>  설정의 설명 내용과 <strong>동일</strong> 합니다.<br />
+<p>보시면 <code class="language-plaintext highlighter-rouge">values.yaml</code>  설정의 설명 내용과 <strong>동일</strong> 합니다.<br />
 즉, 사용자로부터 UI통해 입력을 받은 값으로 values config 값을 대체 하는 프로세스로 동작을 합니다.</p>
 
 <p>더 자세한 설명은 하기 문서를 참고 바랍니다.</p>
@@ -825,19 +825,19 @@ Rancher Catalog - Chart Detail</p>
 개발환경에서는 소스 커밋과 동시에 <strong>자동으로 Upgrade 처리</strong>가 진행되도록 한 부분에 대해 알아보겠습니다.</p>
 
 <p>먼저, Kubernetes의 오브젝트들은 모두 <strong>API</strong> 를 통해 접근이 되며 관리(생성, 조회, 삭제)가 이루어 집니다.
-사실 모든 K8s 컴포넌트들은 <code class="highlighter-rouge">Kubernetes API (kube-apiserver)</code> 를 통해 통신하며 동작 합니다.
+사실 모든 K8s 컴포넌트들은 <code class="language-plaintext highlighter-rouge">Kubernetes API (kube-apiserver)</code> 를 통해 통신하며 동작 합니다.
 kubectl tool도 내부적으로는 Kubernetes API를 호출하는 방식이죠.</p>
 
 <p><img src="/img/k8s/2020-04-17-14-47-10.png" alt="kubectl_1" /></p>
 
 <p>간단한 서비스 어플리케이션 수정 건은 메니페스트 정보나 인프라 설정을 변경 할 필요가 없고, <strong>빌드된 이미지를 바꿔주기만 하면 되는 배포 업무</strong>가 대다수 입니다.  <br />
 <br />
-아래의 그림과 같이  Kubernetes API를 통해 KubeCtl을 대신하여 <strong>Patch(이미지 태그 변경) 작업</strong>을 처리하는 모듈을 생성하여 <code class="highlighter-rouge">Proxy 형태</code>로 서비스 하도록 두었습니다. <br />
-CI 빌드 완료 시 <code class="highlighter-rouge">webhook</code> 방식으로 해당 proxy 모듈을 호출하는 프로세스로 자동화 배포 처리이 동작하게 됩니다.</p>
+아래의 그림과 같이  Kubernetes API를 통해 KubeCtl을 대신하여 <strong>Patch(이미지 태그 변경) 작업</strong>을 처리하는 모듈을 생성하여 <code class="language-plaintext highlighter-rouge">Proxy 형태</code>로 서비스 하도록 두었습니다. <br />
+CI 빌드 완료 시 <code class="language-plaintext highlighter-rouge">webhook</code> 방식으로 해당 proxy 모듈을 호출하는 프로세스로 자동화 배포 처리이 동작하게 됩니다.</p>
 
 <p><img src="/img/k8s/2020-04-17-16-25-41.png" alt="kube-api" /></p>
 
-<p>CI 파이프라인 스크립트의 <strong>deploy</strong> 스테이지의 <strong>auto-update</strong> 라는 job이 <code class="highlighter-rouge">Proxy Api Service</code>를 호출하고 있고, 빌드된 <code class="highlighter-rouge">이미지:태그</code> 정보를 파라미터로 전달하고 있습니다.</p>
+<p>CI 파이프라인 스크립트의 <strong>deploy</strong> 스테이지의 <strong>auto-update</strong> 라는 job이 <code class="language-plaintext highlighter-rouge">Proxy Api Service</code>를 호출하고 있고, 빌드된 <code class="language-plaintext highlighter-rouge">이미지:태그</code> 정보를 파라미터로 전달하고 있습니다.</p>
 
 <h5 id="gitlab-ciyml">.gitlab-ci.yml</h5>
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">...</span>
@@ -854,7 +854,7 @@ CI 빌드 완료 시 <code class="highlighter-rouge">webhook</code> 방식으로
 <p><br /></p>
 
 <h3 id="proxy-api-service">Proxy Api Service</h3>
-<p>빌드 성공 시 <code class="highlighter-rouge">Webhook</code>방식으로 호출되며, 내부적으로 <code class="highlighter-rouge">kubernetes API</code> 를 호출하고 있고, <br />
+<p>빌드 성공 시 <code class="language-plaintext highlighter-rouge">Webhook</code>방식으로 호출되며, 내부적으로 <code class="language-plaintext highlighter-rouge">kubernetes API</code> 를 호출하고 있고, <br />
 <strong>외부에서 쉽고 편리하게 k8s 조작 및 연동</strong>을 하기 위한 용도의 서비스라고 보시면 됩니다.</p>
 
 <p>kubernetes API 연동을 위해 python 기반의 kubernetes-client 를 활용해서 어플리케이션 구축을 하였습니다.</p>
@@ -864,47 +864,47 @@ CI 빌드 완료 시 <code class="highlighter-rouge">webhook</code> 방식으로
 </blockquote>
 
 <h4 id="update-api">Update API</h4>
-<p>auto-update 단계에서 webhook으로 <code class="highlighter-rouge">이미지:태그</code> 파라미터를 전달받으면 이미지 정보를 가지고 배포된 deployment 를 찾아서 <strong>새로운 이미지로 업데이트 처리</strong>하는 API입니다. <br />
+<p>auto-update 단계에서 webhook으로 <code class="language-plaintext highlighter-rouge">이미지:태그</code> 파라미터를 전달받으면 이미지 정보를 가지고 배포된 deployment 를 찾아서 <strong>새로운 이미지로 업데이트 처리</strong>하는 API입니다. <br />
 아래는 python 으로 구현된 모듈내 포함된 update_image() Function 의 예시입니다.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">...</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">...</span>
 <span class="k">def</span> <span class="nf">update_image</span><span class="p">(</span><span class="n">update_img</span><span class="p">):</span>
-    <span class="c"># 이미지명,태그명 분리</span>
-    <span class="n">img_name</span> <span class="o">=</span> <span class="n">update_img</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s">':'</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">img_tag</span> <span class="o">=</span> <span class="n">update_img</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s">':'</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="c1"># 이미지명,태그명 분리
+</span>    <span class="n">img_name</span> <span class="o">=</span> <span class="n">update_img</span><span class="p">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s">':'</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">img_tag</span> <span class="o">=</span> <span class="n">update_img</span><span class="p">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s">':'</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
     
-    <span class="c"># 전체 Deployment 조회</span>
-    <span class="n">ret_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">apps_v1</span><span class="o">.</span><span class="n">list_deployment_for_all_namespaces</span><span class="p">()</span>
+    <span class="c1"># 전체 Deployment 조회
+</span>    <span class="n">ret_list</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">apps_v1</span><span class="p">.</span><span class="n">list_deployment_for_all_namespaces</span><span class="p">()</span>
     
-    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">ret_list</span><span class="o">.</span><span class="n">items</span><span class="p">:</span>
-        <span class="c"># 시스템 namespace 제외</span>
-        <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">namespace</span> <span class="ow">in</span> <span class="p">(</span><span class="s">"cattle-system"</span><span class="p">,</span> <span class="s">"kube-system"</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">ret_list</span><span class="p">.</span><span class="n">items</span><span class="p">:</span>
+        <span class="c1"># 시스템 namespace 제외
+</span>        <span class="k">if</span> <span class="n">item</span><span class="p">.</span><span class="n">metadata</span><span class="p">.</span><span class="n">namespace</span> <span class="ow">in</span> <span class="p">(</span><span class="s">"cattle-system"</span><span class="p">,</span> <span class="s">"kube-system"</span><span class="p">):</span>
                 <span class="k">continue</span>
 
-        <span class="k">if</span> <span class="n">img_name</span> <span class="ow">in</span> <span class="n">item</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">template</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">containers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">image</span><span class="p">:</span>
-            <span class="n">prev_img</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">template</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">containers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">image</span>
-            <span class="n">item</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">template</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">containers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">image</span> <span class="o">=</span> <span class="n">update_img</span>
+        <span class="k">if</span> <span class="n">img_name</span> <span class="ow">in</span> <span class="n">item</span><span class="p">.</span><span class="n">spec</span><span class="p">.</span><span class="n">template</span><span class="p">.</span><span class="n">spec</span><span class="p">.</span><span class="n">containers</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">image</span><span class="p">:</span>
+            <span class="n">prev_img</span> <span class="o">=</span> <span class="n">item</span><span class="p">.</span><span class="n">spec</span><span class="p">.</span><span class="n">template</span><span class="p">.</span><span class="n">spec</span><span class="p">.</span><span class="n">containers</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">image</span>
+            <span class="n">item</span><span class="p">.</span><span class="n">spec</span><span class="p">.</span><span class="n">template</span><span class="p">.</span><span class="n">spec</span><span class="p">.</span><span class="n">containers</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">image</span> <span class="o">=</span> <span class="n">update_img</span>
 
-            <span class="c"># Update the deployment</span>
-            <span class="n">api_response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">apps_v1</span><span class="o">.</span><span class="n">patch_namespaced_deployment</span><span class="p">(</span>
-                    <span class="n">name</span><span class="o">=</span><span class="n">item</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
-                    <span class="n">namespace</span><span class="o">=</span><span class="n">item</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">namespace</span><span class="p">,</span>
+            <span class="c1"># Update the deployment
+</span>            <span class="n">api_response</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">apps_v1</span><span class="p">.</span><span class="n">patch_namespaced_deployment</span><span class="p">(</span>
+                    <span class="n">name</span><span class="o">=</span><span class="n">item</span><span class="p">.</span><span class="n">metadata</span><span class="p">.</span><span class="n">name</span><span class="p">,</span>
+                    <span class="n">namespace</span><span class="o">=</span><span class="n">item</span><span class="p">.</span><span class="n">metadata</span><span class="p">.</span><span class="n">namespace</span><span class="p">,</span>
                     <span class="n">body</span><span class="o">=</span><span class="n">item</span><span class="p">)</span>
 
-            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">"Deployment updated. status='</span><span class="si">%</span><span class="s">s'"</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">api_response</span><span class="o">.</span><span class="n">status</span><span class="p">))</span>
+            <span class="n">logger</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="s">"Deployment updated. status='%s'"</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">api_response</span><span class="p">.</span><span class="n">status</span><span class="p">))</span>
             <span class="k">return</span> <span class="s">"success"</span><span class="p">,</span> <span class="n">api_response</span>
     
-    <span class="c"># 구동된 Deployment 없을 시</span>
-    <span class="k">return</span> <span class="s">"none"</span><span class="p">,</span> <span class="s">"Deployment Not Found"</span>
-<span class="o">...</span>
+    <span class="c1"># 구동된 Deployment 없을 시
+</span>    <span class="k">return</span> <span class="s">"none"</span><span class="p">,</span> <span class="s">"Deployment Not Found"</span>
+<span class="p">...</span>
 </code></pre></div></div>
 
 <p><br /></p>
 
 <h4 id="api-문서">API 문서</h4>
-<p><code class="highlighter-rouge">Proxy Api Service</code> 는 배포 자동화 처리 뿐만 아니라, 다양한 End Point를 노출하며 여러 기능을 제공하고 있습니다.<br />
+<p><code class="language-plaintext highlighter-rouge">Proxy Api Service</code> 는 배포 자동화 처리 뿐만 아니라, 다양한 End Point를 노출하며 여러 기능을 제공하고 있습니다.<br />
 K8S 연동을 위한 <strong>proxy 역활</strong>을 하고 있으며, <strong>Rest</strong>한 <strong>End Point API 문서</strong>를 제공하고 있습니다.
-python Django 프레임워크 기반으로 하는 <strong><code class="highlighter-rouge">drf-yasg</code></strong> 패키지를 활용하여 <strong>자동</strong>으로 API 문서를 생성하도록 하였습니다.</p>
+python Django 프레임워크 기반으로 하는 <strong><code class="language-plaintext highlighter-rouge">drf-yasg</code></strong> 패키지를 활용하여 <strong>자동</strong>으로 API 문서를 생성하도록 하였습니다.</p>
 
 <p><em>해당 내용은 주제에서 벗어난 부분이기에 더이상 다루지 않으며, 참고용으로 봐주시길 바랍니다. 자세한 사용법은 하기 공식사이트 또는 검색을 통해 찾아보시면 자세하고 상세히 소개된 글들이 많이 존재합니다.</em></p>
 <blockquote>
@@ -925,7 +925,7 @@ Rest API Document</p>
 그중에서 가장 저희 팀과 IT연구소에 맞는 방법이 무엇일까를 고민했고, 무엇보다도 쉽고 보편적인 방향성을 추구하려고 했습니다. <br />
 위와 같이 프로세스를 구성하고 나서도 더 편리한 도구는 없을까,, 더 좋은 방법은 없을까,, 하는 고민을 했었습니다.</p>
 
-<p>하지만 결론적으로 제가 내린 결론은, <code class="highlighter-rouge">정답은 없다</code> 입니다.</p>
+<p>하지만 결론적으로 제가 내린 결론은, <code class="language-plaintext highlighter-rouge">정답은 없다</code> 입니다.</p>
 
 <p>이렇게 저렇게 해야한다는 공식 보다는 각자의 시스템 특성 및 배포 성향에 맞게 최적을 위해 최선을 다해 구축한 프로세스야 말로 정답이 아닐까란 생각을 했습니다.  <br />
 쿠버네티스 환경에서 GitOps 기반의 CI/CD를 도입하시는 분들에게 이글이 참고가 되었으면 하고,  추후 글쓰는 실력을 갈고 닦아 좀더 심도있고, 깊이있는 글로 찾아올수 있도록 노력하겠습니다.</p>

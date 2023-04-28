@@ -384,37 +384,37 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">session.timeout.ms</code></td>
+      <td><code class="language-plaintext highlighter-rouge">session.timeout.ms</code></td>
       <td>컨슈머와 브로커사이의 session timeout 시간.<br />컨슈머가 살아있는것으로 판단하는 시간으로 <strong>이 시간이 지나면 해당 컨슈머는 종료되거나 장애가 발생한것으로 판단하고 컨슈머 그룹은 리밸런스를 시도한다.</strong><br /> 이 옵션은 heartbeat 없이 얼마나 오랫동안 컨슈머가 있을 수 있는지를 제어하며 heartbeat.interval.ms와 밀접한 관련이 있어서 일반적으로 두 속성이 함께 수정된다.</td>
       <td>10000 (10초)</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">heartbeat.interval.ms</code></td>
+      <td><code class="language-plaintext highlighter-rouge">heartbeat.interval.ms</code></td>
       <td>컨슈머가 얼마나 자주 heartbeat을 보낼지 조정한다. session.timeout.ms보다 작아야 하며 일반적으로 1/3로 설정</td>
       <td>3000 (3초)</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">max.poll.interval.ms</code></td>
+      <td><code class="language-plaintext highlighter-rouge">max.poll.interval.ms</code></td>
       <td>컨슈머가 polling하고 commit 할때까지의 대기시간. 컨슈머가 살아있는지를 체크하기 위해 hearbeat를 주기적으로 보내는데, 계속해서 heartbeat만 보내고 실제로 메시지를 가져가지 않는 경우가 있을 수 있다.<br />이러한 경우에 컨슈머가 무한정 해당 파티션을 점유할 수 없도록 <strong>주기적으로 poll을 호출하지 않으면 장애라고 판단하고 컨슈머 그룹에서 제외</strong>시키도록 하는 옵션이다.</td>
       <td>300000 (5분)</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">max.poll.records</code></td>
+      <td><code class="language-plaintext highlighter-rouge">max.poll.records</code></td>
       <td>컨슈머가 최대로 가져 갈 수있는 갯수.<br />이 옵션으로 polling loop에서 데이터 양을 조정 할 수 있다.</td>
       <td>500</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">enable.auto.commit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">enable.auto.commit</code></td>
       <td>백그라운드로 주기적으로 offset을 commit</td>
       <td>true</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">auto.commit.interval.ms</code></td>
+      <td><code class="language-plaintext highlighter-rouge">auto.commit.interval.ms</code></td>
       <td>주기적으로 offset을 커밋하는 시간</td>
       <td>5000 (5초)</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">auto.offset.reset</code></td>
+      <td><code class="language-plaintext highlighter-rouge">auto.offset.reset</code></td>
       <td>earliest: 가장 초기의 offset값으로 설정<br />latest: 가장 마지막의 offset값으로 설정<br />none: 이전 offset값을 찾지 못하면 error 발생</td>
       <td>latest</td>
     </tr>

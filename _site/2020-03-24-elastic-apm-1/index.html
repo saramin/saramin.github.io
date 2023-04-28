@@ -577,7 +577,7 @@ APM 서버를 설치하는 방법은 다양하지만 저희는 kubernetes 환경
 <p><strong>1. APM 서버 설치</strong></p>
 
 <p>APM 서버 설치를 위한 Deployment 및 NodePort Service YAML</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apiVersion: apps/v1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apiVersion: apps/v1
 kind: Deployment
 metadata:
 	labels:
@@ -632,7 +632,7 @@ spec:
 <p><strong>2. APM 서버 설정 파일 설치</strong></p>
 
 <p>APM 서버 설정 ConfigMap YAML</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apiVersion: v1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apiVersion: v1
 kind: ConfigMap
 metadata:
 	labels:
@@ -668,14 +668,14 @@ Elastic에서 공식적으로 지원하는 Agent는 설치 후 별다른 설정�
 
 <p><strong>1. 설치를 위한 APM Agent jar 파일 다운로드</strong></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## 수동으로 jar 파일을 다운로드함
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## 수동으로 jar 파일을 다운로드함
 ##   - maven repository에서 다운로드
 다운로드 링크 : https://search.maven.org/search?q=g:co.elastic.apm%20AND%20a:elastic-apm-agent
 </code></pre></div></div>
 
 <p><strong>2. Application 실행시 “-javaagent” 옵션을 설정 하여 APM Agent를 설치</strong></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>java -javaagent:&lt;download&gt;/&lt;path&gt;/elastic-apm-agent.jar 
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>java -javaagent:&lt;download&gt;/&lt;path&gt;/elastic-apm-agent.jar 
 		-Delastic.apm.server_urls=http://&lt;&lt; kubernetes node ip &gt;&gt;:30082
 		-Delastic.apm.service_name=demoappjava-es
 		-Delastic.apm.environment=dev
@@ -778,7 +778,7 @@ Elastic에서 공식적으로 지원하는 Agent는 설치 후 별다른 설정�
 
 <p><strong>1.   composer를 이용한 Agent library 설치</strong></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## "php.ini" 파일에 "curl" extension 추가 필요 (아래는 개인 환경에 따라 다름)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## "php.ini" 파일에 "curl" extension 추가 필요 (아래는 개인 환경에 따라 다름)
 vi ../php.ini
 	extension="php_curl.so"
 
@@ -796,7 +796,7 @@ vi ../conposer.json
 
 <p><strong>2. Agent 생성 및 Config 설정</strong></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	$this-&gt;agent = new Agent( [
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	$this-&gt;agent = new Agent( [
 	 'appName' =&gt; 'demoappphp-es',                             ## apm application의 서비스 이름 (kibana ui에 서비스 구분자로 사용됨)
 	 'environment' =&gt; 'dev',                                    ## application 구동 환경
 	 'serverUrl' =&gt; 'http://&lt;&lt; kubernetes node ip &gt;&gt;:30082',     ## APM Server URL
@@ -806,7 +806,7 @@ vi ../conposer.json
 <p><strong>3. Transaction 및 Span 생성</strong></p>
 
 <p>PHP인 경우에는 Application의 성능을 측정 하고자 하는 위치의 Source Code에 직접 Transaction과 Span 생성을 위한 Code를 작성해 주어야 합니다.</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public function test()
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public function test()
 	{
 			/* for APM - start*/
 			$trxName = get_class($this).' - test';
@@ -837,7 +837,7 @@ vi ../conposer.json
 <p><strong>4. Exception Capture</strong></p>
 
 <p>Exception 정보는 captureThrowable Method를 이용하여 쉽게 수집 할 수 있습니다.</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	try {
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	try {
 	.... (Application 코드)
 }
 catch (Exception $e) {
@@ -851,7 +851,7 @@ catch (Exception $e) {
 
 <p>Application 외부 연동시 분산 trace를 위한 값을 HTTP Header로 전달<br />
 (<a href="https://www.w3.org/TR/trace-context/#header-name">W3C의 trace 규격</a>을 따르고 있음)</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$request = $client-&gt;request('GET', $url, [
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$request = $client-&gt;request('GET', $url, [
  ## Http Header 값으로 tarce 정보를 전달
  // 'headers' =&gt; [DistributedTracing::HEADER_NAME =&gt; $span-&gt;getDistributedTracing()]
  ## TraceFlag를 00 --&gt; 01로 전달하도록 임의로 header value 조정 (현재 php-agent library에서는 TraceFlag 변경 기능을 지원하지 않음)

@@ -449,31 +449,31 @@ Vue UI 라이브러리(vuetify)를 이용하여 form요소 및 버튼, 아이콘
 
 <p class="text-center">[수정 전]</p>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"bi_url"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"//www.url정보"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"menu"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
+  </span><span class="nl">"bi_url"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"//www.url정보"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"menu"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 <p class="text-center">menu.json</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"templateInfo"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">],</span><span class="w">
-  </span><span class="s2">"edit"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">],</span><span class="w">
-  </span><span class="s2">"list"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
+  </span><span class="nl">"templateInfo"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">],</span><span class="w">
+  </span><span class="nl">"edit"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">],</span><span class="w">
+  </span><span class="nl">"list"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 <p class="text-center">template.json</p>
 
 <p class="text-center">[수정 후]</p>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"builderMain"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">},</span><span class="w">
-    </span><span class="s2">"menu"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">},</span><span class="w">          </span><span class="err">//</span><span class="w"> </span><span class="err">수정</span><span class="w"> </span><span class="err">전</span><span class="w"> </span><span class="err">menu.json</span><span class="w">
-    </span><span class="s2">"visual"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">},</span><span class="w">
-    </span><span class="s2">"linkMenu"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">},</span><span class="w">
-    </span><span class="s2">"boardList"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">}</span><span class="w">
+  </span><span class="nl">"builderMain"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">},</span><span class="w">
+    </span><span class="nl">"menu"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">},</span><span class="w">          </span><span class="err">//</span><span class="w"> </span><span class="err">수정</span><span class="w"> </span><span class="err">전</span><span class="w"> </span><span class="err">menu.json</span><span class="w">
+    </span><span class="nl">"visual"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">},</span><span class="w">
+    </span><span class="nl">"linkMenu"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">},</span><span class="w">
+    </span><span class="nl">"boardList"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">}</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"builderSub"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">},</span><span class="w">
-  </span><span class="s2">"builderTemplate"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">}</span><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">수정</span><span class="w"> </span><span class="err">전</span><span class="w"> </span><span class="err">template.json</span><span class="w"> </span><span class="err">모음</span><span class="w">
+  </span><span class="nl">"builderSub"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">},</span><span class="w">
+  </span><span class="nl">"builderTemplate"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">}</span><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">수정</span><span class="w"> </span><span class="err">전</span><span class="w"> </span><span class="err">template.json</span><span class="w"> </span><span class="err">모음</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 <p class="text-center">builder.json</p>
@@ -498,8 +498,8 @@ Vue UI 라이브러리(vuetify)를 이용하여 form요소 및 버튼, 아이콘
 </code></pre></div></div>
 
 <p>플러그인 파일(vuetify.js)<br /></p>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">Vue</span> <span class="k">from</span> <span class="s1">'vue'</span><span class="p">;</span>
-<span class="k">import</span> <span class="nx">vuetify</span> <span class="k">from</span> <span class="s1">'./plugins/vuetify'</span><span class="p">;</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">Vue</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vue</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">vuetify</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./plugins/vuetify</span><span class="dl">'</span><span class="p">;</span>
 
 <span class="nx">Vue</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">Vuetify</span><span class="p">);</span>
 
@@ -509,7 +509,7 @@ Vue UI 라이브러리(vuetify)를 이용하여 form요소 및 버튼, 아이콘
 </code></pre></div></div>
 
 <p>app.js<br /></p>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">vuetify</span> <span class="k">from</span> <span class="s1">'./plugins/vuetify'</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">vuetify</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./plugins/vuetify</span><span class="dl">'</span>
 
 <span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
 	<span class="nx">vuetify</span><span class="p">,</span>
@@ -538,13 +538,13 @@ Vue UI 라이브러리(vuetify)를 이용하여 form요소 및 버튼, 아이콘
 <p>최초 UI/UX 페이지를 생성할때 component 호출방식을 사용하여 페이지를 구성하였고, 이후 vue-router를 사용하여 재구성하였습니다.</p>
 <h4 id="1-component-호출-방식">1) component 호출 방식</h4>
 <p>a. blade php 생성<br /></p>
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">@</span><span class="nd">extends</span><span class="p">(</span><span class="s1">'layouts.app'</span><span class="p">)</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">@</span><span class="nd">extends</span><span class="p">(</span><span class="dl">'</span><span class="s1">layouts.app</span><span class="dl">'</span><span class="p">)</span>
 
-<span class="p">@</span><span class="nd">section</span><span class="p">(</span><span class="s1">'title'</span><span class="p">,</span> <span class="nx">__</span><span class="p">(</span><span class="s1">'Vuetify 예제'</span><span class="p">))</span>
+<span class="p">@</span><span class="nd">section</span><span class="p">(</span><span class="dl">'</span><span class="s1">title</span><span class="dl">'</span><span class="p">,</span> <span class="nx">__</span><span class="p">(</span><span class="dl">'</span><span class="s1">Vuetify 예제</span><span class="dl">'</span><span class="p">))</span>
 
-<span class="p">@</span><span class="nd">section</span><span class="p">(</span><span class="s1">'content'</span><span class="p">)</span>
+<span class="p">@</span><span class="nd">section</span><span class="p">(</span><span class="dl">'</span><span class="s1">content</span><span class="dl">'</span><span class="p">)</span>
 	<span class="c1">// pagename 은 component 파일 명과 동일 (영문 첫 자는 소문자.)</span>
-	<span class="o">&lt;</span><span class="nx">sub</span><span class="o">-</span><span class="nx">layout</span> <span class="nx">pagename</span><span class="o">=</span><span class="s2">"applyForm"</span><span class="o">&gt;&lt;</span><span class="sr">/sub-layout</span><span class="err">&gt;
+	<span class="o">&lt;</span><span class="nx">sub</span><span class="o">-</span><span class="nx">layout</span> <span class="nx">pagename</span><span class="o">=</span><span class="dl">"</span><span class="s2">applyForm</span><span class="dl">"</span><span class="o">&gt;&lt;</span><span class="sr">/sub-layout</span><span class="err">&gt;
 </span><span class="p">@</span><span class="nd">endsection</span>
 </code></pre></div></div>
 
@@ -552,18 +552,18 @@ Vue UI 라이브러리(vuetify)를 이용하여 form요소 및 버튼, 아이콘
 
 <p>c. 페이지 컴포넌트 등록 : app.js<br /></p>
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 레이아웃</span>
-<span class="nx">Vue</span><span class="p">.</span><span class="nx">component</span><span class="p">(</span><span class="s1">'sub-layout'</span><span class="p">,</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'./components/layout/SubLayout'</span><span class="p">).</span><span class="k">default</span><span class="p">);</span>
+<span class="nx">Vue</span><span class="p">.</span><span class="nx">component</span><span class="p">(</span><span class="dl">'</span><span class="s1">sub-layout</span><span class="dl">'</span><span class="p">,</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">./components/layout/SubLayout</span><span class="dl">'</span><span class="p">).</span><span class="k">default</span><span class="p">);</span>
 
 <span class="c1">// 채용관리</span>
-<span class="nx">Vue</span><span class="p">.</span><span class="nx">component</span><span class="p">(</span><span class="s1">'apply-form'</span><span class="p">,</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'./components/application/ApplyForm.vue'</span><span class="p">).</span><span class="k">default</span><span class="p">);</span>
+<span class="nx">Vue</span><span class="p">.</span><span class="nx">component</span><span class="p">(</span><span class="dl">'</span><span class="s1">apply-form</span><span class="dl">'</span><span class="p">,</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">./components/application/ApplyForm.vue</span><span class="dl">'</span><span class="p">).</span><span class="k">default</span><span class="p">);</span>
 </code></pre></div></div>
 
 <p>d. LayoutContent.vue 에 props 비교<br /></p>
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">template</span><span class="o">&gt;</span>
 	<span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
-		<span class="o">&lt;</span><span class="nx">div</span> <span class="nx">id</span><span class="o">=</span><span class="s2">"wrap_content"</span><span class="o">&gt;</span>
+		<span class="o">&lt;</span><span class="nx">div</span> <span class="nx">id</span><span class="o">=</span><span class="dl">"</span><span class="s2">wrap_content</span><span class="dl">"</span><span class="o">&gt;</span>
 			<span class="c1">// props 비교 후 노출 여부 판단</span>
-			<span class="o">&lt;</span><span class="nx">apply</span><span class="o">-</span><span class="nx">form</span> <span class="nx">v</span><span class="o">-</span><span class="k">if</span><span class="o">=</span><span class="s2">"this.pagename='apply'"</span><span class="o">&gt;&lt;</span><span class="sr">/apply-form</span><span class="err">&gt;
+			<span class="o">&lt;</span><span class="nx">apply</span><span class="o">-</span><span class="nx">form</span> <span class="nx">v</span><span class="o">-</span><span class="k">if</span><span class="o">=</span><span class="dl">"</span><span class="s2">this.pagename='apply'</span><span class="dl">"</span><span class="o">&gt;&lt;</span><span class="sr">/apply-form</span><span class="err">&gt;
 </span>		<span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
 </span>	<span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
 </span><span class="o">&lt;</span><span class="sr">/template</span><span class="err">&gt;
@@ -571,9 +571,9 @@ Vue UI 라이브러리(vuetify)를 이용하여 form요소 및 버튼, 아이콘
 
 <p>e. Web Routes 페이지 등록<br /></p>
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 채용관리</span>
-<span class="nx">Route</span><span class="p">::</span><span class="kd">get</span><span class="p">(</span><span class="s1">'/application/{page?}'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">$page</span> <span class="o">=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
-	<span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s2">"application.$page"</span><span class="p">);</span>
-<span class="p">})</span><span class="o">-&gt;</span><span class="nx">name</span><span class="p">(</span><span class="s1">'application'</span><span class="p">);</span>
+<span class="nx">Route</span><span class="p">::</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">/application/{page?}</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">$page</span> <span class="o">=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="dl">"</span><span class="s2">application.$page</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">})</span><span class="o">-&gt;</span><span class="nx">name</span><span class="p">(</span><span class="dl">'</span><span class="s1">application</span><span class="dl">'</span><span class="p">);</span>
 </code></pre></div></div>
 <p></p>
 <h4 id="2-vue-router-변경">2) vue-router 변경</h4>
@@ -581,20 +581,20 @@ Vue UI 라이브러리(vuetify)를 이용하여 form요소 및 버튼, 아이콘
 <p>a. 페이지 컴포넌트 생성<br />
 b. 페이지 컴포넌트 등록 : app.js<br /></p>
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 레이아웃</span>
-<span class="nx">Vue</span><span class="p">.</span><span class="nx">component</span><span class="p">(</span><span class="s1">'sub-layout'</span><span class="p">,</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'./components/layout/SubLayout'</span><span class="p">).</span><span class="k">default</span><span class="p">);</span>
+<span class="nx">Vue</span><span class="p">.</span><span class="nx">component</span><span class="p">(</span><span class="dl">'</span><span class="s1">sub-layout</span><span class="dl">'</span><span class="p">,</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">./components/layout/SubLayout</span><span class="dl">'</span><span class="p">).</span><span class="k">default</span><span class="p">);</span>
 
 <span class="c1">// 채용관리</span>
-<span class="nx">Vue</span><span class="p">.</span><span class="nx">component</span><span class="p">(</span><span class="s1">'apply-form'</span><span class="p">,</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'./components/application/ApplyForm.vue'</span><span class="p">).</span><span class="k">default</span><span class="p">);</span>
+<span class="nx">Vue</span><span class="p">.</span><span class="nx">component</span><span class="p">(</span><span class="dl">'</span><span class="s1">apply-form</span><span class="dl">'</span><span class="p">,</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">./components/application/ApplyForm.vue</span><span class="dl">'</span><span class="p">).</span><span class="k">default</span><span class="p">);</span>
 </code></pre></div></div>
 <p>c. routes 등록<br /></p>
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// UI 개발 페이지</span>
-<span class="kd">const</span> <span class="nx">SubLayout</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">import</span><span class="p">(</span><span class="cm">/* webpackChunkName: "js/pc" */</span> <span class="s2">"../../js/pc/components/layout/SubLayout"</span><span class="p">);</span>
-<span class="kd">const</span> <span class="nx">ApplyForm</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">import</span><span class="p">(</span><span class="cm">/* webpackChunkName: "js/application" */</span> <span class="s1">'../../js/pc/pages/application/ApplyForm'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">SubLayout</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">import</span><span class="p">(</span><span class="cm">/* webpackChunkName: "js/pc" */</span> <span class="dl">"</span><span class="s2">../../js/pc/components/layout/SubLayout</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">ApplyForm</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">import</span><span class="p">(</span><span class="cm">/* webpackChunkName: "js/application" */</span> <span class="dl">'</span><span class="s1">../../js/pc/pages/application/ApplyForm</span><span class="dl">'</span><span class="p">);</span>
 
 <span class="kd">const</span> <span class="nx">routes</span> <span class="o">=</span> <span class="p">[</span>
-	<span class="nx">layout</span><span class="p">(</span><span class="s1">'/'</span><span class="p">,</span> <span class="nx">SubLayout</span><span class="p">,</span> <span class="p">[</span>
-		<span class="nx">route</span><span class="p">(</span><span class="s1">'application/apply-form'</span><span class="p">,</span> <span class="nx">ApplyForm</span><span class="p">,</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span><span class="s1">'ApplyForm'</span><span class="p">,</span> <span class="na">meta</span><span class="p">:</span> <span class="s1">'입사지원서 작성'</span><span class="p">}),</span>
-		<span class="nx">route</span><span class="p">(</span><span class="s1">'*'</span><span class="p">,</span> <span class="nx">FallbackLayout</span><span class="p">),</span>
+	<span class="nx">layout</span><span class="p">(</span><span class="dl">'</span><span class="s1">/</span><span class="dl">'</span><span class="p">,</span> <span class="nx">SubLayout</span><span class="p">,</span> <span class="p">[</span>
+		<span class="nx">route</span><span class="p">(</span><span class="dl">'</span><span class="s1">application/apply-form</span><span class="dl">'</span><span class="p">,</span> <span class="nx">ApplyForm</span><span class="p">,</span> <span class="p">{</span><span class="na">name</span><span class="p">:</span><span class="dl">'</span><span class="s1">ApplyForm</span><span class="dl">'</span><span class="p">,</span> <span class="na">meta</span><span class="p">:</span> <span class="dl">'</span><span class="s1">입사지원서 작성</span><span class="dl">'</span><span class="p">}),</span>
+		<span class="nx">route</span><span class="p">(</span><span class="dl">'</span><span class="s1">*</span><span class="dl">'</span><span class="p">,</span> <span class="nx">FallbackLayout</span><span class="p">),</span>
 	<span class="p">])</span>
 <span class="p">]</span>
 </code></pre></div></div>

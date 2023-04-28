@@ -247,7 +247,7 @@ Spring Cloud Stream은 Spring cloud 프로젝트에서 제공해 주는 프레�
 <p><img src="http://10.100.0.202:80/img/springcloud.png" width="700px" class="text-center" /></p>
 <center>Spring Cloud</center>
 <p><br /></p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Building distributed systems doesn't need to be complex and error-prone.
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Building distributed systems doesn't need to be complex and error-prone.
 Spring Cloud offers a simple and accessible programming model
 to the most common distributed system patterns, helping developers build resilient,
 reliable, and coordinated applications.
@@ -268,7 +268,7 @@ to get started and become productive quickly.
 그 중 저희팀이 사용한 <strong>Spring Cloud Stream</strong>에 대해서 알아보기로 합니다.
 <br /></p>
 <h3 id="spring-cloud-stream이란">Spring Cloud Stream이란?</h3>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A lightweight event-driven microservices framework to quickly build applications
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A lightweight event-driven microservices framework to quickly build applications
 that can connect to external systems.
 Simple declarative model to send and receive messages using Apache Kafka or RabbitMQ
 between Spring Boot apps.
@@ -303,7 +303,7 @@ between Spring Boot apps.
 </ul>
 
 <p>또한, Spring Cloud Stream은 Sink, Source, Processor와 같은 일반적인 바인딩 인터페이스를 제공합니다.</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Sink, Source, Processor의 개념
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Sink, Source, Processor의 개념
 Sink: input(inbound)
 Source: output(outbound)
 Processor: input, output(both)
@@ -318,43 +318,43 @@ Processor: input, output(both)
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//interface</span>
 <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">MessageBinder</span> <span class="o">{</span>
 
-	<span class="n">String</span> <span class="n">PROCESS_OUT</span> <span class="o">=</span> <span class="s">"process-out"</span><span class="o">;</span>
-	<span class="n">String</span> <span class="n">PROCESS_IN</span> <span class="o">=</span> <span class="s">"process-in"</span><span class="o">;</span>
+	<span class="nc">String</span> <span class="no">PROCESS_OUT</span> <span class="o">=</span> <span class="s">"process-out"</span><span class="o">;</span>
+	<span class="nc">String</span> <span class="no">PROCESS_IN</span> <span class="o">=</span> <span class="s">"process-in"</span><span class="o">;</span>
 
-	<span class="nd">@Output</span><span class="o">(</span><span class="n">PROCESS_OUT</span><span class="o">)</span>
-	<span class="n">MessageChannel</span> <span class="nf">createMessage</span><span class="o">();</span>
+	<span class="nd">@Output</span><span class="o">(</span><span class="no">PROCESS_OUT</span><span class="o">)</span>
+	<span class="nc">MessageChannel</span> <span class="nf">createMessage</span><span class="o">();</span>
 
-	<span class="nd">@Input</span><span class="o">(</span><span class="n">PROCESS_IN</span><span class="o">)</span>
-	<span class="n">SubscribableChannel</span> <span class="nf">messagePush</span><span class="o">();</span>
+	<span class="nd">@Input</span><span class="o">(</span><span class="no">PROCESS_IN</span><span class="o">)</span>
+	<span class="nc">SubscribableChannel</span> <span class="nf">messagePush</span><span class="o">();</span>
 <span class="o">}</span>
 <span class="c1">//interface</span>
 <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">TargetUserBinder</span> <span class="o">{</span>
 
-	<span class="n">String</span> <span class="n">TARGET_OUT</span> <span class="o">=</span> <span class="s">"target-out"</span><span class="o">;</span>
-	<span class="n">String</span> <span class="n">TARGET_IN</span> <span class="o">=</span> <span class="s">"target-in"</span><span class="o">;</span>
+	<span class="nc">String</span> <span class="no">TARGET_OUT</span> <span class="o">=</span> <span class="s">"target-out"</span><span class="o">;</span>
+	<span class="nc">String</span> <span class="no">TARGET_IN</span> <span class="o">=</span> <span class="s">"target-in"</span><span class="o">;</span>
 
-	<span class="nd">@Output</span><span class="o">(</span><span class="n">TARGET_OUT</span><span class="o">)</span>
-	<span class="n">MessageChannel</span> <span class="nf">targetSearch</span><span class="o">();</span>
+	<span class="nd">@Output</span><span class="o">(</span><span class="no">TARGET_OUT</span><span class="o">)</span>
+	<span class="nc">MessageChannel</span> <span class="nf">targetSearch</span><span class="o">();</span>
 
-	<span class="nd">@Input</span><span class="o">(</span><span class="n">TARGET_IN</span><span class="o">)</span>
-	<span class="n">SubscribableChannel</span> <span class="nf">targetFilter</span><span class="o">();</span>
+	<span class="nd">@Input</span><span class="o">(</span><span class="no">TARGET_IN</span><span class="o">)</span>
+	<span class="nc">SubscribableChannel</span> <span class="nf">targetFilter</span><span class="o">();</span>
 <span class="o">}</span>
 <span class="c1">//method</span>
-<span class="nd">@EnableBinding</span><span class="o">(</span><span class="n">value</span><span class="o">=</span> <span class="o">{</span><span class="n">TargetUserBinder</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">MessageBinder</span><span class="o">.</span><span class="na">class</span><span class="o">})</span>
+<span class="nd">@EnableBinding</span><span class="o">(</span><span class="n">value</span><span class="o">=</span> <span class="o">{</span><span class="nc">TargetUserBinder</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="nc">MessageBinder</span><span class="o">.</span><span class="na">class</span><span class="o">})</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">TargetUserProcess</span> <span class="o">{</span>
-	<span class="kd">private</span> <span class="n">MessageBinder</span> <span class="n">pushMessageBinder</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="nc">MessageBinder</span> <span class="n">pushMessageBinder</span><span class="o">;</span>
 
 	<span class="nd">@Autowired</span>
-	<span class="kd">public</span> <span class="nf">TargetUserProcess</span><span class="o">(</span><span class="n">MessageBinder</span> <span class="n">pushMessageBinder</span><span class="o">)</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="nf">TargetUserProcess</span><span class="o">(</span><span class="nc">MessageBinder</span> <span class="n">pushMessageBinder</span><span class="o">)</span> <span class="o">{</span>
 		<span class="k">this</span><span class="o">.</span><span class="na">pushMessageBinder</span> <span class="o">=</span> <span class="n">pushMessageBinder</span><span class="o">;</span>
 	<span class="o">}</span>
 
-	<span class="nd">@StreamListener</span><span class="o">(</span><span class="n">TargetUserBinder</span><span class="o">.</span><span class="na">TARGET_IN</span><span class="o">)</span>
-	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">targetUserSearch</span><span class="o">(</span><span class="nd">@Payload</span> <span class="n">TargetMeta</span> <span class="n">targetMeta</span><span class="o">)</span> <span class="o">{</span>
+	<span class="nd">@StreamListener</span><span class="o">(</span><span class="nc">TargetUserBinder</span><span class="o">.</span><span class="na">TARGET_IN</span><span class="o">)</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">targetUserSearch</span><span class="o">(</span><span class="nd">@Payload</span> <span class="nc">TargetMeta</span> <span class="n">targetMeta</span><span class="o">)</span> <span class="o">{</span>
 	   <span class="c1">//.......</span>
 	   <span class="c1">//중략</span>
 	   <span class="c1">//.......</span>
-	   <span class="n">pushMessageBinder</span><span class="o">.</span><span class="na">createMessage</span><span class="o">().</span><span class="na">send</span><span class="o">(</span><span class="n">MessageBuilder</span><span class="o">.</span><span class="na">withPayload</span><span class="o">(</span><span class="n">targetMeta</span><span class="o">).</span><span class="na">build</span><span class="o">());</span>
+	   <span class="n">pushMessageBinder</span><span class="o">.</span><span class="na">createMessage</span><span class="o">().</span><span class="na">send</span><span class="o">(</span><span class="nc">MessageBuilder</span><span class="o">.</span><span class="na">withPayload</span><span class="o">(</span><span class="n">targetMeta</span><span class="o">).</span><span class="na">build</span><span class="o">());</span>
 	<span class="o">}</span>
 <span class="o">}</span>
 
@@ -404,7 +404,7 @@ MessageBinder의 createMessage 채널로 메세지를 보내는 내용의 코드
 <h3 id="kstream이란">KStream이란?</h3>
 <p><strong>카프카 저장소에 기록되는 스트리밍 데이터를 간추려 내어 처리(추상화)</strong>하거나 분석할 수 있게 해주는 인터페이스. 일반적인 RDB의 테이블 비유하자면 스트림의 데이터를 저장소에 <strong>“INSERT”</strong> 한다라고 생각하시면 됩니다.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>v1 = {"success" : "0", "error" : "1"}
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>v1 = {"success" : "0", "error" : "1"}
 v2 = {"success" : "0", "error" : "2"}
 
 .reduce((v1, v2) -&gt; v1 + v2)
