@@ -414,7 +414,7 @@ RPA POC 개발 방안이 솔루션 도입이 아닌 자체 스크립트 개발 �
   <tbody>
     <tr>
       <td style="text-align: left">http(s): //</td>
-      <td style="text-align: left">just enter full url of webpage (<code class="highlighter-rouge">variable</code> for variable)</td>
+      <td style="text-align: left">just enter full url of webpage (<code class="language-plaintext highlighter-rouge">variable</code> for variable)</td>
       <td style="text-align: left">go to specified webpage</td>
     </tr>
     <tr>
@@ -528,7 +528,7 @@ RPA POC 개발 방안이 솔루션 도입이 아닌 자체 스크립트 개발 �
    “py” 키워드를 이용하여 python 명령어를 사용 가능(v2, v3 모두 지원)하며
 py 명령어로 python 명령어를 실행, py_result로 python에서 실행된 결과 정보를 받아 오게 됩니다.</p>
 
-    <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Python</span> <span class="err">통합</span> <span class="err">방법</span> <span class="err">예시</span>
+    <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Python</span> <span class="n">통합</span> <span class="n">방법</span> <span class="n">예시</span>
 
 <span class="o">//</span> <span class="n">using</span> <span class="n">py</span> <span class="n">step</span> <span class="n">to</span> <span class="n">denote</span> <span class="n">Python</span> <span class="n">code</span><span class="p">,</span> <span class="ow">and</span> <span class="n">getting</span> <span class="n">back</span> <span class="n">output</span> <span class="k">from</span> <span class="n">py_result</span>
 <span class="n">py</span> <span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">b</span><span class="o">=</span><span class="mi">2</span>
@@ -565,16 +565,16 @@ py 명령어로 python 명령어를 실행, py_result로 python에서 실행된 
 
     <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//sample Code</span>
 
- <span class="nx">py_step</span><span class="p">(</span><span class="s1">'file_path = "'</span><span class="o">+</span><span class="nx">path</span><span class="o">+</span><span class="s1">'"'</span><span class="p">)</span>
- <span class="nx">py_step</span><span class="p">(</span><span class="s1">'py_path = "'</span><span class="o">+</span><span class="nx">py_path</span><span class="o">+</span><span class="s1">'"'</span><span class="p">)</span>
+ <span class="nx">py_step</span><span class="p">(</span><span class="dl">'</span><span class="s1">file_path = "</span><span class="dl">'</span><span class="o">+</span><span class="nx">path</span><span class="o">+</span><span class="dl">'</span><span class="s1">"</span><span class="dl">'</span><span class="p">)</span>
+ <span class="nx">py_step</span><span class="p">(</span><span class="dl">'</span><span class="s1">py_path = "</span><span class="dl">'</span><span class="o">+</span><span class="nx">py_path</span><span class="o">+</span><span class="dl">'</span><span class="s1">"</span><span class="dl">'</span><span class="p">)</span>
 
- <span class="nx">js</span> <span class="nx">log_echo</span><span class="p">(</span><span class="nx">test_mode</span><span class="p">,</span> <span class="s2">"debug"</span><span class="p">,</span> <span class="s2">"OCR CALL START :::::: PYTHON MODULE"</span><span class="p">)</span>
- <span class="nx">py</span> <span class="nx">exec</span><span class="p">(</span><span class="nx">open</span><span class="p">(</span><span class="nx">py_path</span> <span class="o">+</span> <span class="s1">'/ocr/image_to_data.py'</span><span class="p">,</span> <span class="nx">encoding</span><span class="o">=</span><span class="s1">'utf8'</span><span class="p">).</span><span class="nx">read</span><span class="p">())</span>  <span class="c1">// Ocr 처리 파이썬 모듈 연동</span>
- <span class="nx">js</span> <span class="nx">log_echo</span><span class="p">(</span><span class="nx">test_mode</span><span class="p">,</span> <span class="s2">"debug"</span><span class="p">,</span> <span class="s2">"OCR CALL END :::::: PYTHON MODULE :: "</span> <span class="o">+</span> <span class="nx">py_result</span><span class="p">)</span>
+ <span class="nx">js</span> <span class="nx">log_echo</span><span class="p">(</span><span class="nx">test_mode</span><span class="p">,</span> <span class="dl">"</span><span class="s2">debug</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">OCR CALL START :::::: PYTHON MODULE</span><span class="dl">"</span><span class="p">)</span>
+ <span class="nx">py</span> <span class="nx">exec</span><span class="p">(</span><span class="nx">open</span><span class="p">(</span><span class="nx">py_path</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">/ocr/image_to_data.py</span><span class="dl">'</span><span class="p">,</span> <span class="nx">encoding</span><span class="o">=</span><span class="dl">'</span><span class="s1">utf8</span><span class="dl">'</span><span class="p">).</span><span class="nx">read</span><span class="p">())</span>  <span class="c1">// Ocr 처리 파이썬 모듈 연동</span>
+ <span class="nx">js</span> <span class="nx">log_echo</span><span class="p">(</span><span class="nx">test_mode</span><span class="p">,</span> <span class="dl">"</span><span class="s2">debug</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">OCR CALL END :::::: PYTHON MODULE :: </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">py_result</span><span class="p">)</span>
 
  <span class="c1">//CON_3 : 증빙자료명 비교</span>
 
- <span class="nx">js</span> <span class="nx">con_echo</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s2">"증빙자료명 비교"</span><span class="p">)</span>
+ <span class="nx">js</span> <span class="nx">con_echo</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="dl">"</span><span class="s2">증빙자료명 비교</span><span class="dl">"</span><span class="p">)</span>
 
  <span class="nx">js</span> <span class="nx">begin</span>
 
@@ -594,17 +594,17 @@ py 명령어로 python 명령어를 실행, py_result로 python에서 실행된 
 <span class="nx">company_name</span> <span class="o">=</span> <span class="nx">company_info_data</span><span class="p">.</span><span class="nx">comNm</span>
 
 <span class="c1">// 파이썬 모듈 호출시</span>
-<span class="nx">py_step</span><span class="p">(</span><span class="s1">'reject_code ='</span><span class="o">+</span><span class="nx">status_code</span><span class="p">)</span>
-<span class="nx">py_step</span><span class="p">(</span><span class="s1">'email = "'</span><span class="o">+</span><span class="nx">email</span><span class="o">+</span><span class="s1">'"'</span><span class="p">)</span>
-<span class="nx">py_step</span><span class="p">(</span><span class="s1">'company_name = "'</span><span class="o">+</span><span class="nx">company_name</span><span class="o">+</span><span class="s1">'"'</span><span class="p">)</span>
-<span class="nx">py_step</span><span class="p">(</span><span class="s1">'send_flag = "'</span><span class="o">+</span><span class="nx">send_flag</span><span class="o">+</span><span class="s1">'"'</span><span class="p">)</span>
+<span class="nx">py_step</span><span class="p">(</span><span class="dl">'</span><span class="s1">reject_code =</span><span class="dl">'</span><span class="o">+</span><span class="nx">status_code</span><span class="p">)</span>
+<span class="nx">py_step</span><span class="p">(</span><span class="dl">'</span><span class="s1">email = "</span><span class="dl">'</span><span class="o">+</span><span class="nx">email</span><span class="o">+</span><span class="dl">'</span><span class="s1">"</span><span class="dl">'</span><span class="p">)</span>
+<span class="nx">py_step</span><span class="p">(</span><span class="dl">'</span><span class="s1">company_name = "</span><span class="dl">'</span><span class="o">+</span><span class="nx">company_name</span><span class="o">+</span><span class="dl">'</span><span class="s1">"</span><span class="dl">'</span><span class="p">)</span>
+<span class="nx">py_step</span><span class="p">(</span><span class="dl">'</span><span class="s1">send_flag = "</span><span class="dl">'</span><span class="o">+</span><span class="nx">send_flag</span><span class="o">+</span><span class="dl">'</span><span class="s1">"</span><span class="dl">'</span><span class="p">)</span>
 
-<span class="nx">py_step</span><span class="p">(</span><span class="s1">'py_path = "'</span><span class="o">+</span><span class="nx">py_path</span><span class="o">+</span><span class="s1">'"'</span><span class="p">)</span>
-<span class="nx">js</span> <span class="nx">log_echo</span><span class="p">(</span><span class="nx">test_mode</span><span class="p">,</span> <span class="s2">"info"</span><span class="p">,</span> <span class="s2">"call mail_interface.py python"</span><span class="p">)</span>
+<span class="nx">py_step</span><span class="p">(</span><span class="dl">'</span><span class="s1">py_path = "</span><span class="dl">'</span><span class="o">+</span><span class="nx">py_path</span><span class="o">+</span><span class="dl">'</span><span class="s1">"</span><span class="dl">'</span><span class="p">)</span>
+<span class="nx">js</span> <span class="nx">log_echo</span><span class="p">(</span><span class="nx">test_mode</span><span class="p">,</span> <span class="dl">"</span><span class="s2">info</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">call mail_interface.py python</span><span class="dl">"</span><span class="p">)</span>
 
-<span class="nx">py</span> <span class="nx">exec</span><span class="p">(</span><span class="nx">open</span><span class="p">(</span><span class="nx">py_path</span> <span class="o">+</span> <span class="s1">'/mail/mail_interface.py'</span><span class="p">,</span> <span class="nx">encoding</span><span class="o">=</span><span class="s1">'utf8'</span><span class="p">).</span><span class="nx">read</span><span class="p">())</span>
+<span class="nx">py</span> <span class="nx">exec</span><span class="p">(</span><span class="nx">open</span><span class="p">(</span><span class="nx">py_path</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">/mail/mail_interface.py</span><span class="dl">'</span><span class="p">,</span> <span class="nx">encoding</span><span class="o">=</span><span class="dl">'</span><span class="s1">utf8</span><span class="dl">'</span><span class="p">).</span><span class="nx">read</span><span class="p">())</span>
 
-<span class="nx">js</span> <span class="nx">log_echo</span><span class="p">(</span><span class="nx">test_mode</span><span class="p">,</span> <span class="s2">"info"</span><span class="p">,</span> <span class="s2">"exec result : "</span><span class="o">+</span><span class="nx">py_result</span><span class="p">)</span>
+<span class="nx">js</span> <span class="nx">log_echo</span><span class="p">(</span><span class="nx">test_mode</span><span class="p">,</span> <span class="dl">"</span><span class="s2">info</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">exec result : </span><span class="dl">"</span><span class="o">+</span><span class="nx">py_result</span><span class="p">)</span>
 </code></pre></div>    </div>
     <p><br /></p>
   </li>

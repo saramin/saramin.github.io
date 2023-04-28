@@ -312,7 +312,7 @@ MySQL의 복원은 특히 오래 걸립니다. 그런데, MSR이 사용된다면
   <li>필수 설정</li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql&gt; show variables like '%repository%';
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql&gt; show variables like '%repository%';
 +---------------------------+-------+
 | Variable_name             | Value |
 +---------------------------+-------+
@@ -328,7 +328,7 @@ MySQL의 복원은 특히 오래 걸립니다. 그런데, MSR이 사용된다면
   <li>그 외 다른 문법</li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql&gt;  CHANGE MASTER TO
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql&gt;  CHANGE MASTER TO
     -&gt;  MASTER_HOST='XXX.XXX.X.001',
     -&gt;  MASTER_USER='xxxxxxxx',
     -&gt;  MASTER_PASSWORD='xxxxxxxx,
@@ -356,7 +356,7 @@ mysql&gt;  CHANGE MASTER TO
 Query OK, 0 rows affected, 2 warnings (0.05 sec)
 </code></pre></div></div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>START SLAVE FOR CHANNEL 'sri-xxxxxx_1';
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>START SLAVE FOR CHANNEL 'sri-xxxxxx_1';
 STOP SLAVE FOR CHANNEL 'sri-xxxxxx_1';
 START SLAVE FOR CHANNEL 'sri-xxxxxx_2';
 STOP SLAVE FOR CHANNEL 'sri-xxxxxx_2';
@@ -364,7 +364,7 @@ START SLAVE FOR CHANNEL 'sri-xxxxxx_3';
 STOP SLAVE FOR CHANNEL 'sri-xxxxxx_3';
 </code></pre></div></div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql&gt; show slave status for channel 'sri-xxxxxx_1'\G;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql&gt; show slave status for channel 'sri-xxxxxx_1'\G;
 *************************** 1. row ***************************
                Slave_IO_State: Waiting for master to send event
 ~~~
@@ -401,7 +401,7 @@ STOP SLAVE FOR CHANNEL 'sri-xxxxxx_3';
 
 <p>(대량 작업 시 MSR Slave는 Replication이 일시적으로 끊어질 수 있음을 의미합니다.)</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql&gt; show slave status\G;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql&gt; show slave status\G;
 *************************** 1. row ***************************
                Slave_IO_State: Waiting for master to send event
              Slave_IO_Running: Yes
@@ -437,7 +437,7 @@ Master / Slave간에는 전혀 Replication 지연이 발생하지 않지만, MSR
 <p><a href="http://10.100.0.202:80/img/msr/image-20200813154503284.png"><img src="http://10.100.0.202:80/img/msr/image-20200813154503284.png" /></a></p>
 
 <p>※ 예상 되는 부분으로는 Semi-Synchronous Replication 동작 중, Master까지 ACK를 주는 부분에서 큰 트랜잭션에 대한 부분이 다른 채널에서 사용중이라 대기하고 있는 현상으로 보여집니다.</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SET global rpl_semi_sync_slave_enabled=OFF;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SET global rpl_semi_sync_slave_enabled=OFF;
 </code></pre></div></div>
 <p>실제 MSR에서 해당 파라메터 변경 시, 더이상의 지연은 발생되지 않습니다.<br />
  (하지만 이런 설정은 문제가 존재합니다. Semi-Sync Replication의 ACK 부분이 문제가 됩니다.)</p>

@@ -431,7 +431,7 @@
 Heimdall Admin에서 설정한 정보는 Sidecar를 통해서 서버에 설치된 Filebeat/Metricbeat에 반영되게 됩니다.</p>
 </blockquote>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>STEP1. 설치 파일 다운로드
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>STEP1. 설치 파일 다운로드
 $ wget heimdall.sidecar-0.0.2.tar.gz
 $ wget heimdall.sidecar-install-systemctl.sh
 $ wget heimdall.sidecar-install-init.sh
@@ -483,7 +483,7 @@ Logstash에서는 로그에 대해서 크게 3가지로 분리되어 처리됩�
   ElasticSearch를 연동하여 로그를 저장합니다.</li>
 </ol>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>input {
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>input {
 	kafka {
 		bootstrap_servers =&gt; "kafka-host-1, kafka-host-2, kafka-host-3"
 		topics =&gt; ["토픽명"]
@@ -629,7 +629,7 @@ Heimdall에서는 이런 연동 모듈에 대해서 상태 정보를 수집하�
 <p><a href="http://10.100.0.202:80/img/heimdall/heimdall_3_6.png" target="_blank"><img src="http://10.100.0.202:80/img/heimdall/heimdall_3_6.png" alt="Metric 검색 결과" /></a></p>
 
 <p>4) Metric Dashboard</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Kafka Dashboard 구성 예제입니다.
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Kafka Dashboard 구성 예제입니다.
 [SRI]Kafka Cluster Selector : select box를 사용하여 조건별로 필터링 기능을 제공
 Kafka Metrics : 카프카의 topics, partions 개수를 숫자로 표시
 Consumer Group Lag by Topic : Topic에 데이터가 쌓이게 되면 Lag 수치가 올라가는데
@@ -736,7 +736,7 @@ Consumer Group Lag by Topic : Topic에 데이터가 쌓이게 되면 Lag 수치�
   <li>gitlab-ci.yml 설정 파일</li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>stages:
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>stages:
   - compile
   - build
   - push
@@ -874,7 +874,7 @@ Filebeat이 Sidecar 형태로 로그를 수집하는 구조입니다.</li>
   <li>아래는 Filebeat 설정을 위한 Helm Chart 내용입니다.</li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apiVersion: v1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apiVersion: v1
 kind: ConfigMap
 metadata:
 	name: {{ .Release.Name }}-{{ include "heimdall.name" . }}-filebeat-config
@@ -946,7 +946,7 @@ data:
   <strong>multiline</strong> : multiline 로그 처리</li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- type: log
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- type: log
   paths:
     - '{{로그 경로}}'
   exclude_lines: ['DEBUG']
@@ -1052,7 +1052,7 @@ Baremetal Server 기반의 기존 로그수집은
   <li>아래는 Metricbeat 설정을 위한 Helm Chart 내용입니다.</li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apiVersion: v1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apiVersion: v1
 kind: ConfigMap
 metadata:
   name: {{ .Release.Name }}-{{ include "heimdall.name" . }}-metricbeat-config
@@ -1171,7 +1171,7 @@ data:
   <strong>hosts</strong> : ElasticSearch 연동 정보</li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- module: elasticsearch
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- module: elasticsearch
   metricsets:
     #- ccr
     - cluster_stats
