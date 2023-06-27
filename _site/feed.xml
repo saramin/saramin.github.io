@@ -7,6 +7,17 @@
     <atom:link href="http://10.100.0.202:80/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>iOS에서 음성대화 서비스 구현하기 - WebRTC 기술의 활용</title>
+        <description>
+          
+          안녕하세요. 사람인 IT연구소 서비스인프라개발팀 김은미입니다. 사람인은 커리어 전반을 케어 할 수 있도록 여러 서비스를 준비하고 있습니다. 2023년 런칭한 ‘멘토링매치 서비스’는 회사, 직무 등 커리어에 관해 궁금한 점이 있는 멘티와 멘토가 사람인 내 일대일 음성 대화를 통해 경험과 정보를 나누는 커리어 상담 서비스입니다. 이 글에서는 iOS에서 음성 대화 서비스를 제공하기 위해...
+        </description>
+        <pubDate>Fri, 16 Jun 2023 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2023-06-16-ios-webrtc/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2023-06-16-ios-webrtc/</guid>
+      </item>
+    
+      <item>
         <title>[장애회고] ORM(JPA) 사용 시 예상치 못한 쿼리로 인한 HikariCP 이슈</title>
         <description>
           
@@ -213,17 +224,6 @@
         <pubDate>Wed, 30 Jun 2021 00:00:00 +0900</pubDate>
         <link>http://10.100.0.202:80/2021-06-30-customize-gitlab-auto-devops-with-existing-cluster-on-premise-kubernetes/</link>
         <guid isPermaLink="true">http://10.100.0.202:80/2021-06-30-customize-gitlab-auto-devops-with-existing-cluster-on-premise-kubernetes/</guid>
-      </item>
-    
-      <item>
-        <title>사람인 IT연구소 공채 인턴십만의 특징!</title>
-        <description>
-          
-          안녕하세요! ‘20년 개발자 공채 1기로 사람인에 입사한 박영준입니다. 😊 사람인 개발자 공채는 최종 합격 이전 3개월간의 인턴 과정을 거치게 되는데요. 많은 분들이 이 기간을 궁금해하실 것 같아 인턴 기간 동안 어떤 경험을 할 수 있는지 그리고 ‘21년 공채 인턴십은 어떨지 살짝 이야기해드리고자 합니다. 목차 인턴십에서 경험할 수 있는 세가지 -...
-        </description>
-        <pubDate>Tue, 04 May 2021 00:00:00 +0900</pubDate>
-        <link>http://10.100.0.202:80/2021-05-04-youngjun-intern/</link>
-        <guid isPermaLink="true">http://10.100.0.202:80/2021-05-04-youngjun-intern/</guid>
       </item>
     
   </channel>
