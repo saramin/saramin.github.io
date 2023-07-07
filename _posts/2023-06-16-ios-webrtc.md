@@ -1,6 +1,10 @@
 ---
 title: iOS에서 음성대화 서비스 구현하기 - WebRTC 기술의 활용
 author: 김은미
+tags:
+- iOS
+- WebRTC
+- Janus
 ---
 
 안녕하세요. 사람인 IT연구소 서비스인프라개발팀 김은미입니다.    
