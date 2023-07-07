@@ -7,6 +7,39 @@
     <atom:link href="http://10.100.0.202:80/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Vue3, Composition API와 Pinia를 이용한 상태관리 (1)</title>
+        <description>
+          
+          안녕하세요. 사람인 개발팀 노혜민입니다. 이번 포스팅에서는 Vue3의 Composition API와 Pinia를 활용한 상태관리 경험을 공유하고자 합니다. Vue3 릴리즈 이후 Vue.js를 활용한 프로젝트 진행 기회가 없어 Vue3를 실제 업무에 적용할 기회가 없었으나 인재풀 프로젝트 개편과 함께 Vue3를 실무에 적용하게 되었습니다. 프로젝트를 진행하며 Vue3의 주요 기능들을 적극적으로 활용해보기 위해 노력했고 상태관리에는 Pinia를 사용하는...
+        </description>
+        <pubDate>Tue, 27 Jun 2023 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2023-06-27-vue3-composition-api-pinia-1/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2023-06-27-vue3-composition-api-pinia-1/</guid>
+      </item>
+    
+      <item>
+        <title>CRM TFT 후기</title>
+        <description>
+          
+          개요 사람인에서는 사용자를 대상으로 한 체계적인 CRM 도입을 위해 2022년 8월부터 올해 2월까지 약 7개월간 CRM TFT 를 구성하여 다양한 CRM 솔루션을 도입하였고 도입 과정에서의 이슈들과 참고할 만한 내용들을 공유드리겠습니다. 도입 배경 도입전 문제점 앱/웹 전환율 및 성과분석 : GA와 Firebase를 사용하여 웹과 앱 데이터를 각각 분류하여 보는 것이 번거롭고,...
+        </description>
+        <pubDate>Tue, 27 Jun 2023 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2023-06-27-crm-tft/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2023-06-27-crm-tft/</guid>
+      </item>
+    
+      <item>
+        <title>우리는 이렇게 코드리뷰 합니다</title>
+        <description>
+          
+          우리는 이렇게 코드리뷰 합니다 안녕하세요. 이번 글에서는 현재 사람인개발팀에서 진행하고 있는 코드리뷰 문화에 대해서 얘기해보려고 합니다. 코드리뷰를 검색하면 수많은 검색결과가 노출되듯, 이미 많은 기업에서 진행하고 있어요. 코드리뷰의 목적은 비슷하면서도 그 방식은 조직마다 다를텐데요. 코드리뷰 문화를 계속해서 개선하기 위한 노력은 진행중이지만, 그 경험을 공유해보고자 하니 가벼운 마음으로 읽어주세요! 그 전에 코드리뷰에서...
+        </description>
+        <pubDate>Tue, 27 Jun 2023 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2023-06-27-codereview/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2023-06-27-codereview/</guid>
+      </item>
+    
+      <item>
         <title>iOS에서 음성대화 서비스 구현하기 - WebRTC 기술의 활용</title>
         <description>
           
@@ -191,39 +224,6 @@
         <pubDate>Tue, 28 Sep 2021 00:00:00 +0900</pubDate>
         <link>http://10.100.0.202:80/2021-09-28-mysql-group-replication/</link>
         <guid isPermaLink="true">http://10.100.0.202:80/2021-09-28-mysql-group-replication/</guid>
-      </item>
-    
-      <item>
-        <title>웹 사이트 성능 최적화, 새로운 경험</title>
-        <description>
-          사람인 &amp; 베트남 Topdev 웹 사이트 성능 향상을 위해 적용한 방법은? - 
-          안녕하세요. 사람인HR IT연구소 개발1팀 권종성입니다 :) 저는 웹 개발자로 사람인 채용포털 전반에 걸친 서비스를 개발하고 있으며, 이번에 좋은 기회로 사람인 모바일 페이지와 베트남 자회사인 앱랜서에서 IT직무에 특화된 채용포털 사이트인 Topdev 웹 사이트 성능을 최적화하는 작업을 하게 되었습니다. 지금부터 기존에 어떤 성능 이슈들이 있었고, 어떻게 최적화를 하였는지 하나씩 알아보겠습니다. 시작은? 사람인HR...
-        </description>
-        <pubDate>Fri, 02 Jul 2021 00:00:00 +0900</pubDate>
-        <link>http://10.100.0.202:80/2021-07-02-web-site-optimization/</link>
-        <guid isPermaLink="true">http://10.100.0.202:80/2021-07-02-web-site-optimization/</guid>
-      </item>
-    
-      <item>
-        <title>Boost GitLab CI / CD Pipeline Efficiency</title>
-        <description>
-          온-프렘 쿠버네티스 클러스터에서 GitLab Auto DevOps 기능을 사용하면서 빌드 속도를 향상시킨  커스터마이징 내용을 소개 - 
-          CI / CD 파이프라인 효율성 향상시키기 새로운 프로젝트를 시작하면서 기본 구성에서 시작하여 시행 착오를 통해 시간이 지남에 따라 파이프라인 구성을 개선하는 것이 일반적입니다. 더 나은 프로세스는 효율성을 즉시 개선하고 더 빠른 소프트웨어 개발 수명주기를 더 일찍 확보하는 파이프 라인 기능을 사용하는 것입니다. 파이프라인을 보다 효율적으로 만들면 개발자 시간을 절약할 수...
-        </description>
-        <pubDate>Thu, 01 Jul 2021 00:00:00 +0900</pubDate>
-        <link>http://10.100.0.202:80/2021-07-01-gitlab-ci-pipeline-efficiency/</link>
-        <guid isPermaLink="true">http://10.100.0.202:80/2021-07-01-gitlab-ci-pipeline-efficiency/</guid>
-      </item>
-    
-      <item>
-        <title>Customize GitLab Auto DevOps with Existing Cluster (On-Premise Kubernetes)</title>
-        <description>
-          온-프레미스 환경에서 실행되는 쿠버네티스 클러스터에서 깃랩 자동 데브옵스 커스터마이징 - 
-          소개 최근 (주)사람인HR IT연구소/IT 전략팀에서는 등용문S (채용홈페이지 및 채용관리자) 프로젝트에서 GitLab Auto DevOps 기능을 활용하여 쿠버네티스 클러스터로 배포하기 시작했습니다. 이후 새 프로젝트를 진행하는데 있어 GitLab Auto DevOps 는 소프트웨어 배포에 대한 복잡성을 줄이는데 도움이 되었고, 빠르게 시작할 수 있었습니다. 이 게시물에서는 GitLab Auto DevOps 기능을 온-프레미스 환경에서 직접 kubespray로 설치한...
-        </description>
-        <pubDate>Wed, 30 Jun 2021 00:00:00 +0900</pubDate>
-        <link>http://10.100.0.202:80/2021-06-30-customize-gitlab-auto-devops-with-existing-cluster-on-premise-kubernetes/</link>
-        <guid isPermaLink="true">http://10.100.0.202:80/2021-06-30-customize-gitlab-auto-devops-with-existing-cluster-on-premise-kubernetes/</guid>
       </item>
     
   </channel>
