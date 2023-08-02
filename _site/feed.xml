@@ -7,6 +7,17 @@
     <atom:link href="http://10.100.0.202:80/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>React Query 도입 후기</title>
+        <description>
+          
+          안녕하세요. 사람인 FE개발2팀 김선미입니다. ‘멘토링매치’는 회사나 직무 등 여러가지 궁금한 사항을 멘티와 멘토의 입장으로 일대일 음성 대화를 통해 경험과 정보를 나눌수 있는 서비스입니다. 이 글에서는 런칭 이후 진행된 리팩토링 작업중 react-query 도입과정에 대한 소개를 해볼까합니다. 리액트 쿼리란? React-Query는 데이터를 불러오고 캐싱하며, 서버 데이터와의 동기화 및 업데이트 하는 작업을 개발자가 쉽고...
+        </description>
+        <pubDate>Wed, 02 Aug 2023 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2023-08-02-react-query/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2023-08-02-react-query/</guid>
+      </item>
+    
+      <item>
         <title>Vue3, Composition API와 Pinia를 이용한 상태관리 (1)</title>
         <description>
           
@@ -213,17 +224,6 @@
         <pubDate>Tue, 09 Nov 2021 00:00:00 +0900</pubDate>
         <link>http://10.100.0.202:80/2021-11-09-gitlab-runner/</link>
         <guid isPermaLink="true">http://10.100.0.202:80/2021-11-09-gitlab-runner/</guid>
-      </item>
-    
-      <item>
-        <title>MySQL Group Replication 구축</title>
-        <description>
-          MySQL Group Replication 구축 사례 - 
-          MySQL Group Replication 구축 소개 안녕하세요. IT연구소 DA팀의 김의연입니다. DA팀은 사람인의 모든 데이터를 담고있는 각각의 DBMS를 효과적이고 안정적으로 구축 및 운영하며 데이터의 품질을 높이고, 최적의 데이터 관리를 위해 전사적으로 데이터 표준을 구축하여 운영정책을 수립하고 관리하며 신규 시스템에 대한 기술검토를 수행 및 적용합니다. 상세하게는 데이터 모델링, DBMS 환경 구축, 데이터 이관,...
-        </description>
-        <pubDate>Tue, 28 Sep 2021 00:00:00 +0900</pubDate>
-        <link>http://10.100.0.202:80/2021-09-28-mysql-group-replication/</link>
-        <guid isPermaLink="true">http://10.100.0.202:80/2021-09-28-mysql-group-replication/</guid>
       </item>
     
   </channel>
