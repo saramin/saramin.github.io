@@ -85,7 +85,7 @@
   
 
    
-  <meta property="og:description" content="SPRING CLOUD GATEWAY를 이용한 API GATEWAY 구축기 Posted on January 20, 2022 안녕하세요. 사람인에이치알 서비스인프라개발팀 이현규 입니다. 이번 포스팅은 현재 사람인에이치알에 구축되어 운영되고 있는 API GATEWAY에 대하여 공유하는 내용의 포스팅입니다. [Read&amp;nbsp;More] 스토리북을 이용한 컴포넌트 제작 분석, 설계, 구현 그리고 산출물을 통한 프로젝트 진행 과정 소개 Posted by 정영환 on December...">
+  <meta property="og:description" content="{% for post in paginator.posts %} {{ post.title }} {% if post.subtitle %} {{ post.subtitle }} {% endif %} Posted {% if post.author %}by {{post.author}} {% endif %} on {{ post.date | date: &quot;%B %-d, %Y&quot; }} {% if post.image %} {% endif %} {{ post.excerpt | strip_html | xml_escape...">
   
 
 
@@ -111,7 +111,7 @@
   
 
   
-  <meta name="twitter:description" content="SPRING CLOUD GATEWAY를 이용한 API GATEWAY 구축기 Posted on January 20, 2022 안녕하세요. 사람인에이치알 서비스인프라개발팀 이현규 입니다. 이번 포스팅은 현재 사람인에이치알에 구축되어 운영되고 있는 API GATEWAY에 대하여 공유하는 내용의 포스팅입니다. [Read&amp;nbsp;More] 스토리북을 이용한 컴포넌트 제작 분석, 설계, 구현 그리고 산출물을 통한 프로젝트 진행 과정 소개 Posted by 정영환 on December...">
+  <meta name="twitter:description" content="{% for post in paginator.posts %} {{ post.title }} {% if post.subtitle %} {{ post.subtitle }} {% endif %} Posted {% if post.author %}by {{post.author}} {% endif %} on {{ post.date | date: &quot;%B %-d, %Y&quot; }} {% if post.image %} {% endif %} {{ post.excerpt | strip_html | xml_escape...">
   
 
   
@@ -248,6 +248,60 @@
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <div class="posts-list"> 
+  
+  <article class="post-preview">
+    <a href="/2022-02-25-hello-aws/">
+	  <h2 class="post-title">AWS로 배포를 해보자!</h2>
+
+	  
+	  <h3 class="post-subtitle">
+	    CodeDeploy와 S3, CloudFront를 이용해서 배포하기
+	  </h3>
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted by 김미란  on February 25, 2022
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        소개
+안녕하세요, IT전략팀 김미란입니다.
+
+
+        
+        
+          <a href="/2022-02-25-hello-aws/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+      
+      <a href="/tags#AWS">AWS</a>
+      
+      <a href="/tags#S3">S3</a>
+      
+      <a href="/tags#CodeDeploy">CodeDeploy</a>
+      
+      <a href="/tags#CloudFront">CloudFront</a>
+      
+      <a href="/tags#Lambda">Lambda</a>
+      
+      <a href="/tags#EC2">EC2</a>
+      
+      <a href="/tags#Serverless">Serverless</a>
+      
+      
+    </div>
+    
+
+   </article>
   
   <article class="post-preview">
     <a href="/2022-01-20-spring-cloud-gateway-api-gateway/">
@@ -892,49 +946,6 @@ API GATEWAY에 대하여 공유하는 내용의 포스팅입니다.
       <a href="/tags#android">android</a>
       
       <a href="/tags#kotlin">kotlin</a>
-      
-      
-    </div>
-    
-
-   </article>
-  
-  <article class="post-preview">
-    <a href="/2021-04-09-intern_jklee/">
-	  <h2 class="post-title">인턴에서 사람인 개발자로 합류하기까지</h2>
-
-	  
-    </a>
-
-    <p class="post-meta">
-      Posted by 이정규  on April 9, 2021
-    </p>
-
-    <div class="post-entry-container">
-      
-      <div class="post-entry">
-        시작하며
-
-
-        
-        
-          <a href="/2021-04-09-intern_jklee/" class="post-read-more">[Read&nbsp;More]</a>
-        
-      </div>
-    </div>
-
-    
-    <div class="blog-tags">
-      Tags:
-      
-      
-      <a href="/tags#internship">internship</a>
-      
-      <a href="/tags#recruitment">recruitment</a>
-      
-      <a href="/tags#2020tech_internship">2020tech_internship</a>
-      
-      <a href="/tags#saraminhr">saraminhr</a>
       
       
     </div>

@@ -85,12 +85,7 @@
   
 
    
-  <meta property="og:description" content=" 
-  
-
-
-
-">
+  <meta property="og:description" content="{% for post in paginator.posts %} {{ post.title }} {% if post.subtitle %} {{ post.subtitle }} {% endif %} Posted {% if post.author %}by {{post.author}} {% endif %} on {{ post.date | date: &quot;%B %-d, %Y&quot; }} {% if post.image %} {% endif %} {{ post.excerpt | strip_html | xml_escape...">
   
 
 
@@ -116,12 +111,7 @@
   
 
   
-  <meta name="twitter:description" content=" 
-  
-
-
-
-">
+  <meta name="twitter:description" content="{% for post in paginator.posts %} {{ post.title }} {% if post.subtitle %} {{ post.subtitle }} {% endif %} Posted {% if post.author %}by {{post.author}} {% endif %} on {{ post.date | date: &quot;%B %-d, %Y&quot; }} {% if post.image %} {% endif %} {{ post.excerpt | strip_html | xml_escape...">
   
 
   
@@ -259,8 +249,567 @@
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <div class="posts-list"> 
   
+  <article class="post-preview">
+    <a href="/2023-11-15-zero-interview/">
+	  <h2 class="post-title">사람인 백엔드 개발자에게 취업이란? (w/ 제로베이스)</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted by 오명학  on November 15, 2023
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        안녕하세요.
+
+
+        
+        
+          <a href="/2023-11-15-zero-interview/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2023-08-02-react-query/">
+	  <h2 class="post-title">React Query 도입 후기</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted by 김선미  on August 2, 2023
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        안녕하세요. 사람인 FE개발2팀 김선미입니다.
+
+
+        
+        
+          <a href="/2023-08-02-react-query/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2023-06-27-vue3-composition-api-pinia-1/">
+	  <h2 class="post-title">Vue3, Composition API와 Pinia를 이용한 상태관리 (1)</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted by 노혜민  on June 27, 2023
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        안녕하세요. 사람인 개발팀 노혜민입니다.
+
+
+        
+        
+          <a href="/2023-06-27-vue3-composition-api-pinia-1/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2023-06-27-crm-tft/">
+	  <h2 class="post-title">CRM TFT 후기</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted by 김종성, 박금주  on June 27, 2023
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        
+
+개요
+
+
+        
+        
+          <a href="/2023-06-27-crm-tft/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2023-06-27-codereview/">
+	  <h2 class="post-title">우리는 이렇게 코드리뷰 합니다</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted by 선아리  on June 27, 2023
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        우리는 이렇게 코드리뷰 합니다
+
+
+        
+        
+          <a href="/2023-06-27-codereview/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2023-06-16-ios-webrtc/">
+	  <h2 class="post-title">iOS에서 음성대화 서비스 구현하기 - WebRTC 기술의 활용</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted by 김은미  on June 16, 2023
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        안녕하세요. 사람인 IT연구소 서비스인프라개발팀 김은미입니다.
+
+
+        
+        
+          <a href="/2023-06-16-ios-webrtc/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+      
+      <a href="/tags#iOS">iOS</a>
+      
+      <a href="/tags#WebRTC">WebRTC</a>
+      
+      <a href="/tags#Janus">Janus</a>
+      
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2023-04-27-order-error/">
+	  <h2 class="post-title">[장애회고] ORM(JPA) 사용 시 예상치 못한 쿼리로 인한 HikariCP 이슈</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted by 최재우  on April 27, 2023
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        안녕하세요.
+
+
+        
+        
+          <a href="/2023-04-27-order-error/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+      
+      <a href="/tags#"></a>
+      
+      <a href="/tags#hikaricp">hikaricp</a>
+      
+      <a href="/tags#gc">gc</a>
+      
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2023-04-17-janus-webrtc/">
+	  <h2 class="post-title">Janus 를 활용한 WebRTC 기반의 음성대화 서비스 개발</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted by 정다운  on April 17, 2023
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        
+
+
+        
+        
+          <a href="/2023-04-17-janus-webrtc/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+      
+      <a href="/tags#"></a>
+      
+      <a href="/tags#WebRTC">WebRTC</a>
+      
+      <a href="/tags#Janus">Janus</a>
+      
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2023-01-02-saramin-a11y/">
+	  <h2 class="post-title">사람인 접근성 개선 회고</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted  on January 2, 2023
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        
+
+
+        
+        
+          <a href="/2023-01-02-saramin-a11y/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+      
+      <a href="/tags#웹접근성">웹접근성</a>
+      
+      <a href="/tags#사람인접근성">사람인접근성</a>
+      
+      <a href="/tags#웹접근성101">웹접근성101</a>
+      
+      <a href="/tags#사람인웹접근성가이드">사람인웹접근성가이드</a>
+      
+      <a href="/tags#a11y">a11y</a>
+      
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2022-12-07-spring-cloud-stream/">
+	  <h2 class="post-title">Spring Cloud Stream 재시도 구현하기</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted by 이창섭  on December 7, 2022
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        
+
+
+        
+        
+          <a href="/2022-12-07-spring-cloud-stream/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+      
+      <a href="/tags#Spring Cloud Stream">Spring Cloud Stream</a>
+      
+      <a href="/tags#Spring Retry">Spring Retry</a>
+      
+      <a href="/tags#Spring boot">Spring boot</a>
+      
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2022-10-21-terraform/">
+	  <h2 class="post-title">Terraform IaC 도구를 활용한 AWS 웹콘솔 클릭 노가다 해방기</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted by 안재현  on October 21, 2022
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        테라폼이란?
+
+
+        
+        
+          <a href="/2022-10-21-terraform/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+      
+      <a href="/tags#terraform,">terraform,</a>
+      
+      <a href="/tags#iac,">iac,</a>
+      
+      <a href="/tags#aws">aws</a>
+      
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2022-06-30-idm/">
+	  <h2 class="post-title">FreeIPA 를 활용한 IdM 구축</h2>
+
+	  
+	  <h3 class="post-subtitle">
+	    중앙집중식 인증을 위한 IdM 구축
+	  </h3>
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted by 박용철  on June 30, 2022
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        소개
+
+
+        
+        
+          <a href="/2022-06-30-idm/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+      
+      <a href="/tags#freeipa,">freeipa,</a>
+      
+      <a href="/tags#idm">idm</a>
+      
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2022-06-21-ios-refactoring/">
+	  <h2 class="post-title">사람인 iOS App Refactoring</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted  on June 21, 2022
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        안녕하세요.
+사람인 iOS 앱을 개발하고 있는 김은미입니다. 
+이번 글에서는 지난 2021년에 진행한 iOS 아이엠그라운드앱 리팩토링 과정을 공유하려고 합니다.
+
+
+        
+        
+          <a href="/2022-06-21-ios-refactoring/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2022-05-23-android-app-refactoring/">
+	  <h2 class="post-title">사람인 Android App Refactoring</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted by 한동훈  on May 23, 2022
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        안녕하세요.
+사람인HR 서비스인프라개발팀 안드로이드 앱 개발 담당 한동훈입니다.
+해당 내용은 지난 2021년에 아이엠그라운드앱 구조개선을 위해 진행했던 앱리펙토링 공유하는 포스팅입니다.
+
+
+        
+        
+          <a href="/2022-05-23-android-app-refactoring/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+      
+      <a href="/tags#android">android</a>
+      
+      <a href="/tags#kotlin">kotlin</a>
+      
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2022-05-17-kubernetes-autoscaling/">
+	  <h2 class="post-title">Kubernetes에서 HPA를 활용한 오토스케일링(Auto Scaling)</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted by 김용태  on May 17, 2022
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        소개
+안녕하세요, 사람인HR IT연구소 채용시스템개발팀의 김용태입니다.
+
+
+        
+        
+          <a href="/2022-05-17-kubernetes-autoscaling/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+      
+      <a href="/tags#kubernetes">kubernetes</a>
+      
+      <a href="/tags#k8s">k8s</a>
+      
+      <a href="/tags#HPA">HPA</a>
+      
+      <a href="/tags#AutoScaling">AutoScaling</a>
+      
+      
+    </div>
+    
+
+   </article>
+  
 </div>
 
+
+<ul class="pager main-pager">
+  
+  
+  <li class="next">
+    <a href="/page2">Older Posts &rarr;</a>
+  </li>
+  
+</ul>
 
 
 	    
