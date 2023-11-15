@@ -7,6 +7,17 @@
     <atom:link href="http://10.100.0.202:80/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>사람인 백엔드 개발자에게 취업이란? (w/ 제로베이스)</title>
+        <description>
+          
+          안녕하세요. IT연구소 서비스개발팀 빌링파트 오명학입니다. 우연한 계기로 제로베이스라는 코딩 부트 캠프에서 취준생들을 위한 질문과 관련하여 인터뷰 제의가 들어와 진행하게 되었습니다. 대단한 내용은 없다 보니, 많이 부끄럽긴 하지만 개발자가 되기 위해 준비중인 취준생 분들께서 보신다면 좋을것같아 인터뷰 전문을 사람인 블로그를 통해 공유해보고자 합니다. 01) 사람인 백엔드 개발자를 만나다 안녕하세요 명학님. 먼저...
+        </description>
+        <pubDate>Wed, 15 Nov 2023 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2023-11-15-zero-interview/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2023-11-15-zero-interview/</guid>
+      </item>
+    
+      <item>
         <title>React Query 도입 후기</title>
         <description>
           
@@ -213,17 +224,6 @@
         <pubDate>Tue, 23 Nov 2021 00:00:00 +0900</pubDate>
         <link>http://10.100.0.202:80/2021-11-23-harbor-registry/</link>
         <guid isPermaLink="true">http://10.100.0.202:80/2021-11-23-harbor-registry/</guid>
-      </item>
-    
-      <item>
-        <title>어느날 갑자기 배포가 되지 않았다.</title>
-        <description>
-          사람인 GitLab-Runner - 
-          어느날 갑자기 배포가 되지 않았다. 안녕하세요, 사람인 서비스를 개발하는 박금주 연구원입니다. 사람인은 상시배포가 아니라 정기배포로 서비스를 운영하기에 배포에 대한 구심축인 배포관리자가 필요합니다. 무분별한 배포를 막아 사이드이펙트에 대한 피로도를 줄이는 장치입니다. 지난 1년 간 배포관리자로서 겪었던 이슈 중 하나를 소개하고자 글을 남깁니다. 혹시 워크플로우에 대해 궁금하신 분들은 작년에 적었던 글을 참조해주세요....
-        </description>
-        <pubDate>Tue, 09 Nov 2021 00:00:00 +0900</pubDate>
-        <link>http://10.100.0.202:80/2021-11-09-gitlab-runner/</link>
-        <guid isPermaLink="true">http://10.100.0.202:80/2021-11-09-gitlab-runner/</guid>
       </item>
     
   </channel>
