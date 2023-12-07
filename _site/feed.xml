@@ -7,6 +7,17 @@
     <atom:link href="http://10.100.0.202:80/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>사이트 신뢰성에 대한 지표는 어떻게 구성할까? (Feat. SRE)</title>
+        <description>
+          
+          안녕하세요 사람인 SRE팀 박형규입니다. 통상 많은 기업들이 시스템의 전반적인 지표는 수집하여 관리와 모니터링 그리고 알림을 받거나 하고 있을거예요. 하지만 서비스 레벨에 대한 지표에 대해서는 부족한 면이 많을겁니다. 사람인도 그렇듯 사이트 신뢰성을 위한 서비스 레벨의 지표와 목표 범위를 지정하기 위해 시작하게 되었습니다. 이런 지표를 만들고 보면 단기간이든 장기간이든 전체 Request들에 대해...
+        </description>
+        <pubDate>Wed, 06 Dec 2023 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2023-12-06-slislo/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2023-12-06-slislo/</guid>
+      </item>
+    
+      <item>
         <title>사람인 백엔드 개발자에게 취업이란? (w/ 제로베이스)</title>
         <description>
           
@@ -213,17 +224,6 @@
         <pubDate>Wed, 15 Dec 2021 00:00:00 +0900</pubDate>
         <link>http://10.100.0.202:80/2021-12-15-vue2-vs-vue3/</link>
         <guid isPermaLink="true">http://10.100.0.202:80/2021-12-15-vue2-vs-vue3/</guid>
-      </item>
-    
-      <item>
-        <title>Private Docker Registry를 바꿔보자!</title>
-        <description>
-          사람인 Docker-Registry - 
-          Private Docker Registry를 바꿔보자! 소개 안녕하세요. 사람인HR IT연구소 SE팀 윤진주 입니다. SE팀은 사람인에서 운영되는 전체 서비스가 보다 안정적으로 운영될 수 있도록 운영되는 모든 시스템을 관리하고 있습니다. 전체 서비스의 안정적인 운영을 위해 모든 서버들을 오픈소스를 이용하여 이중화 구축 진행하고 있으며 시스템을 보다 안정적으로 관리하기 위해 자체 개발한 모니터링 시스템들을 개선해 나가고...
-        </description>
-        <pubDate>Tue, 23 Nov 2021 00:00:00 +0900</pubDate>
-        <link>http://10.100.0.202:80/2021-11-23-harbor-registry/</link>
-        <guid isPermaLink="true">http://10.100.0.202:80/2021-11-23-harbor-registry/</guid>
       </item>
     
   </channel>
