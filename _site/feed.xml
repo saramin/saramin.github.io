@@ -7,6 +7,17 @@
     <atom:link href="http://10.100.0.202:80/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>중앙집중식 syslog 설정 및  관제</title>
+        <description>
+          
+          안녕하세요. 사람인 SRE팀 박용철입니다. 시스템을 운영하시는 분이라면 대부분 syslog에 대한 감사나 모니터링을 하시고 계실텐데요, 이번 포스팅은 사람인에서 이 syslog를 어떻게 관리하고 모니터링하는지, 그리고 어떤 기준으로 알람을 분류하는지에 대한 내용을 작성하려고 합니다. 전체 구성 syslog syslog는 포준시스템프로토콜로 kernel을 포함한 시스템데몬등에서 로그를 기록하는데 사용됩니다. 각 로그는 메시지를 발생시킨 프로그램의 타입(facility)과 그 메시지의...
+        </description>
+        <pubDate>Wed, 27 Dec 2023 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2023-12-27-syslog/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2023-12-27-syslog/</guid>
+      </item>
+    
+      <item>
         <title>사이트 신뢰성에 대한 지표는 어떻게 구성할까? (Feat. SRE)</title>
         <description>
           
@@ -213,17 +224,6 @@
         <pubDate>Tue, 21 Dec 2021 00:00:00 +0900</pubDate>
         <link>http://10.100.0.202:80/2021-12-21-connect/</link>
         <guid isPermaLink="true">http://10.100.0.202:80/2021-12-21-connect/</guid>
-      </item>
-    
-      <item>
-        <title>Vue, 원피스로 떠나는 여정</title>
-        <description>
-          Vue3 이용한 프로젝트 적용기 - 
-          Vue, 원피스로 떠나는 여정 dagweag 안녕하세요. IT연구소 UI개발2팀 안수미입니다. UI개발팀은 웹 접근성과 함께 웹 표준에 맞추어 사용자가 서비스를 이용하며 접하는 UI를 구현합니다. 빠질 수 없는 HTML, CSS, ECMAScript는 물론이고 Vue.js를 활용하여 프로젝트를 진행합니다. 이번에는 Vue3를 다루게 되어 공유하고자 정리해보았습니다. 기존에 사용하던 Vue2와 무엇이 다른지, 도입하기 전에 고려할 사항으로 어떤 게...
-        </description>
-        <pubDate>Wed, 15 Dec 2021 00:00:00 +0900</pubDate>
-        <link>http://10.100.0.202:80/2021-12-15-vue2-vs-vue3/</link>
-        <guid isPermaLink="true">http://10.100.0.202:80/2021-12-15-vue2-vs-vue3/</guid>
       </item>
     
   </channel>
