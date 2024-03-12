@@ -7,6 +7,17 @@
     <atom:link href="http://10.100.0.202:80/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>React + TypeScript 전환기 (Feat. msw)</title>
+        <description>
+          
+          안녕하세요. 사람인 FE개발팀 지성봉입니다. 사람인 FE 개발팀에서는 기존의 사람인 서비스를 점진적으로 FE 분리 전환을 진행 중에 있는데요, 최근 사람인 서비스 중 신입·인턴 채용달력 모바일 서비스(이하 채용달력)를 React + TypeScript(이하 TS)로 전환하게 되었습니다. React + TS로의 전환은 제 개인적으로도 제법 작지 않은 도전이기도 했습니다. 지금까지는 Vue로 개발해 왔었고, 표준 기술로 선택...
+        </description>
+        <pubDate>Tue, 12 Mar 2024 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2024-03-12-comment-for-typescript-react-conversion/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2024-03-12-comment-for-typescript-react-conversion/</guid>
+      </item>
+    
+      <item>
         <title>중앙집중식 syslog 설정 및  관제</title>
         <description>
           
@@ -213,17 +224,6 @@
         <pubDate>Thu, 20 Jan 2022 00:00:00 +0900</pubDate>
         <link>http://10.100.0.202:80/2022-01-20-spring-cloud-gateway-api-gateway/</link>
         <guid isPermaLink="true">http://10.100.0.202:80/2022-01-20-spring-cloud-gateway-api-gateway/</guid>
-      </item>
-    
-      <item>
-        <title>스토리북을 이용한 컴포넌트 제작</title>
-        <description>
-          분석, 설계, 구현 그리고 산출물을 통한 프로젝트 진행 과정 소개 - 
-          안녕하세요. 사람인HR IT연구소 UI개발2팀 정영환입니다. 지난 등용문S 개발기에 이어 Vue로 프로젝트를 진행하였습니다. 그 당시와 달리 작년 9월에 릴리즈한 Vue3로 개발하면서 storybook을 활용했다는 차이가 있겠네요. Vue3에 대한 이야기는 안수미 연구원님께서 정리한 Vue, 원피스로 떠나는 여정에 담았으니 이 글은 storybook에 집중해볼게요. 커넥트는 기업과 핵심인재를 연결하는 인재 발굴 플랫폼입니다. 인사담당자 관점에서 만든 서비스로...
-        </description>
-        <pubDate>Tue, 21 Dec 2021 00:00:00 +0900</pubDate>
-        <link>http://10.100.0.202:80/2021-12-21-connect/</link>
-        <guid isPermaLink="true">http://10.100.0.202:80/2021-12-21-connect/</guid>
       </item>
     
   </channel>
