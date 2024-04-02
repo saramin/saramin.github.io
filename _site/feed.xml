@@ -7,6 +7,17 @@
     <atom:link href="http://10.100.0.202:80/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Vue3, Composition API와 Pinia를 이용한 상태관리 (2)</title>
+        <description>
+          
+          안녕하세요. 사람인 개발팀 노혜민입니다. 이번 포스팅은 Vue3, Composition API와 Pinia를 이용한 상태관리 (1) 글의 후편입니다. 이전 포스팅에서 Composition API, Pinia에 대한 이론적인 설명을 다루었다면 이번 포스팅에서는 실제로 Pinia를 어떤 방식으로 적용했고 어떤 작업 결과를 냈는지 다루려합니다. 글의 목차는 아래와 같습니다. 03. 적용 결과: 인재풀에서의 Pinia 04. 느낀점: 이론적 장단점과 내가...
+        </description>
+        <pubDate>Mon, 25 Mar 2024 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2024-03-25-vue3-composition-api-pinia-2/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2024-03-25-vue3-composition-api-pinia-2/</guid>
+      </item>
+    
+      <item>
         <title>React + TypeScript 전환기 (Feat. msw)</title>
         <description>
           
@@ -213,17 +224,6 @@
         <pubDate>Fri, 25 Feb 2022 00:00:00 +0900</pubDate>
         <link>http://10.100.0.202:80/2022-02-25-hello-aws/</link>
         <guid isPermaLink="true">http://10.100.0.202:80/2022-02-25-hello-aws/</guid>
-      </item>
-    
-      <item>
-        <title>SPRING CLOUD GATEWAY를 이용한 API GATEWAY 구축기</title>
-        <description>
-          
-          안녕하세요. 사람인에이치알 서비스인프라개발팀 이현규 입니다. 이번 포스팅은 현재 사람인에이치알에 구축되어 운영되고 있는 API GATEWAY에 대하여 공유하는 내용의 포스팅입니다. API GATEWAY란? 정말 간단하게 정의하자면, API GATEWAY는 클라이언트와 백엔드 서비스 사이에 위치하는 리버스 프록시 역활을 하는 서비스 입니다. 더불어 인증, 속도제어, 서킷브레이커, 모니터링등 여러 공동 모듈 및 관리포인트들을 추가하여 모든 API들의 관문(GATEWAY)의...
-        </description>
-        <pubDate>Thu, 20 Jan 2022 00:00:00 +0900</pubDate>
-        <link>http://10.100.0.202:80/2022-01-20-spring-cloud-gateway-api-gateway/</link>
-        <guid isPermaLink="true">http://10.100.0.202:80/2022-01-20-spring-cloud-gateway-api-gateway/</guid>
       </item>
     
   </channel>
