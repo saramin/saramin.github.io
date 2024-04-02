@@ -1,5 +1,6 @@
 ---
 title: React + TypeScript 전환기 (Feat. msw)
+author: 지성봉
 ---
 
 <style>

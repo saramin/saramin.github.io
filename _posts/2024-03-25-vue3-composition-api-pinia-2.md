@@ -20,13 +20,13 @@ Vue3가 적용된 `인재풀`서비스 런칭으로 약 1년 정도의 시간이
 # 3. 적용 결과: 인재풀에서의 Pinia
 
 설명에 앞서 사람인 인재풀 서비스에 대한 이해가 필요합니다. 인재풀은 기업 회원에게 제공되고 있는 서비스로 아래 화면과 같이 좌측 검색 필터를 활용해 원하는 인재를 검색할 수 있는 서비스입니다. 사용자가 원하는 이력서 항목 조건을 설정하면 그에 맞는 인재 결과를 제공해주고 있습니다.
-[<img src="{{site.url}}/img/vue3/talentpool_screenshot.png" />]({{site.url}}/talentpool_screenshot.png)  
+[<img src="{{site.url}}/img/vue3/talentpool_screenshot.png" />]({{site.url}}/img/vue3/talentpool_screenshot.png)  
 
 인재풀 검색 필터 기능은 경력, 지역, 직무, 학력, 연봉, ... 등 총 17가지 항목의 조건 변경이 가능합니다. 다양한 세부 항목이 존재하는 만큼 필요로하는 데이터가 복잡하며 데이터 변경이 잦은 영역입니다. 이러한 기능적 특징 때문에 검색 필터 영역을 단일 컴포넌트로 관리할 경우 코드 복잡도가 올라갈 수 있는 상황이었습니다. 따라서 검색 필터 영역은 `Filter`라는 상위 컴포넌트 아래 항목 단위로 분리된 자식 컴포넌트를 갖도록 구성했습니다.
-[<img src="{{site.url}}/img/vue3/talentpool_component.png" />]({{site.url}}/talentpool_component.png)  
+[<img src="{{site.url}}/img/vue3/talentpool_component.png" />]({{site.url}}/img/vue3/talentpool_component.png)  
 
 인재 검색 기능은 아래와 같이 동작하게 됩니다.
-[<img src="{{site.url}}/img/vue3/talentpool_search.png" />]({{site.url}}/talentpool_search.png)
+[<img src="{{site.url}}/img/vue3/talentpool_search.png" />]({{site.url}}/img/vue3/talentpool_search.png)
 
 모든 검색 필터 조건 정보를 담은 JSON 형태의 데이터가 인재 검색 API 요청 파라미터 정보로 활용됩니다. 검색 필터의 세부 항목에서 변경이 발생하게 되면 해당 항목 컴포넌트 내부에서 검색 필터 데이터 변경, 검색 리스트 API 재호출이 순차적으로 수행되게 됩니다. 이때 필터 데이터 변경, API 재호출 동작은 각기 다른 컴포넌트 내부 동작에 의해 발생하지만 최종적으로 활용되는 데이터는 검색 필터 조건 정보를 담은 공통의 데이터 입니다.  
 
