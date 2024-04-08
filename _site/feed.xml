@@ -7,6 +7,17 @@
     <atom:link href="http://10.100.0.202:80/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>통합된 개발과 배포 : Monorepo와 GitOps의 매력적인 조합</title>
+        <description>
+          
+          안녕하세요. FE개발팀 조성창 입니다. 사람인에선 서비스의 레거시 영역을 점진적으로 개선해나가고 있습니다. 그동안 FE개발팀은 긱이나 멘토링 같은 버티컬 서비스의 FE개발을 진행해왔는데, 작년부터 주요서비스의 FE분리를 시작하면서 FE 영역의 아키텍쳐에 대한 고민을 했었습니다. 그 결과 Monorepo를 적용하기로 하였고 첫번째 서비스가 배포를 앞두고 있습니다. 그 과정에서 배포 환경에 대한 고민도 같이 하게 되었고 GitOps를...
+        </description>
+        <pubDate>Mon, 08 Apr 2024 00:00:00 +0900</pubDate>
+        <link>http://10.100.0.202:80/2024-04-08-monorepo-gitops/</link>
+        <guid isPermaLink="true">http://10.100.0.202:80/2024-04-08-monorepo-gitops/</guid>
+      </item>
+    
+      <item>
         <title>Vue3, Composition API와 Pinia를 이용한 상태관리 (2)</title>
         <description>
           
@@ -213,17 +224,6 @@
         <pubDate>Tue, 17 May 2022 00:00:00 +0900</pubDate>
         <link>http://10.100.0.202:80/2022-05-17-kubernetes-autoscaling/</link>
         <guid isPermaLink="true">http://10.100.0.202:80/2022-05-17-kubernetes-autoscaling/</guid>
-      </item>
-    
-      <item>
-        <title>AWS로 배포를 해보자!</title>
-        <description>
-          CodeDeploy와 S3, CloudFront를 이용해서 배포하기 - 
-          소개 안녕하세요, IT전략팀 김미란입니다. 지난 해 말 사람인에서 THE PL:LAB(더플랩)을 런칭하였습니다. THE PL:LAB은 ESG기반으로 인사담당자 관점에서 만든 새로운 HR 서비스입니다. 그 중 인사담당자들에게 정보와 지식을 공유하는 INSIGHT(인사이트) 프로젝트에 참여하여 개발하였습니다. 구직자는 비교적 쉽게 채용에 대한 다양한 정보를 찾아볼 수 있지만, 인사담당자들을 위한 정보는 쉽사리 찾을 수 없었습니다. 이러한 문제를 사람인에이치알에서...
-        </description>
-        <pubDate>Fri, 25 Feb 2022 00:00:00 +0900</pubDate>
-        <link>http://10.100.0.202:80/2022-02-25-hello-aws/</link>
-        <guid isPermaLink="true">http://10.100.0.202:80/2022-02-25-hello-aws/</guid>
       </item>
     
   </channel>

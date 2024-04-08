@@ -264,6 +264,7 @@
 
 <h1 id="1-heimdall-개요">1. Heimdall 개요</h1>
 <hr />
+
 <h2 id="11-heimdall이란">1.1. Heimdall이란?</h2>
 <blockquote>
   <p>사람인HR에서 사용하던 기존 관제시스템에서 UI 및 기능을 개선한 관제시스템입니다.</p>
@@ -396,6 +397,7 @@
 <p><br /></p>
 <h1 id="3-heimdall로-어떤것을-할-수-있을까요">3. Heimdall로 어떤것을 할 수 있을까요?</h1>
 <hr />
+
 <blockquote>
   <p>지금까지 Heimdall 관제 시스템이 무엇인지 어떻게 구성되어 있는지 알아보았습니다.<br />
 그럼 Heidmall로 무엇을 할 수 있을까요?</p>
@@ -519,7 +521,7 @@ filter {
 }
 output {
 	elasticsearch {
-		hosts =&gt; ["{{elasticsearch 호스트}}:9200"]
+		hosts =&gt; [":9200"]
 		index =&gt; "filebeat-sri-%{[@metadata][topic]}-%{index_day}"
 	}
 }
@@ -648,6 +650,7 @@ Consumer Group Lag by Topic : Topic에 데이터가 쌓이게 되면 Lag 수치�
 <p><br /></p>
 <h1 id="4-heimdall-시스템-고도화-기능">4. Heimdall 시스템 고도화 기능</h1>
 <hr />
+
 <blockquote>
   <p>이 섹터에서는 Heimdall 고도화에 적용된 기술 및 개선 내용에 대해서 설명하겠습니다.</p>
 </blockquote>
@@ -743,7 +746,7 @@ Consumer Group Lag by Topic : Topic에 데이터가 쌓이게 되면 Lag 수치�
   - deploy
 
 variables:
-  CI_REGISTRY: {{docker registry 주소}}
+  CI_REGISTRY: 
   BUILD_TAG: $CI_COMMIT_REF_NAME-$CI_PIPELINE_ID
   GIT_SUBMODULE_STRATEGY: recursive
   
@@ -766,7 +769,7 @@ build admin:
     - &gt;  # admin build
       docker build  
       -t $CI_REGISTRY:$BUILD_TAG . 
-      -f {{Dockerfile 경로}}
+      -f 
 
 push tag:
   &lt;&lt;: *tag_def
@@ -877,7 +880,7 @@ Filebeat이 Sidecar 형태로 로그를 수집하는 구조입니다.</li>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apiVersion: v1
 kind: ConfigMap
 metadata:
-	name: {{ .Release.Name }}-{{ include "heimdall.name" . }}-filebeat-config
+	name: --filebeat-config
 data:
 	filebeat.yml: |-
 		filebeat.config:
@@ -899,13 +902,13 @@ data:
 						sri.release.name: '${SRI_RELEASE_NAME}'
 						sri.server.name: '${SRI_POD_NAME}'
 		monitoring: 
-			enabled: {{ .Values.global.sidecar.filebeat.monitor }}
+			enabled: 
 			elasticsearch:
-				hosts: ["{{ .Values.global.sidecar.filebeat.esHost }}"]
+				hosts: [""]
 				metrics.period: 30s
 
 		output.kafka:
-			hosts: [{{ .Values.global.sidecar.filebeat.kafkaHost }}]
+			hosts: []
 			topic: '${SRI_NAMESPACE}-${SRI_PROJECT_NAME}'
 			partition.round_robin:
 				reachable_only: false
@@ -916,12 +919,12 @@ data:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-	name: {{ .Release.Name }}-{{ include "heimdall.name" . }}-filebeat-inputs
+	name: --filebeat-inputs
 data:
-	{{ConfigMap명}}.yml: |-
+	.yml: |-
 		- type: log
 			paths:
-				- '{{ .Values.sidecar.filebeat.logPath }}'
+				- ''
 			exclude_lines: ['DEBUG']
 			tail_files: "true"
 			## json.message_key: log
@@ -948,7 +951,7 @@ data:
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- type: log
   paths:
-    - '{{로그 경로}}'
+    - ''
   exclude_lines: ['DEBUG']
   tail_files: "true"
   ## json.message_key: log
@@ -1055,7 +1058,7 @@ Baremetal Server 기반의 기존 로그수집은
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ .Release.Name }}-{{ include "heimdall.name" . }}-metricbeat-config
+  name: --metricbeat-config
   labels:
     kubernetes.io/cluster-service: "true"
 data:
@@ -1079,7 +1082,7 @@ data:
       elasticsearch:
         metrics.period: 30s
     output.elasticsearch:
-      hosts: ["{{ .Values.global.sidecar.metricbeat.esHost }}"]
+      hosts: [""]
       index: 'metricbeat-%{[event.module]}-${SRI_NAMESPACE}-${SRI_PROJECT_NAME}-%{+yyyy.MM.dd}'
     setup.template:
       enabled: true
@@ -1091,7 +1094,7 @@ data:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ .Release.Name }}-{{ include "heimdall.name" . }}-metricbeat-module
+  name: --metricbeat-module
 data:
   jolokia_metric.yml: |-
     - module: jolokia
