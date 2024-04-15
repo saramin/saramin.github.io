@@ -92,12 +92,12 @@
   <meta property="og:type" content="website" />
 
   
-  <meta property="og:url" content="http://10.100.0.202:80/2020-04-01-heimdall/" />
-  <link rel="canonical" href="http://10.100.0.202:80/2020-04-01-heimdall/" />
+  <meta property="og:url" content="http://10.100.1.93:80/2020-04-01-heimdall/" />
+  <link rel="canonical" href="http://10.100.1.93:80/2020-04-01-heimdall/" />
   
 
   
-  <meta property="og:image" content="http://10.100.0.202:80/img/avatar-icon.png" />
+  <meta property="og:image" content="http://10.100.1.93:80/img/avatar-icon.png" />
   
 
 
@@ -115,7 +115,7 @@
   
 
   
-  <meta name="twitter:image" content="http://10.100.0.202:80/img/avatar-icon.png" />
+  <meta name="twitter:image" content="http://10.100.1.93:80/img/avatar-icon.png" />
   
 
   
@@ -144,7 +144,7 @@
         <span class="icon-bar"></span>
       </button>
       
-        <a class="navbar-brand" href="http://10.100.0.202:80">사람인 기술 블로그</a>
+        <a class="navbar-brand" href="http://10.100.1.93:80">사람인 기술 블로그</a>
       
     </div>
 
@@ -178,7 +178,7 @@
 	
 	<div class="avatar-container">
 	  <div class="avatar-img-border">
-	    <a href="http://10.100.0.202:80">
+	    <a href="http://10.100.1.93:80">
 	      <img class="avatar-img" src="/img/avatar-icon.png" />
 		</a>
 	  </div>
@@ -264,7 +264,6 @@
 
 <h1 id="1-heimdall-개요">1. Heimdall 개요</h1>
 <hr />
-
 <h2 id="11-heimdall이란">1.1. Heimdall이란?</h2>
 <blockquote>
   <p>사람인HR에서 사용하던 기존 관제시스템에서 UI 및 기능을 개선한 관제시스템입니다.</p>
@@ -330,13 +329,13 @@
       <td>컨테이너 기반 로그 수집</td>
     </tr>
     <tr>
-      <td><a href="http://10.100.0.202:80/img/heimdall/arch_container.png" target="_blank"><img src="http://10.100.0.202:80/img/heimdall/arch_container.png" alt="Heimdall Container 아키텍쳐" /></a></td>
+      <td><a href="http://10.100.1.93:80/img/heimdall/arch_container.png" target="_blank"><img src="http://10.100.1.93:80/img/heimdall/arch_container.png" alt="Heimdall Container 아키텍쳐" /></a></td>
     </tr>
     <tr>
       <td>Baremetal 기반 로그 수집</td>
     </tr>
     <tr>
-      <td><a href="http://10.100.0.202:80/img/heimdall/arch_beremetal.png" target="_blank"><img src="http://10.100.0.202:80/img/heimdall/arch_beremetal.png" alt="Heimdall Bere 아키텍쳐" /></a></td>
+      <td><a href="http://10.100.1.93:80/img/heimdall/arch_beremetal.png" target="_blank"><img src="http://10.100.1.93:80/img/heimdall/arch_beremetal.png" alt="Heimdall Bere 아키텍쳐" /></a></td>
     </tr>
   </tbody>
 </table>
@@ -397,7 +396,6 @@
 <p><br /></p>
 <h1 id="3-heimdall로-어떤것을-할-수-있을까요">3. Heimdall로 어떤것을 할 수 있을까요?</h1>
 <hr />
-
 <blockquote>
   <p>지금까지 Heimdall 관제 시스템이 무엇인지 어떻게 구성되어 있는지 알아보았습니다.<br />
 그럼 Heidmall로 무엇을 할 수 있을까요?</p>
@@ -462,13 +460,13 @@ ex) sh heimdall.sidecar-install-init.sh 0.0.2 dev # 설치 후 확인
       <td>STEP1. 로그 수집 서버 지정</td>
     </tr>
     <tr>
-      <td><a href="http://10.100.0.202:80/img/heimdall/heimdall_3_1.png" width="800" height="400" target="_blank"><img src="http://10.100.0.202:80/img/heimdall/heimdall_3_1.png" alt="Sidecar Agent 지정" /></a></td>
+      <td><a href="http://10.100.1.93:80/img/heimdall/heimdall_3_1.png" width="800" height="400" target="_blank"><img src="http://10.100.1.93:80/img/heimdall/heimdall_3_1.png" alt="Sidecar Agent 지정" /></a></td>
     </tr>
     <tr>
       <td>STEP2. 로그 수집 설정 - 수집할 로그 파일 경로를 지정한다.</td>
     </tr>
     <tr>
-      <td><a href="http://10.100.0.202:80/img/heimdall/heimdall_3_2.png" width="800" height="400" target="_blank"><img src="http://10.100.0.202:80/img/heimdall/heimdall_3_2.png" alt="Filebeat 수집 설정" /></a></td>
+      <td><a href="http://10.100.1.93:80/img/heimdall/heimdall_3_2.png" width="800" height="400" target="_blank"><img src="http://10.100.1.93:80/img/heimdall/heimdall_3_2.png" alt="Filebeat 수집 설정" /></a></td>
     </tr>
   </tbody>
 </table>
@@ -521,7 +519,7 @@ filter {
 }
 output {
 	elasticsearch {
-		hosts =&gt; [":9200"]
+		hosts =&gt; ["{{elasticsearch 호스트}}:9200"]
 		index =&gt; "filebeat-sri-%{[@metadata][topic]}-%{index_day}"
 	}
 }
@@ -538,7 +536,7 @@ output {
 로그 메시지 내용에 sucess가 포함된 것만 검색하겠다고 조건식을 작성하여 나온 결과입니다.<br />
 로그 시간 범위는 최근 한  시간동안 수집된 로그에 대해서만 포함되게 지정하였습니다.</p>
 
-<p><a href="http://10.100.0.202:80/img/heimdall/heimdall_3_3.png" target="_blank"><img src="http://10.100.0.202:80/img/heimdall/heimdall_3_3.png" alt="Kibana 검색 결과" /></a></p>
+<p><a href="http://10.100.1.93:80/img/heimdall/heimdall_3_3.png" target="_blank"><img src="http://10.100.1.93:80/img/heimdall/heimdall_3_3.png" alt="Kibana 검색 결과" /></a></p>
 
 <p>5) Dashboard를 구성해보자</p>
 <ul>
@@ -553,7 +551,7 @@ output {
 	Lets-server chart : 서버별로 수집된 로그 개수를 30분 단위로 표시<br />
 ..생략..</p>
 
-<p><a href="http://10.100.0.202:80/img/heimdall/heimdall_3_4.png" target="_blank"><img src="http://10.100.0.202:80/img/heimdall/heimdall_3_4.png" alt="Lets Dashboard 화면" /></a></p>
+<p><a href="http://10.100.1.93:80/img/heimdall/heimdall_3_4.png" target="_blank"><img src="http://10.100.1.93:80/img/heimdall/heimdall_3_4.png" alt="Lets Dashboard 화면" /></a></p>
 
 <p>6) 관제 알림</p>
 <ul>
@@ -568,19 +566,19 @@ output {
       <td>STEP1. 관제 Rule 추가</td>
     </tr>
     <tr>
-      <td><a href="http://10.100.0.202:80/img/heimdall/heimdall_3_7.png" width="800" height="400" target="_blank"><img src="http://10.100.0.202:80/img/heimdall/heimdall_3_7.png" alt="관제룰 등록" /></a></td>
+      <td><a href="http://10.100.1.93:80/img/heimdall/heimdall_3_7.png" width="800" height="400" target="_blank"><img src="http://10.100.1.93:80/img/heimdall/heimdall_3_7.png" alt="관제룰 등록" /></a></td>
     </tr>
     <tr>
       <td>STEP2. 관제 추가 후 목록에서 관제 기능 ON/OFF 지정도 가능</td>
     </tr>
     <tr>
-      <td><a href="http://10.100.0.202:80/img/heimdall/heimdall_3_8.png" width="800" height="400" target="_blank"><img src="http://10.100.0.202:80/img/heimdall/heimdall_3_8.png" alt="관제 목록" /></a></td>
+      <td><a href="http://10.100.1.93:80/img/heimdall/heimdall_3_8.png" width="800" height="400" target="_blank"><img src="http://10.100.1.93:80/img/heimdall/heimdall_3_8.png" alt="관제 목록" /></a></td>
     </tr>
     <tr>
       <td>STEP3. 관제 발생 시 Telegram으로 메시지 전송</td>
     </tr>
     <tr>
-      <td><a href="http://10.100.0.202:80/img/heimdall/heimdall_7.png" width="800" height="400" target="_blank"><img src="http://10.100.0.202:80/img/heimdall/heimdall_7.png" alt="ElastAlert" /></a></td>
+      <td><a href="http://10.100.1.93:80/img/heimdall/heimdall_7.png" width="800" height="400" target="_blank"><img src="http://10.100.1.93:80/img/heimdall/heimdall_7.png" alt="ElastAlert" /></a></td>
     </tr>
   </tbody>
 </table>
@@ -606,13 +604,13 @@ Heimdall에서는 이런 연동 모듈에 대해서 상태 정보를 수집하�
       <td>STEP1. 로그 수집 서버 지정</td>
     </tr>
     <tr>
-      <td><a href="http://10.100.0.202:80/img/heimdall/heimdall_3_1.png" width="800" height="400" target="_blank"><img src="http://10.100.0.202:80/img/heimdall/heimdall_3_1.png" alt="Sidecar Agent 지정" /></a></td>
+      <td><a href="http://10.100.1.93:80/img/heimdall/heimdall_3_1.png" width="800" height="400" target="_blank"><img src="http://10.100.1.93:80/img/heimdall/heimdall_3_1.png" alt="Sidecar Agent 지정" /></a></td>
     </tr>
     <tr>
       <td>STEP2. Metric 수집 설정 - 수집할 Metric 모듈에 대한 설정</td>
     </tr>
     <tr>
-      <td><a href="http://10.100.0.202:80/img/heimdall/heimdall_3_5.png" width="800" height="400" target="_blank"><img src="http://10.100.0.202:80/img/heimdall/heimdall_3_5.png" alt="Metric 수집 설정" /></a></td>
+      <td><a href="http://10.100.1.93:80/img/heimdall/heimdall_3_5.png" width="800" height="400" target="_blank"><img src="http://10.100.1.93:80/img/heimdall/heimdall_3_5.png" alt="Metric 수집 설정" /></a></td>
     </tr>
   </tbody>
 </table>
@@ -628,7 +626,7 @@ Heimdall에서는 이런 연동 모듈에 대해서 상태 정보를 수집하�
 그럼 예제로 kafka partition에 대해서만 필터링해서 검색해보죠</p>
 </blockquote>
 
-<p><a href="http://10.100.0.202:80/img/heimdall/heimdall_3_6.png" target="_blank"><img src="http://10.100.0.202:80/img/heimdall/heimdall_3_6.png" alt="Metric 검색 결과" /></a></p>
+<p><a href="http://10.100.1.93:80/img/heimdall/heimdall_3_6.png" target="_blank"><img src="http://10.100.1.93:80/img/heimdall/heimdall_3_6.png" alt="Metric 검색 결과" /></a></p>
 
 <p>4) Metric Dashboard</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Kafka Dashboard 구성 예제입니다.
@@ -639,7 +637,7 @@ Consumer Group Lag by Topic : Topic에 데이터가 쌓이게 되면 Lag 수치�
 ..생략.. 
 </code></pre></div></div>
 
-<p><a href="http://10.100.0.202:80/img/heimdall/heimdall_10.png" target="_blank"><img src="http://10.100.0.202:80/img/heimdall/heimdall_10.png" alt="Kafka 대쉬보드" /></a></p>
+<p><a href="http://10.100.1.93:80/img/heimdall/heimdall_10.png" target="_blank"><img src="http://10.100.1.93:80/img/heimdall/heimdall_10.png" alt="Kafka 대쉬보드" /></a></p>
 
 <p>5) 관제 알림</p>
 <ul>
@@ -650,7 +648,6 @@ Consumer Group Lag by Topic : Topic에 데이터가 쌓이게 되면 Lag 수치�
 <p><br /></p>
 <h1 id="4-heimdall-시스템-고도화-기능">4. Heimdall 시스템 고도화 기능</h1>
 <hr />
-
 <blockquote>
   <p>이 섹터에서는 Heimdall 고도화에 적용된 기술 및 개선 내용에 대해서 설명하겠습니다.</p>
 </blockquote>
@@ -688,13 +685,13 @@ Consumer Group Lag by Topic : Topic에 데이터가 쌓이게 되면 Lag 수치�
       <td>기존 관리자 화면</td>
     </tr>
     <tr>
-      <td><a href="http://10.100.0.202:80/img/heimdall/heimdall_4_1.png" width="800" height="300" target="_blank"><img src="http://10.100.0.202:80/img/heimdall/heimdall_4_1.png" alt="Heimdall 기존 관리자 화면" /></a></td>
+      <td><a href="http://10.100.1.93:80/img/heimdall/heimdall_4_1.png" width="800" height="300" target="_blank"><img src="http://10.100.1.93:80/img/heimdall/heimdall_4_1.png" alt="Heimdall 기존 관리자 화면" /></a></td>
     </tr>
     <tr>
       <td>신규 관리자 화면</td>
     </tr>
     <tr>
-      <td><a href="http://10.100.0.202:80/img/heimdall/heimdall_2.png" width="800" height="300" target="_blank"><img src="http://10.100.0.202:80/img/heimdall/heimdall_2.png" alt="Heimdall 신규 관리자 화면" /></a></td>
+      <td><a href="http://10.100.1.93:80/img/heimdall/heimdall_2.png" width="800" height="300" target="_blank"><img src="http://10.100.1.93:80/img/heimdall/heimdall_2.png" alt="Heimdall 신규 관리자 화면" /></a></td>
     </tr>
   </tbody>
 </table>
@@ -711,8 +708,8 @@ Consumer Group Lag by Topic : Topic에 데이터가 쌓이게 되면 Lag 수치�
       <td>변경. Rancher 기반 배포</td>
     </tr>
     <tr>
-      <td><img src="http://10.100.0.202:80/img/heimdall/git_jenkins_flow.png" alt="git_jenkins" width="400" height="200" /></td>
-      <td><img src="http://10.100.0.202:80/img/heimdall/git_rancher_flow.png" alt="git_rancher" width="400" height="200" /></td>
+      <td><img src="http://10.100.1.93:80/img/heimdall/git_jenkins_flow.png" alt="git_jenkins" width="400" height="200" /></td>
+      <td><img src="http://10.100.1.93:80/img/heimdall/git_rancher_flow.png" alt="git_rancher" width="400" height="200" /></td>
     </tr>
   </tbody>
 </table>
@@ -746,7 +743,7 @@ Consumer Group Lag by Topic : Topic에 데이터가 쌓이게 되면 Lag 수치�
   - deploy
 
 variables:
-  CI_REGISTRY: 
+  CI_REGISTRY: {{docker registry 주소}}
   BUILD_TAG: $CI_COMMIT_REF_NAME-$CI_PIPELINE_ID
   GIT_SUBMODULE_STRATEGY: recursive
   
@@ -769,7 +766,7 @@ build admin:
     - &gt;  # admin build
       docker build  
       -t $CI_REGISTRY:$BUILD_TAG . 
-      -f 
+      -f {{Dockerfile 경로}}
 
 push tag:
   &lt;&lt;: *tag_def
@@ -793,10 +790,10 @@ Push latest:
 </code></pre></div></div>
 
 <p>3) rancher 서버에 접속 후 이미지 버전만 변경하고 적용하면 기존 이미지 버전의 어플리케이션이 내려가고 새로운 이미지 버전으로 어플리케이션을 자동으로 기동해줍니다.
-<a href="http://10.100.0.202:80/img/heimdall/heimdall_3.png"><img src="http://10.100.0.202:80/img/heimdall/heimdall_3.png" alt="Rancher 배포 화면" /></a></p>
+<a href="http://10.100.1.93:80/img/heimdall/heimdall_3.png"><img src="http://10.100.1.93:80/img/heimdall/heimdall_3.png" alt="Rancher 배포 화면" /></a></p>
 
 <p>4) Admin이 배포되어 기동된 것을 확인할 수 있습니다.
-<a href="http://10.100.0.202:80/img/heimdall/heimdall_4.png"><img src="http://10.100.0.202:80/img/heimdall/heimdall_4.png" alt="Kubernetes Deployment" /></a></p>
+<a href="http://10.100.1.93:80/img/heimdall/heimdall_4.png"><img src="http://10.100.1.93:80/img/heimdall/heimdall_4.png" alt="Kubernetes Deployment" /></a></p>
 
 <h2 id="43-모니터링관제-개선">4.3. 모니터링/관제 개선</h2>
 <h3 id="431-로그-처리-구조-개선">4.3.1. 로그 처리 구조 개선</h3>
@@ -809,7 +806,7 @@ Push latest:
       <td>기존 로그 수집 구조 : Logstash -&gt; ElasticSearch</td>
     </tr>
     <tr>
-      <td><img src="http://10.100.0.202:80/img/heimdall/heimdall_4_3.png" alt="기존 Filebeat Flow" width="800" height="150" /></td>
+      <td><img src="http://10.100.1.93:80/img/heimdall/heimdall_4_3.png" alt="기존 Filebeat Flow" width="800" height="150" /></td>
     </tr>
   </tbody>
 </table>
@@ -831,7 +828,7 @@ Push latest:
       <td>개선된 로그 수집 구조 : Filebeat -&gt; Kafka -&gt; Logstash -&gt; ElasticSearch</td>
     </tr>
     <tr>
-      <td><img src="http://10.100.0.202:80/img/heimdall/heimdall_5.png" alt="Filebeat Flow" width="800" height="165" /></td>
+      <td><img src="http://10.100.1.93:80/img/heimdall/heimdall_5.png" alt="Filebeat Flow" width="800" height="165" /></td>
     </tr>
   </tbody>
 </table>
@@ -861,14 +858,14 @@ Baremetal Server 기반의 기존 로그수집은 위에 “3.1 어플리케이�
 Filebeat이 Sidecar 형태로 로그를 수집하는 구조입니다.</li>
 </ul>
 
-<p><a href="http://10.100.0.202:80/img/heimdall/heimdall_4_4.png"><img src="http://10.100.0.202:80/img/heimdall/heimdall_4_4.png" alt="Filebeat 컨테이너 흐름" /></a></p>
+<p><a href="http://10.100.1.93:80/img/heimdall/heimdall_4_4.png"><img src="http://10.100.1.93:80/img/heimdall/heimdall_4_4.png" alt="Filebeat 컨테이너 흐름" /></a></p>
 
 <p>1-1) Rancher에서 설정</p>
 <ul>
   <li>Rancher + Helm Chart를 사용하여 컨테이너 로그 수집에 대한 ON/OFF를 설정하게 했습니다.</li>
 </ul>
 
-<p><a href="http://10.100.0.202:80/img/heimdall/heimdall_4_2.png"><img src="http://10.100.0.202:80/img/heimdall/heimdall_4_2.png" alt="Rancher Sidecar" /></a></p>
+<p><a href="http://10.100.1.93:80/img/heimdall/heimdall_4_2.png"><img src="http://10.100.1.93:80/img/heimdall/heimdall_4_2.png" alt="Rancher Sidecar" /></a></p>
 
 <p>1-2) K8S 컨테이너 - Filebeat 설정 참고</p>
 <ul>
@@ -880,7 +877,7 @@ Filebeat이 Sidecar 형태로 로그를 수집하는 구조입니다.</li>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apiVersion: v1
 kind: ConfigMap
 metadata:
-	name: --filebeat-config
+	name: {{ .Release.Name }}-{{ include "heimdall.name" . }}-filebeat-config
 data:
 	filebeat.yml: |-
 		filebeat.config:
@@ -902,13 +899,13 @@ data:
 						sri.release.name: '${SRI_RELEASE_NAME}'
 						sri.server.name: '${SRI_POD_NAME}'
 		monitoring: 
-			enabled: 
+			enabled: {{ .Values.global.sidecar.filebeat.monitor }}
 			elasticsearch:
-				hosts: [""]
+				hosts: ["{{ .Values.global.sidecar.filebeat.esHost }}"]
 				metrics.period: 30s
 
 		output.kafka:
-			hosts: []
+			hosts: [{{ .Values.global.sidecar.filebeat.kafkaHost }}]
 			topic: '${SRI_NAMESPACE}-${SRI_PROJECT_NAME}'
 			partition.round_robin:
 				reachable_only: false
@@ -919,12 +916,12 @@ data:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-	name: --filebeat-inputs
+	name: {{ .Release.Name }}-{{ include "heimdall.name" . }}-filebeat-inputs
 data:
-	.yml: |-
+	{{ConfigMap명}}.yml: |-
 		- type: log
 			paths:
-				- ''
+				- '{{ .Values.sidecar.filebeat.logPath }}'
 			exclude_lines: ['DEBUG']
 			tail_files: "true"
 			## json.message_key: log
@@ -951,7 +948,7 @@ data:
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- type: log
   paths:
-    - ''
+    - '{{로그 경로}}'
   exclude_lines: ['DEBUG']
   tail_files: "true"
   ## json.message_key: log
@@ -991,7 +988,7 @@ MetricBeat은 기본으로 Kubernetes, System에 대한 Metric을 수집하지�
 Metricbeat이 Sidecar 형태로 Metric 정보를 수집하는 구조입니다.</li>
 </ul>
 
-<p><a href="http://10.100.0.202:80/img/heimdall/heimdall_4_5.png" target="_blank"><img src="http://10.100.0.202:80/img/heimdall/heimdall_4_5.png" alt="Metric 로그 수집 Flow" /></a></p>
+<p><a href="http://10.100.1.93:80/img/heimdall/heimdall_4_5.png" target="_blank"><img src="http://10.100.1.93:80/img/heimdall/heimdall_4_5.png" alt="Metric 로그 수집 Flow" /></a></p>
 
 <h4 id="2-metric-모듈-종류">2) Metric 모듈 종류</h4>
 <ul>
@@ -1046,7 +1043,7 @@ Baremetal Server 기반의 기존 로그수집은
   <li>Rancher + Helm Chart를 사용하여 컨테이너 로그 수집에 대한 ON/OFF를 설정하게 했습니다.</li>
 </ul>
 
-<p><a href="http://10.100.0.202:80/img/heimdall/heimdall_4_2.png" target="_blank"><img src="http://10.100.0.202:80/img/heimdall/heimdall_4_2.png" alt="Rancher Sidecar" /></a></p>
+<p><a href="http://10.100.1.93:80/img/heimdall/heimdall_4_2.png" target="_blank"><img src="http://10.100.1.93:80/img/heimdall/heimdall_4_2.png" alt="Rancher Sidecar" /></a></p>
 
 <p>2) K8S 컨테이너 - Metricbeat 설정 참고</p>
 <ul>
@@ -1058,7 +1055,7 @@ Baremetal Server 기반의 기존 로그수집은
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: --metricbeat-config
+  name: {{ .Release.Name }}-{{ include "heimdall.name" . }}-metricbeat-config
   labels:
     kubernetes.io/cluster-service: "true"
 data:
@@ -1082,7 +1079,7 @@ data:
       elasticsearch:
         metrics.period: 30s
     output.elasticsearch:
-      hosts: [""]
+      hosts: ["{{ .Values.global.sidecar.metricbeat.esHost }}"]
       index: 'metricbeat-%{[event.module]}-${SRI_NAMESPACE}-${SRI_PROJECT_NAME}-%{+yyyy.MM.dd}'
     setup.template:
       enabled: true
@@ -1094,7 +1091,7 @@ data:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: --metricbeat-module
+  name: {{ .Release.Name }}-{{ include "heimdall.name" . }}-metricbeat-module
 data:
   jolokia_metric.yml: |-
     - module: jolokia
@@ -1270,7 +1267,7 @@ data:
 
 <blockquote>
   <p>ElastAlert 구성 
-<a href="http://10.100.0.202:80/img/heimdall/heimdall_7.png" target="_blank"><img src="http://10.100.0.202:80/img/heimdall/heimdall_7.png" alt="ElastAlert" /></a></p>
+<a href="http://10.100.1.93:80/img/heimdall/heimdall_7.png" target="_blank"><img src="http://10.100.1.93:80/img/heimdall/heimdall_7.png" alt="ElastAlert" /></a></p>
 </blockquote>
 
 <h2 id="45-모니터링-분석을-위한-다양한-종류의-kibana-dashboard-구성">4.5. 모니터링 분석을 위한 다양한 종류의 Kibana Dashboard 구성</h2>
@@ -1278,7 +1275,7 @@ data:
   <p>ElasticSearch로 수집된 로그데이터를 각각의 그래프, DataTable,Map 등으로 표현될 수 있고..이것을 하나의  Dashboard로 구성이 가능합니다.</p>
 </blockquote>
 
-<p><a href="http://10.100.0.202:80/img/heimdall/heimdall_8.png" target="_blank"><img src="http://10.100.0.202:80/img/heimdall/heimdall_8.png" alt="Kibana" /></a></p>
+<p><a href="http://10.100.1.93:80/img/heimdall/heimdall_8.png" target="_blank"><img src="http://10.100.1.93:80/img/heimdall/heimdall_8.png" alt="Kibana" /></a></p>
 
 <h3 id="451-로그-기반-대쉬보드-구성-예제">4.5.1 로그 기반 대쉬보드 구성 예제</h3>
 <pre><code class="language-SATA">아래 그림은 사람인HR IT연구소의 푸쉬 전송 시스템의 로그를 기반으로
@@ -1288,7 +1285,7 @@ data:
 데이터 분석 시간은 분/시간/일/월 등으로 범위지정도 가능합니다. 
 </code></pre>
 
-<p><a href="http://10.100.0.202:80/img/heimdall/heimdall_9.png" target="_blank"><img src="http://10.100.0.202:80/img/heimdall/heimdall_9.png" alt="어플리케이션 대쉬보드" /></a></p>
+<p><a href="http://10.100.1.93:80/img/heimdall/heimdall_9.png" target="_blank"><img src="http://10.100.1.93:80/img/heimdall/heimdall_9.png" alt="어플리케이션 대쉬보드" /></a></p>
 
 <h3 id="452-metric-기반-대쉬보드-구성-예제">4.5.2 Metric 기반 대쉬보드 구성 예제</h3>
 <pre><code class="language-SATA">Metric 로그 수집이 추가되면서 Kibana에서 연동 시스템에 대한 정보도
@@ -1298,7 +1295,7 @@ data:
 지연이 발생된 시간이나 수치를 분석함으로써 빠른 대응이 가능합니다.
 </code></pre>
 
-<p><a href="http://10.100.0.202:80/img/heimdall/heimdall_10.png" target="_blank"><img src="http://10.100.0.202:80/img/heimdall/heimdall_10.png" alt="Metric 대쉬보드" /></a></p>
+<p><a href="http://10.100.1.93:80/img/heimdall/heimdall_10.png" target="_blank"><img src="http://10.100.1.93:80/img/heimdall/heimdall_10.png" alt="Metric 대쉬보드" /></a></p>
 
 <h1 id="5-마무리">5. 마무리</h1>
 <p>Heimdall 로그 관제 시스템에 대한 정리는 여기서 마칩니다.  <br />
@@ -1352,7 +1349,7 @@ ElasticSearch : <a href="https://www.elastic.co/kr" target="_blank">https://www.
 
   
   <!--- Share on Twitter -->
-    <a href="https://twitter.com/intent/tweet?text=Heimdall+-+%EB%A1%9C%EA%B7%B8+%EC%88%98%EC%A7%91+%EA%B4%80%EC%A0%9C+%EC%8B%9C%EC%8A%A4%ED%85%9C+http://10.100.0.202:80/2020-04-01-heimdall/"
+    <a href="https://twitter.com/intent/tweet?text=Heimdall+-+%EB%A1%9C%EA%B7%B8+%EC%88%98%EC%A7%91+%EA%B4%80%EC%A0%9C+%EC%8B%9C%EC%8A%A4%ED%85%9C+http://10.100.1.93:80/2020-04-01-heimdall/"
       class="btn btn-social-icon btn-twitter" title="Share on Twitter">
       <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
       <span class="sr-only">Twitter</span>
@@ -1361,7 +1358,7 @@ ElasticSearch : <a href="https://www.elastic.co/kr" target="_blank">https://www.
 
   
   <!--- Share on Facebook -->
-    <a href="https://www.facebook.com/sharer/sharer.php?u=http://10.100.0.202:80/2020-04-01-heimdall/"
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://10.100.1.93:80/2020-04-01-heimdall/"
       class="btn btn-social-icon btn-facebook" title="Share on Facebook">
       <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
       <span class="sr-only">Facebook</span>
@@ -1372,7 +1369,7 @@ ElasticSearch : <a href="https://www.elastic.co/kr" target="_blank">https://www.
 
   
   <!--- Share on LinkedIn -->
-    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://10.100.0.202:80/2020-04-01-heimdall/"
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://10.100.1.93:80/2020-04-01-heimdall/"
       class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
       <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
       <span class="sr-only">LinkedIn</span>

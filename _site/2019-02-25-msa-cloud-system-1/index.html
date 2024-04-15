@@ -92,12 +92,12 @@
   <meta property="og:type" content="website" />
 
   
-  <meta property="og:url" content="http://10.100.0.202:80/2019-02-25-msa-cloud-system-1/" />
-  <link rel="canonical" href="http://10.100.0.202:80/2019-02-25-msa-cloud-system-1/" />
+  <meta property="og:url" content="http://10.100.1.93:80/2019-02-25-msa-cloud-system-1/" />
+  <link rel="canonical" href="http://10.100.1.93:80/2019-02-25-msa-cloud-system-1/" />
   
 
   
-  <meta property="og:image" content="http://10.100.0.202:80/img/avatar-icon.png" />
+  <meta property="og:image" content="http://10.100.1.93:80/img/avatar-icon.png" />
   
 
 
@@ -115,7 +115,7 @@
   
 
   
-  <meta name="twitter:image" content="http://10.100.0.202:80/img/avatar-icon.png" />
+  <meta name="twitter:image" content="http://10.100.1.93:80/img/avatar-icon.png" />
   
 
   
@@ -144,7 +144,7 @@
         <span class="icon-bar"></span>
       </button>
       
-        <a class="navbar-brand" href="http://10.100.0.202:80">사람인 기술 블로그</a>
+        <a class="navbar-brand" href="http://10.100.1.93:80">사람인 기술 블로그</a>
       
     </div>
 
@@ -178,7 +178,7 @@
 	
 	<div class="avatar-container">
 	  <div class="avatar-img-border">
-	    <a href="http://10.100.0.202:80">
+	    <a href="http://10.100.1.93:80">
 	      <img class="avatar-img" src="/img/avatar-icon.png" />
 		</a>
 	  </div>
@@ -267,8 +267,8 @@
 <h2 id="구성">구성</h2>
 
 <ol>
-  <li><a href="http://10.100.0.202:80/2019-02-25-msa-cloud-system-1/" target="_blank">분산처리 시스템 구조개선 (1)</a></li>
-  <li><a href="http://10.100.0.202:80/2019-02-28-msa-cloud-system-2/" target="_blank">분산처리 시스템 구조개선 (2)</a></li>
+  <li><a href="http://10.100.1.93:80/2019-02-25-msa-cloud-system-1/" target="_blank">분산처리 시스템 구조개선 (1)</a></li>
+  <li><a href="http://10.100.1.93:80/2019-02-28-msa-cloud-system-2/" target="_blank">분산처리 시스템 구조개선 (2)</a></li>
 </ol>
 
 <hr />
@@ -277,10 +277,10 @@
 
 <h2 id="왜-구조개선을-생각하게-됐는가">왜 구조개선을 생각하게 됐는가?</h2>
 
-<p class="text-center"><img src="http://10.100.0.202:80/img/distributed/engine.png" alt="engine" /><br />
+<p class="text-center"><img src="http://10.100.1.93:80/img/distributed/engine.png" alt="engine" /><br />
 엔진 아키텍처</p>
 <p class="text-center"><br />
-<img src="http://10.100.0.202:80/img/distributed/old_tpas.png" alt="old_tpas" /><br />
+<img src="http://10.100.1.93:80/img/distributed/old_tpas.png" alt="old_tpas" /><br />
 시스템 흐름도</p>
 
 <p>구조개선 하려는 시스템은 IMDG 플랫폼 <a href="https://ignite.apache.org/index.html" target="_blank">Apache Ignite</a> 기반으로 클러스터링한 
@@ -320,7 +320,7 @@ Simple of scale out</p>
 
 <h2 id="아키텍처">아키텍처</h2>
 
-<p class="text-center"><img src="http://10.100.0.202:80/img/distributed/image2018-11-7 14 11 52.png" width="400px" title="아키텍처 그림" /></p>
+<p class="text-center"><img src="http://10.100.1.93:80/img/distributed/image2018-11-7 14 11 52.png" width="400px" title="아키텍처 그림" /></p>
 
 <p>당연스럽게도 마이크로서비스 아키텍처를 기반으로 설계가 진행되었고, 분리된 도메인들은 Docker를 사용하여 컨테이너화 했습니다.</p>
 
@@ -357,30 +357,30 @@ Simple of scale out</p>
 <p>시스템 구축에 사용된 주요 기술 스택은 다음과 같습니다.</p>
 
 <h3 id="마이크로서비스-아키텍처">마이크로서비스 아키텍처</h3>
-<p><img src="http://10.100.0.202:80/img/distributed/1 uOLtvuo9wxHXyETP_c085A.png" width="240px" title="마이크로서비스 아키텍처" /><br />
+<p><img src="http://10.100.1.93:80/img/distributed/1 uOLtvuo9wxHXyETP_c085A.png" width="240px" title="마이크로서비스 아키텍처" /><br />
 독립적인 작은 단위의 서비스로 분리하는 설계 방식<br />
 분리된 서비스들 간의 역할 분담이 되어 있기 때문에 서비스 간의 결합성 및 영향도를 낮출수 있으며, 반대로 서비스가 많아 질수록
 복잡도가 증가하기 때문에 데이터 정합성을 맞추기 위한 고려사항들이 늘어나게 됨</p>
 
 <h3 id="docker"><a href="https://docs.docker.com/install/" target="_blank">Docker</a></h3>
-<p><img src="http://10.100.0.202:80/img/distributed/docker-whale-home-logo.png" width="240px" title="Docker" /></p>
+<p><img src="http://10.100.1.93:80/img/distributed/docker-whale-home-logo.png" width="240px" title="Docker" /></p>
 
 <p>LXC(Linux Container)를 활용한 격리된 프로세스를 사용한 기술<br />
 가볍고 빠르며, Host OS의 커널을 공유하는 독립적인 실행 환경이기 때문에 자원의 효율성이 장점</p>
 
 <h3 id="spring-cloud-stream"><a href="https://docs.spring.io/spring-cloud-stream/docs/current/reference/htmlsingle/" target="_blank">Spring Cloud Stream</a></h3>
-<p><img src="http://10.100.0.202:80/img/distributed/GvuCOnQi.jpg" width="240px" title="Spring Cloud Stream" style="margin:-24px 0 -48px;" /><br />
+<p><img src="http://10.100.1.93:80/img/distributed/GvuCOnQi.jpg" width="240px" title="Spring Cloud Stream" style="margin:-24px 0 -48px;" /><br />
 MSA 구축을 위해 필요한 라이브러리 집합인 Spring Cloud에서 메시지 기반 시스템을 구축하기 위한 경량 프레임워크<br />
 RabbitMQ, Apache Kafka 등과 쉽게 연결하여 사용 가능</p>
 
 <h3 id="apache-kafka--kafka-streams"><a href="https://kafka.apache.org/" target="_blank">Apache Kafka / Kafka Streams</a></h3>
-<p><img src="http://10.100.0.202:80/img/distributed/kafka-logo-no-text.png" width="140px" title="apache kafka" /><br />
+<p><img src="http://10.100.1.93:80/img/distributed/kafka-logo-no-text.png" width="140px" title="apache kafka" /><br />
 메시지 큐, 메시지 시스템과 유사한 분산 스트리밍 플랫폼<br />
 내결함성으로 메시지 전송의 안정성을 보장<br />
 실시간 스트리밍 데이터 파이프라인 및 실시간 데이터 처리하는 스트리밍 애플리케이션 구축이 가능</p>
 
 <h3 id="portainer"><a href="https://www.portainer.io/" target="_blank">Portainer</a></h3>
-<p><img src="http://10.100.0.202:80/img/distributed/portainer_main_v2.png" title="portainer" /><br />
+<p><img src="http://10.100.1.93:80/img/distributed/portainer_main_v2.png" title="portainer" /><br />
 Docker Image 및 Container 등 관련 기능을 간편하게 사용 할 수 있게 제공하는 UI Tool<br />
 오픈소스이며 docker로 설치 가능, Docker swarm 노드들의 제어를 위해선 portainer agent를 추가로 설치하면 관리 가능합니다.</p>
 
@@ -389,10 +389,10 @@ Docker Image 및 Container 등 관련 기능을 간편하게 사용 할 수 있�
 <p><br /></p>
 
 <h2 id="docker-image-빌드-배포">Docker Image 빌드, 배포</h2>
-<p class="text-center"><img src="http://10.100.0.202:80/img/distributed/image2019-1-17 14 2 57.png" title="docker deploy" /><br />
+<p class="text-center"><img src="http://10.100.1.93:80/img/distributed/image2019-1-17 14 2 57.png" title="docker deploy" /><br />
 Docker 이미지 빌드, 배포 흐름도</p>
 <p class="text-center"><br />
-<a href="http://10.100.0.202:80/docker_image_build_v3.png" target="_blank"><img src="http://10.100.0.202:80/img/distributed/docker_image_build_v3.png" title="jenkins docker deploy" /></a><br />
+<a href="http://10.100.1.93:80/docker_image_build_v3.png" target="_blank"><img src="http://10.100.1.93:80/img/distributed/docker_image_build_v3.png" title="jenkins docker deploy" /></a><br />
 Jenkins Plugin을 이용한 Docker 이미지 빌드 및 registry push</p>
 
 <p>소스 및 docker 이미지 빌드, 배포는 Jenkins에서 진행했으며 Docker 플러그인을 추가하면 간단히 진행이 가능합니다.<br />
@@ -403,8 +403,8 @@ Jenkins Plugin을 이용한 Docker 이미지 빌드 및 registry push</p>
 <p><br /></p>
 
 <h2 id="서비스-배포">서비스 배포</h2>
-<p><a href="http://10.100.0.202:80/portainer_service_add_1_v2.png" target="_blank"><img src="http://10.100.0.202:80/img/distributed/portainer_service_add_1_v2.png" title="docker service1" /></a> 
-<a href="http://10.100.0.202:80/portainer_service_add_2.png" target="_blank"><img src="http://10.100.0.202:80/img/distributed/portainer_service_add_2.png" title="docker service2" /></a><br />
+<p><a href="http://10.100.1.93:80/portainer_service_add_1_v2.png" target="_blank"><img src="http://10.100.1.93:80/img/distributed/portainer_service_add_1_v2.png" title="docker service1" /></a> 
+<a href="http://10.100.1.93:80/portainer_service_add_2.png" target="_blank"><img src="http://10.100.1.93:80/img/distributed/portainer_service_add_2.png" title="docker service2" /></a><br />
 구축된 registry로 이미지 배포가 끝나면 portainer 를 이용해 필요한 정보를 입력 후 서비스 구동을 진행할 수 있어서 
 기존 시스템처럼 설치 과정이 생략되므로 서비스 배포까지의 시간이 상당히 축소되었습니다.<br />
 배포된 서비스에 대한 반영때는 업데이트 한번으로 재배포 진행이 가능합니다.</p>
@@ -455,7 +455,7 @@ Jenkins Plugin을 이용한 Docker 이미지 빌드 및 registry push</p>
 
   
   <!--- Share on Twitter -->
-    <a href="https://twitter.com/intent/tweet?text=%EB%B6%84%EC%82%B0%EC%B2%98%EB%A6%AC+%EC%8B%9C%EC%8A%A4%ED%85%9C+%EA%B5%AC%EC%A1%B0%EA%B0%9C%EC%84%A0+%281%29+http://10.100.0.202:80/2019-02-25-msa-cloud-system-1/"
+    <a href="https://twitter.com/intent/tweet?text=%EB%B6%84%EC%82%B0%EC%B2%98%EB%A6%AC+%EC%8B%9C%EC%8A%A4%ED%85%9C+%EA%B5%AC%EC%A1%B0%EA%B0%9C%EC%84%A0+%281%29+http://10.100.1.93:80/2019-02-25-msa-cloud-system-1/"
       class="btn btn-social-icon btn-twitter" title="Share on Twitter">
       <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
       <span class="sr-only">Twitter</span>
@@ -464,7 +464,7 @@ Jenkins Plugin을 이용한 Docker 이미지 빌드 및 registry push</p>
 
   
   <!--- Share on Facebook -->
-    <a href="https://www.facebook.com/sharer/sharer.php?u=http://10.100.0.202:80/2019-02-25-msa-cloud-system-1/"
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://10.100.1.93:80/2019-02-25-msa-cloud-system-1/"
       class="btn btn-social-icon btn-facebook" title="Share on Facebook">
       <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
       <span class="sr-only">Facebook</span>
@@ -475,7 +475,7 @@ Jenkins Plugin을 이용한 Docker 이미지 빌드 및 registry push</p>
 
   
   <!--- Share on LinkedIn -->
-    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://10.100.0.202:80/2019-02-25-msa-cloud-system-1/"
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://10.100.1.93:80/2019-02-25-msa-cloud-system-1/"
       class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
       <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
       <span class="sr-only">LinkedIn</span>

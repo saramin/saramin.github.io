@@ -94,12 +94,12 @@
   <meta property="og:type" content="website" />
 
   
-  <meta property="og:url" content="http://10.100.0.202:80/2020-05-01-k8s-cicd/" />
-  <link rel="canonical" href="http://10.100.0.202:80/2020-05-01-k8s-cicd/" />
+  <meta property="og:url" content="http://10.100.1.93:80/2020-05-01-k8s-cicd/" />
+  <link rel="canonical" href="http://10.100.1.93:80/2020-05-01-k8s-cicd/" />
   
 
   
-  <meta property="og:image" content="http://10.100.0.202:80/img/avatar-icon.png" />
+  <meta property="og:image" content="http://10.100.1.93:80/img/avatar-icon.png" />
   
 
 
@@ -117,7 +117,7 @@
   
 
   
-  <meta name="twitter:image" content="http://10.100.0.202:80/img/avatar-icon.png" />
+  <meta name="twitter:image" content="http://10.100.1.93:80/img/avatar-icon.png" />
   
 
   
@@ -146,7 +146,7 @@
         <span class="icon-bar"></span>
       </button>
       
-        <a class="navbar-brand" href="http://10.100.0.202:80">사람인 기술 블로그</a>
+        <a class="navbar-brand" href="http://10.100.1.93:80">사람인 기술 블로그</a>
       
     </div>
 
@@ -180,7 +180,7 @@
 	
 	<div class="avatar-container">
 	  <div class="avatar-img-border">
-	    <a href="http://10.100.0.202:80">
+	    <a href="http://10.100.1.93:80">
 	      <img class="avatar-img" src="/img/avatar-icon.png" />
 		</a>
 	  </div>
@@ -340,7 +340,7 @@ GitOps의 핵심은 어플리케이션 소스 뿐만 아니라, 배포 설정까
 
 <p>아래는 프로세스를 보기쉽게 정리한 그림입니다.</p>
 
-<p class="text-center"><a href="http://10.100.0.202:80/img/k8s/2020-04-02-12-20-24.png"><img src="http://10.100.0.202:80/img/k8s/2020-04-02-12-20-24.png" /></a><br />
+<p class="text-center"><a href="http://10.100.1.93:80/img/k8s/2020-04-02-12-20-24.png"><img src="http://10.100.1.93:80/img/k8s/2020-04-02-12-20-24.png" /></a><br />
 CI/CD-프로세스</p>
 
 <p>전체적인 Flow를 크게 2가지 단계로 나눌수 있습니다.</p>
@@ -354,7 +354,7 @@ CI/CD-프로세스</p>
 <p><br /></p>
 <h3 id="좀더-상세한-프로세스">좀더 상세한 프로세스</h3>
 
-<p><a href="http://10.100.0.202:80/img/k8s/2020-04-02-12-21-12.png"><img src="http://10.100.0.202:80/img/k8s/2020-04-02-12-21-12.png" /></a></p>
+<p><a href="http://10.100.1.93:80/img/k8s/2020-04-02-12-21-12.png"><img src="http://10.100.1.93:80/img/k8s/2020-04-02-12-21-12.png" /></a></p>
 
 <p>보시는 바와 같이 GitOps의 방식으로 두 개의 Git 저장소를 사용하게 됩니다.</p>
 
@@ -519,7 +519,7 @@ spring boot 기반의 어플리케이션이라 빌드된 jar파일 하나만 cop
 
 <p>.gitlab-ci 파이프라인에 docker image 빌드 job이 존재한다면 위의 Dockerfile이 존재해야 함으로 이점을 주의 해주시면 됩니다.</p>
 
-<p><a href="http://10.100.0.202:80/img/k8s/2020-04-03-14-57-19.png"><img src="http://10.100.0.202:80/img/k8s/2020-04-03-14-57-19.png" /></a></p>
+<p><a href="http://10.100.1.93:80/img/k8s/2020-04-03-14-57-19.png"><img src="http://10.100.1.93:80/img/k8s/2020-04-03-14-57-19.png" /></a></p>
 
 <p>메뉴의 <code class="language-plaintext highlighter-rouge">CI/CD &gt; Pipelines</code> 에 가면 해당 커밋에 대한 파이프라인의 실행 내역에 대해 확인이 가능합니다.</p>
 
@@ -531,7 +531,7 @@ spring boot 기반의 어플리케이션이라 빌드된 jar파일 하나만 cop
 <p>pipeline 이 완료되면 이미지 저장소인 사내 <strong>도커 레지스트리</strong>에 생성된 Container Image 확인이 가능하고,
 이제 우리의 어플리케이션을 어떤 환경이든지 배포를 할 <code class="language-plaintext highlighter-rouge">첫번째 단계가 완료</code> 되었습니다.</p>
 
-<p class="text-center"><a href="http://10.100.0.202:80/img/k8s/2020-04-03-16-27-36_.png"><img src="http://10.100.0.202:80/img/k8s/2020-04-03-16-27-36_.png" /></a><br />
+<p class="text-center"><a href="http://10.100.1.93:80/img/k8s/2020-04-03-16-27-36_.png"><img src="http://10.100.1.93:80/img/k8s/2020-04-03-16-27-36_.png" /></a><br />
 Docker Registry UI</p>
 
 <p><br /></p>
@@ -579,54 +579,54 @@ node.js 의 npm 과 비슷한 형태로 Kubernetes 패키지 배포를 가능하
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">apps/v1</span>
 <span class="na">kind</span><span class="pi">:</span> <span class="s">Deployment</span>
 <span class="na">metadata</span><span class="pi">:</span>
-  <span class="na">name</span><span class="pi">:</span> <span class="pi">}}</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="pi">{{</span><span class="s1">'</span><span class="s">{{</span><span class="nv">  </span><span class="s">include</span><span class="nv"> </span><span class="s">"fullname"</span><span class="nv"> </span><span class="s">.</span><span class="nv"> </span><span class="s">'</span> <span class="s1">'</span><span class="s">}}}}</span>
   <span class="s">labels:</span>
-<span class="s"></span><span class="pi">{{</span> <span class="nv">include "labels" . | indent 4 }}</span>
+<span class="s">{{'</span><span class="pi">{{</span> <span class="nv">include "labels" . | indent 4 '</span><span class="pi">}}}}</span>
 <span class="na">spec</span><span class="pi">:</span> 
-  <span class="na">replicas</span><span class="pi">:</span> <span class="pi"></span><span class="err">}}</span>
+  <span class="na">replicas</span><span class="pi">:</span> <span class="pi">{{</span><span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">.Values.replicaCount</span><span class="nv"> </span><span class="s">'</span><span class="pi">}}</span><span class="err">}}</span>
   <span class="na">selector</span><span class="pi">:</span>
     <span class="na">matchLabels</span><span class="pi">:</span>
-<span class="pi"></span><span class="err">}}</span>
+<span class="pi">{{</span><span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">include</span><span class="nv"> </span><span class="s">"labels"</span><span class="nv"> </span><span class="s">.</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">indent</span><span class="nv"> </span><span class="s">6</span><span class="nv"> </span><span class="s">'</span><span class="pi">}}</span><span class="err">}}</span>
   <span class="na">template</span><span class="pi">:</span>
     <span class="na">metadata</span><span class="pi">:</span>
       <span class="na">labels</span><span class="pi">:</span>
-<span class="pi"></span><span class="err">}}</span>
+<span class="pi">{{</span><span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">include</span><span class="nv"> </span><span class="s">"labels"</span><span class="nv"> </span><span class="s">.</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">indent</span><span class="nv"> </span><span class="s">8</span><span class="nv"> </span><span class="s">'</span><span class="pi">}}</span><span class="err">}}</span>
     <span class="na">spec</span><span class="pi">:</span>
-    <span class="pi"></span><span class="err">}}</span>
+    <span class="pi">{{</span><span class="s1">'</span><span class="s">{{-</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">.Values.imagePullSecrets</span><span class="nv"> </span><span class="s">'</span><span class="pi">}}</span><span class="err">}}</span>
       <span class="na">imagePullSecrets</span><span class="pi">:</span>
-        <span class="pi"></span><span class="err">}}</span>
-    <span class="pi"></span><span class="err">}}</span>
+        <span class="pi">{{</span><span class="s1">'</span><span class="s">{{-</span><span class="nv"> </span><span class="s">toYaml</span><span class="nv"> </span><span class="s">.</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">nindent</span><span class="nv"> </span><span class="s">8</span><span class="nv"> </span><span class="s">'</span><span class="pi">}}</span><span class="err">}}</span>
+    <span class="pi">{{</span><span class="s1">'</span><span class="s">{{-</span><span class="nv"> </span><span class="s">end</span><span class="nv"> </span><span class="s">'</span><span class="pi">}}</span><span class="err">}}</span>
       <span class="na">containers</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="pi"></span><span class="err">}}</span>
-          <span class="na">image</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">.Values.image.repository</span><span class="nv"> </span><span class="s">}}:{{</span><span class="nv"> </span><span class="s">.Values.image.tag</span><span class="nv"> </span><span class="s">}}"</span>
-          <span class="na">imagePullPolicy</span><span class="pi">:</span> <span class="pi"></span><span class="err">}}</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="pi">{{</span><span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">.Chart.Name</span><span class="nv"> </span><span class="s">'</span><span class="pi">}}</span><span class="err">}}</span>
+          <span class="na">image</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{'{{</span><span class="nv"> </span><span class="s">.Values.image.repository</span><span class="nv"> </span><span class="s">'}}}}:{{'{{</span><span class="nv"> </span><span class="s">.Values.image.tag</span><span class="nv"> </span><span class="s">'}}}}"</span>
+          <span class="na">imagePullPolicy</span><span class="pi">:</span> <span class="pi">{{</span><span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">.Values.image.pullPolicy</span><span class="nv"> </span><span class="s">'</span><span class="pi">}}</span><span class="err">}}</span>
           <span class="na">env</span><span class="pi">:</span> 
-            <span class="pi"></span><span class="err">}}</span>
-            <span class="pi"></span><span class="err">}}</span>
-            <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="pi"></span><span class="err">}}</span>
-              <span class="na">value</span><span class="pi">:</span> <span class="pi"></span><span class="err">}}</span>
-            <span class="pi"></span><span class="err">}}</span>
+            <span class="pi">{{</span><span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">$root</span><span class="nv"> </span><span class="s">:=</span><span class="nv"> </span><span class="s">.'</span><span class="pi">}}</span><span class="err">}}</span>
+            <span class="pi">{{</span><span class="s1">'</span><span class="s">{{-</span><span class="nv"> </span><span class="s">range</span><span class="nv"> </span><span class="s">$key,</span><span class="nv"> </span><span class="s">$value</span><span class="nv"> </span><span class="s">:=</span><span class="nv"> </span><span class="s">.Values.extraEnv</span><span class="nv"> </span><span class="s">'</span><span class="pi">}}</span><span class="err">}}</span>
+            <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="pi">{{</span><span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">$key</span><span class="nv"> </span><span class="s">'</span><span class="pi">}}</span><span class="err">}}</span>
+              <span class="na">value</span><span class="pi">:</span> <span class="pi">{{</span><span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">tpl</span><span class="nv"> </span><span class="s">($value</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">quote)</span><span class="nv"> </span><span class="s">$root</span><span class="nv"> </span><span class="s">'</span><span class="pi">}}</span><span class="err">}}</span>
+            <span class="pi">{{</span><span class="s1">'</span><span class="s">{{-</span><span class="nv"> </span><span class="s">end</span><span class="nv"> </span><span class="s">'</span><span class="pi">}}</span><span class="err">}}</span>
           <span class="na">ports</span><span class="pi">:</span>
             <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">http</span>
-              <span class="na">containerPort</span><span class="pi">:</span> <span class="pi"></span><span class="err">}}</span>
+              <span class="na">containerPort</span><span class="pi">:</span> <span class="pi">{{</span><span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">.Values.containerPort</span><span class="nv"> </span><span class="s">'</span><span class="pi">}}</span><span class="err">}}</span>
               <span class="na">protocol</span><span class="pi">:</span> <span class="s">TCP</span>
           <span class="na">resources</span><span class="pi">:</span>
-          <span class="pi"></span><span class="err">}}</span>
-<span class="pi"></span><span class="err">}}</span>
-          <span class="pi"></span><span class="err">}}</span>
+          <span class="pi">{{</span><span class="s1">'</span><span class="s">{{-</span><span class="nv"> </span><span class="s">if</span><span class="nv"> </span><span class="s">.Values.resources.enabled</span><span class="nv"> </span><span class="s">-'</span><span class="pi">}}</span><span class="err">}}</span>
+<span class="pi">{{</span><span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">tpl</span><span class="nv"> </span><span class="s">(toYaml</span><span class="nv"> </span><span class="s">.Values.resources.resource</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">nindent</span><span class="nv"> </span><span class="s">12)</span><span class="nv"> </span><span class="s">.</span><span class="nv"> </span><span class="s">'</span><span class="pi">}}</span><span class="err">}}</span>
+          <span class="pi">{{</span><span class="s1">'</span><span class="s">{{-</span><span class="nv"> </span><span class="s">end</span><span class="nv"> </span><span class="s">'</span><span class="pi">}}</span><span class="err">}}</span>
         
-    <span class="pi"></span><span class="err">}}</span>
+    <span class="pi">{{</span><span class="s1">'</span><span class="s">{{-</span><span class="nv"> </span><span class="s">if</span><span class="nv"> </span><span class="s">.Values.affinity.enabled</span><span class="nv"> </span><span class="s">'</span><span class="pi">}}</span><span class="err">}}</span>
       <span class="na">affinity</span><span class="pi">:</span> 
         <span class="na">nodeAffinity</span><span class="pi">:</span> 
           <span class="na">requiredDuringSchedulingIgnoredDuringExecution</span><span class="pi">:</span>
             <span class="na">nodeSelectorTerms</span><span class="pi">:</span>
             <span class="pi">-</span> <span class="na">matchExpressions</span><span class="pi">:</span>
-              <span class="pi">-</span> <span class="na">key</span><span class="pi">:</span> <span class="pi"></span><span class="err">}}</span>
+              <span class="pi">-</span> <span class="na">key</span><span class="pi">:</span> <span class="pi">{{</span><span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">.Values.affinity.nodeAffinityKey</span><span class="nv"> </span><span class="s">'</span><span class="pi">}}</span><span class="err">}}</span>
                 <span class="na">operator</span><span class="pi">:</span> <span class="s">In</span>
                 <span class="na">values</span><span class="pi">:</span> 
-                <span class="pi">-</span> <span class="pi"></span><span class="err">}}</span>
+                <span class="pi">-</span> <span class="pi">{{</span><span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">.Values.affinity.nodeAffinityValue</span><span class="nv"> </span><span class="s">'</span><span class="pi">}}</span><span class="err">}}</span>
   
-<span class="err">    </span><span class="pi"></span><span class="err">}}</span>
+<span class="err">    </span><span class="pi">{{</span><span class="s1">'</span><span class="s">{{-</span><span class="nv"> </span><span class="s">end</span><span class="nv"> </span><span class="s">'</span><span class="pi">}}</span><span class="err">}}</span>
 
 </code></pre></div></div>
 
@@ -679,7 +679,6 @@ node.js 의 npm 과 비슷한 형태로 Kubernetes 패키지 배포를 가능하
 </code></pre>
 
 <hr />
-
 <h2 id="chart-설치">Chart 설치</h2>
 <p>배포 Chart도 만들어졌고, 이제 작성된 Chart를 Kubernetes에 설치하는 것만 남았습니다.<br />
 차트를 검색하고 설치하는 과정에 대해 이제 알아보겠습니다.</p>
@@ -706,7 +705,7 @@ Chart (Kubernetes 배포용 매니페스트)가 저장된 Git config 저장소 �
 
 <p>Rancher 상단 메뉴의 <code class="language-plaintext highlighter-rouge">Apps &gt; Launch</code> 버튼을 클릭하면 등록된 차트가 아래와 같이 리스트 되어 보여집니다.</p>
 
-<p class="text-center"><a href="http://10.100.0.202:80/img/k8s/2020-04-07-11-06-10.png"><img src="http://10.100.0.202:80/img/k8s/2020-04-07-11-06-10.png" /></a><br />
+<p class="text-center"><a href="http://10.100.1.93:80/img/k8s/2020-04-07-11-06-10.png"><img src="http://10.100.1.93:80/img/k8s/2020-04-07-11-06-10.png" /></a><br />
 Rancher Catalog - Chart List</p>
 
 <h3 id="rancher-charts">Rancher Charts</h3>
@@ -792,7 +791,7 @@ Rancher Catalog - Chart List</p>
 
 <p>위와 같이 <code class="language-plaintext highlighter-rouge">questions.yaml</code>을 생성 후 Chart에 반영을 하고 차트 설치를 위한 상세 페이지로 가보도록 하겠습니다.</p>
 
-<p class="text-center"><a href="http://10.100.0.202:80/img/k8s/2020-04-07-14-13-39.png"><img src="http://10.100.0.202:80/img/k8s/2020-04-07-14-13-39.png" /></a><br />
+<p class="text-center"><a href="http://10.100.1.93:80/img/k8s/2020-04-07-14-13-39.png"><img src="http://10.100.1.93:80/img/k8s/2020-04-07-14-13-39.png" /></a><br />
 Rancher Catalog - Chart Detail</p>
 
 <p>이와 같이 화면이 렌더링이 되며, 각 영역은 다음과 같은 설정을 사용자로 부터 입력을 받게 됩니다.</p>
@@ -819,7 +818,7 @@ Rancher Catalog - Chart Detail</p>
 <h2 id="배포-자동화">배포 자동화</h2>
 <p>Rancher Catalog 기능을 이용하면 Kubernetes 인프라에 컨테이너 Deploy 및 Upgrade 작업을 쉽고 간단하게 진행 할 수 있습니다.</p>
 
-<p><a href="http://10.100.0.202:80/img/k8s/2020-04-07-17-00-12.png"><img src="http://10.100.0.202:80/img/k8s/2020-04-07-17-00-12.png" /></a></p>
+<p><a href="http://10.100.1.93:80/img/k8s/2020-04-07-17-00-12.png"><img src="http://10.100.1.93:80/img/k8s/2020-04-07-17-00-12.png" /></a></p>
 
 <p>배포된 Chart는 위와 같이 확인이 가능하며, 기본적인 어플리케이션 <strong>Patch 작업</strong>은 배포된 Chart의 Edit화면에서 <strong>Image Tag를 수정</strong>하는 방법으로 쉽게 <strong>Upgrade</strong>가 가능합니다. <br />
 운영환경에서는 지정된 시간에 지정된 배포 담당자가 Upgrade 를 진행하지만, 
@@ -912,7 +911,7 @@ python Django 프레임워크 기반으로 하는 <strong><code class="language-
   <p><a href="https://drf-yasg.readthedocs.io/en/stable/">drf-yasg </a></p>
 </blockquote>
 
-<p class="text-center"><a href="http://10.100.0.202:80/img/k8s/2020-04-27-11-30-38.png"><img src="http://10.100.0.202:80/img/k8s/2020-04-27-11-30-38.png" /></a><br />
+<p class="text-center"><a href="http://10.100.1.93:80/img/k8s/2020-04-27-11-30-38.png"><img src="http://10.100.1.93:80/img/k8s/2020-04-27-11-30-38.png" /></a><br />
 Rest API Document</p>
 
 <p><br /></p>
@@ -977,7 +976,7 @@ Rest API Document</p>
 
   
   <!--- Share on Twitter -->
-    <a href="https://twitter.com/intent/tweet?text=K8S+%EC%9D%B8%ED%94%84%EB%9D%BC+CI%2FCD+http://10.100.0.202:80/2020-05-01-k8s-cicd/"
+    <a href="https://twitter.com/intent/tweet?text=K8S+%EC%9D%B8%ED%94%84%EB%9D%BC+CI%2FCD+http://10.100.1.93:80/2020-05-01-k8s-cicd/"
       class="btn btn-social-icon btn-twitter" title="Share on Twitter">
       <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
       <span class="sr-only">Twitter</span>
@@ -986,7 +985,7 @@ Rest API Document</p>
 
   
   <!--- Share on Facebook -->
-    <a href="https://www.facebook.com/sharer/sharer.php?u=http://10.100.0.202:80/2020-05-01-k8s-cicd/"
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://10.100.1.93:80/2020-05-01-k8s-cicd/"
       class="btn btn-social-icon btn-facebook" title="Share on Facebook">
       <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
       <span class="sr-only">Facebook</span>
@@ -997,7 +996,7 @@ Rest API Document</p>
 
   
   <!--- Share on LinkedIn -->
-    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://10.100.0.202:80/2020-05-01-k8s-cicd/"
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://10.100.1.93:80/2020-05-01-k8s-cicd/"
       class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
       <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
       <span class="sr-only">LinkedIn</span>

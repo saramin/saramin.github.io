@@ -7,3 +7,6 @@ gem "github-pages", '228', group: :jekyll_plugins
 gem 'jekyll-paginate'
 
 gem 'jekyll-admin', group: :jekyll_plugins
+
+gem "webrick", "~> 1.8"
+gem "rackup", "~> 2.1"

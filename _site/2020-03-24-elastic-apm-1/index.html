@@ -92,12 +92,12 @@
   <meta property="og:type" content="website" />
 
   
-  <meta property="og:url" content="http://10.100.0.202:80/2020-03-24-elastic-apm-1/" />
-  <link rel="canonical" href="http://10.100.0.202:80/2020-03-24-elastic-apm-1/" />
+  <meta property="og:url" content="http://10.100.1.93:80/2020-03-24-elastic-apm-1/" />
+  <link rel="canonical" href="http://10.100.1.93:80/2020-03-24-elastic-apm-1/" />
   
 
   
-  <meta property="og:image" content="http://10.100.0.202:80/img/avatar-icon.png" />
+  <meta property="og:image" content="http://10.100.1.93:80/img/avatar-icon.png" />
   
 
 
@@ -115,7 +115,7 @@
   
 
   
-  <meta name="twitter:image" content="http://10.100.0.202:80/img/avatar-icon.png" />
+  <meta name="twitter:image" content="http://10.100.1.93:80/img/avatar-icon.png" />
   
 
   
@@ -144,7 +144,7 @@
         <span class="icon-bar"></span>
       </button>
       
-        <a class="navbar-brand" href="http://10.100.0.202:80">사람인 기술 블로그</a>
+        <a class="navbar-brand" href="http://10.100.1.93:80">사람인 기술 블로그</a>
       
     </div>
 
@@ -178,7 +178,7 @@
 	
 	<div class="avatar-container">
 	  <div class="avatar-img-border">
-	    <a href="http://10.100.0.202:80">
+	    <a href="http://10.100.1.93:80">
 	      <img class="avatar-img" src="/img/avatar-icon.png" />
 		</a>
 	  </div>
@@ -266,11 +266,10 @@
 <strong><a href="#1">1. APM 소개</a><br />
 <a href="#2">2. APM 설치 및 구성</a><br />
 <a href="#3">3. Kibana 화면을 통한 APM 데이터 확인</a><br />
-<a href="http://10.100.0.202:80/2020-03-24-elastic-apm-2/#4" target="_blank">4. 도입시 장점 및 기대 효과</a><br />
-<a href="http://10.100.0.202:80/2020-03-24-elastic-apm-2/#add" target="_blank">부록. Elastic vs Newrelic의 비교</a><br /></strong></p>
-<h5 id="elasti-apm-도입시의-장점-및-newrelic과의-비교는-2편을-참고해-주세요"><em>« Elasti APM 도입시의 장점 및 Newrelic과의 비교는 <a href="http://10.100.0.202:80/2020-03-24-elastic-apm-2" target="_blank">2편을 참고</a>해 주세요»</em></h5>
+<a href="http://10.100.1.93:80/2020-03-24-elastic-apm-2/#4" target="_blank">4. 도입시 장점 및 기대 효과</a><br />
+<a href="http://10.100.1.93:80/2020-03-24-elastic-apm-2/#add" target="_blank">부록. Elastic vs Newrelic의 비교</a><br /></strong></p>
+<h5 id="elasti-apm-도입시의-장점-및-newrelic과의-비교는-2편을-참고해-주세요"><em>« Elasti APM 도입시의 장점 및 Newrelic과의 비교는 <a href="http://10.100.1.93:80/2020-03-24-elastic-apm-2" target="_blank">2편을 참고</a>해 주세요»</em></h5>
 <hr />
-
 <p><a name="1"></a><br /></p>
 <h2 id="1-apm-소개">1. APM 소개</h2>
 <p>저희 팀에서는 여러 APM 솔루션 중 다음과 같은 이유로 Elastic APM을 선정하여 사용하였습니다.</p>
@@ -290,7 +289,7 @@ APM은 위와 같이 수집된 여러 데이터를 바탕으로 하여  Applicat
 <h3 id="1-2-apm-시스템-구성">1-2. APM 시스템 구성</h3>
 <p>APM에서 데이터를 수집하기 위해서는 Agent와 서버가 모두 필요하며 아래와 같은 시스템으로 구성됩니다.</p>
 
-<p><img src="http://10.100.0.202:80/img/apm/apm_archtecture.png" alt="Elastic APM 시스템 구성도" /></p>
+<p><img src="http://10.100.1.93:80/img/apm/apm_archtecture.png" alt="Elastic APM 시스템 구성도" /></p>
 
 <p>Elastic APM은 데이터를 수집 하기 위한 APM Agent와 수집된 데이터의 가공을 위한 APM Server로 구성됩니다<br />
 APM Server를 통해 수집된 데이터는 최종적으로 Elasticsearch에 적제되어 Kibana의 APM UI를 이용하여 조회 가능 합니다.</p>
@@ -347,7 +346,7 @@ APM Server를 통해 수집된 데이터는 최종적으로 Elasticsearch에 적
 <h3 id="1-4-apm-데이터-모델">1-4. APM 데이터 모델</h3>
 <p>APM에서 사용되는 성능 데이터는 Transaction, Span, Error, Metric, Metadata와 같은 데이터 모델로 관리 됩니다. <br />
 아래는 데이터 모델 중  Transaction, Span의 관계를 좀더 쉽게 이해하기 위한 그림입니다.
-<img src="http://10.100.0.202:80/img/apm/distributed_tracing.png" alt="" /></p>
+<img src="http://10.100.1.93:80/img/apm/distributed_tracing.png" alt="" /></p>
 
 <p><strong>1. Transaction</strong></p>
 
@@ -654,7 +653,7 @@ data:
 
 <p>Kubernetes에 YAML을 적용하고 “http://« kubernetes node ip »:30082”로 접속하면 아래와 같은 결과 화면을 확인 할 수 있습니다.</p>
 
-<p><img src="http://10.100.0.202:80/img/apm/apmserver_result.png" alt="" /></p>
+<p><img src="http://10.100.1.93:80/img/apm/apmserver_result.png" alt="" /></p>
 
 <p>데이터가 정상적으로 조회 되면 APM Server의 설치가 완료된 것입니다.</p>
 
@@ -758,7 +757,7 @@ Elastic에서 공식적으로 지원하는 Agent는 설치 후 별다른 설정�
 
 <p>JAVA Agent는 APM 성능 데이터 수집을 위해 필요한 Code들을 <a href="https://bytebuddy.net/#/">Byte Buddy</a>라는 library를 이용하여 Compile된 Application Byte Code에 직접 삽입합니다.<br />
 따라서, Agent를 Command Line Parameter로 설정만 해주면 별도의 BizLogic 수정 없이 APM 성능 데이터 수집이 가능 합니다. 
-<img src="http://10.100.0.202:80/img/apm/byte_buddy.png" alt="Byte Buddy" /></p>
+<img src="http://10.100.1.93:80/img/apm/byte_buddy.png" alt="Byte Buddy" /></p>
 
 <h4 id="2-2-2-php를-위한-apm-agent-설치">2-2-2. PHP를 위한 APM Agent 설치</h4>
 <p>Elastic APM에서 공식적으로 지원하는 PHP Agent는 존재 하지 않습니다.<br />
@@ -864,22 +863,22 @@ catch (Exception $e) {
 <p><a name="3"></a><br /></p>
 <h2 id="3-kibana-화면을-통한-apm-데이터-확인">3. Kibana 화면을 통한 APM 데이터 확인</h2>
 <p>kibana Basic License를 설치 하면 APM에 대한 데이터를 확인 할 수 있는 APM 전용 UI Plug-in이 같이 설치가 되며, Kibana를 접속하면 아래의 화면과 같이 해당 메뉴를 확인 할 수 있습니다.
-<img src="http://10.100.0.202:80/img/apm/kibana_menu.png" alt="" /></p>
+<img src="http://10.100.1.93:80/img/apm/kibana_menu.png" alt="" /></p>
 
 <p>APM 메뉴를 클릭 후 Service를 선택하면 Transaction, Error, Metric등을 확인 할 수 있는 메뉴들이 있습니다.</p>
 <h5 id="transaction-확인">Transaction 확인</h5>
 <p>Transaction을 선택하였을 경우 Transaction에 대한 상세 내용을 확인 할수 있는 화면 예시 입니다.
-<a href="http://10.100.0.202:80/img/apm/transaction_detail.png" target="_blank"><img src="http://10.100.0.202:80/img/apm/transaction_detail.png" /></a></p>
+<a href="http://10.100.1.93:80/img/apm/transaction_detail.png" target="_blank"><img src="http://10.100.1.93:80/img/apm/transaction_detail.png" /></a></p>
 
 <h5 id="error-확인">Error 확인</h5>
 <p>Error 메뉴를 선택하였을 경우 Transaction에 대한 상세 내용을 확인 할수 있는 화면 예시 입니다.
-<a href="http://10.100.0.202:80/img/apm/error_detail.png" target="_blank"><img src="http://10.100.0.202:80/img/apm/error_detail.png" /></a></p>
+<a href="http://10.100.1.93:80/img/apm/error_detail.png" target="_blank"><img src="http://10.100.1.93:80/img/apm/error_detail.png" /></a></p>
 
 <h5 id="metric-확인">Metric 확인</h5>
 <p>Metric 메뉴를 선택하였을 경우 Transaction에 대한 상세 내용을 확인 할수 있는 화면 예시 입니다.
-<a href="http://10.100.0.202:80/img/apm/metric_detail.png" target="_blank"><img src="http://10.100.0.202:80/img/apm/metric_detail.png" /></a></p>
+<a href="http://10.100.1.93:80/img/apm/metric_detail.png" target="_blank"><img src="http://10.100.1.93:80/img/apm/metric_detail.png" /></a></p>
 
-<p><b><em><a href="http://10.100.0.202:80/2020-03-24-elastic-apm-2">« Elasti APM 도입시의 장점 및 Newrelic과의 비교는 2편 에서 계속 됩니다» </a></em></b></p>
+<p><b><em><a href="http://10.100.1.93:80/2020-03-24-elastic-apm-2">« Elasti APM 도입시의 장점 및 Newrelic과의 비교는 2편 에서 계속 됩니다» </a></em></b></p>
 
       </article>
 
@@ -911,7 +910,7 @@ catch (Exception $e) {
 
   
   <!--- Share on Twitter -->
-    <a href="https://twitter.com/intent/tweet?text=Elastic+APM+%EC%A0%81%EC%9A%A9+%ED%95%B4%EB%B3%B4%EA%B8%B0+-+%231.+%EC%86%8C%EA%B0%9C+%EB%B0%8F+%EC%84%A4%EC%B9%98+http://10.100.0.202:80/2020-03-24-elastic-apm-1/"
+    <a href="https://twitter.com/intent/tweet?text=Elastic+APM+%EC%A0%81%EC%9A%A9+%ED%95%B4%EB%B3%B4%EA%B8%B0+-+%231.+%EC%86%8C%EA%B0%9C+%EB%B0%8F+%EC%84%A4%EC%B9%98+http://10.100.1.93:80/2020-03-24-elastic-apm-1/"
       class="btn btn-social-icon btn-twitter" title="Share on Twitter">
       <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
       <span class="sr-only">Twitter</span>
@@ -920,7 +919,7 @@ catch (Exception $e) {
 
   
   <!--- Share on Facebook -->
-    <a href="https://www.facebook.com/sharer/sharer.php?u=http://10.100.0.202:80/2020-03-24-elastic-apm-1/"
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://10.100.1.93:80/2020-03-24-elastic-apm-1/"
       class="btn btn-social-icon btn-facebook" title="Share on Facebook">
       <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
       <span class="sr-only">Facebook</span>
@@ -931,7 +930,7 @@ catch (Exception $e) {
 
   
   <!--- Share on LinkedIn -->
-    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://10.100.0.202:80/2020-03-24-elastic-apm-1/"
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://10.100.1.93:80/2020-03-24-elastic-apm-1/"
       class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
       <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
       <span class="sr-only">LinkedIn</span>

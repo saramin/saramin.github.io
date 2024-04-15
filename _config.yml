@@ -256,7 +256,7 @@ plugins:
 
 
 jekyll_admin:
-  homepage: "posts"
+  homepage: ""
   hidden_links:
     - configuration
 
