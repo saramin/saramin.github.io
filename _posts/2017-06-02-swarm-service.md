@@ -9,7 +9,6 @@ bigimg: "/img/docker-swarm-hero2.png"
 tags:
 - docker
 - swarm
-New field 1: 분산처리 시스템의 구조개선 프로젝트에 대한 공유 포스팅
 ---
 
 ## Foreword

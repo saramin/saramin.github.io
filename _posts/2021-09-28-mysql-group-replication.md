@@ -12,7 +12,6 @@ tags:
 - MySQL
 - Replication
 - Galera-cluster
-- 8
 titlecolor: "#AAAAAA"
 ---
 

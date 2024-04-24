@@ -1,7 +1,10 @@
 ---
 title: Terraform IaC 도구를 활용한 AWS 웹콘솔 클릭 노가다 해방기
 author: 안재현
-tags: terraform, iac, aws
+tags: 
+- terraform
+- iac
+- aws
 ---
 
 **테라폼이란?**
