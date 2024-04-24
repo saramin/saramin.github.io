@@ -82,7 +82,7 @@ author: 장경석
 아무래도 결과물보다는 과제 진행과정에서 운영되는 소스를 상세히 분석하고 부족한 지식을 보강하는 데 초점을 두신게 아닐까 싶습니다.
 
 
-![intern_jks_research.png]({{site.url}}/img/intern_jks_research.png)
+![intern_jks_research.png]({{site.url}}/img/intern/intern_jks_research.png)
 
 - **과정**
 
@@ -104,15 +104,15 @@ swagger 소스 작성법은
 
 swagger로 구현한 API 명세는 이렇습니다.
 
-![intern_jks_admin.jpg]({{site.url}}/img/intern_jks_admin.jpg)
+![intern_jks_admin.jpg]({{site.url}}/img/intern/intern_jks_admin.jpg)
 
 관리자 권한이 필요한 URL로 생성하여 다음과 같이 관리자 계정으로 로그인해야 접근할 수 있습니다.
 
-![intern_jks_document.jpg]({{site.url}}/img/intern_jks_document.jpg)
+![intern_jks_document.jpg]({{site.url}}/img/intern/intern_jks_document.jpg)
 
 관리자계정 로그인 후 API 명세 페이지로 접근하면 다음과 같이 엔드포인트들이 정렬되어 있습니다.
 
-![intern_jks_api_test.jpg]({{site.url}}/img/intern_jks_api_test.jpg)
+![intern_jks_api_test.jpg]({{site.url}}/img/intern/intern_jks_api_test.jpg)
 
 각 엔드포인트에 대한 테스트를 다음과같이 원하는 값을 입력하여 실행할 수 있습니다.
 
@@ -143,7 +143,7 @@ PHP 개발자
 
 # 6. 사람인에서 일하는 방식
 ## 6-1. JIRA, Confluence
-![intern_jks_jira.jpg]({{site.url}}/img/intern_jks_jira.jpg)
+![intern_jks_jira.jpg]({{site.url}}/img/intern/intern_jks_jira.jpg)
 
 사람인에서는 **ITS(Issue Tracking System)인 Atlassian JIRA**를 통해 업무일정을 관리합니다.
 (사용방법, https://www.atlassian.com/ko/software/jira/guides)
@@ -165,7 +165,7 @@ ITS에 대한 내용, 알게 된 내용, 자기계발 등등 사람인 **Conflue
 저는 담당한 모든 ITS에 대해 업무내용을 정리하고, 개인공부한 내용을 공유하고 있습니다.
 
 ## 6-2. Github
-![intern_jks_gitlab.jpg]({{site.url}}/img/intern_jks_gitlab.jpg)
+![intern_jks_gitlab.jpg]({{site.url}}/img/intern/intern_jks_gitlab.jpg)
 
 사람인에서는 **gitlab**을 사용합니다.  
 작년 인턴십때까지만 해도 **SVN**이라는 형상관리툴을 사용했었습니다.
@@ -201,7 +201,7 @@ github로 전환 된 현재 개발환경 설정이 더 쉬워졌습니다.
 
 - **DB 테이블 구조를 변경하고 싶은 경우**
 
-![intern_jks_approval.jpg]({{site.url}}/img/intern_jks_approval.jpg)
+![intern_jks_approval.jpg]({{site.url}}/img/intern/intern_jks_approval.jpg)
 
 이 경우 사람인에서는 **전자결재**를 통해 진행하도록 되어있습니다.  
 'DA분들과 협조해서 수정하면 되는 것 아닌가?' 생각하실 수 있지만 제 생각에는 이러한 이유는 이렇습니다.
@@ -221,14 +221,14 @@ github로 전환 된 현재 개발환경 설정이 더 쉬워졌습니다.
 **신입사원 입장에서 불편하지는 않을까?** 싶지만 물어본 내용은 굉장히 친절히 알려주십니다.
 아직까지 부담을 느껴본적은 없습니다.
 
-![intern_jks_confluence.jpg]({{site.url}}/img/intern_jks_confluence.jpg)
+![intern_jks_confluence.jpg]({{site.url}}/img/intern/intern_jks_confluence.jpg)
 
 사내 **Confluence를 검색**해보셔도 좋습니다.  
 대부분의 연구원님들이 담당한 업무를 Confluence에 자세히 정리해 두셨습니다.
 Confluence를 통해 도움을 받았다면 자신이 진행한 업무도 열심히 정리하는 것이 다른 연구원님들에게 도움이 됩니다.
 
 ## 6-4. 자기계발
-![intern_jks_inflearn.png]({{site.url}}/img/intern_jks_inflearn.png)
+![intern_jks_inflearn.png]({{site.url}}/img/intern/intern_jks_inflearn.png)
 
  사람인에서 생활하면서 자기계발을 적극적으로 권장한다는 느낌을 받았습니다.
 자신의 업무에 직접적으로 와닿아 있는 내용이 아니더라도 개발자로 성장할 수 있는 공부라면 자유롭게 하셔도 됩니다.

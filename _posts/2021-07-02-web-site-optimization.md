@@ -34,11 +34,11 @@ tags:
 
 [Does Page Load Time Really Affect Bounce Rate?(2018)](https://www.pingdom.com/blog/page-load-time-really-affect-bounce-rate/) 포스트에서는 페이지 로드 시간에 따른 사용자 이탈률의 상관관계에 대한 내용이 작성되어 있습니다. 특히 페이지 로드까지 **4초**가 소요되면 이탈률은 **24%**로 급격히 증가한다고 나와 있는데요. 이와 같이 사용자는 페이지의 응답, 콘텐츠의 노출, 사용자가 마우스나 손을 통해 페이지를 동작할 수 있을때까지 4초를 넘어가게 되면 사용자는 적지 않은 불쾌감을 느끼게 되며, 더욱 심각한 건 사이트에 대한 불신이 생길 수도 있습니다. 특히, 한번 이탈한 사용자는 언제 돌아올지 알 수 없습니다. 불쾌하더라도 정말 보고싶은 콘텐츠나 사용하고 싶은 서비스가 있기 전까진 말이죠.(좋은 서비스를 만드는 건 다른 얘기입니다!!)
 
-![saramin main](/img/web-site-optimization1.png)
+![saramin main](/img/web-site-optimization/web-site-optimization1.png)
 
 사람인 모바일 메인페이지는 접속자 수가 TOP 5 안에 들지만, 많은 콘텐츠와 기능들로 인해 무거워져 있어 최적화가 가장 시급하여 첫 최적화 작업 대상으로 사람인 모바일 메인페이지를 선정하였습니다.
 
-![google analytics1](/img/web-site-optimization2.png)
+![google analytics1](/img/web-site-optimization/web-site-optimization2.png)
 google analytics에서 확인해본 결과 지난 한 달간 모바일 메인페이지의 평균 로드 시간은 **4.13초**, 이탈률(Bounce Rate)는 **5%** 대 였는데요. 위에서 소개한 이탈률과는 괴리가 있는데요. 이는 사람인은 많은 구직자가 접속하는 사이트로 사이트 성능이 좋지 않아도 그에 상응하는 구직과 관련된 콘텐츠와 서비스가 있어 참아내며 이용하는 것으로 추정하였습니다. 그렇다고 내버려 두면 안되겠죠?!
 
 웹 페이지를 최적화 하는데 일반적으로 사용할 수 있는 방법들은 다양하게 있는데요. 저희는 프론트 엔드를 분석하여 아래와 같이 최적화 할 수 있는 것들을 검토하였습니다.
@@ -53,7 +53,7 @@ google analytics에서 확인해본 결과 지난 한 달간 모바일 메인페
 
 ## 1. 방문 페이지 HTML 압축
 사용자는 브라우저 주소창에 URL을 입력하면 서버에서 클라이언트의 화면을 구성할 수 있는 HTML을 응답하게 됩니다. 이 HTML에는 개발자가 유지보수하기 위해 필요한 주석이나 공백이 있지만, 이는 사용자에겐 필요하지 않습니다. 불필요한 주석, 공백을 제거하게 되면 HTML의 용량을 축소할 수 있으며 당연하게도 사용자는 더욱 적은 용량의 HTML을 다운로드 받기 때문에 결과적으로 초기 렌더링이 더 빨라 집니다.
-![network1](/img/web-site-optimization3.png)
+![network1](/img/web-site-optimization/web-site-optimization3.png)
 
 크롬 개발자 도구를 통해 압축 전 모바일 메인페이지 HTML 용량을 400kb로 확인하였습니다. 
 
@@ -86,7 +86,7 @@ class HtmlMinimizer extends Zend_Controller_Plugin_Abstract
 }
 {% endhighlight %}
 
-![diff1](/img/web-site-optimization4.png)
+![diff1](/img/web-site-optimization/web-site-optimization4.png)
 결과적으로 HtmlMinimizer 플러그인을 적용하여 HTML의 리소스를 **400kb → 300kb** 로  **25%** 가까운 용량을 축소하였습니다.(손 안대고 코 푼 느낌이군요..)
 백엔드에서 HTML 압축 방식은 대량의 HTML을 분석하여 제거하고 응답하기 때문에 서버의 부하가 발생할 수도 있고, 잘못된 처리로 인해 의도치 않게 요소가 노출 되지 않거나 기능이 동작되지 않는 문제가 있을 수 있습니다. 부하 테스트, 기능 테스트도 꼭 해줘야하는거 잊지 마세요!
 
@@ -145,7 +145,7 @@ window.addEventListener("load", function() {
 * 푸터 영역
 
 우와! 직접 세어 보니 꽤 많네요! 게다가 특정 영역은 숨겨진 콘텐츠를 펼쳐볼 수 있거나, swiper로 탐색할 수 있도록 구현되어 있습니다.
-![main2](/img/web-site-optimization5.gif)
+![main2](/img/web-site-optimization/web-site-optimization5.gif)
 
 저희는 메인페이지에 처음 접속했을때 보여질 상단 영역을 제외한 총 8개의 영역에 대해 Intersection Observer API로 브라우저 뷰포트가 지연 로드 될 콘텐츠 영역에 근접하게 되면 비동기 통신으로 해당 콘텐츠가 렌더링되도록 구현하기로 결정했습니다.
 
@@ -161,7 +161,7 @@ window.addEventListener("load", function() {
 
 | 로드 전 | 로드 후 |
 | -------- | -------- |
-| ![skeleton-before](/img/web-site-optimization6.png)   | ![skeleton-after](/img/web-site-optimization7.png)   |
+| ![skeleton-before](/img/web-site-optimization/web-site-optimization6.png)   | ![skeleton-after](/img/web-site-optimization/web-site-optimization7.png)   |
 
 사용자의 네트워크 환경이나 기기의 사양, 서버의 응답속도와 같은 다양한 원인으로 인해 지연 로드되는 콘텐츠는 언제 화면에 노출될지 알 수 없습니다. 저희는 다양한 환경의 사용자를 위해 미리 어떤 콘텐츠가 노출될지 예상할 수 있으며, 암시적으로 '로드 중 입니다'를 인지할 수 있도록 하기 위해 Skeleton UI를 사용하기로 하였습니다.
 그리고, Skeleton UI를 통해 지연 로드 영역을 미리 확보해 놓는다면 Reflow 발생을 방지할 수 있습니다.
@@ -245,21 +245,21 @@ $('.lazy-load').each(function() {
 	
 ## 결과
 ### 1. 방문 페이지 HTML
-![skeleton-after](/img/web-site-optimization8.png)
+![skeleton-after](/img/web-site-optimization/web-site-optimization8.png)
 방문 페이지 HTML은 최적화 전 400kb에서 공백, 주석 제거와 콘텐츠 지연 로드를 통해 160kb로 줄여 약 **60%** 축소되었습니다.
 <br><br>
 
 ### 2. 페이지 로드
 **최적화 전**
-![skeleton-after](/img/web-site-optimization9.png)
+![skeleton-after](/img/web-site-optimization/web-site-optimization9.png)
 
 **최적화 후**
-![skeleton-after](/img/web-site-optimization10.png)
+![skeleton-after](/img/web-site-optimization/web-site-optimization10.png)
 **Javascript 지연 로드** 및 **콘텐츠 지연 로드**로 페이지를 최적화하여 더욱 빠르게 페이지 로드 되는것을 확인할 수 있습니다.
 <br><br>
 	
 ### 3. 구글 애널리틱스 수집 결과
-![skeleton-after](/img/web-site-optimization11.png)
+![skeleton-after](/img/web-site-optimization/web-site-optimization11.png)
 최적화 전과 후로 사용자의 평균 페이지 로드 속도가 4초에서 **2초대**로 더 빨라졌으며, 이탈률 또한 줄어든 것을 확인할 수 있습니다.
 <br><br><br>
 	
@@ -307,7 +307,7 @@ Route::get('/', 'HomeController@index')->name('index')->middleware('minify_web')
 	
 ## 동기 통신으로 인한 렌더링 지연
 크롬 개발자 도구에서 사이트 퍼포먼스를 측정하여 확인 하던 중 특정 Javascript 알고리즘이 **500~700ms** 가까이 렌더링을 지연시키고 있는 이슈를 확인하였습니다.
-![skeleton-after](/img/web-site-optimization12.png)
+![skeleton-after](/img/web-site-optimization/web-site-optimization12.png)
 
 {% highlight javascript linenos %}
 function getTokenValue(name) {
@@ -358,10 +358,10 @@ $.when(getTokenValue('token'), getTokenValue('user_token'))
 * **Number of Tests to Run**: 9
 
 **최적화 전**
-![skeleton-after](/img/web-site-optimization13.png)
+![skeleton-after](/img/web-site-optimization/web-site-optimization13.png)
 
 **최적화 후**
-![skeleton-after](/img/web-site-optimization14.png)	
+![skeleton-after](/img/web-site-optimization/web-site-optimization14.png)	
 
 * First Byte: 0.689s -> **0.519s**
 * Start Render: 1.400s -> **1.100s**

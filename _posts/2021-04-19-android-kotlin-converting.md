@@ -1,6 +1,6 @@
 ---
 title: 사람인 Android App Kotlin Converting
-bigimg: "/img/android_kotlin_banner.jpeg"
+bigimg: "/img/etc/android_kotlin_banner.jpeg"
 author: 강덕현
 tags:
 - android

@@ -92,7 +92,7 @@ author: 선아리
 ```
 <br>
 
-<img src="/img/codereview_comment.png" width="800px" />
+<img src="/img/etc/codereview_comment.png" width="800px" />
 
 물론 리뷰어만 코드리뷰를 하진 않습니다. 모두에게 코드리뷰 요청을 하되 리뷰어는 꼭 참여하자라는 의미로 설정합니다.
 

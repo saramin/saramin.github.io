@@ -34,7 +34,7 @@ FE 개발팀에서는 작년 KPI의 일환으로 팀 내 기술 표준을 정립
 컴포넌트 props 및 컴포넌트에 종속되어 있는 types는 각 컴포넌트 디렉토리 안에 위치하여 local types로 관리하고, 그 외 Router, API fetcher, React Query, utils, 3rd party 등에 필요한 types는 types 디렉토리 안에 위치하여 global types로 관리하도록 작성되었습니다.
 
 <figure>
-     <img src="/img/type-directory-strategy.png" alt="프로젝트 디렉토리 스크린샷" />
+     <img src="/img/typescript/type-directory-strategy.png" alt="프로젝트 디렉토리 스크린샷" />
 	    <figcaption class="fig-caption">좌: Badge 컴포넌트 디렉토리, 우: types 디렉토리</figcaption>
 </figure>
 
@@ -129,7 +129,7 @@ TS를 도입하기 전에는 다소 어렵지 않을까 막연한 부담이 있�
 다만 TS를 도입하면서 어려웠다고 느꼈던 건 외부 라이브러리를 사용할 때였는데요.
 
 <figure>
-     <img src="/img/what-the.png" alt="제법 많은 양의 오류 안내 설명 화면 캡쳐" />
+     <img src="/img/typescript/what-the.png" alt="제법 많은 양의 오류 안내 설명 화면 캡쳐" />
 	    <figcaption class="fig-caption">타입을 정의해 가는 중, 처음에는 무척이나 당황하게하는 어마무시한 양으로 느껴지는 오류 안내 메세지였…</figcaption>
 </figure>
 
@@ -137,7 +137,7 @@ TS를 도입하기 전에는 다소 어렵지 않을까 막연한 부담이 있�
 특히 React Query를 사용하면서 Custom hook을 만들어 적용할 때 요구되는 type을 작성하느라 진땀을 뺐던 것 같습니다 😂 TypeScript를 적용하던 초기에는 type이 일치하지 않다는 메세지를 올바르게 해석해내지 못하고 헤메이느라 시간을 좀 더 잡아먹기도 했는데 프로젝트 후반부에 들어서는 어느 정도 익숙해졌는지 라이브러리에 정의 된 type을 추적해가며 해결할 수 있게 되었습니다.
 
 <figure>
-     <img src="/img/dts-for-tanstack.png" alt="라이브러리의 type 정의 파일을 찾아서 이해할 수 있게 되었다" />
+     <img src="/img/typescript/dts-for-tanstack.png" alt="라이브러리의 type 정의 파일을 찾아서 이해할 수 있게 되었다" />
 </figure>
 
 이러한 것만 아니면 TS를 도입하는데 초기에는 큰 어려움은 없다고 생각하는데요, 막연히 어려울 것이라는 걱정 때문에 미루고 있는 분이 계시다면 도입 시도를 적극 추천합니다.
@@ -147,14 +147,14 @@ TS를 도입하기 전에는 다소 어렵지 않을까 막연한 부담이 있�
 - 코드리뷰에서 불필요한 리소스가 조금 더 줄었다
 
     <figure>
-       <img src="/img/code-review-space.png" alt="띄어쓰기 오류에 대한 코드 리뷰 화면 캡쳐" />
+       <img src="/img/typescript/code-review-space.png" alt="띄어쓰기 오류에 대한 코드 리뷰 화면 캡쳐" />
 	     <figcaption class="fig-caption">띄어쓰기로 인한 오류. 눈을 크게 뜨고 봐야 한다</figcaption>
     </figure>	
 		
     정적 타입을 사용하지 않던 이전 환경에서 코드리뷰를 하면 혹시나 숨어 있을지 모를 누락된 예외 처리, 오탈자로 인한 오류까지도 함께 검사해야 하거나 꼼꼼히 살펴보지 않으면 리뷰어 조차도 놓치기 쉽기 때문에 제법 많은 리소스가 발생되었는데 정적 검사가 이를 대신하여 경고를 띄워 리뷰 전 단계에서 해결 할 수 있게 되어 더 본질적인 것에 집중하여 리뷰가 가능해졌습니다.
 		
     <figure>
-       <img src="/img/code-review-null-exception.png" alt="[API가 예외를 내려주지 않으면 발견하기 쉽지 않은 오류 코드 리뷰 화면 캡쳐" />
+       <img src="/img/typescript/code-review-null-exception.png" alt="[API가 예외를 내려주지 않으면 발견하기 쉽지 않은 오류 코드 리뷰 화면 캡쳐" />
 	     <figcaption class="fig-caption">API가 완성되기 전까지는 알아차리기 힘들지도 모를 그런 오류. 하지만 TS였다면?</figcaption>
     </figure>	
 		
@@ -165,7 +165,7 @@ TS를 도입하기 전에는 다소 어렵지 않을까 막연한 부담이 있�
     이전에는 컴포넌트를 가져다 쓰려면 컴포넌트의 필수 prop이 무엇인지 혹은 사용 가능한 값을 확인 하기 위해 화면 한 쪽에 컴포넌트 코드를 열어두거나 storybook을 띄워두고 찾아다니거나 해야 했지만, TS도입 이후로는 IDE의 인텔리센스 지원으로 손 쉽게 처리할 수 있게 되어 체감되는 개발 속도 향상이 제법 높게 느껴졌습니다.
 		
     <figure>
-       <img src="/img/vscode-intelisense.jpeg" alt="[Visual Studio Code intelisense 화면 캡쳐" />
+       <img src="/img/typescript/vscode-intelisense.jpeg" alt="[Visual Studio Code intelisense 화면 캡쳐" />
 	     <figcaption class="fig-caption">인텔리센스에서 필수 속성의 누락 및 사용 가능한 속성을 알려주고, 누락된 속성 추가 기능으로 필수 속성을 한 번에 삽입할 수 있습니다.</figcaption>
     </figure>
 				
@@ -221,7 +221,7 @@ TS를 도입하기 전에는 다소 어렵지 않을까 막연한 부담이 있�
 msw는 이름에서 볼 수 있듯 service worker를 이용하여 모의(mock)를 도와주는 라이브러리로, service worker가 HTTP 요청을 가로채 등록해 둔 모의 응답을 전달해주는 기능을 합니다.
 
 <figure>
-     <img src="/img/msw-on-dev-tools-network.png" alt="크롬 개발자도구 네트워크 탭 화면 캡쳐" />
+     <img src="/img/typescript/msw-on-dev-tools-network.png" alt="크롬 개발자도구 네트워크 탭 화면 캡쳐" />
 	   <figcaption class="fig-caption">msw가 네트워크를 가로채 실제 API처럼 작동해줍니다.</figcaption>
 </figure>
 
@@ -314,7 +314,7 @@ const handlers = [
 혹시 사람인 신입·인턴 채용달력 페이지를 보셨나요? 여러 페이지로 구성되어 있지만 화면 구성은 결국 주간/월간뷰의 차이를 제외하고는 나머지 구성은 항상 동일하게 되어 있는데요.
 
 <figure>
-     <img src="/img/calendar-screenshot.jpeg" alt="사람인 채용달력 주간뷰 및 월간뷰 화면 캡쳐" />
+     <img src="/img/typescript/calendar-screenshot.jpeg" alt="사람인 채용달력 주간뷰 및 월간뷰 화면 캡쳐" />
 </figure>
 
 월간 달력이나 주간 달력이냐를 제외하면 나머지 부분은 동일한 형태를 유지합니다. 

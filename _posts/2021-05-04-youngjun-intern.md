@@ -46,7 +46,7 @@ Web Service에 대한 전반적인 이해와 함께 개발을 할 때 무엇을 
 
 저의 경우에는 코드 버전 관리는 Git, 개발 업무는 Confluence와 Jira를 활용하였고, Wiki를 연동한 ITS 발행 기반 칸반보드를 관리하며 체계적으로 프로젝트를 진행하는 경험을 했습니다.
 
-![youngjun_2.png]({{site.url}}/img/youngjun_2.png)
+![youngjun_2.png]({{site.url}}/img/youngjun/youngjun_2.png)
 
 (▲ Jira 칸반보드와 직접 작성했던 WBS)
 
@@ -129,7 +129,7 @@ PHP, jQuery, javascript 등 다양한 기술 스택을 경험하였고,
 ‘20년에는 공채 1기를 위한 후드티도 제작했는데,  ~~사무실에서 입기에~~ 너무 좋습니다 😊
 
 
-![youngjun_3.png]({{site.url}}/img/youngjun_3.png)
+![youngjun_3.png]({{site.url}}/img/youngjun/youngjun_3.png)
 
 (▲ 웰컴키트와 사람인 후드티, 조끼)
      
@@ -141,7 +141,7 @@ PHP, jQuery, javascript 등 다양한 기술 스택을 경험하였고,
 또, IT연구소답게 수료증은 [블록체인 증서](https://www.broof.io/search/59242c0a)로 발급해 주셨습니다. `(실물 수료증도 드려요)`
 
 
-![youngjun_4.png]({{site.url}}/img/youngjun_4.png)
+![youngjun_4.png]({{site.url}}/img/youngjun/youngjun_4.png)
 
 (▲ 명함, 사원증, 예쁜 복지카드, 수료증)
 
@@ -154,7 +154,7 @@ PHP, jQuery, javascript 등 다양한 기술 스택을 경험하였고,
 
 아침에 딸기잼이랑 버터 발라서 커피랑 같이 먹으면 점심까지 업무 효율 잘 나온답니다.<br/>🍞☕
 
-![youngjun_5.png]({{site.url}}/img/youngjun_5.png)
+![youngjun_5.png]({{site.url}}/img/youngjun/youngjun_5.png)
 
 (▲ 저의 업무 환경과 사내 카페)
 
@@ -175,4 +175,4 @@ PHP, jQuery, javascript 등 다양한 기술 스택을 경험하였고,
 - [취준생에서 사람인 개발자 되기](https://saramin.github.io/2021-05-04-jks-intern/)
 
 
-![youngjun_bg.png]({{site.url}}/img/youngjun_bg.png)
+![youngjun_bg.png]({{site.url}}/img/youngjun/youngjun_bg.png)

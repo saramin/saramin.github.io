@@ -5,7 +5,7 @@ comments: true
 social-share: true
 show-avatar: true
 subtitle: 서비스 런칭을 위해 준비했던 것들과 경험하고 있는 것들을 공유합니다.
-bigimg: "/img/docker-swarm-hero2.png"
+bigimg: "/img/swarm/docker-swarm-hero2.png"
 tags:
 - docker
 - swarm
@@ -40,7 +40,7 @@ tags:
 
 ## 그럼 어떻게 구성되어 있는가
 
-![docker_swarm1](/img/docker_swarm1.png)
+![docker_swarm1](/img/swarm/docker_swarm1.png)
 
 * 하나의 로드밸런서(HAProxy)가 swarm 서버군을 연결하고 있습니다.  [관련링크](https://docs.docker.com/engine/swarm/ingress/#/configure-an-external-load-balancer)
 * ( swarm 서버군은 3대의 마스터 노드를 갖고 있습니다.
@@ -77,7 +77,7 @@ work 노드에 여러 서비스들이 올라가 있습니다.
 
 ## [ingress network](https://docs.docker.com/engine/swarm/ingress/)
 
-![docker_swarm3](/img/docker_swarm3.png)
+![docker_swarm3](/img/swarm/docker_swarm3.png)
 
 ingree 가상 네트워크에 서비스가 포트를 오픈 할 경우 어떤 노드에 요청을 보내도 해당 요청을 컨테이너에 전달 해 줍니다.  
 한마디로 첫번째 LB를 타고 넘어온 요청은 swarm의 ingress network의 cloudhaproxy 서비스의 컨테이너로 전달이 됩니다.  
@@ -100,7 +100,7 @@ Traefik, nginx 등이 있지만 제가 dockercloud/haproxy를 선택한 이유�
 
 ## 서비스 배포/롤백하기
 
-![docker_swarm4](/img/docker_swarm4.png)
+![docker_swarm4](/img/swarm/docker_swarm4.png)
 
 CI/CD는 젠킨스를 이용하고 있습니다.  
 배포를 진행하게 되면 아래의 작업이 순차적으로 이루어집니다.  

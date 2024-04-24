@@ -38,7 +38,7 @@ Shortening URL은 간단히 설명해서 사이즈가 큰 URL을 짧은 URL로 �
 
 - **Bitly 대시보드**
 
-![cjaewoo_bitly.png]({{site.url}}/img/cjaewoo_bitly.png)
+![cjaewoo_bitly.png]({{site.url}}/img/cjaewoo/cjaewoo_bitly.png)
 
 기존에는 Java를 많이 사용했었지만 이번 1차 과제를 해보면서 **하나의 언어를 잘 알고 있으면 다른 언어를 배우는 데는 많은 시간이 들지 않는다는 것**을 배웠고, 각 언어마다 장단점이 분명히 있고 이것을 알고 적절한 언어를 선택하는 것도 개발자로서 중요하다는 것을 알았습니다.
 
@@ -46,15 +46,15 @@ Shortening URL은 간단히 설명해서 사이즈가 큰 URL을 짧은 URL로 �
 
 - **비로그인 메인 화면**
 
-![cjaewoo_first1.png]({{site.url}}/img/cjaewoo_first1.png)
+![cjaewoo_first1.png]({{site.url}}/img/cjaewoo/cjaewoo_first1.png)
 
 - **유저 대시보드**
 
-![cjaewoo_first2.png]({{site.url}}/img/cjaewoo_first2.png)
+![cjaewoo_first2.png]({{site.url}}/img/cjaewoo/cjaewoo_first2.png)
 
 - 관리자대시보드
 
-![cjaewoo_first3.png]({{site.url}}/img/cjaewoo_first3.png)
+![cjaewoo_first3.png]({{site.url}}/img/cjaewoo/cjaewoo_first3.png)
 
 > **2차 과제**
 
@@ -68,7 +68,7 @@ Shortening URL은 간단히 설명해서 사이즈가 큰 URL을 짧은 URL로 �
 
 ### 2. JIRA를 통한 프로젝트를 관리
 
-![cjaewoo_jira.png]({{site.url}}/img/cjaewoo_jira.png){: width="40%" height="40%"}
+![cjaewoo_jira.png]({{site.url}}/img/cjaewoo/cjaewoo_jira.png){: width="40%" height="40%"}
 
 처음 인턴을 시작했을 때 JIRA가 무엇인지도 몰랐습니다. 😂 프로젝트 관리 소프트웨어라는 것을 알고 나서도 이걸 어떻게 사용하는거지 라는 물음이 한동안 존재했었습니다.
 
@@ -86,7 +86,7 @@ Shortening URL은 간단히 설명해서 사이즈가 큰 URL을 짧은 URL로 �
 
 인턴 과정이 모두 마무리되고 마지막에 최종 면접을 거치고 인턴 과정이 모두 끝이 났습니다. 그리고 얼마 뒤 최종합격 연락을 받고 저는 **개발2팀 빌링파트**에 배치되어 일을 하게되었습니다. 😀
 
-![cjaewoo_pass_mail.png]({{site.url}}/img/cjaewoo_pass_mail.png)
+![cjaewoo_pass_mail.png]({{site.url}}/img/cjaewoo/cjaewoo_pass_mail.png)
 
 ---
 
@@ -98,7 +98,7 @@ Shortening URL은 간단히 설명해서 사이즈가 큰 URL을 짧은 URL로 �
 
 > **빌링 파트**
 
-![cjaewoo_product_page.png]({{site.url}}/img/cjaewoo_product_page.png)
+![cjaewoo_product_page.png]({{site.url}}/img/cjaewoo/cjaewoo_product_page.png)
 
 여러분들이 매일 보는 회사 채용 공고 또는 인적성검사는 기업에서 위 사진과 같은 사람인의 상품을 구매함으로써 여러분들에게 노출되거나 시험이 응시된다는 것을 알고계신가요?
 
@@ -108,13 +108,13 @@ Shortening URL은 간단히 설명해서 사이즈가 큰 URL을 짧은 URL로 �
 
 사람인 IT연구소 개발자는 기본적으로 **풀 스택(Full Stack)**으로 개발을 진행합니다.
 
-![cjaewoo_tech.png]({{site.url}}/img/cjaewoo_tech.png)
+![cjaewoo_tech.png]({{site.url}}/img/cjaewoo/cjaewoo_tech.png)
 
 저희 파트가 담당하는 부분에서 프론트는 PHP + Vue로 이루어져있고, 백엔드 API서버는 모두 Spring Boot로 이루어져 MSA로 분리되어있습니다. 그래서 저희 파트는 **PHP + Vue + Spring Boot** 세가지를 모두 사용하며 작업하고 있습니다. (처음 팀에 배정받고 환경 설정을 하는 과정에서 Clone받을 프로젝트가 너무 많아서 당황했던 기억이....) 그리고 **Mysql, Redis, Kafka**등 다양한 기술들을 사용하여 사람인 데이터를 관리하고 있습니다. 마지막으로 프로젝트 배포는 **GitLab CI/CD**를 통해 배포가 이루어지고 있습니다.
 
 > **개발 환경은 어떠한가**
 
-![cjaewoo_jetbrain.png]({{site.url}}/img/cjaewoo_jetbrain.png)
+![cjaewoo_jetbrain.png]({{site.url}}/img/cjaewoo/cjaewoo_jetbrain.png)
 
 저희 사람인 IT연구소의 작업 환경은 **노트북과 모니터2대**로 작업을 하게됩니다.
 IDE를 어떤 것을 사용할지 궁금하실텐데 IDE는 회사에서 **Jetbrain All Products Pack** 라이센스를 구매해주기 때문에 모든 Jetbrain IDE를 사용이 가능하답니다. 저 같은 경우는 **PHPStorm, IntelliJ, DataGrip**을 주로 사용합니다.
@@ -125,13 +125,13 @@ IDE를 어떤 것을 사용할지 궁금하실텐데 IDE는 회사에서 **Jetbr
 
 - **JIRA 칸반에 할당된 업무**
 
-![cjaewoo_canban.png]({{site.url}}/img/cjaewoo_canban.png)
+![cjaewoo_canban.png]({{site.url}}/img/cjaewoo/cjaewoo_canban.png)
 
 일반적으로 기획자분이 작업을 추진하고 기획서를 작성하고 개발자 분들과 디자이너 분들은 기획을 이해하여 개발 일정을 수립하고일정에 맞게 개발과 디자인을 진행하게됩니다. 이러한 과정속에서 수많은 의견을 주고받으며 커뮤니케이션을 하게됩니다.
 
 - **WBS 예시**
 
-![cjaewoo_wbs.png]({{site.url}}/img/cjaewoo_wbs.png)
+![cjaewoo_wbs.png]({{site.url}}/img/cjaewoo/cjaewoo_wbs.png)
 
 이제 개발이 모두 완료되었다면 바로 배포...가 아닌 QA를 진행해야합니다. QA를 진행하면서 개발하면서 누락된 작업, 에러등을 하나하나 찾아내서 해결하게됩니다.
 
@@ -149,7 +149,7 @@ QA까지 모두 완료되고 개발이 완벽하게 끝났을 때 이제 사람�
 
 이러한 과정을 겪으면서 코드 분석 능력이 중요하다는 것을 느꼈고, 또한 앞으로 내가 상세한 주석과 WIKI 문서작성 습관을 키우는 것이 저의 동료 개발자분들에게 큰 도움이 될 수 있다는 것을 깨달았습니다.
 
-![cjaewoo_confluence.png]({{site.url}}/img/cjaewoo_confluence.png)
+![cjaewoo_confluence.png]({{site.url}}/img/cjaewoo/cjaewoo_confluence.png)
 
 이렇게 6개월 일해오면서 저는 제 자신이 개발자로서 성장하는걸 느끼며 회사에 만족하며 다니고 있습니다.
 
@@ -159,7 +159,7 @@ QA까지 모두 완료되고 개발이 완벽하게 끝났을 때 이제 사람�
 
 IT연구소는 자기 개발을 위한 학습에 대해 아낌없이 지원한다는 것을느꼈습니다. 많은 **IT 강의 플랫폼**의 수강료를 지원하고 또한 **업무 시간**에 다양한 **IT개발 컨퍼런스**에 참여할 수 있습니다. 최근에는 **인프런 비즈니스**에 가입되어  무제한으로 원하는 강의를 들을 수 있게 되었습니다. 저도 퇴근하고 틈틈이 강의를 들으면서 회사 업무에 필요한 기술들을 공부하며 자기 계발을 하고 있답니다.
 
-![cjaewoo_lecture.png]({{site.url}}/img/cjaewoo_lecture.png)
+![cjaewoo_lecture.png]({{site.url}}/img/cjaewoo/cjaewoo_lecture.png)
 
 ---
 

@@ -32,7 +32,7 @@ tags:
 
 ### 1. 개발자 포트폴리오 서비스
 첫 번째 과제로 **Github oauth 인증을 활용한 개발자 포트폴리오 웹 서비스**를 제작했습니다.
-![Devfolio Screenshot]({{site.url}}/img/intern_hyem_screenshot1.png)
+![Devfolio Screenshot]({{site.url}}/img/intern/intern_hyem_screenshot1.png)
 
 개발자 포트폴리오 서비스는 입사 전부터 생각해 두었던 아이디어였는데 구직 플랫폼인 사람인과도 어울리는 주제라고 생각이 들어 자유 주제로 선택하게 되었습니다.  
 
