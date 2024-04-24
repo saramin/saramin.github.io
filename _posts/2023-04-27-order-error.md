@@ -27,7 +27,7 @@ IT연구소 서비스개발팀 빌링파트 최재우입니다.
 
 ![Untitled](/img/order-error/Untitled.png)
 
-![Untitled](/img/order-error/Untitled%201.png)
+![Untitled](/img/order-error/Untitled_1.png)
 
 지금 보니 네트워크 사용량이 왜 눈에 들어오지 않았을까…라고 반성해봅니다
 
@@ -37,11 +37,11 @@ IT연구소 서비스개발팀 빌링파트 최재우입니다.
 - `unable to commit(rollback) against JDBC Connection`
 - `OutofMemoryError: GC overhead limit exceeded`
 
-[<img src="{{site.url}}/img/order-error/Untitled%202.png" />](/img/order-error/Untitled%202.png)
+[<img src="{{site.url}}/img/order-error/Untitled_2.png" />](/img/order-error/Untitled_2.png)
 
-[<img src="{{site.url}}/img/order-error/Untitled%203.png" />](/img/order-error/Untitled%203.png)
+[<img src="{{site.url}}/img/order-error/Untitled_3.png" />](/img/order-error/Untitled_3.png)
 
-[<img src="{{site.url}}/img/order-error/Untitled%204.png" />](/img/order-error/Untitled%204.png)
+[<img src="{{site.url}}/img/order-error/Untitled_4.png" />](/img/order-error/Untitled_4.png)
 
 # 이슈 feat. 불타는 CPU, RAM 그리고 에러 로그..
 
@@ -55,7 +55,7 @@ IT연구소 서비스개발팀 빌링파트 최재우입니다.
 
 하.지.만… 일주일 뒤 똑같은 상황이 발생했습니다. 저희 파트는 버전 문제가 아님을 깨닫고 일단 발생한 에러 로그를 재현해보면서 원인을 찾아보기로 했습니다. 삽질의 시작이었습니다…
 
-![Untitled](/img/order-error/Untitled%205.png)
+![Untitled](/img/order-error/Untitled_5.png)
 
 # 에러 로그를 재현해보자
 
@@ -76,7 +76,7 @@ IT연구소 서비스개발팀 빌링파트 최재우입니다.
 - maximum-pool-size: 1 → 최대 생성할 수 있는 `Connection` 개수
 - connection-timeout: 30초 → `Connection`을 얻을때까지의 최대 대기 시간
 
-![Untitled](/img/order-error/Untitled%206.png)
+![Untitled](/img/order-error/Untitled_6.png)
 
 > Mysql wait_timeout 설정
 > 
@@ -84,7 +84,7 @@ IT연구소 서비스개발팀 빌링파트 최재우입니다.
 `wait_timeout`은 `Mysql`**에 설정된** 활동하지 않는 `Connection`을 유지하는 시간이다.
 * 여기서 헷갈리지 않아야 하는 것은 해당 `Connection`은 `Hikari Connection`이 아닌 `Mysql`에서 관리하는 `Connection`입니다. `wait_timeout` 관련해서는 아래에서 자세히 설명하겠습니다.
 
-![Untitled](/img/order-error/Untitled%207.png)
+![Untitled](/img/order-error/Untitled_7.png)
 
 > 코드
 > 
@@ -164,9 +164,9 @@ public class HikariTests {
 5. `Connection` 점유 동안 `saveMember()`는 `Connection`을 획득하지 못하므로(`Connection`이 1개이므로) 계속 대기
 6. **30초 후** `saveMember()` 는 `Connection`을 획득하지 못했으므로 예외 발생
 
-[<img src="{{site.url}}/img/order-error/Untitled%208.png" />](/img/order-error/Untitled%208.png)
+[<img src="{{site.url}}/img/order-error/Untitled_8.png" />](/img/order-error/Untitled_8.png)
 
-[<img src="{{site.url}}/img/order-error/Untitled%209.png" />](/img/order-error/Untitled%209.png)
+[<img src="{{site.url}}/img/order-error/Untitled_9.png" />](/img/order-error/Untitled_9.png)
 
 ### 2. Unable to commit(rollback) against JDBC Connection
 
@@ -180,9 +180,9 @@ public class HikariTests {
 
 아래는 `HikariProxyConnecton` `ProxyConnection` 클래스의 일부입니다.
 
-![Untitled](/img/order-error/Untitled%2010.png)
+![Untitled](/img/order-error/Untitled_10.png)
 
-[<img src="{{site.url}}/img/order-error/Untitled%2011.png" />](/img/order-error/Untitled%2011.png)
+[<img src="{{site.url}}/img/order-error/Untitled_11.png" />](/img/order-error/Untitled_11.png)
 
 `ProxyConnection`을 보면 `Mysql`과 통신하는 `Jdbc` 함수(`createStatement…`)들 구현부에는 `delegate` 함수를 대신 호출해주는 것을 확인할 수 있습니다.
 
@@ -201,12 +201,12 @@ public class HikariTests {
 > HikariCP 설정
 > 
 
-![Untitled](/img/order-error/Untitled%2012.png)
+![Untitled](/img/order-error/Untitled_12.png)
 
 > wait_timeout
 > 
 
-![Untitled](/img/order-error/Untitled%2013.png)
+![Untitled](/img/order-error/Untitled_13.png)
 
 > 코드
 > 
@@ -253,7 +253,7 @@ public class HikariTests {
 4. `member` 저장 시도
 5. 이미 **20초(`wait_timeout`)**가 지난 시점에서 `Mysql`과의 연결은 끊어졌기에 예외 발생
 
-[<img src="{{site.url}}/img/order-error/Untitled%2014.png" />](/img/order-error/Untitled%2014.png)
+[<img src="{{site.url}}/img/order-error/Untitled_14.png" />](/img/order-error/Untitled_14.png)
 
 `Unable to rollback~`말고 `Unable to commit~`이 발생할 수 도 있는데 이 경우는 `commit` 수행하는 시점에 `Mysql Connection`이 끊겨있을 경우 발생할 수 있습니다.
 
@@ -279,7 +279,7 @@ public class HikariTestService {
 }
 ```
 
-[<img src="{{site.url}}/img/order-error/Untitled%2015.png" />](/img/order-error/Untitled%2015.png)
+[<img src="{{site.url}}/img/order-error/Untitled_15.png" />](/img/order-error/Untitled_15.png)
 
 위 코드를 보면 `@Transactional` 로 `Connection` 획득하고 **22초** `Sleep`후에 아무 동작도 하지 않습니다. 하지만 `@Transactional` 함수가 종료될 때 자동으로 `commit` 명령어를 수행합니다.
 
@@ -297,7 +297,7 @@ public class HikariTestService {
 
 다음 코드는 `HikariCP getConnection()` 일부입니다.
 
-[<img src="{{site.url}}/img/order-error/Untitled%2016.png" />](/img/order-error/Untitled%2016.png)
+[<img src="{{site.url}}/img/order-error/Untitled_16.png" />](/img/order-error/Untitled_16.png)
 
 코드를 보면 `isConnectionAlive()` 존재하는데 해당 함수에서 `Connection`이 끊겨있는지 체크하고, 끊어졌다면  `close`하는 것을 확인할 수 있습니다.
 
@@ -350,7 +350,7 @@ public class HikariTests {
 
 **결과는 *정상적으로* 수행됐고, Mysql log는 다음과 같습니다.**
 
-![Untitled](/img/order-error/Untitled%2017.png)
+![Untitled](/img/order-error/Untitled_17.png)
 
 `Connection`이 연결된 후 **18초 후**에 `SET autocommit=0` 명령어가 수행되는 것을 확인할 수 있습니다. 
 
@@ -386,13 +386,13 @@ java.lang.OutOfMemoryError: GC overhead limit exceeded
 해당 쿼리로 **약46만건**이 한 번에 조회됐고, **250MB** 트래픽이 한 번에 발생한 것이 원인이었습니다.
 (~~너무 기쁘지만 아주 살짝 허무한 이 느낌…~~) 
 
-![Untitled](/img/order-error/Untitled%2018.png)
+![Untitled](/img/order-error/Untitled_18.png)
 
 개발 서버에서 테스트를 진행했을 때 **16만 건**도 아래처럼 `Heap Memory`를  거의 **70%**를 사용하고 `Entity`만 **142MB**정도를 차지하고 있었습니다. 운영이었으면 단순 산술만 해도 `Entity`만 약 **400MB**… (운영 서버 `Max-Heap-Memory` **2GB** 할당)
 
-[<img src="{{site.url}}/img/order-error/Untitled%2019.png" />](/img/order-error/Untitled%2019.png)
+[<img src="{{site.url}}/img/order-error/Untitled_19.png" />](/img/order-error/Untitled_19.png)
 
-[<img src="{{site.url}}/img/order-error/Untitled%2020.png" />](/img/order-error/Untitled%2020.png)
+[<img src="{{site.url}}/img/order-error/Untitled_20.png" />](/img/order-error/Untitled_20.png)
 
 이후 바로 수정 후 배포했고, **현재까지 같은 이슈는 발생하지 않고있습니다.**
 
@@ -423,13 +423,13 @@ public class MemberController {
 
 아래는 데이터를 적재하는 동안의 `CPU`, `Heap Memory` 그래프입니다.
 
-![Untitled](/img/order-error/Untitled%2021.png)
+![Untitled](/img/order-error/Untitled_21.png)
 
-![Untitled](/img/order-error/Untitled%2022.png)
+![Untitled](/img/order-error/Untitled_22.png)
 
-![Untitled](/img/order-error/Untitled%2023.png)
+![Untitled](/img/order-error/Untitled_23.png)
 
-![Untitled](/img/order-error/Untitled%2024.png)
+![Untitled](/img/order-error/Untitled_24.png)
 
 - `Heap Memory`가 감소하는 구간에서 `CPU` 사용량이 증가 → `Full GC` 수행으로 인한 `CPU` 사용
 - `Full GC`를 수행해도 확보한 메모리가 점점 줄어듦
@@ -453,15 +453,15 @@ public Long testFindbyOrdNo(Long ordNo) {
 
 `Jmeter`는 아래와 같이 30번 동시 호출을 하도록 설정했습니다.
 
-![Untitled](/img/order-error/Untitled%2025.png)
+![Untitled](/img/order-error/Untitled_25.png)
 
 **테스트 결과**는 아래와 같이 이슈 상황과 유사하게 재현되었습니다!
 
-[<img src="{{site.url}}/img/order-error/Untitled%2026.png" />](/img/order-error/Untitled%2026.png)
+[<img src="{{site.url}}/img/order-error/Untitled_26.png" />](/img/order-error/Untitled_26.png)
 
-[<img src="{{site.url}}/img/order-error/Untitled%2027.png" />](/img/order-error/Untitled%2027.png)
+[<img src="{{site.url}}/img/order-error/Untitled_27.png" />](/img/order-error/Untitled_27.png)
 
-[<img src="{{site.url}}/img/order-error/Untitled%2028.png" />](/img/order-error/Untitled%2028.png)
+[<img src="{{site.url}}/img/order-error/Untitled_28.png" />](/img/order-error/Untitled_28.png)
 
 - `Heap Memory` 데이터 적재로 인해 `Full GC` 빈번히 발생하여 대부분 요청이 처리되지 못함
     - 이슈 상황과 동일하게 에러 발생

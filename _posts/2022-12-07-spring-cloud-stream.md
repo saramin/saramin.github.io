@@ -13,7 +13,7 @@ tags:
 저희 팀에서는 사람인 내부의 DB Trigger를 제거하고 이를  비동기 분산처리로 변환하는 작업을 진행했습니다. 그 중 Kafka를 통하여 메세지 처리 과정 중에 일부 문제가 있었던 부분을 Spring Cloud Stream을 이용하여 재시도 로직을 구현했습니다. 그 기술적인 구현 과정을 공유드립니다.
 
 
-![spring cloud stream1](/img/spring-cloud-stream/spring cloud stream 0.png)
+![spring cloud stream1](/img/spring-cloud-stream/spring-cloud-stream-0.png)
 ## 문제의 발생
 문제는 서버 운영 도중 간헐적으로 MySQL Replication Master DB와 Slave DB간의 싱크가 맞춰지기전에 Slave DB를 조회를 하는 과정에서 문제가 발생하였습니다.  카프카 메세지에서 전달한 해당하는 값을 찾지 못해서 발생했었던 건으로, DB 싱크가 느릴경우 값을 찾지 못해 에러 로그를 발생시켰습니다.    
 이 문제는 정말 간혹가다가 발생하는 에러였기때문에, Sync 시간만 확보해주면 문제를 빠르게 해결 할 수  있었는데, Spring Cloud Stream에서 이 문제를 해결하는 방법을 찾을수 있었습니다.
@@ -109,10 +109,10 @@ spring:
 ```
 설정은 모두 끝났고, 이제 테스트를 해보겠습니다. Kafka의 테스트 토픽에 a와 x라는 문자를 producing 해보았습니다.
 
-![spring cloud stream3](/img/spring-cloud-stream/Pasted image 20221207103741.png)
+![spring cloud stream3](/img/spring-cloud-stream/Pasted-image-20221207103741.png)
 이 함수에 "a" 값이 삽입된 경우는 첫시도 실패 이후에 다음 시도부터는 1초 -> 2초 간격으로 늦게 재시도하며 최종장에 실패한 경우 완전 실패를 뜻하는 exception을 던지게 됩니다.
 
-![spring cloud stream4](/img/spring-cloud-stream/Pasted image 20221207103519.png)
+![spring cloud stream4](/img/spring-cloud-stream/Pasted-image-20221207103519.png)
 이 함수에 "x" 값이 삽입된 경우는 정상적으로 단 한번만 실행됨을 확인할 수 있습니다. 즉, 재시도가 발생하지 않습니다.
 
 **2. `@StreamRetryTemplate` 를 통해 사용하기**
@@ -182,9 +182,9 @@ spring:
 ```
 위와 같이 다른 retry의 template를 붙이게된다면...?
 
-![spring cloud stream5](/img/spring-cloud-stream/Pasted image 20221207153140.png)
+![spring cloud stream5](/img/spring-cloud-stream/Pasted-image-20221207153140.png)
 retry-template-name을 설정하지 않는다면, 위의 경우는 기본 `template`로 재시도를 시도하게 됩니다.  
-![spring cloud stream6](/img/spring-cloud-stream/Pasted image 20221207152920.png)
+![spring cloud stream6](/img/spring-cloud-stream/Pasted-image-20221207152920.png)
 `retry-template-name` 로 함수명을 지정한 경우 -> 6번째의 재시도가 발생함. 즉, 각각의 함수별로 따로 재시도 정책을 지정할 수 있게 됩니다.
 
 
@@ -215,7 +215,7 @@ public RetryTemplate otherRetryTemplate(){
 
 마지막으로 1번에서 설정한 yaml파일을 통한 설정은 **`@StreamRetryTemplate`를 설정해버리면** 빈등록이 무조건 우선순위가 높은 방식으로 빈 등록 배정 받기 때문에 **yaml 설정은 무시됩니다.**
 또한, `@StreamRetryTemplate`가 하나 등록되있으면 **모든 retry-template가 대체**되어서 기본 Retry-template는 사라지고 지금 내가 등록한 **StreamRetryTemplate 기준으로 모든 함수의 재시도 방식이 설정되므로 주의를 요합니다**.
-![spring cloud stream7](/img/spring-cloud-stream/Pasted image 20221207154949.png)
+![spring cloud stream7](/img/spring-cloud-stream/Pasted-image-20221207154949.png)
 yaml을 적용했지만... 실제로는 `@StreamRetryTemplate`로 적용됩니다.
 
 

@@ -81,7 +81,7 @@ Engine에 집중되어 있는 기능을 **도메인으로 분리해서 각각의
 
 ## 아키텍처
 
-<img src="{{site.url}}/img/distributed/image2018-11-7 14 11 52.png" width="400px" title="아키텍처 그림" />
+<img src="{{site.url}}/img/distributed/image2018-11-7_14_11_52.png" width="400px" title="아키텍처 그림" />
 {: .text-center }
 
 당연스럽게도 마이크로서비스 아키텍처를 기반으로 설계가 진행되었고, 분리된 도메인들은 Docker를 사용하여 컨테이너화 했습니다.  
@@ -102,7 +102,7 @@ Engine에 집중되어 있는 기능을 **도메인으로 분리해서 각각의
 시스템 구축에 사용된 주요 기술 스택은 다음과 같습니다.
 
 ### 마이크로서비스 아키텍처
-<img src="{{site.url}}/img/distributed/1 uOLtvuo9wxHXyETP_c085A.png" width="240px" title="마이크로서비스 아키텍처" />  
+<img src="{{site.url}}/img/distributed/uOLtvuo9wxHXyETP_c085A.png" width="240px" title="마이크로서비스 아키텍처" />  
 독립적인 작은 단위의 서비스로 분리하는 설계 방식  
 분리된 서비스들 간의 역할 분담이 되어 있기 때문에 서비스 간의 결합성 및 영향도를 낮출수 있으며, 반대로 서비스가 많아 질수록
 복잡도가 증가하기 때문에 데이터 정합성을 맞추기 위한 고려사항들이 늘어나게 됨
@@ -134,7 +134,7 @@ Docker Image 및 Container 등 관련 기능을 간편하게 사용 할 수 있�
 <br>
 
 ## Docker Image 빌드, 배포
-<img src="{{site.url}}/img/distributed/image2019-1-17 14 2 57.png" title="docker deploy" />  
+<img src="{{site.url}}/img/distributed/image2019-1-17_14_2_57.png" title="docker deploy" />  
 Docker 이미지 빌드, 배포 흐름도
 {: .text-center }
 <br>

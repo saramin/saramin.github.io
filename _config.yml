@@ -260,7 +260,8 @@ jekyll_admin:
   hidden_links:
     - configuration
 
-
+liquid:
+  error_mode: lax
 
 
 # Beautiful Jekyll / Dean Attali
