@@ -1,6 +1,9 @@
 ---
 title: '통합된 개발과 배포 : Monorepo와 GitOps의 매력적인 조합'
 author: 조성창
+tags:
+- GitOps
+- MonoRepo
 ---
 
 안녕하세요. FE개발팀 조성창 입니다.
