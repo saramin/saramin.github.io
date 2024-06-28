@@ -27,12 +27,12 @@ AWS EKS 환경을 좀 더 안정적이며 확장성 있게 운영하기 위해 �
 문제 발생 할 때 마다 항상 대응 할 수 없고, On-Demand 비용 증가와 안정성 결여로 많은 문제점이 존재 했습니다.  
   
 ---
-[<img src="{{site.url}}/img/karpenter/image0.png" />]({{site.url}}/img/karpenter/image0.png) 
+[<img src="/img/karpenter/image0.png" />](/img/karpenter/image0.png) 
 
   
 
 # Karpenter란?
-[<img src="{{site.url}}/img/karpenter/image1.png" />]({{site.url}}/img/karpenter/image1.png)  
+[<img src="/img/karpenter/image1.png" />](/img/karpenter/image1.png) 
 
 Autoscaling에서도 여러 종류가 있는데,  
 먼저 Pod Autoscaling으로는 수평적으로 Scale-out 해주는 HPA가 있고 수직으로 Scale-up 해주는 VPA가 있습니다.  
@@ -44,7 +44,7 @@ Node Autoscaling으로는 CA와 Karpenter가 있는데 Karpenter는 CA와 달리
 # Karpenter 테스트 케이스
 Karpenter에 대해 검증을 하기 위해 먼저 케이스를 작성 한다음 케이스에 맞게 테스트를 진행 했습니다.  
 
-[<img src="{{site.url}}/img/karpenter/image2.png" />]({{site.url}}/img/karpenter/image2.png)  
+[<img src="/img/karpenter/image2.png" />](/img/karpenter/image2.png) 
 
   
   
@@ -112,11 +112,11 @@ spec:
 노드풀은 나눠놓은 이유는 disruption을 다르게 가져가기 위해서 입니다. on-demand에서는 파드가 완전히 없기 전까지 disruption 하지 않도록 `consolidationPolicy`를 WhenEmpty로 설정 하였습니다.  
 그리고 weight를 on-demand를 낮도록 설정하여 spot을 먼저 할당 받도록 했습니다.  
   
-[<img src="{{site.url}}/img/karpenter/image3.png" />]({{site.url}}/img/karpenter/image3.png)  
+[<img src="/img/karpenter/image3.png" />](/img/karpenter/image3.png) 
   
 매칭 되는 Spot Instance가 없으면 사진과 같이 인스턴스가 없다고 나타납니다.  
   
-[<img src="{{site.url}}/img/karpenter/image4.png" />]({{site.url}}/img/karpenter/image4.png)  
+[<img src="/img/karpenter/image4.png" />](/img/karpenter/image4.png) 
   
 매칭 되는 Spot Instance가 없으면 on-demand의 Nodepool에서 할당 받게 됩니다.  
   
@@ -162,7 +162,7 @@ Karpenter에서 생성할 노드에서 동작한 Kubelet에 대한 설정도 진
   
 먼저 kubelet의 Reserved 영역을 지정하는 것 입니다.  
   
-[<img src="{{site.url}}/img/karpenter/image5.png" />]({{site.url}}/img/karpenter/image5.png)  
+[<img src="/img/karpenter/image5.png" />](/img/karpenter/image5.png) 
   
 Application에서 리소스를 100% 다 잡아 먹는다 하더라도 Reserved 영역을 설정하여 Node `Not Ready`와 같은 상황에 안빠지도록 안전장치를 추가 했습니다.  
 
@@ -248,7 +248,7 @@ Karpenter는 limit의 수치가 설정 되어 있으면 무한정 노드를 만�
   
 그러면 ASG노드에 Taint & Tolerations에 의해 모든 Application Pod들은 Pending 상태에서 대기하게 됩니다.  
   
-[<img src="{{site.url}}/img/karpenter/image6.png" />]({{site.url}}/img/karpenter/image6.png)  
+[<img src="/img/karpenter/image6.png" />](/img/karpenter/image6.png) 
 (ASG노드 2대만 동작하고 있고 Karpenter 노드들은 모두 종료 되고 App Pod들은 Pending으로 보인다.)  
   
 그리고 자동으로 업무시간 07시에는 해당 limit 값을 원복 하면 Karpenter는 동작하게 되면서, Application Pod들이 새로 배포하지 않아도 다시 동작하게 되죠  
