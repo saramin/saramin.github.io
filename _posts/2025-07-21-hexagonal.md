@@ -14,7 +14,7 @@ subtitle: 헥사고날 아키텍처란
 이번 글에서는 다양한 비즈니스 요구사항에 유연하게 대응하고, 서비스의 확장성 (부하 분산, 기능 분할 등) 을 높이기 위해 헥사고날 아키텍처(Hexagonal Architecture) 를 도입한 경험을 공유하고자 합니다.
 이 과정에서 마주한 이론과 실제 사이의 간극, 그리고 그로부터 얻은 인사이트에 대해 이야기해보려 합니다.
 
-![](http://10.100.1.93/img/jeongjh/img01.jpg)
+![](/img/hexagonal/img01.jpg)
 
 
 
@@ -35,7 +35,7 @@ subtitle: 헥사고날 아키텍처란
 > 출처 : "도메인 중심 아키텍처에 대해 알려주세요" 프롬프트. ChatGPT, GPT-3.5, OpenAI, 2025년 5월 25일, chat.openai.com.
 
 
-![](http://10.100.1.93/img/jeongjh/img02.jpg)
+![](/img/jeongjh/img02.jpg)
 
 
 
@@ -59,7 +59,7 @@ subtitle: 헥사고날 아키텍처란
 
 헥사고날 아키텍처(Hexagonal Architecture)는 소프트웨어를 다음과 같은 세 가지 주요 영역으로 구분하여 설계하는 패턴입니다.
 
-![](http://10.100.1.93/img/jeongjh/hexagonal-architecture.jpg)
+![](/img/hexagonal/hexagonal-architecture.jpg)
 
 **핵심 도메인(Core Domain)**
 
@@ -110,7 +110,7 @@ subtitle: 헥사고날 아키텍처란
 하지만 작은 규모의 프로젝트나 단순한 요구사항에서는 과잉 설계로 이어질 수 있으므로 신중히 선택해야 합니다.
 
 
-![](http://10.100.1.93/img/jeongjh/img03.jpg)
+![](/img/hexagonal/img03.jpg)
 
 `MVP 는 빠져 주세요`
 
@@ -121,7 +121,7 @@ subtitle: 헥사고날 아키텍처란
 
 
 다중 모듈 구성으로 각 요소를 모듈단위로 구성했습니다.
-![](http://10.100.1.93/img/jeongjh/hexagram.jpg)
+![](/img/hexagonal/hexagram.jpg)
 
 데이터 흐름은 다음과 같은 단계를 거칩니다.
 
@@ -229,7 +229,7 @@ public static Map<String, String> getQueryParamsMapString(String str) {
 
 업체에서 제공하는 모듈을 사용하고 있어 자체적으로 구현하지 않아도 자동처리 되고 있습니다.
 
-![](http://10.100.1.93/img/jeongjh/img04.jpg)
+![](/img/hexagonal/img04.jpg)
 
 
 `모듈이 자동으로 저장~`
@@ -289,7 +289,7 @@ public static Map<String, String> getQueryParamsMapString(String str) {
 새로운 아키텍처를 적용할 때, 팀원 모두가 같은 이해를 가지고 접근해야 하고 충분한 학습과 논의가 필요하다고 생각되었습니다.
 
 
-![](http://10.100.1.93/img/jeongjh/img05.jpg)
+![](/img/hexagonal/img05.jpg)
 
 `빌링파트는 토론으로 승부.. 아니 단합한다.`
 
