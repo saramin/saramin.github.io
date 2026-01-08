@@ -1,0 +1,24 @@
+name: saramin.github.io
+id: ari:cloud:compass:fbd1859d-75f6-4abd-84f3-0050073f34ef:component/039537c6-f5ee-4079-8768-97bd5e53bb46/48f0c667-a8c7-4876-945a-a65c71c631ac
+description: saramin tech blog
+configVersion: 1
+typeId: SERVICE
+ownerId: ari:cloud:identity::team/3047bc9b-cd40-405f-a415-c8889949b220
+fields:
+  tier: 4
+links:
+  - name: null
+    type: REPOSITORY
+    url: https://github.com/saramin/saramin.github.io
+  - name: null
+    type: PROJECT
+    url: https://saramin.atlassian.net/browse/SGI
+  - name: null
+    type: CHAT_CHANNEL
+    url: https://saramin.enterprise.slack.com/archives/C09DJF0JABG
+relationships:
+  DEPENDS_ON: []
+labels:
+  - language:html
+  - source:github
+customFields: null
