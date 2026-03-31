@@ -1,0 +1,6 @@
+User-agent: *
+
+Allow: /
+Disallow: /norobots/
+
+Sitemap: https://saramin.github.io/sitemap.xml
